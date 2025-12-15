@@ -1,0 +1,698 @@
+---
+title: 'Share Structure & The IPO Process'
+moduleBadge: 'Module 1'
+order: 1
+---
+
+<QuoteComponent
+  quote="The whole is greater than the sum of its parts."
+  author="Aristotle"
+/>
+
+## Share Structure & The IPO Process
+
+Here's what we're going to do: I want to give you a solid framework that explains what's really happening behind the charts.
+Almost everything in technical analysis — every price move, every discovery of a new price level,
+every auction — comes down to <Highlight variant="blue">supply and demand</Highlight>. (Remember those curves from economics class?)
+
+But before we jump into what I call the <Highlight variant="blue">Magic Market Box</Highlight> Framework, we need to understand the <Highlight variant="yellow">share structure</Highlight> first.
+Think of this as zooming out to see the bigger picture before we zoom back in on the details.
+Think of this as building a house – you need a solid foundation before you start decorating the rooms.
+
+### The Share Structure
+
+Let's start with a question: When you buy a share of stock, what exactly are you buying?
+And how many of those shares actually exist?
+
+This brings us to four key concepts that confuse almost everyone at first:<br/>
+
+<GridList
+  items={[
+    {
+      title: 'Authorized Shares',
+      titleColor: '#4287f5',
+      accentColor: '#4287f5',
+    },
+    {
+      title: 'Issued Shares',
+      titleColor: '#42f5a7',
+      accentColor: '#42f5a7',
+    },
+    {
+      title: 'Outstanding Shares',
+      titleColor: '#f542b3',
+      accentColor: '#f542b3',
+    },
+    {
+      title: 'The Float',
+      titleColor: '#D4AF37',
+      accentColor: '#D4AF37',
+    },
+  ]}
+/>
+
+Don't worry if these sound complicated — they're actually pretty simple once you see how they fit together.
+
+### Let's Build a Company Together: The IPO Process
+
+Imagine you're the founder of a company — let's call it <span style={{ color: '#4287f5', fontWeight: 'bold' }}>TechNova Inc.</span>.
+You've got a great idea, you've built a product, and now you're ready to go public through an IPO (Initial Public Offering).
+
+Here's what happens:
+
+**<Highlight variant="blue">Authorized Shares:</Highlight> The Maximum Ceiling**
+
+When you incorporate your company, you (and your lawyers) decide on a number: **How many shares can this company ever have?**
+
+That number is your **authorized shares**. It's the absolute maximum—the ceiling.
+You can't go higher than this unless you change your corporate charter (which requires shareholder approval).
+
+**Who decides this number?**
+
+→ The **founders** and their legal team decide during incorporation.<br/>
+→ Later, if the company wants to increase it, shareholders must vote to approve the change.
+
+**Think of it like this:**
+
+You're creating a box that can hold 100 million marbles (shares).
+That's the maximum capacity. You don't have to fill the whole box right away — but you can't put in more than 100 million unless you get a bigger box.
+
+**<Highlight variant="blue">Example:</Highlight>** You decide on 100 million authorized
+shares.
+
+**Important Points:**
+
+→ This is the absolute maximum<br/>
+→ You can't go above this number without shareholder approval<br/>
+→ It's like a bucket/box that can hold 100 million shares – but you don't have to fill it all at once<br/>
+→ The company's board and lawyers typically decide this based on future growth plans and potential dilution from future issuances<br/>
+
+**<Highlight variant="green">Issued Shares:</Highlight> What Actually Gets Distributed**
+
+Just because you can create 100 million shares doesn't mean you will — at least not right away.
+
+Issued shares are the shares that the company has actually created and given out to someone:
+
+<GridList
+  items={[
+    {
+      title: 'You (the founder) and co-founders',
+      titleColor: '#4287f5',
+      accentColor: '#4287f5',
+    },
+    {
+      title: 'early employees (through stock options)',
+      titleColor: '#42f5a7',
+      accentColor: '#42f5a7',
+    },
+    {
+      title: 'Venture Capital Investors',
+      titleColor: '#f542b3',
+      accentColor: '#f542b3',
+    },
+    {
+      title: 'the public (during the IPO)',
+      titleColor: '#D4AF37',
+      accentColor: '#D4AF37',
+    },
+  ]}
+/>
+
+These shares come from the authorized pool.
+
+**<Highlight variant="blue">Example:</Highlight>** From your 100 million authorized, you might issue 60 million shares:
+
+→ 30 million to founders and early employees<br/>
+→ 10 million to venture capital (VC) investors<br/>
+→ 20 million to the public during the IPO
+
+The remaining 40 million stay unissued — they're reserved for future fundraising, employee stock options, or acquisitions.
+
+**<Highlight variant="red">Outstanding Shares:</Highlight> What's Actually Out There**
+
+Now here's where it gets interesting.
+
+Outstanding shares are all the issued shares that are currently held by shareholders — excluding any shares the company has bought back (called treasury shares).
+
+<Alert variant="info">
+  <AlertTitle>Outstanding Shares Formula</AlertTitle>
+  <AlertDescription>
+    Outstanding Shares = Issued Shares - Treasury Shares
+  </AlertDescription>
+</Alert>
+
+**<Highlight variant="blue">Example:</Highlight>**
+
+→ TechNova issued 60 million shares.<br/>
+→ Later, the company repurchases 5 million shares (maybe to reward employees or because they think the stock is undervalued).<br/>
+→ Those 5 million become treasury shares.<br/>
+→ So now you have: 60M − 5M = 55 million outstanding shares.
+
+**<Highlight variant="yellow">The Float:</Highlight> What Traders Can Actually Trade**
+
+This is the number that matters most for us as traders.
+
+The float is the portion of outstanding shares that are **freely tradable** by the public. It excludes:
+
+→ Shares held by insiders (founders, executives)<br/>
+→ Restricted shares (locked up, can't be sold yet)<br/>
+→ Shares held by large institutions that rarely trade
+
+<Alert variant="info">
+  <AlertTitle>Float Formula</AlertTitle>
+  <AlertDescription>
+    Float = Outstanding Shares - Shares Held by Insiders - Restricted Shares -
+    Shares Held by Large Institutions
+  </AlertDescription>
+</Alert>
+
+**<Highlight variant="blue">Example:</Highlight>**
+
+→ TechNova has 55 million outstanding shares.<br/>
+→ 20 million are held by founders and insiders (locked up for 6 months post-IPO).<br/>
+→ That leaves 35 million shares in the float — the shares you and I can actually trade.<br/>
+
+**Why does this matter?**
+
+<Alert variant="warning">
+  <AlertTitle>Float Matters</AlertTitle>
+  <AlertDescription>
+    The smaller the float, the more volatile the stock can be. With fewer shares
+    available, big buy or sell orders can move the price dramatically.
+  </AlertDescription>
+</Alert>
+
+**Market Cap: Comparing Companies**
+
+**Market capitalization (market cap)** is how we measure the total value of a company in the stock market.
+
+<Alert variant="info">
+  <AlertTitle>Market Cap Formula</AlertTitle>
+  <AlertDescription>
+    Market Cap = Outstanding Shares x Current Stock Price
+  </AlertDescription>
+</Alert>
+
+Here's a complete breakdown of our TechNova example:
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Concept</TableHead>
+      <TableHead>Number</TableHead>
+      <TableHead>What It Means</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>Authorized Shares</TableCell>
+      <TableCell>100 million</TableCell>
+      <TableCell>Maximum shares the company can ever have</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Issued Shares</TableCell>
+      <TableCell>60 million</TableCell>
+      <TableCell>Shares actually created and distributed</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Treasury Shares</TableCell>
+      <TableCell>5 million</TableCell>
+      <TableCell>Shares the company bought back</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Outstanding Shares</TableCell>
+      <TableCell>55 million</TableCell>
+      <TableCell>
+        Issued minus treasury (what's in shareholders' hands)
+      </TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Restricted/Insider</TableCell>
+      <TableCell>20 million</TableCell>
+      <TableCell>Held by founders/insiders, not tradable yet</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Float</TableCell>
+      <TableCell>35 million</TableCell>
+      <TableCell>Freely tradable by the public</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Stock Price</TableCell>
+      <TableCell>$50</TableCell>
+      <TableCell>Current market price</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Market Cap</TableCell>
+      <TableCell>$2.75 billion</TableCell>
+      <TableCell>Total value of the company</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+
+<Alert variant="info">
+  <AlertTitle>Quick Analogy: Share Structure as a Pizza</AlertTitle>
+  <AlertDescription>
+    <strong>Imagine your company is a pizza:</strong>
+    <br />
+    <br />
+    <strong>Authorized</strong> = You decide your pizza can have 8 slices max.
+    <br />
+    <br />
+    <strong>Issued</strong> = You cut 6 slices and serve them (2 slices still
+    uncut).
+    <br />
+    <br />
+    <strong>Outstanding</strong> = 5 slices that people are currently eating (you
+    bought back 1 slice).
+    <br />
+    <br />
+    <strong>Treasury</strong> = You buy back 1 slice (it's sitting in your
+    fridge).
+    <br />
+    <br />
+    <strong>Float</strong> = Out of those 5 slices people hold, 2 belong to your
+    family (insiders), and 3 are available to trade with others.
+    <br />
+    <br />
+    <strong>Market Cap</strong> = The market decides how valuable each slice is
+    — multiply that by 5 (outstanding slices) to get your company's value.
+  </AlertDescription>
+</Alert>
+
+### Interactive Visualization: The Share Cake Slicer
+
+I prepared a 3D visualization of the share structure that you can interact with.
+
+Use the controls below to <Highlight variant="green">step through</Highlight> how shares are structured.
+Watch as slices are cut from the authorized shares "cake" to reveal issued shares,
+treasury shares, outstanding shares, restricted shares, and finally the float — the tradable portion.
+
+<Alert variant="danger">
+  <AlertTitle>How to use:</AlertTitle>
+  <AlertDescription>
+    1. **Step 0**: Blank canvas
+    <br />
+    2. **Step 1**: Authorized Shares appear (the maximum capacity)
+    <br />
+    3. **Step 2**: Issued Shares added (what was actually created)
+    <br />
+    4. **Step 3**: Treasury Shares cut out and slide right (bought back by
+    company)
+    <br />
+    5. **Step 4**: Outstanding Shares highlighted (remaining after treasury
+    removal)
+    <br />
+    6. **Step 5**: Restricted/Insider Shares cut out and slide left, revealing
+    The Float (gold) — the tradable portion
+    <br />
+    <br />
+    Adjust the ratio sliders to see how different percentages affect the sizes of
+    each category!
+  </AlertDescription>
+</Alert>
+
+<CanvasWrapper height="600px" cameraSettings={{ position: [0, 1.5, -3] }}>
+  <ShareCakeSlicer />
+</CanvasWrapper>
+
+### The IPO Process: How TechNova Goes Public
+
+Now that you understand the share structure, let's walk through what happens during an IPO.
+
+**<Highlight variant="blue">Before the IPO:</Highlight>**
+
+→ Founders hold most of the shares (maybe Class B shares with extra voting power).<br/>
+→ Early investors (VCs) hold preferred stock (more on this in a sec).<br/>
+→ Employees have stock options.
+
+**<Highlight variant="blue">IPO Launch:</Highlight>**
+
+→ The company works with investment banks (underwriters) to determine:<br/>
+• How many shares to sell to the public<br/>
+• What price to set<br/>
+
+→ Let's say TechNova decides to offer 15 million shares to the public at $50/share.<br/>
+→That raises $750 million (minus fees).
+
+**<Highlight variant="blue">After the IPO:</Highlight>**
+
+→ Those 15 million shares become part of the float.<br/>
+→ Founders and insiders usually have a lock-up period (typically 90–180 days) where they can't sell their shares.<br/>
+→ Once the lock-up expires, more shares enter the float, which can affect the stock price.
+
+### Stock Classes: Different Types of Shares
+
+Here's something that confuses a lot of people: not all shares are created equal.
+
+When a company sets its authorized shares, it can divide them into **different classes**, each with different rights.
+
+**<Highlight variant="yellow">Common Stock</Highlight>**
+
+This is what most of us buy when we trade.
+
+→ **Voting rights** (usually 1 vote per share)<br/>
+→ **Dividends** (if the company pays them—but they vary)<br/>
+→ **Last in line** if the company goes bankrupt<br/>
+→ **Growth potential** — your upside comes from the stock price increasing
+
+**<Highlight variant="blue">Example:</Highlight>**
+
+→ **Class A Common Stock** = what the public buys (1 vote per share)<br/>
+→ **Class B Common Stock** = what founders keep (10 votes per share)<br/>
+
+This is how founders like Mark Zuckerberg (Meta) and Larry Page/Sergey Brin (Google) maintain control even though they own a minority of shares.
+
+**<Highlight variant="yellow">Preferred Stock</Highlight>**
+
+This is more like a hybrid between a stock and a bond, usually held by early investors or institutions looking for stability:
+
+→ **Fixed dividends** (like bond interest)<br/>
+→ **Priority in liquidation** (gets paid before common stockholders)<br/>
+→ **Usually no voting rights** (or very limited)<br/>
+→ **Sometimes convertible into common stock**
+
+**What happens at IPO?**
+
+Most preferred stock converts into common stock when a company goes public.
+
+**Why Have Different Classes?**
+
+<span style={{ color: 'gold', fontWeight: 'bold', fontSize: '1.3rem' }}>
+  Control.
+</span>
+
+Founders want to raise money without losing decision-making power.
+
+**Real-World Examples:**
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Company</TableHead>
+      <TableHead>Class A (Public)</TableHead>
+      <TableHead>Class B (Founders)</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>Google</TableCell>
+      <TableCell>1 vote/share</TableCell>
+      <TableCell>10 votes/share</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Meta (Facebook)</TableCell>
+      <TableCell>1 vote/share</TableCell>
+      <TableCell>10 votes/share</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Snap Inc.</TableCell>
+      <TableCell>0 votes/share</TableCell>
+      <TableCell>1 vote/share (founders only)</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+<br />
+
+So even if founders own 20% of the shares, they might control 60% of the votes.
+
+**Putting It All Together: TechNova's Share Structure**
+
+Authorized: 100 million shares, divided into classes:
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Class</TableHead>
+      <TableHead>Type</TableHead>
+      <TableHead>Number of Shares</TableHead>
+      <TableHead>Rights/Features</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>Class A</TableCell>
+      <TableCell>Common</TableCell>
+      <TableCell>80M</TableCell>
+      <TableCell>1 vote/share (public)</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Class B</TableCell>
+      <TableCell>Common</TableCell>
+      <TableCell>10M</TableCell>
+      <TableCell>10 votes/share (founders)</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Class P</TableCell>
+      <TableCell>Preferred</TableCell>
+      <TableCell>10M</TableCell>
+      <TableCell>Fixed dividends, liquidation priority</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+<br />
+**<Highlight variant="blue">Before the IPO:</Highlight>**
+
+→ Founders hold Class B (super voting)<br/>
+→ VCs hold Preferred (protection)<br/>
+
+**<Highlight variant="blue">During the IPO:</Highlight>**
+
+→ Preferred converts to Class A Common<br/>
+→ Public buys Class A Common (1 vote each)<br/>
+
+**<Highlight variant="blue">After the IPO:</Highlight>**
+
+→ Founders keep control through Class B<br/>
+→ Public trades Class A<br/>
+→ Float = Only the Class A shares not held by insiders
+
+### Why This Matter For Trading
+
+Now you might be thinking: "Why do I need to know all this? I just want to trade!"
+
+Here's why it matters:
+
+→ **<Highlight variant="yellow">Float size affects volatility:</Highlight>** A small float means less supply, which means bigger price swings<br/>
+→ **<Highlight variant="yellow">Lockup expirations matter:</Highlight>** When insider shares unlock, supply increases dramatically<br/>
+→ **<Highlight variant="yellow">Market cap comparisons:</Highlight>** You need outstanding shares to calculate market cap properly<br/>
+→ **<Highlight variant="yellow">Institutional ownership:</Highlight>** If institutions own 80% of the float, only 20% is truly available for retail traders<br/>
+
+<Alert variant="info">
+  <AlertTitle>Quick Reference Guide</AlertTitle>
+  <AlertDescription>
+    <Table>
+      <TableHeader>
+        <TableRow>
+          <TableHead>Concept</TableHead>
+          <TableHead>What It Means</TableHead>
+        </TableRow>
+      </TableHeader>
+      <TableBody>
+        <TableRow>
+          <TableCell>Authorized Shares</TableCell>
+          <TableCell>
+            Maximum shares the company can ever create (set at incorporation)
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell>Issued Shares</TableCell>
+          <TableCell>Shares actually created and given out</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell>Treasury Shares</TableCell>
+          <TableCell>
+            Shares the company bought back (not counted as outstanding)
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell>Outstanding Shares</TableCell>
+          <TableCell>
+            Issued minus treasury — total held by shareholders
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell>Float</TableCell>
+          <TableCell>
+            Outstanding minus restricted/insider — what's freely tradable
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell>Common Stock</TableCell>
+          <TableCell>
+            Voting rights, growth potential, last in line in liquidation
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell>Preferred Stock</TableCell>
+          <TableCell>
+            Fixed dividends, priority in liquidation, limited/no voting
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell>Market Cap</TableCell>
+          <TableCell>
+            Outstanding shares × stock price = total company value
+          </TableCell>
+        </TableRow>
+      </TableBody>
+    </Table>
+  </AlertDescription>
+</Alert>
+
+## Next Up: The Magic Market Box Framework
+
+Now that you understand the macro structure — where shares come from and how they're distributed — we can zoom in on the float.
+
+The <Highlight variant="yellow">float</Highlight> is where all the <Highlight variant="green">action</Highlight> happens. It's where supply meets demand. It's where traders like us operate.
+
+But here's the thing: not all floats are created equal.
+
+<Alert variant="warning">
+  <AlertTitle>Float Size = Volatility Potential</AlertTitle>
+  <AlertDescription>
+    If there are only a few shares available to trade (small float), and
+    suddenly everyone wants to buy, what happens to the price?
+    <br />
+    <strong>
+      It <del>explodes</del> goes upwards!
+    </strong>
+    <br />
+    Why? Because there aren't enough shares to go around. Buyers are competing
+    for a limited supply, so they have to pay higher and higher prices.
+    <br />
+    The opposite is also true: if everyone wants to sell a small float stock,
+    the price can crater fast because there aren't enough buyers to absorb the
+    selling pressure.
+  </AlertDescription>
+</Alert>
+
+### Small Float vs. Large Float: A Simple comparison
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Characteristic</TableHead>
+      <TableHead>Small Float (e.g., 5M shares)</TableHead>
+      <TableHead>Large Float (e.g., 500M shares)</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>Volatility</TableCell>
+      <TableCell>High — price moves quickly</TableCell>
+      <TableCell>Low — price moves slowly</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Liquidity</TableCell>
+      <TableCell>Low — harder to buy/sell large positions</TableCell>
+      <TableCell>High — easy to enter/exit</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Institutional Interest</TableCell>
+      <TableCell>Usually low (can't build big positions)</TableCell>
+      <TableCell>High (plenty of shares available)</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Retail Trader Impact</TableCell>
+      <TableCell>Significant — small orders can move price</TableCell>
+      <TableCell>Minimal — takes massive volume to move price</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Risk/Reward</TableCell>
+      <TableCell>High risk, high reward potential</TableCell>
+      <TableCell>Lower risk, more stable</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+<br />
+
+I created a 3D visualization in my first article on my homepage: <CustomLink href="https://hakanda.com/articles/mastering-small-cap-equities">"Mastering small-cap equities: The crucial third stage of learning</CustomLink>.
+
+I want to implement here again to give you a feeling how the float could impact the acceleration, speed, damping
+and other parameters of the market dynamics.
+
+### Interactive Float Visualization
+
+Click on each box below to see how different float sizes affect the market dynamics. Notice how:
+
+- **<Highlight variant="red">Small float (1M)</Highlight>**: Moves quickly with high acceleration - representing high volatility
+- **<Highlight variant="green">Medium float (10M)</Highlight>**: Balanced movement with moderate damping
+- **<Highlight variant="yellow">Large float (50M)</Highlight>**: Moves slowly with heavy damping - representing low volatility and stability
+
+The physics simulation demonstrates how float size directly impacts how fast prices can move. Smaller floats create a "springy" market that reacts quickly to buying or selling pressure, while larger floats create a "dampened" market that resists rapid price changes.
+
+<CanvasWrapper height="800px" cameraSettings={{ position: [0, 1, 17] }}>
+  <InteractiveFloat />
+</CanvasWrapper>
+
+### Real-World Example
+
+Let's say two stocks both get $10 million in buying pressure in one day:
+
+**<Highlight variant="red">Stock A (Small Float: 5M shares, trading at $10)</Highlight>**
+
+→ That $10M represents 1 million shares (10% of the entire float!)<br/>
+→ Result: Price could jump 20-50% or more in a single day
+
+**<Highlight variant="yellow">Stock B (Large Float: 500M shares, trading at $10)</Highlight>**
+
+→ That same $10M represents 1 million shares (only 0.2% of the float)<br/>
+→ Result: Price might move 1-2%
+
+<span style={{ color: '#4287f5', fontWeight: 'bold', fontSize: '1.2rem' }}>
+  Same dollar amount. Completely different impact.
+</span>
+<br />
+
+This is why small float stocks are often favorites for momentum traders and why they can be so explosive (and risky).
+
+### Why This Matters For Your Trading
+
+Understanding float size helps you:
+
+→ **<Highlight variant="yellow">Anticipate volatility</Highlight>** — Small float = expect big moves<br/>
+→ **<Highlight variant="yellow">Size your positions appropriately</Highlight>** — Don't oversize on volatile small floats<br/>
+→ **<Highlight variant="yellow">Understand price action</Highlight>** — Why did this stock move 30% on seemingly low volume? Small float.<br/>
+→ **<Highlight variant="yellow">Identify opportunity</Highlight>** — Small floats can offer outsized gains (and losses)<br/>
+
+### The Transition: Inside The Magic Market Box
+
+So we've established the box — the float. We understand that the size of the box determines how much the price can move with a given amount of pressure.
+
+But now we need to go **<Highlight variant="green">inside the box</Highlight>**.
+
+What's actually happening in there?
+
+Volume. Buyers. Sellers. Supply. Demand.
+
+In the next lesson, we're going to dive deep into the volume within the float — who's buying,
+who's selling, and how that battle between supply and demand creates the price action we see on our charts.
+
+We're going to explore:
+
+→ **<Highlight variant="blue">The players:</Highlight>** retail traders, institutions, market makers, algorithms<br/>
+→ **<Highlight variant="blue">The forces:</Highlight>** buy pressure vs. sell pressure<br/>
+→ **<Highlight variant="blue">The signals:</Highlight>** how volume tells us who's winning the battle<br/>
+→ **<Highlight variant="blue">The framework:</Highlight>** how to visualize this using the Market Box<br/>
+
+This is where technical analysis comes alive. This is where you start seeing the market as a living,
+breathing auction — not just random lines on a chart.
+
+Let's go inside the box.
+
+<Alert variant="success">
+  <AlertTitle>What You've Learned</AlertTitle>
+  <AlertDescription>
+    You now understand the complete share structure hierarchy: Authorized Shares
+    (maximum capacity), Issued Shares (what's been created), Treasury Shares
+    (bought back by company), Outstanding Shares (held by shareholders), and The
+    Float (what's freely tradable). You've walked through TechNova's IPO process
+    and discovered how different stock classes (Common vs. Preferred, Class A
+    vs. Class B) give founders control even with minority ownership. Most
+    importantly, you've learned that float size directly impacts volatility — a
+    small float creates explosive price moves with minimal volume, while a large
+    float provides stability but requires massive pressure to move. You can now
+    see why a $10M buy order moves a 5M float stock 30% but barely budges a 500M
+    float stock.
+  </AlertDescription>
+</Alert>

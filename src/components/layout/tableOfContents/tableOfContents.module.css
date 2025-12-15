@@ -1,0 +1,85 @@
+/* .sidenav {
+  position: fixed;
+  top: 250px;
+  display: flex;
+} */
+
+.sidenav {
+  position: sticky;
+  top: 7rem; /* Sticks at 7rem from viewport top to align with main content start */
+  display: flex;
+  max-width: 100%;
+  min-width: 250px;
+  padding-right: 10px;
+  align-self: flex-start;
+  margin-top: 7rem; /* Initial offset to align with main content */
+  height: fit-content; /* Only take up as much space as needed */
+}
+
+.sidenav_contents {
+  width: 100%;
+  cursor: pointer;
+  max-height: calc(100vh - 7rem); /* Full viewport minus the top offset */
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.sidenav_contents::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidenav_contents::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidenav_contents::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+}
+
+.sidenav_contents:hover::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* .sidenav_contents {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.5s ease, visibility 0.5s;
+} */
+
+/* .animate {
+  visibility: visible;
+  opacity: 1;
+} */
+
+@media (max-width: 768px) {
+  .sidenav_contents {
+    display: none;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fadeIn {
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+.tocItem {
+  opacity: 0;
+  transform: translateY(20px);
+  padding: 0px 20px;
+}
+
+.tocItem.fadeIn {
+  animation: fadeIn 1s ease-out forwards;
+  animation-delay: var(--animation-delay, 0s);
+}

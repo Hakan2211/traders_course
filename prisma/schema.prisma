@@ -1,0 +1,29 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Note {
+  id            String   @id @default(uuid())
+  module_slug   String
+  lesson_slug   String
+  selected_text String
+  note_text     String
+  created_at    DateTime @default(now())
+}
+
+model Progress {
+  id          String   @id @default(uuid())
+  module_slug String
+  lesson_slug String
+  status      String   @default("started") // "started" | "completed"
+  updated_at  DateTime @updatedAt
+
+  @@unique([module_slug, lesson_slug])
+}

@@ -1,0 +1,1618 @@
+---
+title: 'Drawdown Management: The Fortress Under Siege'
+moduleBadge: 'Module 2'
+order: 1
+---
+
+<QuoteComponent
+  quote="No fortress survives forever — only the prepared survive the siege."
+  author="A Roman Commander"
+/>
+
+## THE LONGEST WINTER
+
+Imagine you're the commander of a medieval fortress. Your walls are high. Your gates are strong.
+Your supplies are stocked. Your soldiers are trained.
+
+You've repelled attacks before. You've celebrated victories. Your reputation grows.
+
+Then, one autumn morning, you see them on the horizon.
+
+An army. Ten times your size. Surrounding your fortress on all sides.
+
+They don't attack immediately. They settle in. They build camps. They dig trenches.
+They prepare catapults and siege towers.
+
+They're here for the long game. They're here to starve you out.
+
+Days turn to weeks. Weeks turn to months. Your supplies dwindle.
+Your soldiers grow weary. Morale cracks. Some whisper of surrender.
+
+The enemy sends <Highlight variant="blue">messages:</Highlight> "Give up now and we'll be merciful. Keep fighting and you'll all die."
+
+This is the siege. The longest, darkest winter your fortress will ever face.
+
+In trading, this siege has a name:
+
+**<Highlight variant="blue">DRAWDOWN.</Highlight>**
+
+A drawdown is when your account equity falls from a peak — when your carefully built gains erode,
+when losses mount, when nothing you do seems to work,
+when the market seems to have turned against you personally.
+
+**<Highlight variant="yellow">Every trader faces drawdowns</Highlight>.** EVERY. SINGLE. ONE.
+
+The greatest traders in history — Paul Tudor Jones, George Soros, Stanley Druckenmiller, Linda Raschke —
+have all experienced crushing drawdowns that tested them to their core.
+
+The difference between legends and casualties isn't whether you face the siege.
+
+It's whether you <Highlight variant="yellow">survive it</Highlight>.
+
+In Lesson 2.1, you learned your <Highlight variant="blue">Prime Directive:</Highlight> Survival.
+In Lessons 2.2-2.5, you <Highlight variant="yellow">built your fortress:</Highlight> Position sizing, stops, risk-reward, R-tracking.
+
+Now, in Lesson 2.6, we're preparing for <Highlight variant="yellow">The Fortress Under Siege</Highlight> — <Highlight variant="blue">Drawdown Management</Highlight> —
+the <Highlight variant="yellow">advanced defensive systems</Highlight> that will allow you to survive the inevitable periods
+when your edge disappears, your psychology crumbles, and your very identity as a trader is questioned.
+
+By the end of this lesson, you'll understand:
+
+<InfoGrid showContainer={true} containerClassName="border border-[#182538]">
+  <InfoGridItem
+    title="Drawdown Basics"
+    value="01"
+    description="What drawdown is (and why it's mathematically inevitable)"
+  />
+  <InfoGridItem
+    title="Recovery Math"
+    value="02"
+    description="The brutal mathematics of drawdown recovery"
+  />
+  <InfoGridItem
+    title="Drawdown Comparison"
+    value="03"
+    description="Maximum drawdown vs. average drawdown"
+  />
+  <InfoGridItem
+    title="Loss Streak Odds"
+    value="04"
+    description="Loss streak probabilities (even with 70% win rate)"
+  />
+  <InfoGridItem
+    title="Circuit Breakers"
+    value="05"
+    description="Daily, weekly, and monthly loss limits"
+  />
+  <InfoGridItem
+    title="Response Protocols"
+    value="06"
+    description="Drawdown response protocols (what to do when it happens)"
+  />
+  <InfoGridItem
+    title="Psychological Survival"
+    value="07"
+    description="Psychological survival during drawdowns"
+  />
+  <InfoGridItem
+    title="Discipline Under Fire"
+    value="08"
+    description="How to maintain discipline when everything feels broken"
+  />
+</InfoGrid>
+
+## WHAT IS DRAWDOWN? (THE DEFINITION THAT HAUNTS)
+
+Let's start with the precise definition:
+
+**<Highlight variant="blue">DRAWDOWN</Highlight> = The decline from a peak to a trough in your account equity**
+
+More specifically:
+
+<Math>
+  {
+    '\\text{Drawdown } \\% = \\frac{\\text{Peak Equity} - \\text{Current Equity}}{\\text{Peak Equity}} \\times 100'
+  }
+</Math>
+<br />
+
+### <Highlight variant="accent">EXAMPLE 1: SIMPLE DRAWDOWN</Highlight>
+
+**<Highlight variant="blue">Your account equity:</Highlight>**
+
+→ Peak: $10,000<br/>
+→ Current: $8,500<br/>
+
+**<Highlight variant="blue">Calculate drawdown:</Highlight>**
+
+<Math>
+  {'\\begin{aligned}' +
+    '\\text{Drawdown } \\% = \\frac{\\$10,000 - \\$8,500}{\\$10,000} \\times 100 \\\\' +
+    '\\text{Drawdown } \\% = \\frac{\\$1,500}{\\$10,000} \\times 100 \\\\' +
+    '\\text{Drawdown } \\% = 15\\%' +
+    '\\end{aligned}'}
+
+</Math>
+<br />
+
+**<Highlight variant="blue">Result:</Highlight>** You're in a 15% drawdown.
+
+**<Highlight variant="blue">Translation:</Highlight>** You need an 17.6% gain just to get back to your peak.
+
+### <Highlight variant="accent">EXAMPLE 2: DRAWDOWN AFTER GROWTH</Highlight>
+
+**<Highlight variant="blue">Your account journey:</Highlight>**
+
+→ Starting capital: $10,000<br/>
+→ Grew to peak: $15,000 (+50%)<br/>
+→ Fell to current: $12,000<br/>
+
+**<Highlight variant="blue">Calculate drawdown:</Highlight>**
+
+<Math>
+  {'\\begin{aligned}' +
+    '\\text{Drawdown } \\% = \\frac{\\$15,000 - \\$12,000}{\\$15,000} \\times 100 \\\\' +
+    '\\text{Drawdown } \\% = \\frac{\\$3,000}{\\$15,000} \\times 100 \\\\' +
+    '\\text{Drawdown } \\% = 20\\%' +
+    '\\end{aligned}'}
+</Math>
+<br />
+
+You're in a 20% drawdown from peak.
+
+**<Highlight variant="blue">Important distinction:</Highlight>**
+
+→ <Highlight variant="yellow">You're still up +20%</Highlight> from your original $10,000<br/>
+→ <Highlight variant="yellow">You're down -20%</Highlight> from your peak of $15,000<br/>
+→ <Highlight variant="yellow">Psychologically, you feel like you lost</Highlight>, even though you're technically winning<br/>
+
+**This is why drawdowns are so painful — they <Highlight variant="red">erase gains you already celebrated</Highlight>.**
+
+<DrawdownCanyon />
+
+## TYPES OF DRAWDOWN
+
+### <Highlight variant="accent">1\. ABSOLUTE DRAWDOWN</Highlight>
+
+→ Decline from your initial capital<br/>
+→ <Highlight variant="blue">Example:</Highlight> Started with $10,000, now at $8,500 = -15% absolute drawdown<br/>
+→ This is what beginners focus on<br/>
+
+### <Highlight variant="accent">2\. RELATIVE DRAWDOWN (PEAK-TO-TROUGH)</Highlight>
+
+→ Decline from your highest account value<br/>
+→ <Highlight variant="blue">Example:</Highlight> Peak was $15,000, now at $12,000 = -20% relative drawdown<br/>
+→ This is what professionals track<br/>
+
+### <Highlight variant="accent">3\. MAXIMUM DRAWDOWN (MDD)</Highlight>
+
+→ The largest peak-to-trough decline in your trading history<br/>
+→ <Highlight variant="blue">Example:</Highlight> Your worst drawdown was -28% (happened once over 2 years)<br/>
+→ This is what determines if your system is tradeable<br/>
+
+**Professionals always measure relative drawdown from peak, because that's what determines
+psychological damage and recovery difficulty.**
+
+**<Highlight variant="yellow">Maximum Drawdown vs. Average Drawdown</Highlight>**
+
+<Alert variant="info">
+  <AlertDescription>
+    <strong>Understanding both types of drawdown is critical.</strong><br /><br />
+
+    <strong>Maximum Drawdown (MDD)</strong><br />
+    <Highlight variant="yellow">Definition:</Highlight> The worst peak-to-trough decline in your entire trading history.<br />
+    <Highlight variant="yellow">Example:</Highlight> Over 5 years of trading, your worst drawdown was -22%. That's your MDD.<br />
+    <Highlight variant="yellow">Why it matters:</Highlight> MDD tells you the worst-case scenario your system has produced. It's your "stress test" result.<br />
+    <Highlight variant="yellow">Professional benchmarks:</Highlight><br />
+    → Excellent: MDD &lt; 10%<br />
+    → Good: MDD 10-15%<br />
+    → Acceptable: MDD 15-25%<br />
+    → Concerning: MDD 25-35%<br />
+    → Dangerous: MDD &gt; 35%<br /><br />
+
+    <strong>Average Drawdown</strong><br />
+    <Highlight variant="yellow">Definition:</Highlight> The average of all drawdown periods.<br />
+    <Highlight variant="yellow">Example:</Highlight> Over 50 trades, you experienced 8 separate drawdown periods averaging -7.3%. That's your average drawdown.<br />
+    <Highlight variant="yellow">Why it matters:</Highlight> Average drawdown tells you what "normal pain" looks like in your system. It's what you should psychologically expect regularly.<br /><br />
+
+    <strong>The Relationship</strong><br />
+    <Highlight variant="yellow">Typical pattern:</Highlight><br />
+    → Average drawdown: -8%<br />
+    → Maximum drawdown: -18%<br />
+    <Highlight variant="yellow">Why it matters:</Highlight> Your MDD is usually 1.5× to 3× your average drawdown because occasionally losing streaks compound, market conditions turn against your strategy, bad luck clusters, and multiple negative factors align.<br /><br />
+
+    <strong>Planning for MDD</strong><br />
+    <Highlight variant="yellow">Rule of thumb:</Highlight> Assume your future MDD will be 1.5× your historical MDD.<br />
+    <Highlight variant="yellow">Example:</Highlight> Your worst drawdown so far is -20%. Assume you'll eventually experience -30%.<br />
+    <Highlight variant="yellow">Why?</Highlight><br />
+    → Your sample size is limited<br />
+    → Market conditions change<br />
+    → Black swans happen<br />
+    → Unlucky streaks compound<br />
+    If you can't psychologically or financially survive 1.5× your current MDD, you're over-leveraged.
+
+  </AlertDescription>
+</Alert>
+
+## THE CRUEL MATHEMATICS OF RECOVERY
+
+Here's the truth that will either save you or destroy you:
+
+The amount you need to gain to recover from a drawdown is exponentially larger than the drawdown itself.
+
+Let me show you the table that every professional has burned into their memory:
+
+### THE DRAWDOWN RECOVERY TABLE
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Drawdown</TableHead>
+      <TableHead>Remaining Capital</TableHead>
+      <TableHead>Gain Needed to Recover</TableHead>
+      <TableHead>Difficulty</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>-5%</TableCell>
+      <TableCell>95%</TableCell>
+      <TableCell>+5.3%</TableCell>
+      <TableCell>
+        <CheckCircle className="w-4 h-4 inline" stroke="#22c55e" /> Easy
+      </TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>-10%</TableCell>
+      <TableCell>90%</TableCell>
+      <TableCell>+11.1%</TableCell>
+      <TableCell>
+        <CheckCircle className="w-4 h-4 inline" stroke="#22c55e" /> Manageable
+      </TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>-15%</TableCell>
+      <TableCell>85%</TableCell>
+      <TableCell>+17.6%</TableCell>
+      <TableCell className="flex items-center gap-1">
+        <AlertTriangle className="w-4 h-4 inline" stroke="#f59e0b" />{' '}
+        Challenging
+      </TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>-20%</TableCell>
+      <TableCell>80%</TableCell>
+      <TableCell>+25.0%</TableCell>
+      <TableCell>
+        <AlertTriangle className="w-4 h-4 inline" stroke="#f59e0b" /> Difficult
+      </TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>-25%</TableCell>
+      <TableCell>75%</TableCell>
+      <TableCell>+33.3%</TableCell>
+      <TableCell className="flex items-center gap-1">
+        <AlertTriangle className="w-4 h-4 inline" stroke="#f59e0b" />{' '}
+        <AlertTriangle className="w-4 h-4 inline" stroke="#f59e0b" /> Very
+        difficult
+      </TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>-30%</TableCell>
+      <TableCell>70%</TableCell>
+      <TableCell>+42.9%</TableCell>
+      <TableCell className="flex items-center gap-1">
+        <AlertTriangle className="w-4 h-4 inline" stroke="#f59e0b" />{' '}
+        <AlertTriangle className="w-4 h-4 inline" stroke="#f59e0b" /> Extremely
+        difficult
+      </TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>-40%</TableCell>
+      <TableCell>60%</TableCell>
+      <TableCell>+66.7%</TableCell>
+      <TableCell className="flex items-center gap-1">
+        <Circle className="w-4 h-4 inline" stroke="#ef4444" fill="#ef4444" />{' '}
+        Crushing
+      </TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>-50%</TableCell>
+      <TableCell>50%</TableCell>
+      <TableCell>+100.0%</TableCell>
+      <TableCell className="flex items-center gap-1">
+        <Circle className="w-4 h-4 inline" stroke="#ef4444" fill="#ef4444" />{' '}
+        Career-threatening
+      </TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>-60%</TableCell>
+      <TableCell>40%</TableCell>
+      <TableCell>+150.0%</TableCell>
+      <TableCell className="flex items-center gap-1">
+        <Circle className="w-4 h-4 inline" stroke="#ef4444" fill="#ef4444" />{' '}
+        Nearly impossible
+      </TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>-70%</TableCell>
+      <TableCell>30%</TableCell>
+      <TableCell>+233.3%</TableCell>
+      <TableCell className="flex items-center gap-1">
+        <Circle className="w-4 h-4 inline" stroke="#ef4444" fill="#ef4444" />
+        Requires miracle
+      </TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>-80%</TableCell>
+      <TableCell>20%</TableCell>
+      <TableCell>+400.0%</TableCell>
+      <TableCell>
+        <Skull className="w-4 h-4 inline" stroke="papayawhip" /> Game over
+      </TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>-90%</TableCell>
+      <TableCell>10%</TableCell>
+      <TableCell>+900.0%</TableCell>
+      <TableCell className="flex items-center gap-1">
+        <Skull className="w-4 h-4 inline" stroke="papayawhip" /> Dead
+      </TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+<br />
+
+<SisyphusScale />
+
+**Let me explain why this matters with a real example:**
+
+### <Highlight variant="accent">THE 50% DRAWDOWN DISASTER</Highlight>
+
+**Trader starts with <Highlight variant="blue">$10,000.</Highlight>**
+
+Through aggressive risk-taking or a catastrophic losing streak, they suffer a <Highlight variant="yellow">-50% drawdown.</Highlight>
+
+**Account now: <Highlight variant="blue">$5,000.</Highlight>**
+
+**To recover to <Highlight variant="blue">$10,000:</Highlight>**
+
+<Math>
+  {'\\begin{aligned}' +
+    '\\text{Required gain} = \\frac{\\$10,000 - \\$5,000}{\\$5,000} \\times 100 \\\\' +
+    '\\text{Required gain} = 100\\%' +
+    '\\end{aligned}'}
+</Math>
+<br />
+
+**They need to <Highlight variant="yellow">DOUBLE their remaining capital</Highlight> just to break even.**
+
+How long does that take?
+
+If they make <Highlight variant="yellow">20% per month</Highlight> (exceptional performance):
+
+→ Month 1: <Highlight variant="blue">$5,000</Highlight> → <Highlight variant="blue">$6,000</Highlight><br/>
+→ Month 2: <Highlight variant="blue">$6,000</Highlight> → <Highlight variant="blue">$7,200</Highlight><br/>
+→ Month 3: <Highlight variant="blue">$7,200</Highlight> → <Highlight variant="blue">$8,640</Highlight><br/>
+→ Month 4: <Highlight variant="blue">$8,640</Highlight> → <Highlight variant="blue">$10,368</Highlight><br/>
+
+**<Highlight variant="yellow">Four months</Highlight> of flawless execution just <Highlight variant="blue">to recover.</Highlight>**
+
+But here's the psychological reality:
+
+After a -50% drawdown, traders don't execute flawlessly. They:
+
+**<XCircle className="w-4 h-4 inline" stroke="#ef4444" />** Doubt their system<br/>
+**<XCircle className="w-4 h-4 inline" stroke="#ef4444" />** Revenge trade<br/>
+**<XCircle className="w-4 h-4 inline" stroke="#ef4444" />** Over-risk to "get back faster"<br/>
+**<XCircle className="w-4 h-4 inline" stroke="#ef4444" />** Freeze in fear<br/>
+**<XCircle className="w-4 h-4 inline" stroke="#ef4444" />** Quit entirely<br/>
+
+**Most traders who hit -50% never recover.**
+
+### <Highlight variant="accent">WHY SMALL DRAWDOWNS MATTER</Highlight>
+
+Look at the table again. Notice the inflection point:
+
+→ <Highlight variant="yellow">-5% to -15% drawdown:</Highlight> Recoverable in weeks with normal performance<br/>
+→ <Highlight variant="yellow">-20% to -30% drawdown:</Highlight> Requires months of exceptional performance<br/>
+→ <Highlight variant="yellow">-40%+ drawdown:</Highlight> Career-threatening, possibly terminal<br/>
+
+**This is why professional risk management <Highlight variant="red">focuses on PREVENTING deep drawdowns,</Highlight>
+not on recovering from them.**
+
+**Your goal isn't to be amazing at climbing out of holes. Your goal is to NEVER FALL INTO DEEP HOLES.**
+
+## MAXIMUM DRAWDOWN: THE NUMBER THAT DETERMINES SURVIVABILITY
+
+Every trading system, every trader, every strategy has a Maximum Drawdown (MDD).
+
+MDD = The largest peak-to-trough decline your system will experience
+
+This number determines whether your system is:
+
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Tradeable (you can psychologically survive it)<br/>
+**<AlertTriangle className="w-4 h-4 inline" stroke="#f59e0b" />** Marginal (requires exceptional discipline)<br/>
+**<XCircle className="w-4 h-4 inline" stroke="#ef4444" />** Untradeable (will destroy you psychologically)<br/>
+
+### MDD BENCHMARKS BY TRADER TYPE
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Trader Type</TableHead>
+      <TableHead>Acceptable MDD</TableHead>
+      <TableHead>Realistic MDD</TableHead>
+      <TableHead>Danger Zone</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>Conservative</TableCell>
+      <TableCell>&lt;10%</TableCell>
+      <TableCell>10-15%</TableCell>
+      <TableCell>&gt;15%</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Moderate</TableCell>
+      <TableCell>&lt;15%</TableCell>
+      <TableCell>15-25%</TableCell>
+      <TableCell>&gt;25%</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Aggressive</TableCell>
+      <TableCell>&lt;20%</TableCell>
+      <TableCell>20-35%</TableCell>
+      <TableCell>&gt;35%</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Degenerated (Professional) Trader</TableCell>
+      <TableCell>&lt;25%</TableCell>
+      <TableCell>25-40%</TableCell>
+      <TableCell>&gt;40%</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+<br />
+
+**<Highlight variant="blue">Important notes:</Highlight>**
+
+**<Highlight variant="yellow">1. "Acceptable MDD" </Highlight>** is what you PLAN for<br/>
+**<Highlight variant="yellow">2. "Realistic MDD"</Highlight>** is what ACTUALLY happens (Murphy's Law)<br/>
+**<Highlight variant="blue">3. Always design risk management</Highlight>** for realistic MDD, not acceptable MDD<br/>
+
+**<Highlight variant="blue">Example:</Highlight>**
+
+You think you can handle a -15% drawdown. Your system historically produces -15% average drawdowns.
+
+**<Highlight variant="red">Problem:</Highlight>** Your MAXIMUM drawdown will likely be 2-3× your average drawdown.
+
+If average is -15%, maximum could be -30% to -45%.
+
+**<Highlight variant="red">Can you survive -45%?</Highlight>**
+
+If no, your system is untradeable for you—regardless of how profitable it is on paper.
+
+### <Highlight variant="accent">CALCULATING YOUR EXPECTED MDD</Highlight>
+
+**<Highlight variant="yellow">Method 1: Historical Analysis</Highlight>**
+
+Run your system through historical data (backtest) for 1,000+ trades.
+
+**<Highlight variant="blue">Record the worst drawdown:</Highlight>** That's your historical MDD.
+
+**<Highlight variant="blue"> Multiply by 1.5-2.0:</Highlight>** That's your expected future MDD.
+
+**<Highlight variant="blue">Example:</Highlight>**
+
+→ Historical MDD: -22%<br/>
+→ Expected future MDD: -33% to -44%<br/>
+→ Design your risk management to survive -45% drawdown
+
+**<Highlight variant="yellow">Method 2: Monte Carlo Simulation</Highlight>**
+
+Take your system's statistics (win rate, avg win, avg loss, expectancy).
+
+**<Highlight variant="blue">Run 10,000 simulated trading sequences.</Highlight>**
+
+**<Highlight variant="blue">Find the worst drawdown across all simulations:</Highlight>** That's your likely MDD.
+
+**<Highlight variant="blue">Example results:</Highlight>**
+
+→ Average drawdown: -12%<br/>
+→ 95th percentile drawdown: -28%<br/>
+→ Worst drawdown (99th percentile): -41%<br/>
+
+**<Highlight variant="yellow">Conclusion:</Highlight>** Your system could produce a -41% drawdown. Can you survive that?
+
+### <Highlight variant="accent">THE MDD QUESTION YOU MUST ANSWER</Highlight>
+
+**Before you trade your system live, ask yourself:**
+
+**"If my account drops 40% from peak, will I continue trading this system with discipline, or will I:**
+
+**<XCircle className="w-4 h-4 inline" stroke="#ef4444" />** Abandon the system?<br/>
+**<XCircle className="w-4 h-4 inline" stroke="#ef4444" />** Start revenge trading?<br/>
+**<XCircle className="w-4 h-4 inline" stroke="#ef4444" />** Increase risk to recover faster?<br/>
+**<XCircle className="w-4 h-4 inline" stroke="#ef4444" />** Freeze and stop trading entirely?\*\*
+
+**If you can't honestly answer "I'll continue with discipline," your position sizing is too large.**
+
+**<Highlight variant="blue">The fix:</Highlight>** Reduce position size until your expected MDD is psychologically survivable.
+
+→ If 1% risk per trade creates -40% MDD → Try 0.5% risk per trade (creates ~-20% MDD)<br/>
+→ If 0.5% risk creates -20% MDD and that's survivable → You've found your optimal size<br/>
+
+**Professional traders <Highlight variant="blue">size positions</Highlight> not for maximum return, but for <Highlight variant="yellow">SURVIVABLE MAXIMUM DRAWDOWN.</Highlight>**
+
+## LOSING STREAK PROBABILITIES: THE MATH THAT HUMBLES
+
+Let's address the psychological horror that haunts every trader:
+
+"How many losses in a row can I expect?"
+
+The answer is more than you think, and it will happen more often than you think.
+
+### <Highlight variant="accent">THE LOSING STREAK FORMULA</Highlight>
+
+<Math>
+  {'\\begin{aligned}' +
+    '\\text{Probability of N consecutive losses} = (\\text{Loss Rate}) ^ N \\\\' +
+    '\\end{aligned}'}
+</Math>
+<br />
+
+**<Highlight variant="blue">Example:</Highlight> 50% win rate system**
+
+<Math>
+  {'\\begin{aligned}' +
+    '\\text{Probability of 5 losses in a row} = 0.50 ^ 5 = 0.03125 = 3.125\\%' +
+    '\\end{aligned}'}
+</Math>
+
+**<Highlight variant="yellow">Translation:</Highlight>** Over 100 trades, you'll likely experience at least THREE separate 5-loss streaks.
+
+### <Highlight variant="accent">LOSING STREAK PROBABILITY TABLE</Highlight>
+
+**<Highlight variant="blue">For a 50% win rate system:</Highlight>**
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Consecutive Losses</TableHead>
+      <TableHead>Probability</TableHead>
+      <TableHead>Expected Frequency (per 100 trades)</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>2 in a row</TableCell>
+      <TableCell>25.0%</TableCell>
+      <TableCell>~25 times</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>3 in a row</TableCell>
+      <TableCell>12.5%</TableCell>
+      <TableCell>~12 times</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>4 in a row</TableCell>
+      <TableCell>6.25%</TableCell>
+      <TableCell>~6 times</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>5 in a row</TableCell>
+      <TableCell>3.13%</TableCell>
+      <TableCell>~3 times</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>6 in a row</TableCell>
+      <TableCell>1.56%</TableCell>
+      <TableCell>~1-2 times</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>7 in a row</TableCell>
+      <TableCell>0.78%</TableCell>
+      <TableCell>~1 time per 200 trades</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>8 in a row</TableCell>
+      <TableCell>0.39%</TableCell>
+      <TableCell>~1 time per 500 trades</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+<br />
+
+**<Highlight variant="red">Shocking insight:</Highlight>** Even with a 50% win rate, you WILL experience 5 losses in a row multiple times per year.
+
+### <Highlight variant="accent">EVEN GREAT WIN RATES HAVE BRUTAL STREAKS</Highlight>
+
+**<Highlight variant="blue">For a 60% win rate system (excellent):</Highlight>**
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Consecutive Losses</TableHead>
+      <TableHead>Probability</TableHead>
+      <TableHead>Expected Frequency (per 100 trades)</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>2 in a row</TableCell>
+      <TableCell>16.0%</TableCell>
+      <TableCell>~16 times</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>3 in a row</TableCell>
+      <TableCell>6.4%</TableCell>
+      <TableCell>~6 times</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>4 in a row</TableCell>
+      <TableCell>2.56%</TableCell>
+      <TableCell>~2-3 times</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>5 in a row</TableCell>
+      <TableCell>1.02%</TableCell>
+      <TableCell>~1 time</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>6 in a row</TableCell>
+      <TableCell>0.41%</TableCell>
+      <TableCell>~1 time per 250 trades</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+<br />
+
+Even with a 60% win rate, you'll face 4-5 consecutive losses multiple times per year.
+
+### <Highlight variant="accent">FOR A 70% WIN RATE SYSTEM (ELITE)</Highlight>
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Consecutive Losses</TableHead>
+      <TableHead>Probability</TableHead>
+      <TableHead>Expected Frequency (per 100 trades)</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>2 in a row</TableCell>
+      <TableCell>9.0%</TableCell>
+      <TableCell>~9 times</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>3 in a row</TableCell>
+      <TableCell>2.7%</TableCell>
+      <TableCell>~2-3 times</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>4 in a row</TableCell>
+      <TableCell>0.81%</TableCell>
+      <TableCell>~1 time</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>5 in a row</TableCell>
+      <TableCell>0.24%</TableCell>
+      <TableCell>~1 time per 400 trades</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+<br />
+
+Even elite 70% win rate systems will hand you 3-4 losses in a row several times per year.
+
+<StreakGenerator />
+
+### <Highlight variant="accent">THE PSYCHOLOGICAL IMPACT</Highlight>
+
+Let's translate this into real emotional experience:
+
+**<Highlight variant="blue">Scenario:</Highlight> You have a 50% win rate system, risk 1% per trade**
+
+→ **<Highlight variant="blue">Week 1:</Highlight>** Win, Win, Loss, Win, Loss = +2R (good week)<br/>
+→ **<Highlight variant="blue">Week 2:</Highlight>** Loss, Loss, Win, Loss, Loss = -2R (rough week, but manageable)<br/>
+→ **<Highlight variant="blue">Week 3:</Highlight>** Loss, Loss, Loss, Loss, Loss = -5R (devastating week)<br/>
+
+**After Week 3, you're down -5R total.**
+
+Your <Highlight variant="red">brain screams:</Highlight>
+
+**<X className="w-4 h-4 inline" stroke="#ef4444" />** "This system doesn't work!"<br/>
+**<X className="w-4 h-4 inline" stroke="#ef4444" />** "I've lost the edge!"<br/>
+**<X className="w-4 h-4 inline" stroke="#ef4444" />** "The market has changed!"<br/>
+**<X className="w-4 h-4 inline" stroke="#ef4444" />** "I should find a new strategy!"<br/>
+
+**But the <Highlight variant="blue">mathematics say:</Highlight>**
+
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Five losses in a row happens 3% of the time<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** This is completely normal for a 50% win rate system<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Your system isn't broken—this is expected variance<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** If you continue with discipline, you'll recover<br/>
+
+**<Highlight variant="blue">Week 4:</Highlight>** Win, Win, Win, Loss, Win = +3R<br/>
+**<Highlight variant="blue">Week 5:</Highlight>** Win, Loss, Win, Win, Win = +4R<br/>
+
+**After 5 weeks: +4R total. System worked perfectly.**
+
+But how many traders would have abandoned the system in Week 3?
+
+**Most of them.**
+
+This is why 90% fail — they quit during <Highlight variant="yellow">normal statistical variance.</Highlight>
+
+### <Highlight variant="accent">THE LOSING STREAK SURVIVAL RULE</Highlight>
+
+<Math>
+  {'\\begin{aligned}' +
+    '\\text{Expected Maximum Losing Streak} = -\\frac{\\log(0.01)}{\\log(\\text{Loss Rate})} \\\\' +
+    '\\end{aligned}'}
+</Math>
+
+**<Highlight variant="yellow">Translation:</Highlight>** Over a reasonable sample (500-1,000 trades), your maximum losing streak will be approximately:
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Win Rate</TableHead>
+      <TableHead>Expected Max Losing Streak</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>50%</TableCell>
+      <TableCell>8-10 losses in a row</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>55%</TableCell>
+      <TableCell>7-9 losses in a row</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>60%</TableCell>
+      <TableCell>6-8 losses in a row</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>65%</TableCell>
+      <TableCell>5-7 losses in a row</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>70%</TableCell>
+      <TableCell>4-6 losses in a row</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+<br />
+
+If you risk <Highlight variant="blue">1% per trade</Highlight> and hit a <Highlight variant="yellow">10-loss streak:</Highlight>
+
+<Math>
+  {'\\begin{aligned}' +
+    '\\text{Drawdown} = ~-9.6\\% \\text{ (due to compounding)} \\\\' +
+    '\\end{aligned}'}
+</Math>{' '}
+
+Painful, but survivable.
+
+If you <Highlight variant="blue">risk 5% per trade</Highlight> and hit a <Highlight variant="yellow">10-loss streak:</Highlight>
+
+<Math>
+  {'\\begin{aligned}' +
+    '\\text{Drawdown} = ~-40\\% \\text{ (due to compounding)} \\\\' +
+    '\\end{aligned}'}
+</Math>{' '}
+
+**<Highlight variant="red">Career-threatening.</Highlight>**
+
+**This is why position sizing matters more than anything else.**
+
+## CIRCUIT BREAKERS: DAILY, WEEKLY, AND MONTHLY LOSS LIMITS
+
+Professional traders don't just track maximum drawdown — they implement circuit breakers to prevent
+small losses from becoming catastrophic.
+
+**<Highlight variant="blue">Circuit breakers</Highlight>** = Pre-defined loss limits that trigger immediate trading cessation
+
+### <Highlight variant="accent">THE THREE-TIER CIRCUIT BREAKER SYSTEM</Highlight>
+
+**<Highlight variant="yellow">TIER 1: DAILY LOSS LIMIT</Highlight>**
+
+**<Highlight variant="blue">Rule:</Highlight>** If you lose X% in a single day, stop trading for the day.
+
+**<Highlight variant="blue">Recommended daily loss limits:</Highlight>**
+
+→ Conservative: -2% to -3%<br/>
+→ Moderate: -3% to -5%<br/>
+→ Aggressive: -5% to -7%
+
+**<Highlight variant="blue">Example:</Highlight>**
+
+→ Your account: $10,000<br/>
+→ Daily loss limit: -3% = $300<br/>
+→ You lose -1.5% on Trade 1, -1.8% on Trade 2<br/>
+→ Total: -3.3%<br/>
+→ Circuit breaker triggered: STOP TRADING FOR THE DAY<br/>
+
+**<Highlight variant="blue">Why this works:</Highlight>**
+
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Prevents emotional spiral (revenge trading after multiple losses)<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Limits damage from "bad days" (when nothing works)<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Forces you to step back and analyze<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Prevents a bad day from becoming a bad week<br/>
+
+**<Highlight variant="yellow">TIER 2: WEEKLY LOSS LIMIT</Highlight>**
+
+**<Highlight variant="blue">Rule:</Highlight>** If you lose X% in a single week, stop trading for the week.
+
+**<Highlight variant="blue">Recommended weekly loss limits:</Highlight>**
+
+→ Conservative: -5% to -7%<br/>
+→ Moderate: -7% to -10%<br/>
+→ Aggressive: -10% to -15%
+
+**<Highlight variant="blue">Example:</Highlight>**
+
+→ Your account: $10,000<br/>
+→ Weekly loss limit: -7% = $700<br/>
+→ Monday: -$150<br/>
+→ Tuesday: -$200<br/>
+→ Wednesday: -$180<br/>
+→ Thursday: -$220<br/>
+→ **<Highlight variant="blue">Total:</Highlight> -$750 = -7.5%**<br/>
+→ **<Highlight variant="blue">Circuit breaker triggered:</Highlight> STOP TRADING FOR THE WEEK**<br/>
+
+**<Highlight variant="blue">Why this works:</Highlight>**
+
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Prevents bad weeks from becoming catastrophic<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Gives you time to analyze what's wrong<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Protects against prolonged unfavorable market conditions<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Maintains psychological resilience<br/>
+
+**<Highlight variant="yellow">TIER 3: MONTHLY LOSS LIMIT</Highlight>**
+
+**<Highlight variant="blue">Rule:</Highlight>** If you lose X% in a month, stop trading or reduce size dramatically.
+
+**<Highlight variant="blue">Recommended monthly loss limits:</Highlight>**
+
+→ Conservative: -10%<br/>
+→ Moderate: -12% to -15%<br/>
+→ Aggressive: -15% to -20%
+
+**Example:**
+
+→ Your account: $10,000<br/>
+→ Monthly loss limit: -12% = $1,200<br/>
+→ Week 1: -$400<br/>
+→ Week 2: -$300<br/>
+→ Week 3: -$250<br/>
+→ Week 4: -$350<br/>
+→ **<Highlight variant="blue">Total:</Highlight>** -$1,300 = -13%<br/>
+→ **<Highlight variant="blue">Circuit breaker triggered:</Highlight>** STOP TRADING OR REDUCE SIZE TO 0.25% FOR REST OF MONTH<br/>
+
+**<Highlight variant="blue">Why this works:</Highlight>**
+
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Prevents catastrophic monthly drawdowns<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Signals that market conditions or your system may need adjustment<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Protects capital for next month's opportunities<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Prevents psychological breakdown<br/>
+
+### <Highlight variant="accent">IMPLEMENTING CIRCUIT BREAKERS: THE PROTOCOL</Highlight>
+
+**<Highlight variant="yellow">Step 1: Set Your Limits (Before Trading)</Highlight>**
+
+Write down your <Highlight variant="blue">three limits:</Highlight>
+
+→ <Highlight variant="blue">Daily loss limit:</Highlight> -3% ($300 on $10k account)<br/>
+→ <Highlight variant="blue">Weekly loss limit:</Highlight> -7% ($700)<br/>
+→ <Highlight variant="blue">Monthly loss limit:</Highlight> -12% ($1,200)<br/>
+
+**<Highlight variant="yellow">Step 2: Track In Real-Time</Highlight>**
+
+<Highlight variant="blue">Use a spreadsheet or journal that shows:</Highlight>
+
+→ <Highlight variant="blue">Today's P&L:</Highlight><br/>
+→ <Highlight variant="blue">This week's P&L:</Highlight><br/>
+→ <Highlight variant="blue">This month's P&L:</Highlight><br/>
+→ <Highlight variant="blue">Distance to each circuit breaker:</Highlight><br/>
+
+**<Highlight variant="yellow">Step 3: Execute Without Emotion</Highlight>**
+
+When a <Highlight variant="blue">circuit breaker is hit:</Highlight>
+
+**<X className="w-4 h-4 inline" stroke="#ef4444" />** Don't negotiate with yourself ("Just one more trade...")<br/>
+**<X className="w-4 h-4 inline" stroke="#ef4444" />** Don't blame the system ("If I keep going I'll recover...")<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** STOP IMMEDIATELY<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Close your platform<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Walk away<br/>
+
+**<Highlight variant="yellow">Step 4: Post-Breaker Analysis</Highlight>**
+
+After a <Highlight variant="blue">circuit breaker:</Highlight>
+
+→ <Highlight variant="blue">Review</Highlight> every trade that day/week/month:<br/>
+→ <Highlight variant="blue">Identify patterns</Highlight> (setup types, market conditions, emotional state):<br/>
+→ <Highlight variant="blue">Determine</Highlight> if losses were:<br/>
+• <Highlight variant="blue">Bad luck</Highlight> (normal variance) → Continue system<br/>
+• <Highlight variant="blue">Execution errors</Highlight> → Fix execution<br/>
+• <Highlight variant="blue">System failure</Highlight> → Adjust or pause system<br/>
+
+### <Highlight variant="accent">REAL EXAMPLE: CIRCUIT BREAKER SAVES CAREER</Highlight>
+
+Trader <Highlight variant="blue">Jake, $20,000</Highlight> account, 1% risk per trade
+
+**<Highlight variant="blue">Monday:</Highlight>**
+
+→ Trade 1: -1% (-$200)<br/>
+→ Trade 2: -1% (-$198)<br/>
+→ Trade 3: -1% (-$196)<br/>
+→ Daily total: -2.97%<br/>
+→ **<Highlight variant="blue">Circuit breaker at -3% NOT QUITE HIT</Highlight>**<br/>
+
+**<Highlight variant="blue">Jake takes one more trade (violation of discipline):</Highlight>**
+
+→ Trade 4: -1% (-$194)<br/>
+→ Daily total: -3.94%<br/>
+
+**<Highlight variant="blue">Tuesday (emotional, wants to recover):</Highlight>**
+
+→ Trade 5: -1% (-$188)<br/>
+→ Trade 6: -1% (-$186)<br/>
+→ Weekly total: -5.74%<br/>
+
+**<Highlight variant="blue">Wednesday (desperation setting in):</Highlight>**
+
+→ Jake increases risk to 2% per trade (massive mistake)<br/>
+→ Trade 7: -2% (-$360)<br/>
+→ Trade 8: -2% (-$353)<br/>
+→ Weekly total: -9.68%<br/>
+→ **<Highlight variant="blue">Weekly circuit breaker at -7% VIOLATED</Highlight>**<br/>
+
+**<Highlight variant="blue">By end of week:</Highlight>**
+
+→ Account: $18,063 (started at $20,000)<br/>
+→ Drawdown: -9.68%<br/>
+→ Psychological state: Devastated<br/>
+→ Required recovery: +10.7%<br/>
+
+**<Highlight variant="yellow">Alternative scenario with circuit breakers respected:</Highlight>**
+
+**<Highlight variant="blue">Monday:</Highlight>**
+
+→ After Trade 3, Jake is at -2.97%<br/>
+→ He STOPS trading (daily limit almost hit)<br/>
+→ Account: $19,406<br/>
+
+**<Highlight variant="blue">Tuesday:</Highlight>**
+
+→ Jake analyzes trades, identifies he was trading in choppy conditions<br/>
+→ He takes no trades (market conditions still choppy)<br/>
+
+**<Highlight variant="blue">Wednesday:</Highlight>**
+
+→ Market conditions improve<br/>
+→ Jake takes 2 trades: +2R and +1.5R<br/>
+→ Account: $19,772 (almost back to $20k)<br/>
+
+**<Highlight variant="blue">Circuit breakers prevented a -10% drawdown and allowed rational recovery.</Highlight>**
+
+## THE DRAWDOWN RESPONSE PROTOCOL
+
+Now let's discuss what to do WHEN (not if) you enter a drawdown.
+
+### <Highlight variant="accent">THE FIVE-STAGE DRAWDOWN RESPONSE</Highlight>
+
+**<Highlight variant="yellow">STAGE 1: ACKNOWLEDGMENT (0-5% Drawdown)</Highlight>**
+
+**<Highlight variant="blue">Actions:</Highlight>**
+
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Recognize you're in a drawdown (update tracking)<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Review recent trades for execution errors<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Verify you're following your system<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Continue trading normally (this is normal variance)<br/>
+**<X className="w-4 h-4 inline" stroke="#ef4444" />** Don't panic<br/>
+**<X className="w-4 h-4 inline" stroke="#ef4444" />** Don't change your system
+
+**<Highlight variant="blue">Mindset:</Highlight>** "This is expected. I planned for this. Continue execution."
+
+**<Highlight variant="yellow">STAGE 2: HEIGHTENED AWARENESS (5-10% Drawdown)</Highlight>**
+
+**<Highlight variant="blue">Actions:</Highlight>**
+
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Conduct thorough trade review<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Check if market conditions have changed<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Verify position sizing is correct<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Double-check emotional discipline<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Consider reducing trading frequency slightly<br/>
+**<AlertTriangle className="w-4 h-4 inline" stroke="#f59e0b" />** WARNING: Don't increase position size to "recover faster"<br/>
+
+**<Highlight variant="blue">Mindset:</Highlight>** "I'm in manageable drawdown. Focus on process, not recovery speed."
+
+**<Highlight variant="yellow">STAGE 3: DEFENSIVE MODE (10-15% Drawdown)</Highlight>**
+
+**<Highlight variant="blue">Actions:</Highlight>**
+
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Reduce position size by 25-50% (risk 0.5-0.75% instead of 1%)<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Only take A-grade setups (eliminate B and C grades)<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Reduce trading frequency (be more selective)<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Increase stop analysis (ensure no stop-widening)<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Daily journaling (track emotional state)<br/>
+**<X className="w-4 h-4 inline" stroke="#ef4444" />** Absolutely NO revenge trading<br/>
+
+**<Highlight variant="blue">Mindset:</Highlight>** "I'm protecting capital. Small wins are victories. Patience over urgency."
+
+**<Highlight variant="yellow">STAGE 4: EMERGENCY PROTOCOL (15-20% Drawdown)</Highlight>**
+
+**<Highlight variant="blue">Actions:</Highlight>**
+
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Reduce position size by 50-75% (risk 0.25-0.5% per trade)<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** ONLY A+ perfect setups (skip everything else)<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Consider taking a 1-week trading break<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Deep system analysis (does edge still exist?)<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Consult trading mentor or journal thoroughly<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Review historical performance for similar periods<br/>
+**<AlertTriangle className="w-4 h-4 inline" stroke="#f59e0b" />** Critical decision point: Continue or pause system?<br/>
+
+**<Highlight variant="blue">Mindset:</Highlight>** "Survival mode activated. Capital preservation is the only goal."
+
+**<Highlight variant="yellow">STAGE 5: SYSTEM PAUSE (>20% Drawdown)</Highlight>**
+
+**<Highlight variant="blue">Actions:</Highlight>**
+
+**<Circle className="w-4 h-4 inline" stroke="#ef4444" fill="#ef4444" />** STOP LIVE TRADING<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Return to paper trading or backtesting<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Comprehensive system audit<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Determine if system is broken or experiencing extreme variance<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Rebuild psychological capital<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Consider reducing account size (trade smaller account to rebuild confidence)<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Don't resume live trading until:<br/>
+
+**• You've <Highlight variant="blue">recovered psychologically</Highlight>**<br/>
+**• You've <Highlight variant="blue">identified and fixed issues (if any)</Highlight>**<br/>
+**• You've <Highlight variant="blue">paper traded successfully for 2-4 weeks</Highlight>**<br/>
+
+**<Highlight variant="blue">Mindset:</Highlight>** "I'm not broken. My system hit statistical extremes. Rebuild, don't destroy."
+
+### <Highlight variant="accent">DRAWDOWN DECISION FLOWCHART</Highlight>
+
+**<Highlight variant="yellow">Stage 1: Drawdown hits -5%</Highlight>**
+
+<DecisionTree
+  root={{
+    question: 'Are you following system?',
+    yes: 'Continue (Stage 2)',
+    no: 'Fix execution, continue',
+  }}
+/>
+
+**<Highlight variant='yellow'>Stage 2: Drawdown hits -10%</Highlight>**
+
+<DecisionTree
+  root={{
+    question: 'Is market condition different?',
+    yes: 'Reduce size 50% (Stage 3)',
+    no: 'Continue with heightened awareness',
+  }}
+/>
+
+**<Highlight variant='yellow'>Stage 3: Drawdown hits -15%</Highlight>**
+
+<DecisionTree
+  root={{
+    question: 'Review last 50 trades - Normal distribution?',
+    yes: 'Reduce size 75%, only A+ trades (Stage 4)',
+    no: 'Identify issue, fix',
+  }}
+/>
+
+**<Highlight variant='yellow'>Stage 4: Drawdown hits -20%</Highlight>**
+
+**<Highlight variant='yellow'>STOP LIVE TRADING (Stage 5)</Highlight>**
+
+**<Highlight variant="blue">Paper trade + system audit</Highlight>**
+
+**<Highlight variant="blue">Resume only after recovery</Highlight>**
+
+## PSYCHOLOGICAL SURVIVAL DURING DRAWDOWNS
+
+Now for the hardest part — maintaining psychological resilience when everything feels broken.
+
+### <Highlight variant="accent">THE MENTAL WARFARE OF DRAWDOWNS</Highlight>
+
+During drawdowns, your brain becomes your enemy:
+
+**<Highlight variant='yellow'>WEEK 1 OF DRAWDOWN:</Highlight>**
+
+→ "This is normal variance. I expected this."<br/>
+→ Rational, disciplined
+
+**<Highlight variant='yellow'>WEEK 3 OF DRAWDOWN:</Highlight>**
+
+→ "Is my system broken? Did the market change?"<br/>
+→ Doubt creeping in
+
+**<Highlight variant='yellow'>WEEK 6 OF DRAWDOWN:</Highlight>**
+
+→ "I'm a failure. I'll never be profitable. I should quit."<br/>
+→ Psychological breakdown imminent
+
+**This progression is <Highlight variant='green'>NORMAL</Highlight>. Every trader experiences it.**
+
+**<Highlight variant='red'>The difference is what you do about it.</Highlight>**
+
+### <Highlight variant="accent">PSYCHOLOGICAL SURVIVAL TACTICS</Highlight>
+
+**<Highlight variant='yellow'>TACTIC #1: PRE-COMMITMENT</Highlight>**
+
+**<Highlight variant='blue'>BEFORE drawdown happens, write down:</Highlight>**
+
+"When I hit -10% drawdown, I will feel like my system is broken. I will want to change everything.
+I will feel like quitting.
+
+This is my brain lying to me.
+
+-10% drawdown is within normal variance for my system
+(proven by Monte Carlo showing 95th percentile drawdown of -28%).
+
+When I hit -10%, I will:
+
+→ Reduce size to 0.5% per trade<br/>
+→ Only take A-grade setups<br/>
+→ Review this document daily<br/>
+→ NOT change my system<br/>
+→ Trust the process"<br/>
+
+**<Highlight variant='blue'>Sign it. Date it. Read it when drawdown hits.</Highlight>**
+
+**This is your past-self giving wisdom to your future-self when emotions are overwhelming.**
+
+**<Highlight variant='yellow'>TACTIC #2: HISTORICAL CONTEXT</Highlight>**
+
+**<Highlight variant='blue'>Create a document</Highlight> showing your historical drawdowns:**
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Date</TableHead>
+      <TableHead>Drawdown</TableHead>
+      <TableHead>Duration</TableHead>
+      <TableHead>Recovery Time</TableHead>
+      <TableHead>Outcome</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>Jan 2023</TableCell>
+      <TableCell>-12%</TableCell>
+      <TableCell>3 weeks</TableCell>
+      <TableCell>6 weeks</TableCell>
+      <TableCell>Recovered, then +18%</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>May 2023</TableCell>
+      <TableCell>-8%</TableCell>
+      <TableCell>2 weeks</TableCell>
+      <TableCell>4 weeks</TableCell>
+      <TableCell>Recovered, then +22%</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Sep 2023</TableCell>
+      <TableCell>-15%</TableCell>
+      <TableCell>5 weeks</TableCell>
+      <TableCell>8 weeks</TableCell>
+      <TableCell>Recovered, then +31%</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+<br />
+
+**When you're in drawdown, review this:**
+
+**<Highlight variant='red'>"I've been here before. I survived. I recovered. I thrived. This will pass."</Highlight>**
+
+**<Highlight variant='yellow'>TACTIC #3: FOCUS ON PROCESS, NOT OUTCOME</Highlight>**
+
+**<Highlight variant='blue'>During drawdown, shift your success metrics:</Highlight>**
+
+**<XCircle className="w-4 h-4 inline" stroke="#ef4444" />** "I need to make back $2,000 this week"<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** "I need to execute 10 trades following my rules perfectly"<br/>
+
+**<XCircle className="w-4 h-4 inline" stroke="#ef4444" />** "I'm down -12%, I'm a failure"<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** "I followed my system on 9/10 trades this week, that's 90% execution — excellent"<br/>
+
+**Measure success by adherence to process, not by P&L during drawdowns.**
+
+**<Highlight variant='yellow'>TACTIC #4: REDUCE EXPOSURE, NOT AMBITION</Highlight>**
+
+**<Highlight variant='red'>Wrong response to drawdown:</Highlight>**
+
+→ "I'll trade less" (vague, emotional)<br/>
+→ Leads to random execution, missing A+ setups<br/>
+
+**<Highlight variant='green'>Right response:</Highlight>**
+
+→ "I'll reduce position size to 0.5% and only take A-grade setups"<br/>
+→ Specific, measurable, maintains engagement<br/>
+
+**<Highlight variant='blue'>You want to stay IN THE GAME, but with smaller risk.</Highlight>**
+
+**<Highlight variant='yellow'>TACTIC #5: COMMUNITY & MENTORSHIP</Highlight>**
+
+**<Highlight variant='blue'>During drawdown:</Highlight>**
+
+→ Talk to a trading mentor or peer<br/>
+→ Share your struggle (not seeking validation, but perspective)<br/>
+→ Ask: "Is this normal for my system?"<br/>
+→ Hear stories of others who survived<br/>
+
+**Isolation during drawdown breeds catastrophic thinking.**
+
+**Connection provides perspective.**
+
+**<Highlight variant='yellow'>TACTIC #6: PHYSICAL DISCONNECTION</Highlight>**
+
+**<Highlight variant='blue'>When drawdown triggers emotional decisions:</Highlight>**
+
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Close your trading platform<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Go for a 30-minute walk<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Exercise (gym, run, yoga)<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Sleep properly (7-9 hours)<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Disconnect from charts for 24-48 hours<br/>
+
+**Your trading will be there tomorrow. Your capital preservation depends on clear thinking NOW.**
+
+**<Highlight variant='yellow'>TACTIC #7: MANTRAS FOR SURVIVAL</Highlight>**
+
+**<Highlight variant='blue'>Create and repeat mantras during drawdowns:</Highlight>**
+
+"Drawdowns are temporary. Blowing up is permanent."
+
+"I am not my P&L. I am my process."
+
+"Every great trader has survived this. I will too."
+
+"Small losses preserved. Capital intact. Edge remains. I continue."
+
+"This is variance, not failure."
+
+**Sounds cheesy? Try surviving a -20% drawdown without them.**
+
+## REAL DRAWDOWN STORIES: LEGENDS WHO SURVIVED
+
+Let me give you perspective by sharing real drawdown stories of legendary traders:
+
+### <Highlight variant='accent'>PAUL TUDOR JONES: -18% IN OCTOBER 1987</Highlight>
+
+**<Highlight variant='blue'>Background:</Highlight>** Jones was massively short going into Black Monday (October 19, 1987).
+
+**<Highlight variant='blue'>Outcome:</Highlight>** Made ~200% that month.
+
+**<Highlight variant='blue'>But:</Highlight>** In the weeks BEFORE Black Monday, he suffered drawdowns as the market kept rising,
+going against his position.
+
+**<Highlight variant='blue'>Lesson:</Highlight>** Even when you're ultimately right, you'll suffer drawdowns. Conviction + discipline = survival.
+
+### <Highlight variant='accent'>GEORGE SOROS: -20% IN 1981</Highlight>
+
+**<Highlight variant='blue'>Background:</Highlight>** Soros's Quantum Fund suffered a -20% drawdown in 1981.
+
+**<Highlight variant='blue'>His response:</Highlight>** Reduced position sizes, refocused on process.
+
+**<Highlight variant='blue'>Outcome:</Highlight>** Recovered and went on to make billions, including the famous Bank of England trade in 1992.
+
+**<Highlight variant='blue'>Lesson:</Highlight>** Even the greatest traders face severe drawdowns. Recovery is possible with discipline.
+
+### <Highlight variant='accent'>STANLEY DRUCKENMILLER: -30% IN 1999-2000</Highlight>
+
+**<Highlight variant='blue'>Background:</Highlight>** Druckenmiller bet heavily on tech stocks during the dot-com bubble.
+After the bubble burst, he suffered a -30% drawdown.
+
+**<Highlight variant='blue'>His response:</Highlight>** Closed his fund, admitted he violated his own risk rules.
+
+**<Highlight variant='blue'>Lesson:</Highlight>** Even legendary traders make mistakes. The key is recognizing them before total destruction.
+
+### <Highlight variant='accent'>AMATEUR TRADER MIKE: -45% IN 2022 (SURVIVAL STORY)</Highlight>
+
+**<Highlight variant='blue'>Background:</Highlight>** Mike (name changed) had a $30,000 account, was profitable for 8 months (+42% gains).
+
+**<Highlight variant='blue'>The drawdown:</Highlight>** Market conditions shifted (trending → choppy). His trend-following system stopped working.
+Over 3 months, he went from $42,600 peak to $23,400 (-45% drawdown).
+
+**<Highlight variant='blue'>What saved him:</Highlight>**
+
+1\. He stuck to his 1% risk per trade (didn't increase to "recover faster")<br/>
+2\. He reduced trading frequency (30 trades/month → 10 trades/month)<br/>
+3\. He took a 2-week break after -25% to reset psychologically<br/>
+4\. He paper traded for 3 weeks to rebuild confidence<br/>
+5\. He resumed with 0.5% risk per trade<br/>
+
+**<Highlight variant='blue'>Outcome:</Highlight>** Over the next 12 months, he recovered to $35,000 (+49.6% from the bottom), then grew to $48,000.
+
+**Total time:** 15 months from peak ($42,600) to new peak ($48,000).
+
+**<Highlight variant='blue'>Lesson:</Highlight>** -45% is survivable if you don't compound the damage with emotional decisions.
+
+## YOUR DRAWDOWN SURVIVAL KIT
+
+Let's make this practical. Here's your emergency kit for when drawdown strikes:
+
+### <Highlight variant='accent'>THE DRAWDOWN SURVIVAL DOCUMENT</Highlight>
+
+**<Highlight variant='blue'>Create a document with these sections:</Highlight>**
+
+**<Highlight variant='yellow'>SECTION 1: MY SYSTEM'S EXPECTED DRAWDOWNS</Highlight>**
+
+**<Highlight variant='blue'>Based on backtesting and Monte Carlo:</Highlight>**
+
+→ Average drawdown: -12%<br/>
+→ 95th percentile drawdown: -28%<br/>
+→ Worst-case drawdown: -35%<br/>
+
+**<Highlight variant='blue'>Current drawdown:</Highlight>** \_\_\_\_%
+
+Is this within expected range? YES / NO
+
+**<Highlight variant='yellow'>SECTION 2: MY CIRCUIT BREAKERS</Highlight>**
+
+→ Daily loss limit: -3% ($300)<br/>
+→ Weekly loss limit: -7% ($700)<br/>
+→ Monthly loss limit: -12% ($1,200)<br/>
+→ Drawdown trigger for size reduction: -10%<br/>
+→ Drawdown trigger for trading pause: -20%<br/>
+
+**<Highlight variant='yellow'>SECTION 3: MY DRAWDOWN RESPONSE PLAN</Highlight>**
+
+At -5%: Review trades, continue normally<br/>
+At -10%: Reduce size to 0.75% per trade<br/>
+At -15%: Reduce size to 0.5% per trade, only A-grade setups<br/>
+At -20%: Stop live trading, paper trade for 2 weeks<br/>
+
+**<Highlight variant='yellow'>SECTION 4: HISTORICAL RECOVERY DATA</Highlight>**
+
+**<Highlight variant='blue'>List your previous drawdowns and recoveries:</Highlight>**
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Date</TableHead>
+      <TableHead>Max DD</TableHead>
+      <TableHead>Recovery Time</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>[Your data]</TableCell>
+      <TableCell>[Your data]</TableCell>
+      <TableCell>[Your data]</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+<br />
+
+**<Highlight variant='blue'>Reminder:</Highlight>** I've survived before. I will survive again.
+
+**<Highlight variant='yellow'>SECTION 5: PSYCHOLOGICAL MANTRAS</Highlight>**
+
+**<Highlight variant='blue'>When I feel like quitting:</Highlight>**
+
+→ "Drawdowns are temporary. Blowing up is permanent."<br/>
+→ "Every trader faces this. Discipline separates survivors from casualties."<br/>
+→ "I am not my P&L. I am my process."
+
+**<Highlight variant='yellow'>SECTION 6: EMERGENCY CONTACTS</Highlight>**
+
+**<Highlight variant='blue'>Trading mentor:</Highlight>** [Name, contact]<br/>
+**<Highlight variant='blue'>Trading peer:</Highlight>** [Name, contact]<br/>
+**<Highlight variant='blue'>Journal/platform:</Highlight>** [Link]<br/>
+
+**<Highlight variant='red'>When in severe drawdown, I will reach out instead of isolating.</Highlight>**
+
+Print this document. Keep it visible. Read it when drawdown hits.
+
+## MONTE CARLO SIMULATION: SEEING THE FUTURE
+
+The most powerful tool for understanding drawdowns is Monte Carlo simulation.
+
+### <Highlight variant='accent'>WHAT IS MONTE CARLO SIMULATION?</Highlight>
+
+**<Highlight variant='blue'>Definition:</Highlight>** Running your trading system thousands of times with random trade sequences
+to see the range of possible outcomes.
+
+**<Highlight variant='blue'>Why it matters:</Highlight>** It shows you:
+
+→ Your expected drawdown distribution<br/>
+→ Worst-case scenarios<br/>
+→ Probability of catastrophic drawdown<br/>
+→ How long drawdowns typically last
+
+### <Highlight variant='accent'>SIMPLE MONTE CARLO EXAMPLE</Highlight>
+
+**<Highlight variant='blue'>Your system:</Highlight>**
+
+→ Win rate: 50%<br/>
+→ Average win: +2R<br/>
+→ Average loss: -1R<br/>
+→ Expectancy: +0.5R per trade<br/>
+→ Monte Carlo runs 10,000 simulations of 500 trades each.
+
+**<Highlight variant='blue'>Results:</Highlight>**
+
+→ Median final equity: +250R (expected)<br/>
+→ Best simulation: +420R<br/>
+→ Worst simulation: +80R<br/>
+→ Average drawdown: -15R (-15%)<br/>
+→ 95th percentile drawdown: -35R (-35%)<br/>
+→ Worst drawdown: -48R (-48%)<br/>
+
+**<Highlight variant='blue'>Translation:</Highlight>**
+
+Your system expects +250R over 500 trades (+250% at 1% risk).
+
+**<Highlight variant='red'>BUT:</Highlight>**
+
+**<Highlight variant='blue'>You have a 5% chance of experiencing a -35% drawdown.</Highlight>**
+**<Highlight variant='blue'>You have a 1% chance of experiencing a -48% drawdown.</Highlight>**
+
+**<Highlight variant='blue'>Can you survive -48%?</Highlight>**
+
+If no, reduce position size to 0.5% per trade.<br/>
+Now worst-case drawdown is -24% (survivable).
+
+**<Highlight variant='red'>Monte Carlo doesn't predict the future — it shows you the RANGE of possible futures.</Highlight>**
+
+## YOUR FORTRESS SURVIVES THE SIEGE
+
+You've now learned the most difficult lesson in trading — how to survive when everything feels broken,
+when your account is bleeding, when your psychology is shattered.
+
+**<Highlight variant='blue'>You understand:</Highlight>**
+
+<InfoGrid showContainer={true} containerClassName="border border-[#182538]">
+  <InfoGridItem
+    title="Drawdown Definition"
+    value="Peak-to-Trough"
+    description="Equity decline is mathematically inevitable—every trader experiences multiple drawdowns per year"
+  />
+  <InfoGridItem
+    title="Recovery Math"
+    value="-50% = +100%"
+    description="Recovery mathematics are cruel—a 50% loss requires 100% gain to recover"
+  />
+  <InfoGridItem
+    title="Maximum Drawdown"
+    value="System Tradeability"
+    description="MDD determines if your system is tradeable—design for realistic MDD (2-3× average), not average"
+  />
+  <InfoGridItem
+    title="Losing Streaks"
+    value="5-10 Losses"
+    description="Normal even with great win rates—expect 5-10 losses in a row with 50% win rate"
+  />
+  <InfoGridItem
+    title="Circuit Breakers"
+    value="Daily/Weekly/Monthly"
+    description="Save careers with loss limits: Daily (-3%), Weekly (-7%), Monthly (-12%)"
+  />
+  <InfoGridItem
+    title="Five-Stage Response"
+    value="0% to >20%"
+    description="From acknowledgment (0-5%) to emergency protocol (15-20%) to system pause (>20%)"
+  />
+  <InfoGridItem
+    title="Psychological Survival"
+    value="4 Key Tactics"
+    description="Pre-commitment, historical context, process focus, physical disconnection"
+  />
+  <InfoGridItem
+    title="Legendary Examples"
+    value="-20% to -45%"
+    description="Legendary traders survived severe drawdowns—you can too with discipline"
+  />
+  <InfoGridItem
+    title="Monte Carlo"
+    value="Expected Range"
+    description="Simulation reveals expected drawdowns—use it to size positions appropriately"
+  />
+</InfoGrid>
+
+Your fortress now has:
+
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Lesson 2.1: The Foundation (Survival mindset)<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Lesson 2.2: The Walls (Position sizing)<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Lesson 2.3: The Gates (Stop-loss architecture)<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Lesson 2.4: The Watchtowers (Risk-reward mastery)<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Lesson 2.5: The Commander's Language (Expectancy & R-multiples)<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Lesson 2.6: The Siege Defense (Drawdown management)<br/>
+
+**The siege will come. Your fortress is prepared.**
+
+In Lesson 2.7, we'll build your Portfolio Heat & Correlation Defense —
+understanding how multiple positions create hidden exposure and how to defend against
+simultaneous attacks from correlated threats.<br/>
+
+**You've survived the siege. Now let's defend against coordinated attacks.**
+
+<Alert variant="success">
+  <AlertTitle>KEY TAKEAWAYS</AlertTitle>
+  <AlertDescription>
+    <ul>
+      <li>
+        <CheckCircle className="w-4 h-4 inline" stroke="#22c55e" /> Drawdown = peak-to-trough decline—every trader experiences multiple drawdowns per year
+      </li><br />
+      <li>
+        <CheckCircle className="w-4 h-4 inline" stroke="#22c55e" /> Recovery is exponential, not linear: -50% loss requires +100% gain to recover
+      </li><br />
+  
+      <li>
+        <CheckCircle className="w-4 h-4 inline" stroke="#22c55e" /> Maximum Drawdown (MDD) determines system tradeability—design for 2-3× your average drawdown
+      </li><br />
+
+      <li>
+        <CheckCircle className="w-4 h-4 inline" stroke="#22c55e" /> Losing streaks are normal: 50% win rate → expect 5-8 losses in a row; 60% win rate → expect 4-6 losses
+      </li><br />
+      <li>
+        <CheckCircle className="w-4 h-4 inline" stroke="#22c55e" /> Circuit breakers prevent catastrophe: Daily (-3%), Weekly (-7%), Monthly (-12%) loss limits
+      </li><br />
+      <li>
+        <CheckCircle className="w-4 h-4 inline" stroke="#22c55e" /> Five-stage drawdown response: 0-5% (acknowledge), 5-10% (heighten), 10-15% (defensive), 15-20% (emergency), >20% (pause)
+      </li><br />
+      <li>
+        <CheckCircle className="w-4 h-4 inline" stroke="#22c55e" /> Reduce position size during drawdowns, don't increase—protect capital, not ego
+      </li><br />
+      <li>
+        <CheckCircle className="w-4 h-4 inline" stroke="#22c55e" /> Pre-commitment documents save you—write your drawdown plan when rational, execute when emotional
+      </li><br />
+      <li>
+        <CheckCircle className="w-4 h-4 inline" stroke="#22c55e" /> Legendary traders survived -20% to -45% drawdowns—you can too with discipline
+      </li><br />
+
+      <li>
+        <CheckCircle className="w-4 h-4 inline" stroke="#22c55e" /> Monte Carlo simulation reveals expected drawdowns—size positions for worst-case, not average-case
+      </li><br />
+      <li>
+        <CheckCircle className="w-4 h-4 inline" stroke="#22c55e" /> Focus on process during drawdowns, not P&L—measure success by rule adherence, not dollars
+      </li><br />
+      <li>
+        <CheckCircle className="w-4 h-4 inline" stroke="#22c55e" /> Physical disconnection during crisis—close platform, walk, exercise, sleep—return with clarity
+      </li>
+    </ul>
+
+  </AlertDescription>
+</Alert>
+
+## Self-Assessment Exercise
+
+**<Highlight variant='yellow'>Scenario 1:</Highlight>** You start with $100,000. After a bad month, you're at $78,000.
+
+**<Highlight variant='blue'>Calculate:</Highlight>** Current drawdown %, Recovery % needed
+
+**<Highlight variant='yellow'>Scenario 2:</Highlight>** Your strategy has 55% win rate. You risk 2% per trade.
+
+**<Highlight variant='blue'>Calculate:</Highlight>** Probability of 5-loss streak, Account % after 5-loss streak
+
+**<Highlight variant='yellow'>Scenario 3:</Highlight>** You're experiencing a -12% drawdown.
+
+→ **Which protocol tier applies?**
+→ **What actions should you take?**
+
+**<Highlight variant='yellow'>Scenario 4:</Highlight>** Your circuit breakers: Daily 4%, Weekly 10%, Monthly 18%.
+Today you're down 3%. Yesterday you were down 2%. Two days ago you were down 3%.
+
+→ **Can you take another trade today? Why or why not?**
+
+**<Highlight variant='yellow'>Scenario 5:</Highlight>** Your Monte Carlo simulation shows:
+
+→ 95% of runs: Max drawdown -15% to -30%<br/>
+→ Worst 1%: Max drawdown -35% to -45%<br/>
+→ **What's your psychological worst-case planning number?**<br/>
+→ **Can you survive that emotionally and financially?**
+
+<QuoteComponent
+  quote="In this business if you're good, you're right six times out of ten. You're never going to be right nine times out of ten."
+  author="Peter Lynch"
+/>
+
+**<span style={{ color: 'var(--module-badge)' }}>YOUR FORTRESS HAS SURVIVED THE LONGEST WINTER. YOU ENDURE.</span>**

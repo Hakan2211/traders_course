@@ -1,0 +1,1719 @@
+---
+title: 'Fundamentals and Dilution'
+moduleBadge: 'Module 1'
+order: 1
+---
+
+<QuoteComponent
+  quote="A structure becomes fragile not by what is added, but by what is diluted."
+  author="Nassim Nicholas Taleb (paraphrased)"
+/>
+
+## Fundamentals and Dilution: Understanding How Companies Change Your Ownership
+
+In the <CustomLink href="01-02-shares-structure">Share Structure & The IPO Process</CustomLink> lesson,
+we built our understanding of share structure from the ground up — from authorized shares down to the float.
+We visualized it as a "Magic Market Box" with flowing share particles representing the tradable float.
+
+Now we need to address something that can dramatically alter that box overnight:<br/>
+
+**<Highlight variant="red">Dilution.</Highlight>**
+
+If you've ever watched a stock you own suddenly drop 15% in pre-market trading after the company announced
+a "<Highlight variant="blue">capital raise</Highlight>", you've experienced dilution firsthand.
+It's one of the most important — and often misunderstood — concepts in trading.
+
+Understanding dilution isn't just about protecting yourself from losses.
+It's about <Highlight variant="yellow">identifying opportunities</Highlight>. Some of the biggest price moves in <Highlight variant="blue">small-cap stocks</Highlight> happen around dilutive events,
+and if you know what to look for, you can position yourself on the <Highlight variant="green">right side</Highlight> of those moves.
+
+## What is Dilution?
+
+Let's start with the core concept.
+
+**Dilution occurs when a company issues new shares, reducing the ownership percentage of existing shareholders.**
+
+Think back to our <Highlight variant="blue">pizza analogy</Highlight> from the share structure lesson.
+You own 1 slice out of 8 total slices — that's 12.5% of the pizza.
+Now imagine the company cuts 4 more slices from thin air and sells them to new people.
+You still have your 1 slice, but now there are 12 slices total. Your ownership just dropped from 12.5% to 8.3%.
+
+**Your slice didn't get smaller, but your percentage of the whole pie did.**
+
+This is the mathematical reality of dilution. And here's why it matters:
+**when ownership is diluted, so is value.** If the company is worth $100 million and
+there are 10 million shares, each share represents $10 of value. Add 5 million new shares (increasing to 15 million total),
+and suddenly each share only represents $6.67 of value — even if nothing about the business fundamentally changed.
+
+Run through that dilution path below — watch how your slice stays the same size while your percentage and value shrink.
+
+<OwnershipDilution2DContainer />
+
+### <Highlight variant="accent">The Two-Part Impact on Stock Price</Highlight>
+
+Dilution hits a stock price in two ways:
+
+**1\. <Highlight variant="blue">Mathematical Dilution</Highlight> (Immediate)**
+
+This is the pure math we just described. More shares = each share is worth less.
+
+**2\. <Highlight variant="blue">Supply Shock</Highlight> (Market Dynamics)**
+
+When millions of new shares suddenly hit the market,
+you've created a massive increase in supply. Remember our Magic Market Box? The float just expanded dramatically.
+If demand doesn't increase proportionally, the price must fall to find a new equilibrium.
+
+<Alert variant="warning">
+  <AlertTitle>The Double Whammy</AlertTitle>
+  <AlertDescription>
+    A stock can drop 20-40% on a dilutive offering even if the mathematical
+    dilution is only 15%. The extra drop comes from the supply shock and
+    investor sentiment turning negative.
+  </AlertDescription>
+</Alert>
+
+## Why Do Companies Dilute?
+
+Before we dive into the mechanics, we need to understand the "why."
+Companies don't dilute shareholders for fun — they do it because they need capital.
+The reason they need that capital determines whether the dilution is "good" or "bad."
+
+### <Highlight variant="accent">The Good Reasons</Highlight> (Potentially Accretive)
+
+**<Highlight variant="blue">Strategic Acquisitions</Highlight>**
+
+A company raises $100 million by issuing new shares to acquire a competitor.
+If that competitor generates enough profit to offset the dilution and then some,
+the acquisition is accretive — it actually makes each share more valuable despite the increase in share count.
+
+**<Highlight variant="yellow">Example:</Highlight>**<br/>
+
+Company A has 10M shares and generates $10M in annual profit =
+$1.00 EPS. They issue 2M new shares (20% dilution) to acquire Company B,
+which generates $3M in profit. New total: 12M shares generating $13M profit =
+$1.08 EPS. Dilution occurred, but EPS increased.
+
+**<span style={{ color: 'seagreen', fontSize: '1.1rem' }}>Growth Capital with Clear ROI</span>**
+
+A biotech company raises $50 million to fund a Phase 3 clinical trial for a drug
+that has already shown promising Phase 2 results.
+If the trial succeeds, the potential revenue dwarfs the dilution.
+
+**<span style={{ color: 'seagreen', fontSize: '1.1rem' }}>Strengthening the Balance Sheet</span>**
+
+A company in a cyclical industry raises capital to pay down high-interest debt.
+This reduces their cash burn and gives them runway to weather a downturn.
+
+### <Highlight variant="accent">The Bad Reasons</Highlight> (Value Destructive)
+
+**<span style={{ color: 'maroon', fontSize: '1.2rem' }}>Burning Cash with No Plan</span>**
+
+A company with negative margins and no path to profitability keeps doing offerings just to stay alive another quarter.
+Each offering is a countdown timer to the next one. This is the "death spiral" scenario common in speculative micro-caps.
+
+**<span style={{ color: 'maroon', fontSize: '1.2rem' }}>Funding a Questionable Acquisition</span>**
+
+The company overpays for an acquisition that doesn't fit their core business,
+destroying shareholder value while insiders collect bonuses for "doing a deal."
+
+**<span style={{ color: 'maroon', fontSize: '1.2rem' }}>Enriching Insiders</span>**
+
+The company issues millions of shares as executive compensation while the stock price languishes.
+This is silent, ongoing dilution that compounds year after year.
+
+<Alert variant="info">
+  <AlertTitle>The Trader's Question</AlertTitle>
+  <AlertDescription>
+    When you see a dilutive offering announced, immediately ask: **"What are
+    they using the money for?"** Most offerings are destructive in small-cap
+    stocks.
+  </AlertDescription>
+</Alert>
+
+## The Dilution Framework: SEC Filings Decoded
+
+Now let's get tactical. How do companies actually execute dilution? And more importantly, how do you see it coming?<br/>
+This is where understanding SEC filings becomes your superpower as a trader.
+
+### <Highlight variant="accent">The Foundation: Form S-3 (The Shelf Registration)</Highlight>
+
+Think of the **S-3** as pre-approval from the SEC to sell securities over the next three years.
+
+**<Highlight variant="blue">What it does:</Highlight>**
+
+→ The company files a comprehensive registration statement with the SEC<br/>
+→ Once declared "EFFECTIVE," the company can sell securities "off the shelf" at any time<br/>
+→ Typically allows registration of $100M-$500M+ in potential offerings<br/>
+→ The registration is good for up to 3 years<br/>
+
+**<Highlight variant="blue">Why it matters to traders:</Highlight>**
+
+The filing of an S-3 creates what's called a "stock overhang." The market knows the company has a loaded gun.
+They can dilute at any moment over the next three years, even if they don't have to right now.
+
+**<Highlight variant="red">The "EFFECT" Notice:</Highlight>**
+
+After the SEC reviews the S-3, they issue an "EFFECT" notice — this is the green light. The shelf is now active.
+From this moment, the company can pull the trigger on an offering with just 1-2 days notice.
+
+<Alert variant="danger">
+  <AlertTitle>Critical Point</AlertTitle>
+  <AlertDescription>
+    An S-3 is NOT an offering. It's the legal prerequisite FOR offerings. The
+    actual dilution happens later, when the company "takes down" shares from
+    that shelf.
+  </AlertDescription>
+</Alert>
+
+**<Highlight variant="yellow">Eligibility Requirements:</Highlight>**
+
+Not every company can file an S-3. To qualify, a company must:
+
+→ Have been reporting to the SEC for at least 12 months<br/>
+→ Have a public float of at least $75 million (or meet other criteria)<br/>
+→ Be current on all required filings<br/>
+
+This is why you see micro-cap companies often using Form S-1 instead—they don't meet S-3 eligibility requirements.
+
+### <Highlight variant="accent">Form S-1: The Full Registration (IPOs and Non-Shelf Secondaries)</Highlight>
+
+The S-1 is the comprehensive, initial registration statement.
+
+**<Highlight variant="blue">When it's used:</Highlight>**
+
+→ Initial Public Offerings (IPOs): The first time a company offers stock to the public<br/>
+→ Secondary Offerings by companies that don't qualify for S-3<br/>
+→ First-time registration of securities
+
+**<Highlight variant="blue">Timeline:</Highlight>**
+
+→ Can take 3-12 months from filing to effectiveness<br/>
+→ Involves multiple rounds of SEC comments and amendments<br/>
+→ Includes a "roadshow" where the company markets the deal to investors<br/>
+
+**<Highlight variant="blue">Why it matters:</Highlight>**
+
+An S-1 filing for a secondary offering is a much clearer, more immediate signal of dilution than an S-3 shelf.
+The company is actively preparing a specific deal, not just creating future optionality.
+
+### <Highlight variant="accent">The Takedown: Form 424B5 (The Pricing Supplement)</Highlight>
+
+This is the filing that announces the actual dilution event.
+
+When a company decides to sell shares from their S-3 shelf,
+they file a 424B5 prospectus supplement that provides the final terms:
+
+**<Highlight variant="blue">What's in a 424B5:</Highlight>**
+
+→ Exact number of shares being sold<br/>
+→ Exact offering price (almost always at a discount to the previous close)<br/>
+→ Names of the underwriters (the investment banks managing the deal)<br/>
+→ Total proceeds (gross and net of fees)<br/>
+→ Use of proceeds (the most important section for traders)
+
+**<Highlight variant="blue">Timing:</Highlight>**
+
+→ Filed within 2 business days after the deal is priced<br/>
+→ Usually filed the morning after an overnight pricing<br/>
+→ By the time you see the 424B5, the dilution has already occurred
+
+**<Highlight variant="blue">The typical sequence:</Highlight>**
+
+1\. Market closes at 4:00 PM<br/>
+2\. Company issues press release announcing offering around 4:30-5:00 PM<br/>
+3\. Overnight: Investment banks price the deal and sell shares to institutions<br/>
+4\. Next morning: 424B5 is filed with final details<br/>
+5\. Stock opens for trading, immediately adjusting to the offering price
+
+### <Highlight variant="accent">Form 424B3: Substantive Updates</Highlight>
+
+The 424B3 is used to file substantive changes or additions to a previously filed prospectus.
+
+**<Highlight variant="blue">When it's used:</Highlight>**
+
+→ Major business developments that affect the prospectus<br/>
+→ Material changes to risk factors<br/>
+→ Updates to financial information<br/>
+→ Significant events like acquisitions
+
+**<Highlight variant="blue">Why it matters:</Highlight>**
+
+A 424B3 is NOT typically used for the final pricing of an offering — that's what the 424B5 is for. But if you see a 424B3,
+it means something significant changed in the company's situation that required updating their registration statement.
+
+### <Highlight variant="accent">Interactive: Dilution vs. Buybacks</Highlight>
+
+Fire up the new float lab below to _feel_ how capital decisions change the market box in real time.
+
+<DilutionBuybackContainer />
+
+Tap <Highlight variant="red">Dilute</Highlight> to unleash registered shares from the shelf into the float — watch the float cube expand as supply floods in. Then hit <Highlight variant="green">Buyback</Highlight> to see the company yank those same particles out of circulation and stack them inside treasury, shrinking the float and concentrating value. Adjust the particle sliders to simulate thin micro-cap floats or thick large-cap structures and rehearse how quickly the balance can swing.
+
+## The Offering Playbook: Different Methods of Dilution
+
+Now that you understand the filing framework, let's explore how companies actually deploy these offerings.
+Each method has different characteristics, timing, and market impact.
+
+### <Highlight variant="accent">Method 1: The Secondary Offering (The Floodgate)</Highlight>
+
+This is the classic, most impactful form of dilution.
+
+**<Highlight variant="blue">How it works:</Highlight>**
+
+**<Highlight variant="yellow">Day 1 - After Market Close:</Highlight>**
+
+→ Company announces: "We are offering X million shares"<br/>
+→ No price is disclosed yet<br/>
+→ Stock often drops 5-15% in after-hours trading on the announcement alone
+
+**<Highlight variant="yellow">Overnight:</Highlight>**
+
+→ Investment banks (underwriters) price the deal, almost always at a 5-10% discount to the closing price<br/>
+→ They sell the entire block to institutional investors (mutual funds, hedge funds)<br/>
+
+**<Highlight variant="yellow">Day 2 - Morning:</Highlight>**
+
+→ 424B5 is filed showing: "We sold 5M shares at $8.50 per share"<br/>
+→ Stock opens at or near $8.50, regardless of where it closed the day before<br/>
+→ Volume is massive as the new supply hits the market<br/>
+
+**<Highlight variant="blue">Why the discount?</Highlight>**
+
+The banks need to make it attractive enough that their institutional clients will buy millions of shares in one night.
+The discount is the incentive.
+
+**<Highlight variant="blue">Market Impact:</Highlight>**<br/>
+This is what I call the "supply shock." The float just increased by potentially 10-30% overnight.
+Even if the use of proceeds is good, the immediate effect is almost always negative due to pure supply/demand mechanics.
+
+### <Highlight variant="accent">Method 2: At-the-Market Offering (ATM) - The Tap</Highlight>
+
+The ATM is the "slow drip" method of dilution.
+
+**<Highlight variant="blue">How it works:</Highlight>**
+
+→ Requires an effective S-3 shelf registration<br/>
+→ Company partners with a broker-dealer<br/>
+→ Shares are sold gradually directly into the existing trading market at current market prices<br/>
+→ Can occur over weeks or months<br/>
+→ Company has full control over timing and volume<br/>
+
+**<Highlight variant="blue">Key Features:</Highlight>**
+
+**Minimal Market Disruption:** Because shares trickle into the market with natural trading flow,
+the price impact is much less than a traditional secondary offering.
+
+**Maximum Flexibility:** The company can turn it on and off based on market conditions.
+Stock price strong? Sell more. Stock price weak? Pause the ATM.
+
+**Cost Effective:** Lower fees than a traditional underwritten offering (typically 2-3% vs. 5-7%).
+
+**<Highlight variant="blue">Market Impact:</Highlight>**<br/>
+Much subtler than a secondary offering. Traders often don't notice it happening until
+they see the quarterly 10-Q showing "We raised $X million through our ATM program during Q2."
+
+### <Highlight variant="accent">Method 3: Equity Line of Credit (ELOC) - The Private Pipeline</Highlight>
+
+The ELOC is a committed financing arrangement with a specific investor.
+
+**<Highlight variant="blue">How it works:</Highlight>**
+
+→ Company enters a contract with an investor (often a specialized financing firm)<br/>  
+→ The investor commits to buy shares "on demand" over a set period<br/>
+→ Company chooses when to "draw down" by selling shares<br/>
+→ Shares are typically sold at a 5-10% discount to current market price<br/>
+→ Often used by smaller companies that can't access traditional financing
+
+**<Highlight variant="blue">Key Features:</Highlight>**
+
+**Committed Capital:** The company knows they can access funding when they need it.<br/>
+**Issuer Control:** The company decides when to sell and how much.<br/>
+**Discounted Price:** The investor gets a formulaic discount as compensation for the commitment.
+
+**<Highlight variant="blue">Market Impact:</Highlight>**<br/>
+Moderate disruption with each drawdown. Unlike an ATM (which is anonymous),
+ELOC sales go to one specific investor, who then typically sells those shares into the market,
+creating a known "seller" that the market must absorb.
+
+**<Highlight variant="yellow">Common in:</Highlight>**
+
+→ Micro-cap biotech<br/>
+→ Pre-revenue growth companies<br/>
+→ Companies with urgent cash needs but limited access to traditional capital markets<br/>
+
+### <Highlight variant="accent">Method 4: Private Placement - The Direct Sale</Highlight>
+
+A private placement is selling shares directly to a select group of accredited investors, bypassing public markets.
+
+**<Highlight variant="blue">How it works:</Highlight>**
+
+→ Company identifies sophisticated investors (institutions, wealthy individuals, family offices)<br/>
+Negotiates terms privately<br/>
+→ Shares are sold at a negotiated price (usually at a significant discount, often 20-40%)<br/>
+→ Filed with the SEC via Form D, not an S-3<br/>
+→ Shares are "restricted" and cannot be immediately resold
+
+**<Highlight variant="blue">Key Features:</Highlight>**
+
+**Heavy Discount:** Because investors are taking illiquid, restricted shares, they demand a steep discount.<br/>
+**Rule 144 Lock-Up:** Shares can't be sold on the open market for typically 6 months.<br/>
+**Faster Execution:** Can close in days or weeks vs. months for a registered offering.
+
+**<Highlight variant="blue">Market Impact:</Highlight>**<br/>
+
+**Immediate:** Stock often drops 10-25% on announcement due to the steep discount
+and the signal that the company couldn't access better financing.<br/>
+
+**Delayed:** The real float impact comes 6 months later when the restricted shares become eligible for resale under Rule 144.
+
+<Alert variant="warning">
+  <AlertTitle>The 6-Month Calendar</AlertTitle>
+  <AlertDescription>
+    Mark your calendar 6 months from any private placement announcement. That's
+    when restricted shares become free-trading and often create a second wave of
+    selling pressure.
+  </AlertDescription>
+</Alert>
+
+### <Highlight variant="accent">Method 5: Registered Direct Offering (RDO) - The Hybrid</Highlight>
+
+The RDO is a hybrid between a public offering and a private placement.
+
+**<Highlight variant="blue">How it works:</Highlight>**
+
+→ Uses an existing S-3 shelf (like a secondary offering)<br/>
+→ Shares are sold at a fixed price directly to pre-selected institutional investors (like a private placement)<br/>
+→ No overnight pricing uncertainty<br/>
+→ Closes faster than a traditional secondary (often within 24-48 hours)
+
+**<Highlight variant="blue">Key Features:</Highlight>**
+
+**Fixed Price:** Price is set during market hours, not overnight.<br/>
+**Institutional Buyers Only:** Similar to a private placement, buyers are hand-selected.<br/>
+**No Roadshow:** Faster process, less marketing required.
+
+**<Highlight variant="blue">Market Impact:</Highlight>**<br/>
+Somewhere between a private placement and a traditional secondary.
+Less disruption than a full public offering but more immediate than waiting for restricted shares to unlock.
+
+**<Highlight variant="yellow">Common in:</Highlight>**
+
+→ Mid-cap companies<br/>
+→ Situations requiring quick capital but with better terms than a private placement<br/>
+→ Companies with strong institutional relationships<br/>
+
+## The Silent Diluters: Employee Compensation & Convertibles
+
+Not all dilution comes from press releases and 424B5 filings.
+Some of the most insidious dilution happens quietly, year after year, buried in the footnotes.
+
+### <Highlight variant="accent">Form S-8: The Employee Equity Machine</Highlight>
+
+**<Highlight variant="blue">What it is:</Highlight>**<br/>
+Form S-8 registers shares reserved for employee stock options, RSUs (Restricted Stock Units),
+and other equity compensation plans.
+
+**<Highlight variant="blue">How it dilutes:</Highlight>**
+
+→ Company creates an equity incentive plan (e.g., "2024 Equity Incentive Plan")<br/>
+→ Reserves 5 million shares for this plan<br/>
+→ Files Form S-8 to register these shares<br/>
+→ Over time, employees receive stock options or RSUs as compensation<br/>
+→ When options are exercised or RSUs vest, new shares are issued<br/>
+→ The float increases gradually and silently
+
+**<Highlight variant="blue">Why it matters:</Highlight>**<br/>
+This is ongoing, programmatic dilution. Every quarter,
+thousands or millions of new shares hit the market with almost no fanfare.
+
+**<Highlight variant="blue">How to track it:</Highlight>**<br/>
+Look in the 10-K or 10-Q under "Notes to Financial Statements":
+
+→ "Shares reserved for future issuance under equity plans: 8.5 million"<br/>
+→ This tells you the maximum potential dilution from employee compensation
+
+**<Highlight variant="blue">Real-World Impact:</Highlight>**<br/>
+A high-growth tech company might dilute shareholders by 3-5% per year through employee equity.
+Over a decade, that's 30-50% dilution that happened so slowly most retail traders never noticed.
+
+### <Highlight variant="accent">Convertible Securities: Debt That Becomes Equity</Highlight>
+
+**<Highlight variant="blue">What they are:</Highlight>**<br/>
+Convertible notes (or convertible bonds) are loans to the company that can be converted into stock at a predetermined price.
+
+**<Highlight variant="blue">How they work:</Highlight>**<br/>
+
+→ Company borrows $50 million by issuing convertible notes<br/>
+→ Notes pay 3% annual interest (much lower than traditional debt)<br/>
+→ Notes are convertible into stock at, say, $15 per share<br/>
+→ If the stock price goes above $15, bondholders convert their debt into equity<br/>
+→ Conversion triggers the issuance of new shares = dilution
+
+**<Highlight variant="blue">Why companies use them:</Highlight>**
+
+**Lower Interest Rate:** The conversion feature is valuable to investors,
+so they accept a lower coupon than they would on traditional bonds.
+
+**No Immediate Dilution:** Unlike a stock offering, the float doesn't increase on day one.
+
+**Bet on Success:** If the company fails and the stock never reaches the conversion price,
+the debt simply gets repaid with no dilution.
+
+**The Conversion Trigger:**<br/>
+Conversion is usually at the discretion of the bondholder.
+They only convert when it's profitable—when the stock price is significantly above the conversion price.
+
+**<Highlight variant="yellow">Example:</Highlight>**<br/>
+
+→ Convertible notes issued at $15 conversion price<br/>
+→ Stock price rises to $25<br/>
+→ Each $1,000 note can convert into 66.67 shares (at $15 each)<br/>
+→ With stock trading at $25, those shares are worth $1,666.67<br/>
+→ Bondholders convert, causing dilution
+
+**<Highlight variant="blue">Market Impact:</Highlight>**<br/>
+When a large convertible note matures or bondholders begin converting,
+the market anticipates the dilution. Traders often short the stock in advance,
+creating downward pressure even before the actual conversion occurs.
+
+**<Highlight variant="blue">How to track convertibles:</Highlight>**<br/>
+
+→ Check the balance sheet: "Convertible notes payable: $50M"<br/>
+→ Read the notes: "Convertible at $15 per share, maturing in 2026"<br/>
+→ Calculate potential dilution: $50M ÷ $15 = 3.33M new shares
+
+### <Highlight variant="accent">Warrants: The Delayed Dilution Bomb</Highlight>
+
+**<Highlight variant="blue">What they are:</Highlight>**<br/>
+Warrants are similar to stock options — they give the holder the right to buy shares
+at a specific price (the strike price) within a certain timeframe.
+
+**<Highlight variant="blue">How they're issued:</Highlight>**<br/>
+Often as a "sweetener" in combination offerings:
+
+→ "We're selling Units: 1 share + 0.5 warrant at $10 per Unit"<br/>
+→ Investor pays $10, gets 1 share immediately and a warrant to buy another share at $12 anytime in the next 5 years
+
+**<Highlight variant="blue">Why companies use them:</Highlight>**<br/>
+They make an offering more attractive without requiring as steep a discount on the stock itself.
+
+**<Highlight variant="blue">The Dilution Trigger:</Highlight>**<br/>
+Warrants are only exercised when the stock price is above the strike price (otherwise,
+why pay $12 for shares you can buy on the open market for $10?).
+
+**<Highlight variant="yellow">Example:</Highlight>**<br/>
+
+→ Company sold 5M units: 5M shares + 2.5M warrants at $12 strike<br/>
+→ Stock price climbs to $20<br/>
+→ Warrant holders exercise: they pay $12 to the company for shares worth $20<br/>
+→ Company issues 2.5M new shares<br/>
+→ Float increases by 2.5M shares = dilution
+
+**<Highlight variant="blue">Market Impact:</Highlight>**<br/>
+This is called "warrant overhang." Even if warrants aren't exercised yet, the market knows they exist. As the stock price approaches the strike price, traders anticipate the dilution and the stock often faces resistance at that level.
+
+**<Highlight variant="blue">How to track warrants:</Highlight>**<br/>
+
+→ Check the 10-Q/10-K: "Warrants outstanding: 2.5M at $12 strike, expiring 2028"<br/>
+→ Calculate the "fully diluted" share count (more on this below)
+
+### <Highlight variant="accent">PIPES: Private Investment in Public Equity (The Toxic Variety)</Highlight>
+
+**<Highlight variant="blue">What they are:</Highlight>**<br/>
+PIPES are private placements with especially investor-friendly (and company-destructive) terms,
+common in desperate micro-cap situations.
+
+**Common toxic features:**<br/>
+
+**"Death Spiral" Convertibles:**<br/>
+
+→ Notes convert at a discount to the current market price (e.g., 20% below the 10-day average)<br/>
+→ As the stock price falls, more shares are issued upon conversion<br/>
+→ This creates more selling pressure, driving the price lower<br/>
+→ Which triggers more conversions at even worse prices<br/>
+→ The spiral continues
+
+**Reset Warrants:**<br/>
+
+→ If the stock price falls below the warrant strike price, the strike price "resets" lower<br/>
+→ This ensures the warrants always stay "in the money," guaranteeing dilution
+
+**<Highlight variant="blue">Market Impact:</Highlight>**<br/>
+PIPES with toxic terms are often a death sentence for a stock.
+They signal the company is desperate and couldn't secure better financing.
+The resulting dilution can be catastrophic—30%, 50%, 70%+ over a period of months.
+
+<Alert variant="danger">
+  <AlertTitle>Red Flag</AlertTitle>
+  <AlertDescription>
+    If you see a company announce a PIPE with a known "toxic lender" (certain
+    firms specialize in these predatory deals), it's often best to avoid the
+    stock entirely. The dilution spiral is extremely difficult to escape.
+  </AlertDescription>
+</Alert>
+
+Launch a full secondary to feel the instant flood, toggle a slow ATM drip,
+and only exercise the warrant halo once price clears the strike. It ties every
+financing path back to the float in real time.
+
+<OfferingMechanicsContainer />
+
+## The Math of Dilution: Fully Diluted Share Count
+
+Most traders only look at the <Highlight variant="blue">"Shares Outstanding"</Highlight> number. But that's <Highlight variant="yellow">not the full picture</Highlight>.
+
+Plug a hypothetical offering into the dilution impact lab below to see how an overnight raise
+instantly expands the float, compresses EPS, and chips away at your ownership slice.
+
+**<Highlight variant="yellow">Fully Diluted Shares:</Highlight>** Basic shares PLUS all potential shares from:
+
+→ Outstanding stock options<br/>
+→ RSUs that will vest<br/>
+→ Convertible notes (if converted)<br/>
+→ Warrants (if exercised)<br/>
+
+**<Highlight variant="blue">Why it matters:</Highlight>**<br/>
+A company might show 10M shares outstanding on the balance sheet, but have:
+
+→ 2M stock options<br/>
+→ 1M RSUs<br/>
+→ 3M shares from convertible notes<br/>
+→ 2M shares from warrants<br/>
+
+**<Highlight variant="yellow">Fully diluted share count:</Highlight> 18M shares (80% higher than basic!)**
+
+**<Highlight variant="blue">How to find it:</Highlight>**<br/>
+Look in the 10-Q or 10-K under "Earnings Per Share" calculations. Companies are required to show both:
+
+→ Basic EPS<br/>
+→ Diluted EPS<br/>
+
+The diluted EPS calculation uses the fully diluted share count.
+
+**<Highlight variant="blue">Trader Application:</Highlight>**<br/>
+When evaluating a company's valuation:
+
+→ Don't use basic shares outstanding<br/>
+→ Use fully diluted shares for a realistic picture<br/>
+→ This is especially critical for companies with heavy equity compensation or convertible debt<br/>
+
+<DilutionImpact2DContainer />
+
+## Cash Runway: Predicting the Next Dilution
+
+Here's the most valuable formula for anticipating dilution:
+
+<Math>
+  {
+    '\\text{Cash Runway} = \\frac{\\text{Cash on Hand}}{\\text{Quarterly Cash Burn}}'
+  }
+</Math>
+
+**<Highlight variant="blue">Where to find these numbers:</Highlight>**
+
+**<Highlight variant="green">Balance Sheet:</Highlight>**<br/>
+→ "Cash and cash equivalents: $15M"
+
+**<Highlight variant="green">Cash Flow Statement:</Highlight>**<br/>
+→ "Net cash used in operating activities: ($5M) per quarter"
+
+**<Highlight variant="green">The Calculation:</Highlight>**<br/>
+$15M ÷ $5M = **3 quarters of runway**
+
+**<Highlight variant="blue">What this tells you:</Highlight>**<br/>
+If a company has less than 6 months of runway, a dilutive financing event is highly probable.
+They need cash to survive, and that cash comes from either:
+
+→ A dilutive offering<br/>
+→ Debt (which often converts to equity later)<br/>
+→ Getting acquired (sometimes at a fire-sale price)<br/>
+
+**<Highlight variant="blue">Trader Strategy:</Highlight>**<br/>
+For companies with short runways:
+
+→ Watch for offering announcements<br/>
+→ Anticipate downward pressure as the runway shrinks<br/>
+→ Short the stock and wait for the dilution to play out<br/>
+→ Sometimes the offering itself creates a buyable bottom (if the use of proceeds is strong).
+This is risky but can be profitable if shorts are overcrowded or start covering.<br/>
+
+<Alert variant="info">
+  <AlertTitle>The Cash Runway Alert System</AlertTitle>
+  <AlertDescription>
+    Create a simple tracking system:
+    <br />
+    **Green (&gt;12 months):** Low dilution risk
+    <br />
+    **Yellow (6-12 months):** Moderate risk, watch closely
+    <br />
+    **Red (&lt;6 months):** High risk, offering likely imminent
+  </AlertDescription>
+</Alert>
+
+## The Opposite of Dilution: Share Buybacks
+
+Not every corporate action dilutes shareholders. Sometimes, companies do the opposite.
+
+**<Highlight variant="blue">What is a buyback?</Highlight>**<br/>
+The company uses its cash to purchase its own shares on the open market, then retires those shares.
+
+**<Highlight variant="blue">The Mechanics:</Highlight>**
+
+→ Reduces shares outstanding<br/>
+→ Increases each remaining share's percentage ownership<br/>
+→ Increases earnings per share (same profit ÷ fewer shares)<br/>
+→ Decreases the float<br/>
+
+**It's the <Highlight variant="yellow">mirror image</Highlight> of an <Highlight variant="red">offering:</Highlight>**
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Feature</TableHead>
+      <TableHead>Stock Offering</TableHead>
+      <TableHead>Stock Buyback</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>Action</TableCell>
+      <TableCell>Issue new shares</TableCell>
+      <TableCell>Retire existing shares</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Share Count</TableCell>
+      <TableCell>Increases</TableCell>
+      <TableCell>Decreases</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Float</TableCell>
+      <TableCell>Expands</TableCell>
+      <TableCell>Contracts</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Ownership %</TableCell>
+      <TableCell>Diluted</TableCell>
+      <TableCell>Concentrated</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>EPS Impact</TableCell>
+      <TableCell>Decreases</TableCell>
+      <TableCell>Increases</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Cash Flow</TableCell>
+      <TableCell>Cash IN to company</TableCell>
+      <TableCell>Cash OUT from company</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Market Impact</TableCell>
+      <TableCell>Usually negative</TableCell>
+      <TableCell>Usually positive</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+<br />
+
+**<Highlight variant="blue">Why companies do buybacks:</Highlight>**
+
+**Signal of Confidence:** Management is essentially saying, "Our stock is undervalued,
+and the best investment we can make with our cash is in ourselves."<br/>
+**Return Capital to Shareholders:** Alternative to dividends, often more tax-efficient.<br/>
+**Offset Dilution:** Many companies with active employee stock option programs buy back shares to prevent
+the share count from creeping up.<br/>
+**Improve Financial Metrics:** Lower share count = higher EPS = stock looks more attractive.
+
+**<Highlight variant="blue">Market Impact:</Highlight>**<br/>
+Buybacks create demand for the stock, providing price support.
+Announcement of a buyback program is almost always positive for the stock price.
+
+**<Highlight variant="blue">How they're executed:</Highlight>**<br/>
+**Open Market Purchases:** Company buys shares gradually over time, just like any other investor.<br/>
+**Tender Offer:** Company offers to buy a specific number of shares at a premium price directly from shareholders.<br/>
+
+**<Highlight variant="yellow">Example:</Highlight>**<br/>
+Company A has:
+
+→ 10M shares outstanding<br/>
+→ $10M in annual profit<br/>
+→ EPS = $1.00
+
+They announce a $50M buyback program. At a $10 stock price, they repurchase 5M shares.<br/>
+New structure:
+
+→ 5M shares outstanding<br/>
+→ $10M in annual profit<br/>
+→ EPS = $2.00
+
+**<Highlight variant="yellow">EPS doubled through buybacks</Highlight>, even though <Highlight variant="yellow">profit didn't change.</Highlight>**
+
+## The Dark Side: Reverse Splits
+
+When dilution has gone too far and a stock is trading at pennies, companies sometimes hit the "reset button."
+
+**<Highlight variant="blue">What is a reverse split?</Highlight>**<br/>
+The company reduces the total number of shares to artificially increase the stock price.
+
+**<Highlight variant="yellow">Example: 1-for-10 Reverse Split</Highlight>**
+
+→ You owned 1,000 shares at $0.50 = $500 total value<br/>
+→ After reverse split: 100 shares at $5.00 = $500 total value
+
+**Your ownership percentage didn't change. Your total value didn't change. But the share count and price did.**
+
+**<Highlight variant="blue">Why companies do it:</Highlight>**
+
+**Avoid Delisting:** Exchanges like NASDAQ require stocks to maintain a minimum bid price (typically $1.00).
+A reverse split boosts the price to maintain compliance.
+
+<br />
+**Improve Perception:** A $5 stock "looks" more legitimate than a $0.30 stock, even
+if the market cap is identical.
+<br />
+**Enable Future Dilution:** At $0.30, it's hard to raise meaningful capital. At $5.00,
+the company can do another offering more easily.
+
+**<Highlight variant="red">Why it's a massive red flag:</Highlight>**
+
+**No Value Created:** It's pure accounting. The market cap doesn't change.<br />
+**Sign of Weakness:** Management couldn't support the price through business performance.<br />
+**Often Precedes More Dilution:** The higher stock price makes it easier to do another
+offering.<br />
+**Historical Pattern:** Studies show that 70-80% of stocks that undergo reverse splits
+see their share price decline significantly in the following 12 months, often falling
+back to pre-split levels or lower.<br />
+**Market Reaction:** Announcement of a reverse split is almost always met with selling
+pressure. Sophisticated traders see it as a desperate move.
+
+## SEC Filings: Your Dilution Intelligence Network
+
+Now let's tie it all together. Here's your complete guide to which filings signal what, and when.
+
+### **<span style={{ color: 'papayawhip', fontSize: '1.3rem' }}>The Capital Structure Filings</span>**
+
+### <Highlight variant="accent">Form 10-K (Annual) and Form 10-Q (Quarterly)</Highlight>
+
+**<Highlight variant="blue">What they reveal:</Highlight>**
+
+→ Cash position and burn rate<br/>
+→ Outstanding warrants and convertibles<br/>
+→ Shares reserved for employee equity<br/>
+→ Full dilution calculations<br/>
+
+**<Highlight variant="blue">Where to look:</Highlight>**
+
+→ Balance Sheet: Cash and cash equivalents<br/>
+→ Cash Flow Statement: Net cash used in operating activities<br/>
+→ Notes to Financial Statements: Stock-based compensation, warrants, convertibles<br/>
+→ Risk Factors: "We will need to raise additional capital..."
+
+**<Highlight variant="blue">Trader Action:</Highlight>** Calculate cash runway. If &lt; 9 months, flag for dilution risk.
+
+### <Highlight variant="accent">Form 8-K (Current Report)</Highlight>
+
+**<Highlight variant="blue">What it announces:</Highlight>**
+
+→ Material events including offerings, acquisitions, bankruptcy<br/>
+→ Entry into financing agreements<br/>
+→ Changes in share structure<br/>
+
+**Trader Action:** Read within hours of filing. This is often where you first learn about a dilutive event.
+
+### <Highlight variant="accent">Form DEF 14A (Proxy Statement):</Highlight>
+
+**<Highlight variant="blue">What it reveals:</Highlight>**
+
+→ Proposals requiring shareholder votes<br/>
+→ Requests to increase authorized shares<br/>
+→ New equity incentive plans<br/>
+
+**Trader Action:** If you see a proposal to increase authorized shares,
+the company is signaling intent to issue more shares in the future.
+
+### **<span style={{ color: 'papayawhip', fontSize: '1.3rem' }}>The Offering Filings</span>**
+
+### <Highlight variant="accent">Form S-3 (Shelf Registration)</Highlight>
+
+**Signal:** Company is preparing the ability to raise capital over the next 3 years.<br/>
+**Trader Action:** Watch for EFFECT notice. Once effective, the company can do an offering on short notice.
+
+### <Highlight variant="accent">Form S-1 (Initial Registration)</Highlight>
+
+**Signal:** Company is preparing a specific offering (IPO or secondary for non-S-3 eligible companies).<br/>
+**Trader Action:** Offering is being actively prepared. Timeline is longer (months), but dilution is coming.
+
+### <Highlight variant="accent">Form 424B5 (Prospectus Supplement)</Highlight>
+
+**Signal:** THE offering just happened. This is the post-mortem.\*\*
+
+**<Highlight variant="blue">What it shows:</Highlight>**
+
+→ Exact shares sold<br/>
+→ Exact price<br/>
+→ Use of proceeds
+
+**Trader Action:** Filed the morning after an overnight pricing. By the time you see this, the dilution is complete.
+
+### <Highlight variant="accent">Form 424B3 (Substantive Update)</Highlight>
+
+**Signal:** Material changes to the business or registration statement.<br/>
+**Trader Action:** Read to understand what changed. Not typically a pricing document.
+
+### **<span style={{ color: 'papayawhip', fontSize: '1.3rem' }}>The Ownership Filings</span>**
+
+### <Highlight variant="accent">Schedule 13D / 13G (>5% Ownership Reports)</Highlight>
+
+**<Highlight variant="blue">What they reveal:</Highlight>**
+
+→ New large shareholders<br/>
+→ Activist investors (13D) vs. passive investors (13G)<br/>
+
+**<Highlight variant="blue">Trader Action:</Highlight>**
+
+→ 13G from reputable fund = vote of confidence<br/>
+→ 13D from activist = potential catalyst (could force buybacks or block bad acquisitions)<br/>
+
+### <Highlight variant="accent">Form 4 (Insider Trading Report)</Highlight>
+
+**<Highlight variant="blue">What it reveals:</Highlight>**
+
+→ Insider buying or selling<br/>
+→ Must be filed within 2 business days of transaction<br/>
+
+**<Highlight variant="blue">Trader Action:</Highlight>** **Critical signal after a dilutive offering:**
+If multiple insiders are buying shares at the offering price, it's a powerful vote of confidence.
+Conversely, heavy insider selling before an offering is a major red flag.
+
+### **<span style={{ color: 'papayawhip', fontSize: '1.3rem' }}>The Employee Compensation Filings</span>**
+
+### <Highlight variant="accent">Form S-8 (Employee Equity Registration)</Highlight>
+
+**<Highlight variant="blue">What it reveals:</Highlight>**
+
+→ Registration of shares for employee stock option plans<br/>
+→ RSUs and other equity compensation programs<br/>
+→ Total shares reserved for future issuance<br/>
+
+**Trader Action:**
+This is silent, ongoing dilution. Check the 10-K to see "Shares reserved for future issuance under equity plans."
+This number represents potential dilution that will trickle in over years.
+
+### <Highlight variant="accent">Form 10-12B (Spin-Off Registration)</Highlight>
+
+**<Highlight variant="blue">What it reveals:</Highlight>**
+
+→ Company is spinning off a subsidiary as a separate public entity<br/>
+→ Creates a new float for the child company<br/>
+
+**Trader Action:**
+Not dilutive to the parent company, but creates new trading opportunities in the spun-off entity.
+
+### **<span style={{ color: 'papayawhip', fontSize: '1.3rem' }}>The Private Placement Filings</span>**
+
+### <Highlight variant="accent">Form D (Notice of Exempt Offering)</Highlight>
+
+**<Highlight variant="blue">What it reveals:</Highlight>**
+
+→ Private placement to accredited investors<br/>
+→ Amount raised and terms (sometimes)<br/>
+→ These shares are restricted<br/>
+
+**Trader Action:**
+Mark your calendar for 6 months out. That's when restricted shares become eligible for resale under Rule 144,
+potentially creating selling pressure.
+
+### <Highlight variant="accent">Form 144 (Notice of Intent to Sell Restricted Stock)</Highlight>
+
+**<Highlight variant="blue">What it reveals:</Highlight>**
+
+→ Insiders or investors filing their intent to sell restricted shares<br/>
+→ Shows the volume they plan to sell<br/>
+
+**Trader Action:**
+Large Form 144 filings signal incoming supply. Watch for price pressure as these shares hit the market.
+
+### **<span style={{ color: 'papayawhip', fontSize: '1.3rem' }}>The M&A and Tender Offer Filings</span>**
+
+### <Highlight variant="accent">Schedule TO (Tender Offer)</Highlight>
+
+**<Highlight variant="blue">What it reveals:</Highlight>**
+
+→ Company is making a tender offer to buy back shares<br/>
+→ Price offered and number of shares sought<br/>
+
+**Trader Action:**
+Anti-dilutive event. Usually bullish. Company is returning capital to shareholders.
+
+### <Highlight variant="accent">Form SC 13E-3 (Going-Private Transaction)</Highlight>
+
+**<Highlight variant="blue">What it reveals:</Highlight>**
+
+→ Company or insiders are taking the company private<br/>
+→ Major buyback of public shares<br/>
+
+**Trader Action:**
+Typically bullish. Company or insiders believe the stock is significantly undervalued.
+
+### <Highlight variant="accent">Form 425 (Business Combination Filings)</Highlight>
+
+**<Highlight variant="blue">What it reveals:</Highlight>**
+
+→ Merger or acquisition communications<br/>
+→ Stock-for-stock deals<br/>
+
+**Trader Action:**
+If it's a stock-for-stock merger, calculate the exchange ratio to understand the dilutive impact on shareholders.
+
+## <Highlight variant="accent">Form 8-A (Securities Registration)</Highlight>
+
+**<Highlight variant="blue">What it reveals:</Highlight>**
+
+→ Registration of securities for listing on an exchange<br/>
+→ Often precedes a shelf registration or offering<br/>
+
+**Trader Action:**
+Early warning signal. The company is preparing to issue securities.
+
+## The Master Cheat Sheet: Filing → Signal → Action
+
+Use this quick reference to connect each filing with the signal it sends and the action you should take.
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Filing</TableHead>
+      <TableHead>What It Means</TableHead>
+      <TableHead>Dilution Signal</TableHead>
+      <TableHead>Your Action</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>S-3</TableCell>
+      <TableCell>Shelf registered</TableCell>
+      <TableCell>Overhang created (0% now)</TableCell>
+      <TableCell>Monitor for takedowns</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>EFFECT</TableCell>
+      <TableCell>Shelf now active</TableCell>
+      <TableCell>Gun is loaded</TableCell>
+      <TableCell>Heightened alert</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>424B5</TableCell>
+      <TableCell>Deal just priced</TableCell>
+      <TableCell>DILUTION OCCURRED</TableCell>
+      <TableCell>Evaluate use of proceeds</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>424B3</TableCell>
+      <TableCell>Material update</TableCell>
+      <TableCell>Context change</TableCell>
+      <TableCell>Read carefully</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>S-1</TableCell>
+      <TableCell>Full registration</TableCell>
+      <TableCell>Specific offering coming</TableCell>
+      <TableCell>Long timeline (months)</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>8-K</TableCell>
+      <TableCell>Major event</TableCell>
+      <TableCell>Often announces offering</TableCell>
+      <TableCell>Read immediately</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Form D</TableCell>
+      <TableCell>Private placement</TableCell>
+      <TableCell>Restricted shares issued</TableCell>
+      <TableCell>Mark 6-month calendar</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Form 144</TableCell>
+      <TableCell>Intent to sell restricted</TableCell>
+      <TableCell>Supply coming</TableCell>
+      <TableCell>Watch for price pressure</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Form 4</TableCell>
+      <TableCell>Insider transaction</TableCell>
+      <TableCell>Confidence signal</TableCell>
+      <TableCell>Cluster of buys = bullish</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>13D</TableCell>
+      <TableCell>Activist investor</TableCell>
+      <TableCell>Potential catalyst</TableCell>
+      <TableCell>Could block bad deals</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>13G</TableCell>
+      <TableCell>Passive investor</TableCell>
+      <TableCell>Vote of confidence</TableCell>
+      <TableCell>Reputation matters</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>DEF 14A</TableCell>
+      <TableCell>Proxy statement</TableCell>
+      <TableCell>Future dilution request</TableCell>
+      <TableCell>Check share increase proposals</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>S-8</TableCell>
+      <TableCell>Employee equity plan</TableCell>
+      <TableCell>Silent, ongoing dilution</TableCell>
+      <TableCell>Calculate fully diluted shares</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>10-K/Q</TableCell>
+      <TableCell>Financial reports</TableCell>
+      <TableCell>Cash runway analysis</TableCell>
+      <TableCell>Burn rate → offering probability</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Schedule TO</TableCell>
+      <TableCell>Tender offer</TableCell>
+      <TableCell>ANTI-DILUTIVE</TableCell>
+      <TableCell>Usually bullish</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+<br />
+
+## Advanced Topic: The Toxicity Scorecard
+
+Not all dilution is created equal. Here's a quantitative framework to assess how "toxic" a financing situation is.
+
+### <Highlight variant="accent">Metric 1: Warrant Overhang Percentage</Highlight>
+
+**<Highlight variant="yellow">Formula:</Highlight>**
+
+<Math>
+  {
+    '\\text{Warrant Overhang \\%} = \\frac{\\text{Outstanding Warrants}}{\\text{Current Float}} \\times 100'
+  }
+</Math>
+
+**<Highlight variant="blue">Interpretation:</Highlight>**
+
+→ 0-5%: Minimal concern<br/>
+→ 5-15%: Moderate overhang, watch warrant strike prices<br/>
+→ 15-30%: Significant overhang, price resistance likely near strikes<br/>
+→ >30%: Severe overhang, major dilution event likely when warrants are exercised<br/>
+
+**<Highlight variant="yellow">Example:</Highlight>**
+
+→ Float: 10M shares<br/>
+→ Outstanding warrants: 4M shares at $8 strike<br/>
+→ Current price: $10<br/>
+→ Overhang: 4M ÷ 10M = 40%<br/>
+
+**<Highlight variant="blue">Trader's read:</Highlight>** As long as the stock stays above $8, there's a 40% dilution bomb hanging over the stock.
+This creates massive resistance to upward movement.
+
+### <Highlight variant="accent">Metric 2: Average Offering Discount</Highlight>
+
+**<Highlight variant="yellow">Formula:</Highlight>**
+
+<Math>
+  {
+    '\\text{Avg Discount \\%} = \\left(\\frac{\\text{Offering Price} - \\text{Prior Close}}{\\text{Prior Close}}\\right) \\times 100'
+  }
+</Math>
+
+**<Highlight variant="blue">Interpretation:</Highlight>**
+
+→ 0-10%: Standard institutional discount<br/>
+→ 10-20%: Elevated discount, suggests difficult financing environment<br/>
+→ 20-30%: Heavy discount, company is desperate<br/>
+→ >30%: Toxic financing, usually paired with warrants or convertibles<br/>
+
+**<Highlight variant="yellow">Example:</Highlight>** Last 3 offerings:
+
+→ Offering 1: $5.00 (prior close $5.50) = -9.1%<br/>
+→ Offering 2: $3.50 (prior close $4.50) = -22.2%<br/>
+→ Offering 3: $2.00 (prior close $3.00) = -33.3%<br/>
+
+→ Average discount: -21.5%<br/>
+
+**<Highlight variant="blue">Trader's read:</Highlight>** Discounts are getting worse over time. The company's access to capital is deteriorating.
+Future offerings will likely be even more dilutive.
+
+### <Highlight variant="accent">Metric 3: Cash Runway in Months</Highlight>
+
+**<Highlight variant="yellow">Formula:</Highlight>**
+
+<Math>
+  {
+    '\\text{Runway (months)} = \\frac{\\text{Cash on Hand}}{\\frac{\\text{Quarterly Cash Burn}}{3}}'
+  }
+</Math>
+
+**<Highlight variant="blue">Interpretation:</Highlight>**
+
+→ >12 months: Low urgency, company has time<br/>
+→ 6-12 months: Moderate urgency, start watching<br/>
+→ 3-6 months: High urgency, offering likely within 1-2 quarters<br/>
+→ &lt;3 months: Critical, offering imminent or company may fail<br/>
+
+**<Highlight variant="yellow">Example:</Highlight>**
+
+→ Cash: $8M<br/>
+→ Quarterly burn: $6M<br/>
+→ Monthly burn: $2M<br/>
+→ Runway: $8M ÷ $2M = 4 months<br/>
+
+**<Highlight variant="blue">Trader's read:</Highlight>** The company will need to raise capital within the next quarter.
+Position accordingly — either exit before the dilution, or prepare to buy the post-offering bottom if fundamentals are strong.
+
+### <Highlight variant="accent">The Complete Toxicity Score</Highlight>
+
+Combine all three metrics:
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Component</TableHead>
+      <TableHead>Weight</TableHead>
+      <TableHead>Your Score</TableHead>
+      <TableHead>Weighted Score</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>Warrant Overhang</TableCell>
+      <TableCell>30%</TableCell>
+      <TableCell>40% = 3 / 5</TableCell>
+      <TableCell>0.9</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Average Offering Discount</TableCell>
+      <TableCell>30%</TableCell>
+      <TableCell>21.5% = 3 / 5</TableCell>
+      <TableCell>0.9</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Cash Runway</TableCell>
+      <TableCell>40%</TableCell>
+      <TableCell>4 months = 4 / 5</TableCell>
+      <TableCell>1.6</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>TOTAL TOXICITY</TableCell>
+      <TableCell colSpan={2}>Score out of 5</TableCell>
+      <TableCell>3.4 / 5.0</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+<br />
+
+**<Highlight variant="blue">Interpretation:</Highlight>**
+
+→ 0-1.5: Low toxicity, relatively healthy capital structure<br/>
+→ 1.5-3.0: Moderate toxicity, watch carefully<br/>
+→ 3.0-4.0: High toxicity, dilution events are high-probability and destructive<br/>
+→ 4.0-5.0: Extreme toxicity, often a "death spiral" scenario<br/>
+
+**<Highlight variant="red">A score of 3.4 signals:</Highlight>** "This company is in serious trouble. Heavy dilution is coming,
+and it will be on bad terms. Unless there's a major catalyst, avoid or short."
+
+<ToxicityScorecard2DContainer />
+
+## Case Study: Recognizing "Good" vs. "Bad" Dilution
+
+Let's walk through two real-world scenarios to illustrate how use of proceeds determines everything.
+
+### <Highlight variant="accent">Scenario A: The Accretive Acquisition (Good Dilution)</Highlight>
+
+**Company:** MedTech Innovations (fictional example)<br/>
+**Situation:** Growing medical device company with strong margins<br/>
+
+**<Highlight variant="yellow">The Announcement (8-K filed after market close):</Highlight>**
+
+<blockquote>
+  "MedTech announces $150M offering to fund acquisition of SurgiPro, a leader in
+  robotic surgical tools. The acquisition is expected to be 25% accretive to EPS
+  in year one."
+</blockquote>
+<br />
+
+**The Numbers:**
+
+**<Highlight variant="blue">Before the deal:</Highlight>**
+
+→ 20M shares outstanding<br/>
+→ $40M annual profit<br/>
+→ EPS: $2.00<br/>
+→ Stock price: $50<br/>
+
+**<Highlight variant="blue">The offering:</Highlight>**
+
+→ 23M shares outstanding (15% dilution)<br/>
+→ $52M annual profit ($40M + $12M from SurgiPro)<br/>
+→ EPS: $2.26 (13% increase!)<br/>
+→ Stock price: Initially drops to $47, but...<br/>
+
+**<Highlight variant="blue">The Market's Reaction:</Highlight>**
+
+**Day 1:** Stock drops to $47 on dilution news<br/>
+**Day 2-30:** Analysts publish reports praising the strategic fit<br/>
+**Month 2:** Stock recovers to $52<br/>
+**Month 6:** Stock trading at $60<br/>
+
+**<Highlight variant="blue">Why this worked:</Highlight>**
+The acquired company's profit contribution ($12M) more than offset the dilution. Even with 15% more shares,
+EPS actually increased. The market rewarded the company for the smart acquisition.
+
+**<Highlight variant="blue">Trader's Action:</Highlight>**
+If you identified this as accretive dilution (by reading the 8-K and doing the math),
+the $47 offering price was a gift—a 20% discount to where the stock would trade 3 months later.
+
+### <Highlight variant="accent">Scenario B: The Death Spiral (Bad Dilution)</Highlight>
+
+**Company:** BioHope Therapeutics (fictional example)<br/>
+**Situation:** Pre-revenue biotech, drug failed Phase 2 trial<br/>
+Situation: Pre-revenue biotech, drug failed Phase 2 trial<br/>
+
+**<Highlight variant="yellow">The Announcement (8-K filed):</Highlight>**
+
+<blockquote>
+  "BioHope closes $10M private placement with Vulture Capital Partners. Proceeds
+  to fund operations and advance pipeline."
+</blockquote>
+<br />
+
+**The Numbers:**
+
+**<Highlight variant="blue">Before the deal:</Highlight>**
+
+→ 5M shares outstanding<br/>
+→ $2M cash remaining<br/>
+→ $3M quarterly burn<br/>
+→ Stock price: $2.00<br/>
+
+**<Highlight variant="blue">The private placement:</Highlight>**
+
+→ 4M shares sold at $1.40 (30% discount)<br/>
+→ Plus 4M warrants at $1.60 strike<br/>
+→ Raises $5.6M (before fees, ~$5M net)<br/>
+
+**<Highlight variant="blue">After the deal:</Highlight>**
+
+→ 9M shares outstanding (80% immediate dilution!)<br/>
+→ Plus 4M warrant overhang (44% additional potential dilution)<br/>
+→ $7M cash<br/>
+→ Still burning $3M/quarter = 2.3 months of runway<br/>
+
+**<Highlight variant="blue">The Market's Reaction:</Highlight>**
+
+**Day 1:** Stock drops to $1.40<br/>
+**Week 1:** Stock drops to $1.20<br/>
+**Month 1:** Stock drops to $0.90<br/>
+**Month 2:** Another offering announced at $0.70<br/>
+
+**<Highlight variant="blue">Why this failed:</Highlight>**<br/>
+The company only bought itself 2 months of runway at the cost of 80% dilution.
+The proceeds went to "operations" (paying salaries and bills) with no clear path to revenue.
+Vulture Capital Partners got a massive discount plus warrants, meaning they can profit even as the stock craters.
+
+**<Highlight variant="red">The Death Spiral:</Highlight>**
+
+→ First offering at $1.40 (30% discount)<br/>
+→ Warrants create 44% overhang<br/>
+→ Two months later, need more cash<br/>
+→ Second offering at $0.70 (50% discount)<br/>
+→ Stock continues falling<br/>
+→ Repeat until bankruptcy or reverse split<br/>
+
+**<Highlight variant="blue">Trader's Action:</Highlight>**<br/>
+Avoid entirely. When you see:<br/>
+
+→ Heavy discount (>20%)<br/>
+→ Short cash runway being extended minimally<br/>
+→ Known toxic lender<br/>
+→ Warrants with strike prices below current market<br/>
+
+...it's a recipe for disaster.
+
+## The 30-Day Post-Offering Window: The Insider Signal
+
+**<Highlight variant="yellow">The Setup:</Highlight>**
+
+A company just completed a dilutive offering.
+The stock dropped 15% to the offering price.
+Most retail traders are demoralized and sell. But you have a secret weapon: Form 4 filings.
+
+**<Highlight variant="blue">What to watch for:</Highlight>**<br/>
+In the 30 days following a dilutive offering, monitor Form 4 filings for insider purchases.
+
+**<Highlight variant="blue">The Signal:</Highlight>**
+
+If you see a cluster of insider buys—CEO, CFO, multiple directors—all purchasing shares at or near
+the offering price, it's one of the strongest bullish signals possible.<br/>
+
+**<Highlight variant="blue">Why it's so powerful:</Highlight>**<br/>
+Insiders have perfect information. They know:
+
+→ The exact use of proceeds<br/>
+→ The company's internal projections<br/>
+→ Whether the offering was desperate or strategic<br/>
+→ Whether the business is about to inflect<br/>
+
+When multiple insiders put their own money into the stock right after a dilutive offering, they're telling you:
+"This offering price is a gift. The pain is temporary. The future is bright."
+
+**<Highlight variant="yellow">Example Pattern:</Highlight>**
+
+**Day 0:** Company prices offering at $8.50<br/>
+**Day 2:** 424B5 filed, stock opens at $8.50<br/>
+**Day 5:** Form 4 – CEO buys 50,000 shares at $8.52<br/>
+**Day 8:** Form 4 – CFO buys 25,000 shares at $8.48<br/>
+**Day 12:** Form 4 – Director A buys 15,000 shares at $8.55<br/>
+**Day 15:** Form 4 – Director B buys 20,000 shares at $8.60
+
+**Total insider buying:** 110,000 shares within 15 days
+
+**<Highlight variant="blue">The Interpretation:</Highlight>**<br/>
+This is a massive vote of confidence. These insiders could have received shares for free through
+their compensation packages, but instead they used their personal cash to buy on the open market at the offering price.
+
+**<Highlight variant="blue">Historical Pattern:</Highlight>**<br/>
+Stocks that see heavy insider buying within 30 days of a dilutive offering tend
+to outperform over the next 3-12 months by 20-40% compared to offerings with no insider buying.
+
+**<Highlight variant="blue">How to track it:</Highlight>**<br/>
+
+1\. Set up an alert for 424B5 filings for companies you're watching<br/>
+2\. When an offering occurs, create a calendar reminder for 30 days<br/>
+3\. Check <CustomLink href="https://www.sec.gov/edgar/search/">SEC Edgar</CustomLink> for Form 4 filings during that window<br/>
+4\. Look for clusters of buys (3+ insiders)<br/>
+5\. If you see the pattern, the offering price was likely the bottom
+
+## The Comprehensive Dilution Checklist
+
+When evaluating any company for dilution risk, run through this checklist:
+
+<DilutionChecklist />
+<br />
+**<Highlight variant="blue">The Verdict:</Highlight>**
+
+→ **5+ red flags:** High risk, avoid or short<br/>
+→ **3-4 red flags:** Moderate risk, small position only<br/>
+→ **1-2 red flags:** Acceptable risk if fundamentals strong<br/>
+→ **0 red flags:** Low dilution risk, greenlight<br/>
+
+## Putting It All Together: The Dilution Trading Playbook
+
+Now that you understand the mechanics, filings, and signals, here's how to actually trade around dilutive events.
+
+### <Highlight variant="accent">Strategy 1: The Post-Offering Bottom Fisher</Highlight>
+
+**<Highlight variant="yellow">Setup:</Highlight>**
+
+→ Quality company with solid fundamentals<br/>
+→ Announces dilutive offering with GOOD use of proceeds (acquisition, phase 3 trial, etc.)<br/>
+→ Stock drops 15-25% to offering price<br/>
+→ Company has clean balance sheet and long runway after the raise<br/>
+
+**<Highlight variant="blue">Entry Signal:</Highlight>**
+
+→ Wait for 424B5 filing (confirms deal is done)<br/>
+→ Look for insider buying via Form 4 in days 1-30<br/>
+→ Enter at or slightly below offering price<br/>
+
+**<Highlight variant="blue">The Edge:</Highlight>**<br/>
+You're buying at the institutional price with the same information they had, plus you get to see
+if insiders are buying (they had to wait 2+ days for their blackout period to end).
+
+**<Highlight variant="blue">Position Size:</Highlight>** Medium
+
+**<Highlight variant="blue">Exit:</Highlight>**
+
+→ Target: 30-50% gain over 3-12 months<br/>
+→ Stop: -15% below offering price (if you're wrong about the quality of the company)<br/>
+
+**<Highlight variant="green">Historical Win Rate:</Highlight>** ~65-70% when combined with insider buying confirmation
+
+### <Highlight variant="accent">Strategy 2: The Shelf Registration Short</Highlight>
+
+**<Highlight variant="yellow">Setup:</Highlight>**
+
+→ Weak company with &lt;6 months cash runway<br/>
+→ Just filed S-3 or received EFFECT notice<br/>
+→ Stock has rallied 30%+ in recent weeks (retail excitement)<br/>
+→ No clear path to profitability<br/>
+
+**<Highlight variant="blue">Entry Signal:</Highlight>**
+
+→ Wait for a technical rejection at resistance<br/>
+→ Enter short position<br/>
+→ Set alert for 8-K announcement of offering<br/>
+
+**<Highlight variant="blue">The Edge:</Highlight>**<br/>
+You know the offering is coming. It's just a matter of when.
+Retail traders don't read SEC filings and will be blindsided.
+
+**<Highlight variant="blue">Position Size:</Highlight>** Small to medium (timing is uncertain, could take weeks or months)<br/>
+
+**<Highlight variant="blue">Exit:</Highlight>**
+
+→ Cover 50% on the offering announcement (usually -10% to -20% drop)<br/>
+→ Cover remaining 50% on the 424B5 filing the next day<br/>
+→ Stop: +15% above entry (if you're wrong about timeline)<br/>
+
+**<Highlight variant="green">Historical Win Rate:</Highlight>** ~60% but requires patience
+
+### <Highlight variant="accent">Strategy 3: The Warrant Expiration Play</Highlight>
+
+**<Highlight variant="yellow">Setup:</Highlight>**
+
+→ Company with large warrant position expiring in 3-6 months<br/>
+→ Current stock price is below warrant strike price<br/>
+→ Warrants will expire worthless unless stock price rises<br/>
+
+**<Highlight variant="blue">The Thesis:</Highlight>**
+Warrant holders (often institutions or the company itself) have a strong incentive to push the stock price
+above the strike before expiration. This can create artificial buying pressure.<br/>
+
+**<Highlight variant="blue">Entry Signal:</Highlight>**
+
+→ 90 days before warrant expiration<br/>
+→ Stock within 20% of strike price<br/>
+→ Increasing volume on up days<br/>
+
+**<Highlight variant="blue">The Edge:</Highlight>**<br/>
+You're front-running the "pin to strike" dynamic
+
+**<Highlight variant="blue">Position Size:</Highlight>** Small (this is speculative)<br/>
+
+**<Highlight variant="blue">Exit:</Highlight>**
+
+→ Target: Strike price + 10%
+→ Exit 30 days before expiration regardless
+→ Stop: -20%
+
+**<Highlight variant="green">Historical Win Rate:</Highlight>** ~50% but offers asymmetric risk/reward when it works
+
+### <Highlight variant="accent">Strategy 4: The Reverse Split Fade</Highlight>
+
+**<Highlight variant="yellow">Setup:</Highlight>**
+
+→ Company announces reverse split<br/>
+→ Stock initially rallies on "higher price looks better" psychology<br/>
+→ Usually sees 20-50% pop in days after split<br/>
+
+**<Highlight variant="blue">Entry Signal:</Highlight>**
+
+→ Wait 3-5 days after reverse split executes<br/>
+→ Wait for first signs of weakness (lower high on daily chart)<br/>
+→ Enter short position<br/>
+
+**<Highlight variant="blue">The Thesis:</Highlight>**
+Reverse splits almost always precede more dilution. The higher price makes it easier to do another offering.
+Plus, the fundamental problems that led to the reverse split are not solved.<br/>
+
+**<Highlight variant="blue">Position Size:</Highlight>** Medium (high probability but can take months to play out)<br/>
+
+**<Highlight variant="blue">Exit:</Highlight>**
+
+→ Cover when stock falls back to pre-split equivalent price<br/>
+→ Cover if company announces accretive acquisition (rare but would invalidate thesis)<br/>
+→ Timeline: 3-12 months<br/>
+
+**<Highlight variant="green">Historical Win Rate:</Highlight>** ~75-80% (one of the highest probability setups)
+
+## Final Thoughts: Dilution as Opportunity
+
+Here's what separates professional traders from amateurs when it comes to dilution:
+
+**<Highlight variant="red">Amateurs see dilution as something scary to avoid.</Highlight>**<br/>
+**<Highlight variant="green">Professionals see dilution as a predictable event that creates opportunity.</Highlight>**
+
+The most powerful trading setups often occur around dilutive events:
+
+→ The panic selling after an offering announcement (when use of proceeds is strong)<br/>
+→ The inevitable offering when a company has &lt;6 months runway (shortable)<br/>
+→ The insider buying cluster after a deal closes (highest conviction long)<br/>
+→ The reverse split rally that always gives back gains (reliable fade)<br/>
+
+By mastering the SEC filings, understanding the mechanics, and learning to distinguish good dilution from bad,
+you transform dilution from a mysterious risk into a readable, tradeable pattern.
+
+**<Highlight variant="blue">The key skills:</Highlight>**
+
+→ Reading 10-Qs/10-Ks for cash runway calculations<br/>
+→ Monitoring 8-Ks and 424B5s in real-time<br/>
+→ Tracking Form 4 insider buying after offerings<br/>
+→ Calculating fully diluted share counts<br/>
+→ Understanding warrant overhang dynamics
+
+Master these, and you'll see the market differently than 95% of retail traders.
+
+<Alert variant="danger">
+  <AlertTitle>Key Takeaways: Dilution Mastery</AlertTitle>
+  <AlertDescription>
+    **Core Concepts:**
+    - Dilution = more shares = smaller ownership percentage = lower value per share
+    - Use of proceeds determines if dilution is "good" (accretive) or "bad" (value destructive)
+    - SEC filings (S-3, 424B5, Form 4, 8-K) provide early warning and confirmation of dilutive events
+**Critical Metrics:**
+- Cash Runway = Cash ÷ Quarterly Burn (&lt;6 months = red flag)
+- Fully Diluted Shares = Basic Shares + Options + Warrants + Convertibles
+- Warrant Overhang % = Warrants ÷ Float (>15% = significant resistance)
+
+**Trading Signals:**
+
+- Insider buying within 30 days of offering = bullish confirmation
+- S-3 EFFECT notice + short runway = offering coming soon
+- Reverse split announcement = fade the rally
+- Heavy discount (>20%) + toxic lender = avoid entirely
+
+**The Bottom Line:**
+Dilution is not inherently good or bad — it's a tool. Master the mechanics, read the filings, and you'll turn dilution events into your highest-probability trading setups.
+
+  </AlertDescription>
+</Alert>
+
+<Alert variant="success">
+  <AlertTitle>What You've Learned (Part 1: Core Mechanics)</AlertTitle>
+  <AlertDescription>
+    You now understand dilution as both mathematical reality (more shares =
+    smaller ownership percentage = lower value per share) and market dynamics
+    (supply shock + sentiment can cause 20-40% drops even when mathematical
+    dilution is only 15%). You've learned the complete share structure hierarchy
+    from authorized shares (maximum ceiling) through issued shares (what's been
+    created) to outstanding shares (held by shareholders) to the float (freely
+    tradable) — and how dilution expands this structure. You can distinguish
+    between the six major dilution methods: Secondary Offerings (the floodgate -
+    massive overnight supply shock), ATM Offerings (the tap - slow, controlled
+    drip over time), Equity Lines of Credit (the private pipeline - committed
+    financing with discounts), Private Placements (the direct sale - restricted
+    shares with 6-month lock-ups and heavy discounts), Registered Direct
+    Offerings (the hybrid - fixed price institutional sales), and PIPES (toxic
+    financing with death spiral convertibles). You've mastered the critical SEC
+    filing framework: S-3 (shelf registration creating overhang), EFFECT notice
+    (gun is loaded), 424B5 (deal just priced - dilution occurred), Form D
+    (private placement with 6-month calendar), Form 4 (insider buying =
+    confidence signal), and the complete filing map from intention to execution.
+    <br />
+    You can now calculate the critical metrics that predict and quantify
+    dilution risk: Cash Runway (Cash ÷ Quarterly Burn — under 6 months = red
+    flag), Fully Diluted Share Count (basic shares + options + RSUs +
+    convertibles + warrants for realistic valuation), Warrant Overhang %
+    (warrants ÷ float — over 15% creates significant price resistance), Average
+    Offering Discount (tracks deteriorating access to capital), and the complete
+    Toxicity Scorecard (combining all metrics into 0-5 scale). You understand
+    the silent diluters that happen gradually: S-8 employee equity plans (3-5%
+    annual dilution in growth companies), convertible notes (debt that becomes
+    equity when profitable), warrants (delayed dilution bombs with strike
+    prices), and toxic PIPES with death spiral features. You've learned to
+    distinguish "good" dilution (accretive acquisitions that increase EPS
+    despite more shares, strategic growth capital with clear ROI) from "bad"
+    dilution (burning cash with no plan, enriching insiders, desperate toxic
+    financing). Most powerfully, you've learned the 30-day post-offering window:
+    when insiders cluster buy at the offering price via Form 4 filings, they're
+    signaling the bottom with their own money — historically leading to 20-40%
+    outperformance over 3-12 months. You now have four complete trading
+    strategies: Post-Offering Bottom Fisher (65-70% win rate with insider
+    confirmation), Shelf Registration Short (60% win rate, requires patience),
+    Warrant Expiration Play (50% but asymmetric risk/reward), and Reverse Split
+    Fade (75-80% win rate - one of the highest probability setups).
+  </AlertDescription>
+</Alert>
+
+<Alert variant="info">
+  <AlertTitle>
+    What's Next: Module 1 Complete - The Foundation is Built
+  </AlertTitle>
+  <AlertDescription>
+    You've completed the most comprehensive foundation in trading education. You
+    now possess:
+    <br />
+    <br />
+    <strong>Layer 1 - Structural Understanding:</strong> From the particle model
+    to market architecture, from volume anatomy to support/resistance memory, you
+    see how markets are <strong>built</strong>.
+    <br />
+    <br />
+    <strong>Layer 2 - Predatory Awareness:</strong> From liquidity hunts to
+    order flow mechanics, from institutional dark pools to retail traps, you see{' '}
+    <strong>who</strong> moves markets and <strong>how</strong> they hunt.
+    <br />
+    <br />
+    <strong>Layer 3 - Ecosystem Intelligence:</strong> From short squeezes to participant
+    hierarchies, from timeframe cascades to dilution analysis, you understand the
+    living, breathing <strong>system</strong> you're trading within.
+    <br />
+    <br />
+    Most traders spend years (or entire careers) without understanding 10% of
+    what you now know. You've learned to see what 95% of participants never
+    will: that markets aren't random chaos — they're predictable patterns of
+    human behavior and institutional strategy, compressed into price action
+    across multiple timeframes. In the coming modules, you'll build on this
+    foundation to develop specific trading strategies, master risk management
+    frameworks, and integrate everything into a complete systematic approach.
+    But the hardest work is done. You now see the market's true nature.
+  </AlertDescription>
+</Alert>
+
+<Alert variant="info">
+  <AlertTitle>
+   A company galaxy visualization - different way to visualize the dilution mechanics
+  </AlertTitle>
+  <AlertDescription>
+  ### Visualization: The Company Galaxy
+  
+  We use the same particle-based storytelling from the earlier lessons, but now the box becomes an entire solar system.  
+The **Company Galaxy** ties every dilutive path back to one shared visualization: a pulsing Value Crystal, an orbiting float, dormant shares on the shelf, and a ghost shell that represents future dilution risk.
+<br/>
+
+**<Highlight variant="blue">3D Visualization Concept:</Highlight>**
+In our Company Galaxy model, the secondary offering is the Floodgate.
+A massive chunk of dormant grey share particles is loaded into a launch chamber.
+When the deal prices, the floodgate opens with a powerful "whoosh,"
+and the entire wave of new particles slams into the orbiting float all at once. From the shareholder's perspective,
+their orbit immediately expands and the central Value Crystal appears smaller—instant, dramatic dilution.
+
+<br />
+The ATM is the Public Tap on our Share Dispenser. A small nozzle appears, and dormant
+grey particles slowly drip out, changing color as they merge with the orbiting float.
+The counter updates in real-time: "Shares on Shelf: 4,999,999... 4,999,998..." It's
+a visual representation of slow, controlled dilution.
+<br />
+The ELOC is the Private Pipeline. A large external object (the "Financing Partner")
+appears in the scene. A transparent pipeline connects the Share Dispenser to this
+partner. When the company draws down, a chunk of grey particles is sucked through
+the pipeline, flashes red (signifying the discount), and is delivered to the partner.
+The partner then releases these shares into the orbiting float.
+<br />
+Private placement shares appear as a separate, dimmed cluster outside the main orbiting
+float, labeled "Restricted Shares." A countdown timer appears: "Eligible for trading
+in 180 days." When the timer hits zero, those dimmed particles light up and smoothly
+integrate into the main float.
+<br />
+**Core elements**
+
+- **Value Crystal (center):** Scales and brightens with company value. In good financing events (buybacks, accretive deals) it expands; destructive dilution shrinks and dims it, so you can literally see EPS compression.
+- **Share Particles (orbiting cloud):** Each white/blue particle is an active float share. The orbit radius expands when dilution adds supply and contracts during buybacks. Orbit speed mirrors volume.
+- **Share Dispenser (shelf):** Transparent box that holds registered-but-unissued shares. Three mechanisms are visible:
+  - **Floodgate:** A secondary offering launches a wave of particles straight into the float.
+  - **Tap:** ATMs drip particles into the market in real time.
+  - **Pipeline:** An ELOC/PIPE sends shares through a glowing tube to a financing partner, who then dumps them into the orbit.
+- **Ghost Shell (outer halo):** Semi-transparent particles show warrants, options, and convertibles waiting to dilute. Exercising them collapses that halo inward and lights up the float.
+- **Financing Partner:** A separate node for PIPE/ELOC investors so you can see concentrated counter-party risk.
+
+  <br />
+  **Interactive controls**
+
+- `Launch Secondary Offering` releases the floodgate, empties the dispenser, and expands the float rapidly.
+- `Activate ATM Tap` turns on the nozzle so trickles of supply hit the market over time.
+- `Exercise Warrants` drains the ghost shell and converts those particles into real float.
+- `Initiate Buyback` pulls particles back toward the crystal, shrinking the float and brightening the core.
+- `Objective / Shareholder View` toggle: in shareholder view the camera locks to a single share particle, so you feel how your orbit stretches away from the value source as dilution accelerates.
+
+<CompanyGalaxyContainer />
+
+  </AlertDescription>
+</Alert>

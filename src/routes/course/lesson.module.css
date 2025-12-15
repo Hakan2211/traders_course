@@ -1,0 +1,180 @@
+.lessons_grid {
+  display: grid;
+  grid-template-columns: minmax(0, auto) 22rem minmax(0, 1400px) 16rem minmax(
+      0,
+      auto
+    );
+  max-width: 100vw;
+}
+
+.table_of_contents {
+  align-self: stretch; /* Stretch to match the height of the main content row */
+  position: relative; /* Create positioning context for sticky child */
+}
+
+@media screen and (min-width: 1920px) {
+  .lessons_grid {
+    display: grid;
+    /* Nested .lessons_grid selector in original CSS might be a mistake or specific to structure, cleaning it up */
+    grid-template-columns: minmax(0, auto) 22rem minmax(0, 1400px) 16rem minmax(
+        0,
+        auto
+      );
+  }
+  .sidebar {
+    grid-column: 2/3;
+  }
+  .content {
+    grid-column: 3/4;
+  }
+  .table_of_contents {
+    grid-column: 4/5;
+    padding-top: 0;
+  }
+}
+@media screen and (min-width: 1200px) and (max-width: 1919px) {
+  .lessons_grid {
+    display: grid;
+    grid-template-columns: 19rem 1fr;
+  }
+  .table_of_contents {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .lessons_grid {
+    display: grid;
+    grid-template-columns: 4rem 1fr;
+  }
+  .table_of_contents {
+    display: none;
+  }
+}
+@media screen and (max-width: 768px) {
+  .lessons_grid {
+    display: grid;
+    grid-template-columns: 8px 1fr 8px;
+  }
+  .table_of_contents {
+    display: none;
+  }
+  .sidebar {
+    display: none;
+  }
+  .content {
+    grid-column: 2;
+  }
+}
+
+.content_grid {
+  display: grid;
+  grid-template-columns: 1fr min(70rem, 100%) 1fr;
+}
+
+.content_area {
+  grid-column: 2/3;
+}
+
+/* Better typography for MDX content */
+/* Style paragraphs but exclude those inside figure elements (like QuoteComponent) */
+.content_area > p {
+  line-height: 1.75;
+  margin-bottom: 1.5rem;
+  font-size: 1.125rem;
+}
+
+.content_area > ul,
+.content_area > ol {
+  margin-bottom: 1.5rem;
+  padding-left: 1.75rem;
+  line-height: 1.75;
+}
+
+.content_area > ul > li,
+.content_area > ol > li {
+  margin-bottom: 0.75rem;
+  font-size: 1.125rem;
+}
+
+.content_area > strong {
+  font-weight: 600;
+}
+
+.content_area > em {
+  font-style: italic;
+}
+
+.content_area > a {
+  color: var(--textlink-blue, #1555e0);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.content_area > a:hover {
+  text-decoration-thickness: 2px;
+}
+
+.content_area > code {
+  background-color: var(--text-color-primary-100);
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+  font-size: 0.9em;
+  font-family: 'Courier New', monospace;
+  color: inherit;
+}
+
+.content_area > pre {
+  background-color: var(--text-color-primary-100);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.content_area > pre > code {
+  background-color: transparent;
+  padding: 0;
+}
+
+.content_area > hr {
+  border: none;
+  border-top: 1px solid var(--text-color-primary-300);
+  margin: 2rem 0;
+}
+
+.content_area > img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  margin: 1.5rem 0;
+}
+
+/* Also style nested elements within paragraphs and lists */
+.content_area p code,
+.content_area li code {
+  background-color: var(--text-color-primary-100);
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+  font-size: 0.9em;
+  font-family: 'Courier New', monospace;
+  color: inherit;
+}
+
+.content_area p strong,
+.content_area li strong {
+  font-weight: 600;
+}
+
+.content_area p a,
+.content_area li a {
+  color: var(--textlink-blue, #1555e0);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.content_area p a:hover,
+.content_area li a:hover {
+  text-decoration-thickness: 2px;
+}

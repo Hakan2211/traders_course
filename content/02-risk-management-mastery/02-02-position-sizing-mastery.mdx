@@ -1,0 +1,1565 @@
+---
+title: 'Position Sizing Mastery: Your Fortress Foundation'
+moduleBadge: 'Module 2'
+order: 1
+---
+
+<QuoteComponent
+  quote="Your position size IS your shield."
+  author="You, the Risk Manager"
+/>
+
+## THE SHIELD THAT SAVES YOUR LIFE
+
+Picture this: You're a knight standing at the edge of the battlefield.
+Before you stretches <Highlight variant="yellow">chaos</Highlight> — arrows flying, swords clashing, cavalry charging.
+You have the <Highlight variant="yellow">finest training</Highlight>, the <Highlight variant="yellow">sharpest sword</Highlight>, the <Highlight variant="yellow">keenest tactical mind</Highlight>.
+
+But you <Highlight variant="red">forgot</Highlight> your <Highlight variant="blue">shield</Highlight>.
+
+How long do you <Highlight variant="green">survive</Highlight>?
+
+**<Highlight variant="yellow">Minutes.</Highlight> Maybe <Highlight variant="yellow">seconds.</Highlight>**
+
+It doesn't matter how <Highlight variant="yellow">skilled</Highlight> you are. It doesn't matter how <Highlight variant="yellow">perfect</Highlight> your <Highlight variant="blue">strategy</Highlight> is.
+Without protection, the first arrow finds you, and you fall.
+
+In trading, **your <Highlight variant="red">position size</Highlight> is your <Highlight variant="blue">shield</Highlight>.**
+
+It's not your stop loss. It's not your win rate.
+It's not your risk-reward ratio or your technical analysis or your fundamental research.
+
+Your <Highlight variant="red">position size</Highlight> — the amount of capital you commit to each trade — is the single most important
+decision you make.
+
+Get it right, and you can survive catastrophic losing streaks, black swan events,
+and your own psychological mistakes.
+
+Get it wrong, and none of your other skills matter. You'll be dead before you learn to fight.
+
+In Lesson 2.1, you learned the Prime Directive: Survival above all.
+You learned <Highlight variant="yellow">WHY traders die</Highlight>. You walked through the graveyard and understood the mathematics of ruin.
+
+Now, in this lesson, you're going to learn <Highlight variant="yellow">HOW to survive</Highlight>.
+
+You're going to master <Highlight variant="blue">the art and science of position sizing</Highlight> — the fortress foundation
+that will protect your capital, preserve your psychology, and allow your edge to manifest over time.
+
+By the end of this lesson, you'll be able to:
+
+→ <Highlight variant="yellow">Calculate exact position sizes</Highlight> for any trade in any market<br/>
+→ <Highlight variant="yellow">Adjust sizing for volatility</Highlight> using ATR (Average True Range)<br/>
+→ <Highlight variant="yellow">Apply the Kelly Criterion</Highlight> intelligently (without blowing up)<br/>
+→ <Highlight variant="yellow">Implement risk scoring</Highlight> for different setup qualities<br/>
+→ <Highlight variant="yellow">Understand leverage, exposure, and margin mechanics</Highlight><br/>
+→ <Highlight variant="yellow">Scale your approach</Highlight> for any account size<br/>
+
+This is where your fortress begins to take shape.
+
+## THE BRUTAL TRUTH ABOUT POSITION SIZING
+
+Before we dive into methods, you need to understand something that most trading education glosses over:
+
+**<Highlight variant="yellow">Position sizing</Highlight> is where <Highlight variant="yellow">90% of your profitability</Highlight> is determined.**
+
+Not your entry. Not your exit. Not your indicator settings or your chart pattern recognition.
+
+**Your position size.**
+
+Let me <Highlight variant="yellow">prove</Highlight> it to you <Highlight variant="blue">with a simple example:</Highlight>
+
+### <Highlight variant="accent">THREE TRADERS, ONE SYSTEM</Highlight>
+
+**<Highlight variant="yellow">TRADER A, B, and C</Highlight> all use the exact same trading system:**
+
+→ <Highlight variant="blue">60% win rate</Highlight><br/>
+→ <Highlight variant="blue">1:2 risk-reward ratio</Highlight><br/>
+→ <Highlight variant="blue">100 trades over six months</Highlight><br/>
+→ <Highlight variant="blue">Identical entries and exits</Highlight><br/>
+→ The ONLY difference is <Highlight variant="red">position sizing</Highlight>:<br/>
+
+**<Highlight variant="yellow">TRADER A:</Highlight> Fixed 1% risk per trade**
+
+→ Starting capital: <Highlight variant="blue">$10,000</Highlight><br/>
+→ Ending capital: <Highlight variant="blue">$17,200</Highlight><br/>
+→ Return: <Highlight variant="blue">+72%</Highlight><br/>
+→ Max drawdown: <Highlight variant="blue">-11%</Highlight><br/>
+→ Psychological state: <Highlight variant="blue">Confident, disciplined</Highlight><br/>
+
+**<Highlight variant="yellow">TRADER B:</Highlight> Fixed 5% risk per trade**
+
+→ Starting capital: <Highlight variant="blue">$10,000</Highlight><br/>
+→ Ending capital: <Highlight variant="blue">$14,100</Highlight><br/>
+→ Return: <Highlight variant="blue">+41%</Highlight><br/>
+→ Max drawdown: <Highlight variant="blue">-36%</Highlight><br/>
+→ Psychological state: <Highlight variant="blue">Stressed, second-guessing</Highlight><br/>
+
+**<Highlight variant="yellow">TRADER C:</Highlight> Emotional sizing (2-10% depending on "confidence")**
+
+→ Starting capital: <Highlight variant="blue">$10,000</Highlight><br/>
+→ Ending capital: <Highlight variant="blue">$6,200</Highlight><br/>
+→ Return: <Highlight variant="blue">-38%</Highlight><br/>
+→ Max drawdown: <Highlight variant="blue">-52%</Highlight><br/>
+→ Psychological state: <Highlight variant="blue">Destroyed, quit trading</Highlight><br/>
+
+**<Highlight variant="yellow">Same system. Same win rate. Same trades.</Highlight> <Highlight variant="red">Wildly different outcomes.</Highlight>**
+
+<Highlight variant="yellow">Trader A</Highlight> used disciplined position sizing
+and crushed it.
+
+<Highlight variant="yellow">Trader B</Highlight> used aggressive sizing and underperformed
+despite having a good system.
+
+<Highlight variant="yellow">Trader C</Highlight> used emotional sizing and lost money
+with a profitable system.
+
+**Do you see it now?**
+
+Position sizing isn't a <Highlight variant="yellow">minor detail</Highlight>. It's not something you figure out later.
+It's not <Highlight variant="yellow">"just use 2% per trade and you're good."</Highlight>
+
+**Position sizing is the <Highlight variant="blue">entire game.</Highlight>**
+
+Your technical analysis tells you WHAT and WHEN to trade. Position sizing tells you HOW MUCH —
+and that <Highlight variant="yellow">determines</Highlight> whether you <Highlight variant="yellow">survive</Highlight>, <Highlight variant="red">struggle</Highlight>, or <Highlight variant="green">thrive</Highlight>.
+
+<PositionSizeImpactSphere />
+
+## The Position Sizing Hierarchy
+
+Before we dive into specific methods, you need to understand the <Highlight variant="yellow">hierarchy of position sizing decisions</Highlight>.
+Think of this as building a <Highlight variant="blue">fortress layer by layer</Highlight>:
+
+### <Highlight variant="accent">Layer 1: Account Risk Tolerance (The Bedrock)</Highlight>
+
+**<Highlight variant="blue">Question:</Highlight>** How much of my total account am I willing to risk on a single trade?
+
+This is your starting point. Everything else flows from this decision.
+
+**Professional standard:** <Highlight variant="blue">1-2% per trade</Highlight><br/>
+**Conservative:** <Highlight variant="blue">0.5-1% per trade</Highlight><br/>
+**Aggressive (dangerous):** <Highlight variant="blue">3-5% per trade</Highlight><br/>
+**Suicidal:** <Highlight variant="blue">5%+ per trade</Highlight><br/>
+
+### <Highlight variant="accent">Layer 2: Setup Quality Assessment (The Foundation Stones)</Highlight>
+
+**<Highlight variant="blue">Question:</Highlight>** Does this specific setup deserve my full risk allocation, or less?
+
+Not all setups are <Highlight variant="blue">created equal</Highlight>. A <Highlight variant="green">perfect A+</Highlight> setup might get your <Highlight variant="green">full 2%</Highlight>.
+A <Highlight variant="yellow">questionable C-grade</Highlight> setup might only get <Highlight variant="yellow">0.5%</Highlight>.
+
+### <Highlight variant="accent">Layer 3: Market Volatility Adjustment (The Adaptive Layer)</Highlight>
+
+**<Highlight variant="blue">Question:</Highlight>** How volatile is this market right now, and how should that affect my size?
+
+In calm markets, you can trade normal size. In <Highlight variant="red">highly volatile</Highlight> markets, you <Highlight variant="yellow">reduce size</Highlight> to account
+for the increased uncertainty.
+
+### <Highlight variant="accent">Layer 4: Technical Stop Placement (The Execution Layer)</Highlight>
+
+**<Highlight variant="blue">Question:</Highlight>** Where does my stop-loss need to be based on market structure?
+
+Your stop placement is determined by technical analysis—support/resistance, chart patterns, volatility.
+Your <Highlight variant="yellow">position size</Highlight> is then <Highlight variant="yellow">calculated backward</Highlight> from your stop distance.
+
+### <Highlight variant="accent">Layer 5: Leverage and Margin Considerations (The Reality Check)</Highlight>
+
+**<Highlight variant="blue">Question:</Highlight>** Can I actually execute this position size given my broker's margin requirements?
+
+Finally, you verify that your intended position size is executable within your margin constraints.
+
+**This is the correct sequence.** Most amateur traders do it backward — they pick a position size
+based on <Highlight variant="yellow">"what feels right,"</Highlight> then slap on a <Highlight variant="red">random stop-loss</Highlight>. That's building your fortress in quicksand.
+
+## THE FOUNDATION: FIXED FRACTIONAL POSITION SIZING
+
+Let's start with the bedrock — the non-negotiable baseline that every trader must master:
+
+### <Highlight variant="accent">Fixed Fractional Position Sizing</Highlight>
+
+This is beautifully simple:
+
+**You risk the same percentage of your current capital on every trade.**
+
+Not the same dollar amount. Not a random amount based on how you feel. <Highlight variant="blue">The same percentage.</Highlight>
+
+**<Highlight variant="yellow">The Formula</Highlight>**
+
+<Math>
+  {
+    '\\text{Position Size} = \\frac{\\text{Account Size} \\times \\text{Risk \\%}}{\\text{Entry Price} - \\text{Stop Loss Price}}'
+  }
+</Math>
+<br />
+
+Or more universally:
+
+<Math>
+  {
+    '\\text{Position Size} = \\frac{\\text{Account Risk in \\$}}{\\text{Trade Risk in \\$}}'
+  }
+</Math>
+<br />
+
+Let's break this down with a concrete example:
+
+### <Highlight variant="accent">EXAMPLE 1: FOREX TRADE (EUR/USD)</Highlight>
+
+**<Highlight variant="blue">Your situation:</Highlight>**
+
+→ Account size: <Highlight variant="blue">$10,000</Highlight><br/>
+→ Risk per trade: 1% = <Highlight variant="blue">$100</Highlight><br/>
+→ Entry price: <Highlight variant="blue">1.1000</Highlight><br/>
+→ Stop loss: <Highlight variant="blue">1.0950</Highlight><br/>
+→ Trade risk: <Highlight variant="blue">50 pips (0.0050)</Highlight><br/>
+
+**For forex, position size is calculated in lots:**<br/>
+
+<Math>
+  {
+    '\\text{Position Size} = \\frac{\\text{Risk in \\$}}{\\text{Pips at Risk} \\times \\text{Pip Value}}'
+  }
+</Math>
+
+For EUR/USD, 1 pip = $10 per standard lot (100,000 units)
+
+<Math>
+  {'\\begin{aligned}' +
+    '\\text{Position Size} &= \\frac{\\$100}{50 \\text{ pips} \\times \\$10 \\text{ per lot}} \\\\' +
+    '\\text{Position Size} &= \\frac{\\$100}{\\$500 \\text{ per lot}} \\\\' +
+    '\\text{Position Size} &= 0.2 \\text{ standard lots} = 2 \\text{ mini lots} = 20 \\text{ micro lots}' +
+    '\\end{aligned}'}
+</Math>
+
+**<Highlight variant="yellow">Translation:</Highlight>** You'd trade 20,000 units of EUR/USD
+
+If your stop is hit, you lose exactly $100 (1% of your account).
+If you hit a 1:2 target at 1.1100 (100 pips), you make $200 (2% of your account).
+
+**This is the baseline. This is your shield.**
+
+### <Highlight variant="accent">EXAMPLE 2: STOCK TRADE (AAPL)</Highlight>
+
+**<Highlight variant="blue">Your situation:</Highlight>**
+
+→ Account size: <Highlight variant="blue">$50,000</Highlight><br/>
+→ Risk per trade: 1% = <Highlight variant="blue">$500</Highlight><br/>
+→ Entry price: <Highlight variant="blue">$180.00</Highlight><br/>
+→ Stop loss: <Highlight variant="blue">$176.00</Highlight><br/>
+→ Trade risk: <Highlight variant="blue">$4.00</Highlight> per share<br/>
+
+<Math>
+  {'\\text{Position Size} = \\frac{\\$500}{\\$4.00} \\\\' +
+    '\\text{Position Size} = 125 \\text{ shares}'}
+</Math>
+
+**<Highlight variant="yellow">Translation:</Highlight>** You'd buy 125 shares of AAPL
+
+If your stop is hit, you lose exactly $500 (1% of your account).
+If you hit a 1:2 target at $188.00 (+$8), you make $1,000 (2% of your account).
+
+### <Highlight variant="accent">EXAMPLE 3: CRYPTO TRADE (BTC/USD)</Highlight>
+
+**<Highlight variant="blue">Your situation:</Highlight>**
+
+→ Account size: <Highlight variant="blue">$20,000</Highlight><br/>
+→ Risk per trade: 1.5% = <Highlight variant="blue">$300</Highlight><br/>
+→ Entry price: <Highlight variant="blue">$45,000</Highlight><br/>
+→ Stop loss: <Highlight variant="blue">$44,000</Highlight><br/>
+→ Trade risk: <Highlight variant="blue">$1,000</Highlight> per BTC<br/>
+
+<Math>
+  {'\\text{Position Size} = \\frac{\\$300}{\\$1,000} \\\\' +
+    '\\text{Position Size} = 0.3 \\text{ BTC}'}
+</Math>
+
+**<Highlight variant="yellow">Translation:</Highlight>** You'd buy 0.3 Bitcoin
+
+If your stop is hit, you lose exactly $300 (1.5% of your account).
+If you hit a 1:2 target at $47,000 (+$2,000 per BTC), you make $600 (3% of your account).
+
+## THE SACRED 1-2% RULE: WHY IT WORKS
+
+You've probably heard "never risk more than 1-2% per trade" a thousand times. But do you know WHY?
+
+Let me show you the mathematics that prove this isn't just <Highlight variant="blue">conservative advice</Highlight> — it's <Highlight variant="yellow">survival necessity</Highlight>.
+
+### <Highlight variant="accent">THE LOSING STREAK SURVIVAL TABLE</Highlight>
+
+This shows how many <Highlight variant="yellow">consecutive losses</Highlight>
+you can survive while staying <Highlight variant="blue">psychologically and mathematically viable</Highlight>:
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Risk Per Trade</TableHead>
+      <TableHead>5 Losses</TableHead>
+      <TableHead>10 Losses</TableHead>
+      <TableHead>15 Losses</TableHead>
+      <TableHead>20 Losses</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>0.5%</TableCell>
+      <TableCell>-2.5%</TableCell>
+      <TableCell>-4.9%</TableCell>
+      <TableCell>-7.2%</TableCell>
+      <TableCell>-9.5%</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>1.0%</TableCell>
+      <TableCell>-4.9%</TableCell>
+      <TableCell>-9.6%</TableCell>
+      <TableCell>-14.0%</TableCell>
+      <TableCell>-18.2%</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>1.5%</TableCell>
+      <TableCell>-7.2%</TableCell>
+      <TableCell>-14.0%</TableCell>
+      <TableCell>-20.3%</TableCell>
+      <TableCell>-26.1%</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>2.0%</TableCell>
+      <TableCell>-9.6%</TableCell>
+      <TableCell>-18.3%</TableCell>
+      <TableCell>-26.0%</TableCell>
+      <TableCell>-33.2%</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>3.0%</TableCell>
+      <TableCell>-14.3%</TableCell>
+      <TableCell>-26.3%</TableCell>
+      <TableCell>-36.7%</TableCell>
+      <TableCell>-45.6%</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>5.0%</TableCell>
+      <TableCell>-22.6%</TableCell>
+      <TableCell>-40.1%</TableCell>
+      <TableCell>-53.7%</TableCell>
+      <TableCell>-64.2%</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>10.0%</TableCell>
+      <TableCell>-41.0%</TableCell>
+      <TableCell>-65.1%</TableCell>
+      <TableCell>-79.4%</TableCell>
+      <TableCell>-87.8%</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+<br />
+
+**<Highlight variant="blue">Key insights:</Highlight>**
+
+**<Highlight variant="blue">At 1% risk:</Highlight>**
+
+→ 10 losses = <Highlight variant="yellow">-9.6%</Highlight> drawdown (psychologically manageable)<br/>
+→ 20 losses = <Highlight variant="yellow">-18.2%</Highlight> drawdown (painful but survivable)
+
+**<Highlight variant="blue">At 5% risk:</Highlight>**
+
+→ 10 losses = <Highlight variant="yellow">-40.1%</Highlight> drawdown (psychologically devastating)<br/>
+→ 20 losses = <Highlight variant="yellow">-64.2%</Highlight> drawdown (nearly impossible to recover)
+
+**<Highlight variant="blue">At 10% risk:</Highlight>**
+
+→ 10 losses = <Highlight variant="yellow">-65.1%</Highlight> drawdown (career-ending)<br/>
+→ 20 losses = <Highlight variant="yellow">-87.8%</Highlight> drawdown (total annihilation)
+
+**<Highlight variant="blue">Here's the critical question:</Highlight>** How likely is a 10 or 20 trade losing streak?
+
+Even with a <Highlight variant="green">60% win rate</Highlight> (excellent system), the probability of a <Highlight variant="yellow">10-trade losing streak</Highlight> over
+500 trades is approximately <Highlight variant="yellow">26%</Highlight>.
+
+**It's not a matter of IF you'll face a major losing streak. It's WHEN.**
+
+And when that streak comes, your position sizing determines whether
+you survive it with a manageable drawdown or whether you're psychologically destroyed and
+mathematically crippled.
+
+**This is why 1-2% isn't <Highlight variant="yellow">"conservative"</Highlight> — it's <Highlight variant="yellow">intelligent</Highlight>.**
+
+## THE RECOVERY MATHEMATICS: WHY LARGE LOSSES ARE FATAL
+
+Here's the <Highlight variant="blue">cruelest mathematical reality</Highlight> in trading:
+
+**<Highlight variant="red">The amount of gain needed to recover from a loss is exponentially larger than the loss itself.</Highlight>**
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Loss</TableHead>
+      <TableHead>Gain Needed to Recover</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>-10%</TableCell>
+      <TableCell>+11.1%</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>-20%</TableCell>
+      <TableCell>+25.0%</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>-30%</TableCell>
+      <TableCell>+42.9%</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>-40%</TableCell>
+      <TableCell>+66.7%</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>-50%</TableCell>
+      <TableCell>+100.0%</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>-60%</TableCell>
+      <TableCell>+150.0%</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>-70%</TableCell>
+      <TableCell>+233.3%</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>-80%</TableCell>
+      <TableCell>+400.0%</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>-90%</TableCell>
+      <TableCell>+900.0%</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+<br />
+**Read that again. <Highlight variant="yellow">Lose 50%</Highlight> and you need
+to <Highlight variant="blue">DOUBLE your remaining capital</Highlight> just to
+break even.**
+
+**<Highlight variant="yellow">Lose 80%</Highlight>** and you need to <Highlight variant="blue">5x your remaining capital</Highlight> to get back to breakeven.
+
+**This is why aggressive position sizing is financial suicide.**
+
+When <Highlight variant="yellow">Trader B</Highlight> (from our earlier example) suffered a <Highlight variant="yellow">-36%</Highlight> drawdown with <Highlight variant="yellow">5%</Highlight> risk per trade,
+they needed a <Highlight variant="blue">56% gain to recover</Highlight>. That's not happening quickly. That's <Highlight variant="yellow">months of perfect trading</Highlight>.
+
+The <Highlight variant="blue">psychological weight</Highlight> of trying to climb out of a deep hole causes:
+
+<GridList
+  gap="1rem"
+  showAccent={true}
+  items={[
+    { title: 'Desperation trading', accentColor: '#60a5fa' },
+    {
+      title: 'Risk escalation',
+      accentColor: '#60a5fa',
+      description: '"I need to make it back faster"',
+    },
+    { title: 'Loss of confidence', accentColor: '#60a5fa' },
+    { title: 'Second-guessing your system', accentColor: '#60a5fa' },
+    { title: 'Eventually blowing up completely', accentColor: '#60a5fa' },
+  ]}
+/>
+
+**<Highlight variant="yellow">Trader A</Highlight>, risking <Highlight variant="yellow">1%</Highlight> per trade, never faced this hell.**
+
+Their worst drawdown was <Highlight variant="yellow">-11%</Highlight>, requiring only a <Highlight variant="blue">12.4% gain</Highlight> to recover.
+**<Highlight variant="yellow">Manageable</Highlight>**. <Highlight variant="yellow">Achievable</Highlight>. <Highlight variant="green">Psychologically sustainable</Highlight>.
+
+**This is your fortress foundation: Position sizing that keeps drawdowns survivable.**
+
+## ADVANCED METHOD #1: ATR-BASED VOLATILITY SIZING
+
+Fixed fractional sizing (1-2% risk) is your <Highlight variant="blue">baseline</Highlight>.
+But <Highlight variant="yellow">professional traders</Highlight> add a <Highlight variant="yellow">crucial layer of sophistication</Highlight>:
+
+**<Highlight variant="red">Adjusting position size based on market volatility.</Highlight>**
+
+Why? Because not all markets and not all trades have the same <Highlight variant="yellow">volatility characteristics</Highlight>.
+
+<Highlight variant="blue">Consider:</Highlight>
+
+→ Low volatility: EUR/USD during London session (average 50 pip range)<br/>
+→ High volatility: GBP/JPY during news event (average 200 pip range)<br/>
+
+If you place your stops at the same technical levels <Highlight variant="red">without adjusting for volatility</Highlight>, you'll either:
+
+1\. <Highlight variant="yellow">Get stopped out prematurely in high volatility</Highlight> (noise takes you out)<br/>
+2\. <Highlight variant="yellow">Risk too much in low volatility</Highlight> (tight stop means huge position)
+
+**ATR (Average True Range) solves this.**
+
+### <Highlight variant="accent">WHAT IS ATR?</Highlight>
+
+ATR measures the <Highlight variant="yellow">average range of price movement</Highlight> over a <Highlight variant="blue">specified period</Highlight> (typically 14 periods).
+
+→ <Highlight variant="yellow">High ATR = High volatility</Highlight> = Need wider stops =<Highlight variant="red"> Smaller position size</Highlight><br/>
+→ <Highlight variant="yellow">Low ATR = Low volatility</Highlight> = Can use tighter stops =<Highlight variant="green"> Larger position size</Highlight>
+
+### <Highlight variant="accent">THE ATR POSITION SIZING FORMULA</Highlight>
+
+<Math>
+  {'\\begin{aligned}' +
+    '\\text{Stop Distance} &= \\text{Entry Price} \\pm (\\text{ATR} \\times \\text{Multiplier}) \\\\' +
+    '\\text{Position Size} &= \\frac{\\text{Account Risk in }\\$}{\\text{Stop Distance in }\\$}' +
+    '\\end{aligned}'}
+</Math>
+<br />
+
+**<Highlight variant="blue">Typical ATR multipliers:</Highlight>**
+
+→ <Highlight variant="yellow">2× ATR</Highlight>: Aggressive (more likely to get stopped out by noise)<br/>
+→ <Highlight variant="yellow">3× ATR</Highlight>: Balanced (professional standard)<br/>
+→ <Highlight variant="yellow">4× ATR</Highlight>: Conservative (gives trade more room)<br/>
+
+### <Highlight variant="accent">EXAMPLE: ATR-BASED SIZING ON EUR/USD</Highlight>
+
+**<Highlight variant="blue">Your situation:</Highlight>**
+
+→ Account: <Highlight variant="blue">$10,000</Highlight><br/>
+→ Risk per trade: 1% = <Highlight variant="blue">$100</Highlight><br/>
+→ Entry: <Highlight variant="blue">1.1000</Highlight><br/>
+→ 14-period ATR: <Highlight variant="blue">0.0060</Highlight> (60 pips)<br/>
+→ Multiplier: <Highlight variant="yellow">3× ATR</Highlight><br/>
+
+**<Highlight variant="blue">Calculate stop distance:</Highlight>**
+
+<Math>
+  {'\\begin{aligned}' +
+    '\\text{Stop Distance} &= 3 \\times 60 \\text{ pips} \\\\' +
+    '\\text{Stop Distance} &= 180 \\text{ pips} \\\\' +
+    '\\text{Stop Loss} &= 1.1000 - 0.0180 \\\\' +
+    '\\text{Stop Loss} &= 1.0820' +
+    '\\end{aligned}'}
+</Math>
+
+**<Highlight variant="blue">Calculate position size:</Highlight>**
+
+<Math>
+  {'\\begin{aligned}' +
+    '\\text{Position Size} &= \\frac{\\$100}{180 \\text{ pips} \\times \\$10 \\text{ per lot}} \\\\' +
+    '\\text{Position Size} &= \\frac{\\$100}{\\$1,800 \\text{ per lot}} \\\\' +
+    '\\text{Position Size} &= 0.0555 \\text{ lots} \\\\' +
+    '\\text{Position Size} &= 5.5 \\text{ micro lots} = 5,550 \\text{ units}' +
+    '\\end{aligned}'}
+</Math>
+
+**<Highlight variant="blue">Compare to fixed 50-pip stop:</Highlight>**
+
+<Math>
+  {'\\begin{aligned}' +
+    '\\text{Position Size} &= \\frac{\\$100}{50 \\text{ pips} \\times \\$10 \\text{ per lot}} \\\\' +
+    '\\text{Position Size} &= 0.2 \\text{ lots} \\\\' +
+    '\\text{Position Size} &= 20,000 \\text{ units}' +
+    '\\end{aligned}'}
+</Math>
+
+**Notice the difference?**
+
+ATR-based sizing gave you a <Highlight variant="yellow">3.6× smaller position</Highlight> because the <Highlight variant="yellow">wider stop</Highlight>
+(appropriate for volatility) automatically <Highlight variant="green">reduced your exposure</Highlight>.
+
+**This is beautiful risk management:**
+
+→ You're still risking exactly 1% ($100)<br/>
+→ But your stop is intelligently placed based on market volatility<br/>
+→ You won't get stopped out by normal market noise<br/>
+→ Your position size automatically adjusts to maintain consistent risk
+
+### <Highlight variant="accent">THE ATR ADVANTAGE IN DIFFERENT MARKET CONDITIONS</Highlight>
+
+**<Highlight variant="blue">Scenario 1: Low Volatility (ATR = 30 pips)</Highlight>**
+
+<Math>
+  {'\\begin{aligned}' +
+    '\\text{Stop} &= 3 \\times 30 \\text{ pips} \\\\' +
+    '\\text{Stop} &= 90 \\text{ pips} \\\\' +
+    '\\text{Position Size} &= \\frac{\\$100}{90 \\text{ pips} \\times \\$10 \\text{ per lot}} \\\\' +
+    '\\text{Position Size} &= 0.111 \\text{ lots} \\\\' +
+    '\\text{Position Size} &= 11,100 \\text{ units}' +
+    '\\end{aligned}'}
+</Math>
+
+**<Highlight variant="blue">Scenario 2: High Volatility (ATR = 120 pips)</Highlight>**
+
+<Math>
+  {'\\begin{aligned}' +
+    '\\text{Stop} &= 3 \\times 120 \\text{ pips} \\\\' +
+    '\\text{Stop} &= 360 \\text{ pips} \\\\' +
+    '\\text{Position Size} &= \\frac{\\$100}{360 \\text{ pips} \\times \\$10 \\text{ per lot}} \\\\' +
+    '\\text{Position Size} &= 0.0278 \\text{ lots} \\\\' +
+    '\\text{Position Size} &= 2,780 \\text{ units}' +
+    '\\end{aligned}'}
+</Math>
+
+**See the elegance?**
+
+In <Highlight variant="blue">low volatility</Highlight>, you get a <Highlight variant="yellow">larger position</Highlight> because you can use a tighter stop.<br/>
+In <Highlight variant="blue">high volatility</Highlight>, you get a <Highlight variant="yellow">smaller position</Highlight> because you need a wider stop.
+
+**But in <Highlight variant="blue">both cases</Highlight>, you're risking exactly <Highlight variant="yellow">1%</Highlight> of your account.**
+
+Your position size adapts to market conditions automatically. This is professional-grade risk management.
+
+## ADVANCED METHOD #2: THE KELLY CRITERION (USE WITH CAUTION)
+
+Now we enter <Highlight variant="red">dangerous territory</Highlight>.
+
+The <Highlight variant="blue">Kelly Criterion</Highlight> is a mathematical formula developed by <CustomLink href="https://en.wikipedia.org/wiki/John_Larry_Kelly_Jr." target="_blank">John Kelly Jr.</CustomLink> in 1956 to determine <Highlight variant="yellow">optimal</Highlight> bet sizing for favorable odds.
+
+Many professional traders use it. Many more have been destroyed by it.
+
+**The <Highlight variant="blue">Kelly formula:</Highlight>**
+
+<Math>
+  {
+    '\\text{Kelly \\%} = \\frac{(\\text{Win Rate} \\times \\text{Avg Win}) - (\\text{Loss Rate} \\times \\text{Avg Loss})}{\\text{Avg Win}}'
+  }
+</Math>
+
+Or simplified for trading:
+
+<Math>
+  {
+    '\\text{Kelly \\%} = \\text{Win Rate} - \\frac{1 - \\text{Win Rate}}{\\text{Risk-Reward Ratio}}'
+  }
+</Math>
+
+### <Highlight variant="accent">EXAMPLE: KELLY CALCULATION</Highlight>
+
+**<Highlight variant="blue">Your system:</Highlight>**
+
+→ Win rate: <Highlight variant="blue">55%</Highlight><br/>
+→ Risk-reward ratio: <Highlight variant="blue">1:2</Highlight><br/>
+→ Average win: <Highlight variant="blue">$200</Highlight><br/>
+→ Average loss: <Highlight variant="blue">$100</Highlight><br/>
+
+<Math>
+  {'\\begin{aligned}' +
+    '\\text{Kelly \\%} &= 0.55 - \\frac{1 - 0.55}{2} \\\\' +
+    '\\text{Kelly \\%} &= 0.55 - 0.225 \\\\' +
+    '\\text{Kelly \\%} &= 0.325 = 32.5\\%' +
+    '\\end{aligned}'}
+</Math>
+
+**The Kelly Criterion says you should risk <Highlight variant="yellow">32.5%</Highlight> of your capital per trade.**
+
+**<span style={{color: 'red'}}>DO NOT DO THIS.</span>**
+
+### <Highlight variant="accent">WHY FULL KELLY IS SUICIDE</Highlight>
+
+**<Highlight variant="blue">Full Kelly</Highlight>** <Highlight variant="yellow">maximizes long-term growth rate</Highlight>, but it comes with <Highlight variant="red">catastrophic drawdown risk</Highlight>:
+
+→ Full Kelly (<Highlight variant="yellow">32.5%</Highlight>): Max drawdown can exceed 80%<br/>
+→ One bad streak and you're <Highlight variant="red">psychologically obliterated</Highlight><br/>
+→ Requires perfect estimation of <Highlight variant="yellow">win rate</Highlight> and <Highlight variant="yellow">RR</Highlight> (impossible in trading)<br/>
+→ Assumes <Highlight variant="yellow">infinite number of trials</Highlight> (you don't have infinite capital)<br/>
+
+**Professional traders use <Highlight variant="blue">fractional Kelly</Highlight>:**
+
+→ <Highlight variant="yellow">Half Kelly</Highlight> (<Highlight variant="yellow">16.25%</Highlight>): Still too aggressive; max drawdown ~50%<br/>
+→ <Highlight variant="yellow">Quarter Kelly</Highlight> (<Highlight variant="yellow">8.1%</Highlight>): Aggressive but survivable; max drawdown ~25%<br/>
+→ <Highlight variant="yellow">One-Eighth Kelly</Highlight> (<Highlight variant="yellow">4%</Highlight>): Conservative; max drawdown ~15%<br/>
+
+**Most professionals use 1/4 to 1/8 Kelly at most.**
+
+### <Highlight variant="accent">PRACTICAL KELLY APPLICATION</Highlight>
+
+Let's redo the calculation with <Highlight variant="yellow">Quarter Kelly</Highlight>:
+
+<Math>
+  {'\\begin{aligned}' +
+    '\\text{Full Kelly} &= 32.5\\% \\\\' +
+    '\\text{Quarter Kelly} &= \\frac{32.5\\%}{4} = 8.1\\%' +
+    '\\end{aligned}'}
+</Math>
+
+**Still too high for most traders.**
+
+**Here's the intelligent approach:**
+
+Use <Highlight variant="blue">Kelly</Highlight> as an <Highlight variant="yellow">upper bound</Highlight>, not a <Highlight variant="yellow">target</Highlight>:
+
+1\. <Highlight variant="yellow">Calculate Full Kelly</Highlight><br/>
+2\. <Highlight variant="yellow">Divide by 4 to 8</Highlight><br/>
+3\. <Highlight variant="yellow">Cap at 2% regardless</Highlight>
+
+**<Highlight variant="blue">Example:</Highlight>**
+
+→ Full Kelly = <Highlight variant="yellow">32.5%</Highlight><br/>
+→ Divide by 8 = <Highlight variant="yellow">4.06%</Highlight><br/>
+→ Cap at 2% = Use <Highlight variant="yellow">2%</Highlight><br/>
+
+**You're now using Kelly to confirm that your 1-2% risk is within optimal parameters,
+not to encourage reckless sizing.**
+
+### <Highlight variant="accent">KELLY WARNING SIGNS</Highlight>
+
+If your Kelly calculation suggests <Highlight variant="yellow">>50%</Highlight> position sizing:
+
+→ Your <Highlight variant="yellow">win rate estimate</Highlight> is probably wrong<br/>
+→ Your <Highlight variant="yellow">risk-reward estimate</Highlight> is probably wrong<br/>
+→ You're overfitting to a <Highlight variant="yellow">small sample size</Highlight><br/>
+→ **Do <Highlight variant="red">NOT</Highlight> increase position size**<br/>
+
+If your Kelly calculation suggests <Highlight variant="yellow">&lt;1%</Highlight> position sizing:
+
+→ Your system might not have a <Highlight variant="yellow">genuine edge</Highlight><br/>
+→ Your <Highlight variant="yellow">risk-reward ratio</Highlight> might be too poor<br/>
+→ You might need to refine your <Highlight variant="yellow">strategy</Highlight>
+
+**Bottom line: Kelly is a <Highlight variant="blue">mathematical curiosity</Highlight> and a <Highlight variant="blue">reality check</Highlight>,
+not a <Highlight variant="yellow">position sizing method</Highlight> for most traders.**
+
+## ADVANCED METHOD #3: RISK SCORING (THE PROFESSIONAL EDGE)
+
+Not all trade setups are <Highlight variant="yellow">created equal</Highlight>.
+
+Your <Highlight variant="green">A+ setups</Highlight> — perfect confluences, ideal conditions, maximum edge — deserve more capital allocation
+than your <Highlight variant="yellow">B</Highlight> or <Highlight variant="red">C</Highlight> setups.
+
+**<Highlight variant="blue">Risk Scoring</Highlight> allows you to dynamically adjust position size based on <Highlight variant="yellow">setup quality</Highlight>.**
+
+### <Highlight variant="accent">THE RISK SCORING FRAMEWORK</Highlight>
+
+**<Highlight variant="yellow">A-Grade Setup</Highlight> (Score: 1.0):**
+
+→ Multiple confirmations<br/>
+→ Strong trend alignment<br/>
+→ Key support/resistance<br/>
+→ High probability zone<br/>
+→ Optimal market conditions<br/>
+→ **Allocation: Full risk (1-2%)**
+
+**<Highlight variant="yellow">B-Grade Setup</Highlight> (Score: 0.5-0.75):**
+
+→ Moderate confirmation<br/>
+→ Acceptable but not perfect conditions<br/>
+→ One or two factors missing<br/>
+→ **Allocation: Half to 3/4 risk (0.5-1.5%)**
+
+**<Highlight variant="yellow">C-Grade Setup</Highlight> (Score: 0.25-0.5):**
+
+→ Minimal confirmation<br/>
+→ Counter-trend or choppy conditions<br/>
+→ Experimental or learning trade<br/>
+→ **Allocation: Quarter to half risk (0.25-1%)**
+
+**<Highlight variant="yellow">D-Grade Setup</Highlight> (Score: 0):**
+
+→ Poor setup<br/>
+→ **Allocation: Do not trade**
+
+### <Highlight variant="accent">EXAMPLE: RISK SCORING IN ACTION</Highlight>
+
+**<Highlight variant="blue">Your situation:</Highlight>**
+
+→ Account: <Highlight variant="blue">$10,000</Highlight><br/>
+→ Base risk: 1% = <Highlight variant="blue">$100</Highlight><br/>
+
+**<Highlight variant="yellow">Trade 1: A-Grade Setup</Highlight>**
+
+→ Score: 1.0<br/>
+→ Risk: <Highlight variant="blue">$100</Highlight> × 1.0 = <Highlight variant="blue">$100</Highlight> (full risk)<br/>
+
+**<Highlight variant="yellow">Trade 2: B-Grade Setup</Highlight>**
+
+→ Score: 0.6<br/>
+→ Risk: <Highlight variant="blue">$100</Highlight> × 0.6 = <Highlight variant="blue">$60</Highlight> (reduced risk)<br/>
+
+**<Highlight variant="yellow">Trade 3: C-Grade Setup</Highlight>**
+
+→ Score: 0.3<br/>
+→ Risk: <Highlight variant="blue">$100</Highlight> × 0.3 = <Highlight variant="blue">$30</Highlight> (minimal risk)<br/>
+
+**<Highlight variant="blue">The beauty of this approach:</Highlight>**
+
+→ You're still never exceeding your 1% base risk<br/>
+→ You're allocating more capital to your best opportunities<br/>
+→ You're reducing exposure to marginal setups<br/>
+→ You're training yourself to be selective<br/>
+→ Your overall risk-adjusted returns improve<br/>
+
+### <Highlight variant="accent">CREATING YOUR RISK SCORING SYSTEM</Highlight>
+
+**<Highlight variant="blue">Define specific criteria for each grade:</Highlight>**
+
+<Checklist
+  title="Grade Qualification Checklist"
+  description="Check every condition your trade setup meets. The score ranges below tell you what grade it qualifies for and how much risk you can safely take."
+  items={[
+    {
+      id: 'trend-alignment',
+      label: 'Trade with the trend (daily + 4H aligned)',
+    },
+    { id: 'key-level', label: 'At key support/resistance' },
+    { id: 'indicator-confirmation', label: 'Multiple indicator confirmation' },
+    { id: 'liquidity-time', label: 'Optimal time of day (high liquidity)' },
+    { id: 'risk-reward', label: 'Clear risk-reward >1:2' },
+    { id: 'volatility-regime', label: 'Low-volatility regime' },
+  ]}
+  scoreRanges={[
+    { min: 5, max: 6, label: 'A-Grade (full risk: 1-2%)' },
+    { min: 3, max: 4, label: 'B-Grade (half to ¾ risk: 0.5-1.5%)' },
+    { min: 1, max: 2, label: 'C-Grade (quarter to ½ risk: 0.25-1%)' },
+    { min: 0, max: 0, label: 'D-Grade (do not trade)' },
+  ]}
+>
+  Minimum 5/6 criteria met = A-Grade
+  <br />
+  3-4 criteria = B-Grade
+  <br />
+  1-2 criteria = C-Grade
+  <br />0 criteria = D-Grade (do not trade)
+</Checklist>
+<br />
+
+Over time, track which criteria correlate with your winners and adjust your scoring system accordingly.
+
+**This transforms subjective <Highlight variant="yellow">"gut feeling"</Highlight> into <Highlight variant="green">objective, systematic risk allocation</Highlight>.**
+
+### <Highlight variant="accent">Points-Based Risk Scoring</Highlight>
+
+Let's say your baseline is <Highlight variant="yellow">2%</Highlight> risk per trade. Here's how you'd scale:
+
+**Monday:** <Highlight variant="yellow">A-grade setup on AAPL</Highlight>
+
+→ Full conviction<br/>
+→ Risk: <Highlight variant="yellow">2%</Highlight> × 100% = <Highlight variant="yellow">2%</Highlight>
+
+**Wednesday:** <Highlight variant="yellow">B-grade setup on MSFT</Highlight>
+
+→ Good setup, but market conditions are mixed<br/>
+→ Risk: <Highlight variant="yellow">2%</Highlight> × 75% = <Highlight variant="yellow">1.5%</Highlight>
+
+**Friday:** <Highlight variant="yellow">C-grade setup on GOOGL</Highlight>
+
+→ Barely meets your criteria, but technically valid<br/>
+→ Risk: <Highlight variant="yellow">2%</Highlight> × 50% = <Highlight variant="yellow">1%</Highlight>
+
+Over three trades, you've risked <Highlight variant="yellow">4.5%</Highlight> total instead of <Highlight variant="yellow">6%</Highlight>. You've reduced exposure on lower-quality
+setups while maintaining full exposure on high-quality setups.
+
+**This is risk intelligence.**
+
+**<Highlight variant="blue">The Scoring System:</Highlight>**
+
+Create a concrete checklist. Here's an example for swing traders:
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Criteria</TableHead>
+      <TableHead>Points</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>Daily trend aligned</TableCell>
+      <TableCell>1</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Weekly trend aligned</TableCell>
+      <TableCell>1</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>At key support/resistance</TableCell>
+      <TableCell>1</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Volume confirms pattern</TableCell>
+      <TableCell>1</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Market environment favorable</TableCell>
+      <TableCell>1</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Risk-reward 3:1 or better</TableCell>
+      <TableCell>1</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Clean pattern (no ambiguity)</TableCell>
+      <TableCell>1</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <strong>Total Possible</strong>
+      </TableCell>
+      <TableCell>
+        <strong>7</strong>
+      </TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+<br />
+
+**Scoring:**
+
+→ 6-7 points: <Highlight variant="yellow">A-grade</Highlight> → <Highlight variant="yellow">100%</Highlight> position size<br/>
+→ 4-5 points: <Highlight variant="yellow">B-grade</Highlight> → <Highlight variant="yellow">75%</Highlight> position size<br/>
+→ 3 points: <Highlight variant="yellow">C-grade</Highlight> → <Highlight variant="yellow">50%</Highlight> position size<br/>
+→ 0-2 points: <Highlight variant="yellow">No trade</Highlight><br/>
+
+**This removes emotion from sizing decisions. You're following a systematic framework.**
+
+## LEVERAGE, EXPOSURE, AND MARGIN: THE HIDDEN MULTIPLIERS
+
+Now let's address the <Highlight variant="red">silent killer</Highlight> that most traders don't fully understand:
+
+**<Highlight variant="blue">Leverage and margin mechanics.</Highlight>**
+
+### <Highlight variant="accent">WHAT IS LEVERAGE?</Highlight>
+
+Leverage allows you to control a position larger than your account balance.
+
+**<Highlight variant="blue">Examples:</Highlight>**
+
+→ <Highlight variant="yellow">10:1 leverage:</Highlight> <Highlight variant="blue">$1,000</Highlight> controls <Highlight variant="blue">$10,000</Highlight> position<br/>
+→ <Highlight variant="yellow">50:1 leverage:</Highlight> <Highlight variant="blue">$1,000</Highlight> controls <Highlight variant="blue">$50,000</Highlight> position<br/>
+→ <Highlight variant="yellow">100:1 leverage:</Highlight> <Highlight variant="blue">$1,000</Highlight> controls <Highlight variant="blue">$100,000</Highlight> position<br/>
+
+**Critical distinction:**
+
+**<Highlight variant="red">Available leverage ≠ Used leverage</Highlight>**
+
+Your broker might offer <Highlight variant="yellow">10:1 leverage</Highlight>, but that doesn't mean you should use it.
+
+**<Highlight variant="blue">Used leverage</Highlight> is determined by your position size relative to your account:**
+
+<Math>
+  {
+    '\\text{Used Leverage} = \\frac{\\text{Total Position Value}}{\\text{Account Equity}}'
+  }
+</Math>
+
+### <Highlight variant="accent">EXAMPLE: CONTROLLING YOUR ACTUAL LEVERAGE</Highlight>
+
+**<Highlight variant="blue">Your situation:</Highlight>**
+
+→ Account: <Highlight variant="blue">$10,000</Highlight><br/>
+→ Broker offers: <Highlight variant="yellow">100:1 leverage</Highlight><br/>
+→ You trade: <Highlight variant="yellow">0.1 standard lots</Highlight> of EUR/USD (10,000 units)<br/>
+→ Position value: <Highlight variant="blue">$11,000</Highlight> (if EUR/USD = 1.1000)<br/>
+→ Your used leverage:
+
+<Math>
+  {
+    '\\text{Used Leverage} = \\frac{\\text{Total Position Value}}{\\text{Account Equity}} = \\frac{\\text{11,000}}{\\text{10,000}} = 1.1:1'
+  }
+</Math>
+
+Even though your broker offers <Highlight variant="yellow">100:1 leverage</Highlight>, you're only using <Highlight variant="yellow">1.1:1</Highlight>.
+
+**This is intelligent leverage use.**
+
+### <Highlight variant="accent">THE LEVERAGE DANGER ZONE</Highlight>
+
+**<Highlight variant="blue">Safe Zone</Highlight> (1:1 to 5:1 used leverage):**
+
+→ Position value is <Highlight variant="yellow">1-5× your account</Highlight><br/>
+→ Allows for normal market movements<br/>
+→ Low risk of margin calls<br/>
+→ **Recommended for most traders**<br/>
+
+**<Highlight variant="blue">Caution Zone</Highlight> (5:1 to 10:1 used leverage):**
+
+→ Position value is <Highlight variant='yellow'>5-10× your account</Highlight><br/>
+→ Requires tight stop losses<br/>
+→ Moderate risk of margin calls<br/>
+→ **Only for experienced traders with robust systems**<br/>
+
+**<Highlight variant="blue">Danger Zone</Highlight> (10:1 to 30:1 used leverage):**
+
+→ Position value is <Highlight variant="yellow">10-30× your account</Highlight><br/>
+→ Very high risk of margin calls<br/>
+→ Small adverse moves can wipe account<br/>
+→ **Only for professionals with exceptional risk management**<br/>
+
+**<Highlight variant="blue">Suicide Zone</Highlight> (30:1+ used leverage):**
+
+→ Position value exceeds <Highlight variant="yellow">30× your account</Highlight><br/>
+→ Almost certain destruction<br/>
+→ **<Highlight variant="red">Avoid at all costs</Highlight>**<br/>
+
+### <Highlight variant="accent">MARGIN CALL MATHEMATICS</Highlight>
+
+Your broker requires **margin** — a percentage of your position value held as <Highlight variant="yellow">collateral</Highlight>.
+
+<Math>
+  {
+    '\\text{Margin Requirement} = \\frac{\\text{Position Value}}{\\text{Leverage}}'
+  }
+</Math>
+
+**<Highlight variant="blue">Example:</Highlight>**
+
+→ Position: <Highlight variant="blue">$50,000</Highlight><br/>
+→ Leverage: <Highlight variant="yellow">50:1</Highlight><br/>
+→ Margin required: <Highlight variant="blue">$50,000 / 50 = $1,000</Highlight><br/>
+
+**<Highlight variant="blue">Margin call trigger:</Highlight>**
+
+Most brokers issue margin calls when your equity falls to <Highlight variant="yellow">100-50%</Highlight> of required margin.
+
+**If you use high leverage, a small adverse move triggers margin call:**
+
+→ Account: <Highlight variant="blue">$2,000</Highlight><br/>
+→ Position: <Highlight variant="blue">$100,000</Highlight> (50:1 leverage)<br/>
+→ Margin required: <Highlight variant="blue">$2,000</Highlight><br/>
+→ Available for losses: ~<Highlight variant="blue">$0-$1,000</Highlight><br/>
+
+**A 1% adverse move = <Highlight variant="blue">$1,000</Highlight> loss = margin call.**
+
+**<Highlight variant="yellow">Compare to low leverage:</Highlight>**
+
+→ Account: <Highlight variant="blue">$10,000</Highlight><br/>
+→ Position: <Highlight variant="blue">$20,000</Highlight> (2:1 leverage)<br/>
+→ Margin required: <Highlight variant="blue">$400</Highlight> (at 50:1 available)<br/>
+→ Available for losses: ~<Highlight variant="blue">$9,600</Highlight><br/>
+
+**A 1% adverse move = <Highlight variant="blue">$200</Highlight> loss = barely noticeable.**
+
+**<Highlight variant="blue">The lesson:</Highlight> Control your actual position size, not just your percentage risk.**
+
+## PORTFOLIO HEAT: THE FORGOTTEN RISK
+
+Position sizing isn't just about individual trades — it's about <Highlight variant="yellow">total exposure</Highlight>.
+
+**<Highlight variant="blue">Portfolio heat</Highlight> = Total capital at risk across <Highlight variant="yellow">all open positions</Highlight>**
+
+### <Highlight variant="accent">THE PORTFOLIO HEAT RULE</Highlight>
+
+**Never have more than 6-10% of your total capital at risk simultaneously.**
+
+**<Highlight variant="blue">Example:</Highlight>**
+
+You have a <Highlight variant="blue">$20,000</Highlight> account and follow <Highlight variant="yellow">1% risk per trade</Highlight>:
+
+**Maximum simultaneous positions:**
+
+→ 8% max portfolio heat<br/>
+→ Risk per trade: 1% = <Highlight variant="blue">$200</Highlight><br/>
+→ Maximum positions: <Highlight variant="yellow">8 trades</Highlight><br/>
+
+**If you have 10 positions open, each risking <Highlight variant="blue">$200</Highlight>:**
+
+→ Total portfolio heat: <Highlight variant="blue">$2,000</Highlight> = **10% of account**<br/>
+→ You've hit your limit — **<Highlight variant="red">do not take another trade</Highlight>**<br/>
+
+### <Highlight variant="accent">WHY PORTFOLIO HEAT MATTERS</Highlight>
+
+**<Highlight variant="blue">Scenario:</Highlight> The Correlation Trap**
+
+You think you're diversified:
+
+→ Long EUR/USD<br/>
+→ Long GBP/USD<br/>
+→ Long AUD/USD<br/>
+→ Long NZD/USD<br/>
+→ Long EUR/GBP<br/>
+
+**<Highlight variant="blue">Reality:</Highlight> All five are USD shorts.**
+
+If USD strengthens, **all five positions lose simultaneously.**
+
+What you thought was 5× 1% risk (5% total) is actually more like **1 position with 5% risk**.
+
+**During the 2016 Trump election surprise, USD spiked. Traders with multiple USD shorts
+got obliterated in minutes.**
+
+### <Highlight variant="accent">MANAGING PORTFOLIO HEAT</Highlight>
+
+→ Track total risk daily<br/>
+→ Limit correlated positions (no more than 2-3 in same direction)<br/>
+→ Reduce position size when portfolio heat >6%<br/>
+→ Close or reduce positions before adding new ones<br/>
+→ Use a position tracker (Excel, TradingView, journal)<br/>
+
+**<Highlight variant="blue">Professional approach:</Highlight>**
+
+If you want to add a 9th position but you're at <Highlight variant="yellow">8% portfolio heat</Highlight>:
+
+→ <Highlight variant="yellow">Option A:</Highlight> Reduce size on all positions to <Highlight variant="yellow">0.9% each</Highlight> (allows 9 positions at <Highlight variant="yellow">8.1% heat</Highlight>)<br/>
+→ <Highlight variant="yellow">Option B:</Highlight> Close or reduce your weakest position<br/>
+→ <Highlight variant="yellow">Option C:</Highlight> Don't take the new trade<br/>
+
+**Discipline over opportunity.**
+
+## SCALING FOR DIFFERENT ACCOUNT SIZES
+
+Position sizing isn't one-size-fits-all. Your approach must scale with your capital.
+
+### <Highlight variant="accent">SMALL ACCOUNTS ($500-$5,000)</Highlight>
+
+**<Highlight variant="blue">Challenges:</Highlight>**
+
+→ Minimum position sizes (1 micro lot = $0.10/pip)<br/>
+→ Commission/spread eats larger % of profits<br/>
+→ Leverage required to make meaningful gains<br/>
+
+**<Highlight variant="blue">Strategy:</Highlight>**
+
+→ Use 1% risk maximum<br/>
+→ Trade micro lots only initially<br/>
+→ Focus on high-probability setups (A-grade only)<br/>
+→ Prioritize capital preservation and learning<br/>
+→ Consider fractional positions (0.3 micro lots if broker allows)<br/>
+→ Accept that growth will be slow but steady<br/>
+→ Do NOT overtrade to "grow faster"<br/>
+
+**<Highlight variant="blue">Example:</Highlight> $1,000 account**
+
+→ 1% risk = <Highlight variant="blue">$10</Highlight> per trade<br/>
+→ With 50-pip stop = <Highlight variant="yellow">0.2 micro lots</Highlight> (200 units)<br/>
+→ Even perfect trade (+100 pips) = <Highlight variant="blue">$20</Highlight> profit<br/>
+
+**It's slow. That's the point. You're building skill and discipline.**
+
+### <Highlight variant="accent">MEDIUM ACCOUNTS ($5,000-$50,000)</Highlight>
+
+**<Highlight variant="blue">Advantages:</Highlight>**
+
+→ More flexibility in position sizing<br/>
+→ Can trade mini lots<br/>
+→ Commissions less impactful<br/>
+
+**<Highlight variant="blue">Strategy:</Highlight>**
+
+→ Use 1-1.5% risk per trade<br/>
+→ Implement ATR-based sizing<br/>
+→ Apply risk scoring (A/B/C grades)<br/>
+→ Maintain portfolio heat limits<br/>
+→ Begin tracking expectancy and R-multiples<br/>
+→ Scale up gradually as consistency proven<br/>
+
+**<Highlight variant="blue">Example:</Highlight> $20,000 account**
+
+→ 1% risk = $200 per trade<br/>
+→ With 100-pip stop on EUR/USD = 0.2 standard lots (20,000 units)<br/>
+→ Perfect trade (+200 pips) = $400 profit<br/>
+
+**You're now trading with professional parameters.**
+
+### <Highlight variant="accent">LARGE ACCOUNTS ($50,000+)</Highlight>
+
+**<Highlight variant="blue">Advantages:</Highlight>**
+
+→ Full position sizing flexibility<br/>
+→ Can diversify across multiple markets<br/>
+→ Commission/spread minimal impact<br/>
+
+**<Highlight variant="blue">Strategy:</Highlight>**
+
+→ Use 0.5-1% risk per trade (smaller % as account grows)<br/>
+→ Full ATR and volatility-based sizing<br/>
+→ Sophisticated risk scoring systems<br/>
+→ Multiple uncorrelated positions<br/>
+→ Consider hedging strategies<br/>
+→ Implement professional risk software<br/>
+→ Focus on risk-adjusted returns, not just returns<br/>
+
+**<Highlight variant="blue">Example:</Highlight> $100,000 account**
+
+→ 0.5% risk = <Highlight variant="blue">$500</Highlight> per trade<br/>
+→ With 75-pip stop on GBP/JPY = <Highlight variant="yellow">0.05 standard lots</Highlight> (5,000 units)<br/>
+→ Perfect trade (+150 pips) = <Highlight variant="blue">$750</Highlight> profit<br/>
+
+**At this level, preservation matters more than growth.**
+
+### <Highlight variant="accent">The Psychological Bridge</Highlight>
+
+When your account grows from <Highlight variant="blue">$50,000</Highlight> to <Highlight variant="blue">$100,000</Highlight>, don't immediately double your position sizes. Instead:
+
+**Week 1-4:** Keep risking the same dollar amounts (<Highlight variant="blue">$1,000</Highlight> per trade)<br/>
+**Week 5-8:** Slowly increase to <Highlight variant="blue">$1,250</Highlight> per trade<br/>
+**Week 9-12:** Move to <Highlight variant="blue">$1,500</Highlight> per trade<br/>
+**Month 4+:** Gradually scale to full 2% of new balance (<Highlight variant="blue">$2,000</Highlight>)<br/>
+
+This gives your psychology time to adjust to larger dollar swings.
+
+### <Highlight variant="accent">The Gradual Scaling Approach</Highlight>
+
+<Accordion type="single" collapsible className="w-full">
+  <AccordionItem value="phase-1">
+    <AccordionTrigger>
+      Phase 1: Small Account ($5,000 - $25,000)
+    </AccordionTrigger>
+    <AccordionContent>
+      → Risk: 1-2% per trade
+      <br />
+      → Focus: Building consistency, not capital
+      <br />
+      → Position sizes feel comfortable
+      <br />→ Psychological pressure is manageable
+    </AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="phase-2">
+    <AccordionTrigger>
+      Phase 2: Growing Account ($25,000 - $100,000)
+    </AccordionTrigger>
+    <AccordionContent>
+      → Risk: 1.5-2% per trade
+      <br />
+      → Gradually increase dollar amounts
+      <br />
+      → Monitor psychological responses
+      <br />→ Begin optimizing for growth
+    </AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="phase-3">
+    <AccordionTrigger>
+      Phase 3: Established Account ($100,000 - $500,000)
+    </AccordionTrigger>
+    <AccordionContent>
+      → Risk: 1-2% per trade (same percentage!)
+      <br />
+      → Dollar amounts are now significant
+      <br />
+      → Psychological confidence is established
+      <br />→ Compounding begins accelerating
+    </AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="phase-4">
+    <AccordionTrigger>Phase 4: Large Account ($500,000+)</AccordionTrigger>
+    <AccordionContent>
+      → Risk: 0.5-1.5% per trade
+      <br />
+      → Position sizes may be limited by liquidity
+      <br />
+      → Focus shifts to capital preservation
+      <br />→ Consider multiple strategies/markets
+    </AccordionContent>
+  </AccordionItem>
+</Accordion>
+
+## THE SCALING PARADOX
+
+**As your account grows, your percentage risk should DECREASE, but your absolute dollar profits increase.**
+
+**<Highlight variant="yellow">Small account (aggressive growth phase):</Highlight>**
+
+→ <Highlight variant="blue">$5,000</Highlight> × 1.5% = <Highlight variant="blue">$75</Highlight> risk per trade<br/>
+→ Need high % returns to grow meaningfully<br/>
+
+**<Highlight variant="yellow">Large account (preservation phase):</Highlight>**
+
+→ <Highlight variant="blue">$200,000</Highlight> × 0.5% = <Highlight variant="blue">$1,000</Highlight> risk per trade<br/>
+→ Lower % returns generate substantial income<br/>
+
+**<Highlight variant="blue">This is how professionals think:</Highlight>**
+
+They don't risk more as they get richer. They risk **less in percentage terms** but more in absolute terms,
+and they **compound consistently**.
+
+## BUILDING YOUR POSITION SIZE CALCULATOR
+
+Every trader needs a reliable position sizing calculator. You can use the interactive fortress calculator below, or build your own spreadsheet using the formulas provided.
+
+<PositionSizingCalculator />
+
+### <Highlight variant="accent">BASIC EXCEL CALCULATOR</Highlight>
+
+**<Highlight variant="blue">Inputs:</Highlight>**
+
+→ Account Size<br/>
+→ Risk %<br/>
+→ Entry Price<br/>
+→ Stop Loss Price<br/>
+→ Instrument (for pip/point value)<br/>
+
+**<Highlight variant="blue">Formula:</Highlight>**
+
+<Math>
+  {'\\begin{aligned}' +
+    '\\text{Risk in }\\$ &= \\text{Account Size} \\times \\text{Risk \\%} \\\\' +
+    '\\text{Trade Risk} &= |\\text{Entry Price} - \\text{Stop Loss Price}| \\\\' +
+    '\\text{Position Size} &= \\frac{\\text{Risk in }\\$}{\\text{Trade Risk}}' +
+    '\\end{aligned}'}
+</Math>
+
+**<Highlight variant="blue">For forex:</Highlight>**
+
+<Math>
+  {
+    '\\text{Position Size (lots)} = \\frac{\\text{Risk in }\\$}{\\text{Pips at Risk} \\times \\text{Pip Value per Lot}}'
+  }
+</Math>
+
+### <Highlight variant="accent">ADVANCED CALCULATOR WITH AMATEUR</Highlight>
+
+**<Highlight variant="blue">Additional inputs:</Highlight>**
+
+→ ATR value<br/>
+→ ATR multiplier<br/>
+
+**<Highlight variant="blue">Formula:</Highlight>**
+
+<Math>
+  {'\\begin{aligned}' +
+    '\\text{Stop Distance} &= \\text{ATR} \\times \\text{Multiplier} \\\\' +
+    '\\text{Stop Loss} &= \\text{Entry} \\pm \\text{Stop Distance} \\\\' +
+    '\\text{Position Size} &= \\frac{\\text{Risk in }\\$}{\\text{Stop Distance in }\\$}' +
+    '\\end{aligned}'}
+</Math>
+
+### <Highlight variant="accent">PROFESSIONAL CALCULATOR WITH RISK SCORING</Highlight>
+
+**<Highlight variant="blue">Additional inputs:</Highlight>**
+
+→ Setup Grade (A/B/C)<br/>
+→ Score multiplier (1.0 / 0.6 / 0.3)<br/>
+
+**<Highlight variant="blue">Formula:</Highlight>**
+
+<Math>
+  {'\\begin{aligned}' +
+    '\\text{Adjusted Risk} &= \\text{Base Risk \\%} \\times \\text{Score Multiplier} \\\\' +
+    '\\text{Position Size} &= \\frac{\\text{Account Size} \\times \\text{Adjusted Risk}}{\\text{Trade Risk}}' +
+    '\\end{aligned}'}
+</Math>
+
+## THE POSITION SIZING CHECKLIST
+
+Before EVERY trade, run through this checklist:
+
+### <Highlight variant="accent">PRE-TRADE POSITION SIZING PROTOCOL</Highlight>
+
+1\. <Highlight variant="blue">Calculate</Highlight> current <Highlight variant="yellow">account balance</Highlight><br/>
+2\. <Highlight variant="blue">Determine</Highlight> risk % for this trade (<Highlight variant="yellow">1-2% baseline</Highlight>)<br/>
+3\. <Highlight variant="blue">Identify</Highlight> exact <Highlight variant="yellow">entry and stop loss prices</Highlight><br/>
+4\. <Highlight variant="blue">Calculate</Highlight> trade risk in <Highlight variant="yellow">pips/points/$</Highlight><br/>
+5\. <Highlight variant="blue">Check</Highlight> ATR and adjust stop if using <Highlight variant="yellow">volatility sizing</Highlight><br/>
+6\. <Highlight variant="blue">Grade</Highlight> setup quality (<Highlight variant="yellow">A/B/C</Highlight>) and adjust risk if using <Highlight variant="yellow">scoring</Highlight><br/>
+7\. <Highlight variant="blue">Calculate</Highlight> exact <Highlight variant="yellow">position size</Highlight><br/>
+8\. <Highlight variant="blue">Check</Highlight> total <Highlight variant="yellow">portfolio heat</Highlight> (add this trade's risk)<br/>
+9\. <Highlight variant="blue">Verify</Highlight> portfolio heat <Highlight variant="yellow">&lt;8-10%</Highlight><br/>
+10\. <Highlight variant="blue">Confirm</Highlight> <Highlight variant="yellow">margin requirements and leverage</Highlight><br/>
+11\. <Highlight variant="blue">Double-check</Highlight> all <Highlight variant="yellow">calculations</Highlight><br/>
+12\. <Highlight variant="blue">Place</Highlight> trade with exact <Highlight variant="yellow">position size and stop loss</Highlight><br/>
+
+If you skip any step, you're gambling, not trading.
+
+## COMMON POSITION SIZING MISTAKES (AND HOW TO AVOID THEM)
+
+### <Highlight variant="accent">MISTAKE #1: Sizing based on desired profit</Highlight>
+
+**<Highlight variant="red">Wrong:</Highlight>** "I want to make $500, so I'll calculate position size backward from my target."
+
+**<Highlight variant="green">Right:</Highlight>** "I'll risk 1% ($100), place my stop at the technical level, and let the position size fall where it may."
+
+**Your desired profit is irrelevant. Your risk management is paramount.**
+
+### <Highlight variant="accent">MISTAKE #2: Using the same position size for all trades</Highlight>
+
+**<Highlight variant="red">Wrong:</Highlight>** "I always trade 0.5 lots regardless of stop distance."
+
+**<Highlight variant="green">Right:</Highlight>** "My position size adjusts based on my stop loss distance to maintain consistent risk percentage."
+
+**Fixed lot size = variable risk = eventual destruction.**
+
+### <Highlight variant="accent">MISTAKE #3: Increasing size after wins, decreasing after losses</Highlight>
+
+**<Highlight variant="red">Wrong:</Highlight>** "I just won three trades, I'm on fire—let's risk 5% on this one!"
+
+**<Highlight variant="green">Right:</Highlight>** "My position size is determined by my system, not my recent results."
+
+**This is the fastest way to give back all profits and more.**
+
+### <Highlight variant="accent">MISTAKE #4: Risking more on "sure things"</Highlight>
+
+**<Highlight variant="red">Wrong:</Highlight>** "This setup is perfect — I'm risking 5% because it can't lose."
+
+**<Highlight variant="green">Right:</Highlight>** "No trade is certain. I risk my predetermined percentage regardless of confidence."
+
+**The trades you're most confident in are often the ones that hurt the most.**
+
+### <Highlight variant="accent">MISTAKE #5: Ignoring portfolio heat</Highlight>
+
+**<Highlight variant="red">Wrong:</Highlight>** "I have five positions each risking 2%, that's fine — it's only 2% per trade."
+
+**<Highlight variant="green">Right:</Highlight>** "I have 10% portfolio heat, which is my limit. I cannot take another position until one closes."
+
+**Simultaneous losses destroy accounts.**
+`
+
+### <Highlight variant="accent">MISTAKE #6: Not adjusting for account growth</Highlight>
+
+**<Highlight variant="red">Wrong:</Highlight>** "My account doubled, but I still risk the same dollar amount."
+
+**<Highlight variant="green">Right:</Highlight>** "My risk percentage stays constant, which means my dollar risk grows with my account."
+
+**Compounding requires adjusting absolute risk as your account grows.**
+
+## THE PSYCHOLOGICAL POWER OF PROPER POSITION SIZING
+
+Beyond the mathematics, proper position sizing has profound psychological benefits:
+
+### <Highlight variant="accent">BENEFIT #1: REMOVES FEAR</Highlight>
+
+When you risk 1%, losing doesn't hurt. You can take your stop without hesitation.
+
+When you risk 10%, every tick against you is torture. You'll move your stop or hold hoping for a reversal.
+
+**Small position size = clear thinking.**
+
+### <Highlight variant="accent">BENEFIT #2: ENABLES DISCIPLINE</Highlight>
+
+With proper sizing, you can follow your system mechanically without emotional interference.
+
+With oversizing, every decision becomes emotional—should I hold? Should I exit early? Should I add to this loser?
+
+**Proper sizing = robotic execution.**
+
+### <Highlight variant="accent">BENEFIT #3: BUILDS CONFIDENCE</Highlight>
+
+A 10-trade losing streak at 1% risk is annoying but manageable.
+
+A 3-trade losing streak at 10% risk is psychologically devastating.
+
+**Surviving losses builds confidence. Proper sizing makes survival guaranteed.**
+
+### <Highlight variant="accent">BENEFIT #4: ALLOWS PATIENCE</Highlight>
+
+When your positions are sized properly, you can let winners run without anxiety.
+
+When oversized, every move against you feels catastrophic, causing premature exits.
+
+**Small risk = big patience.**
+
+## YOUR FORTRESS FOUNDATION IS COMPLETE
+
+Let's bring this full circle.
+
+You started this lesson understanding that <Highlight variant="yellow">position sizing is your shield</Highlight> —
+the single most important decision you make in every trade.
+
+You now know:
+
+→ How to <Highlight variant="yellow">calculate exact position sizes</Highlight> for any market and any trade<br/>
+→ Why <Highlight variant="yellow">1-2% risk</Highlight> is non-negotiable (survival mathematics)<br/>
+→ How to adjust for volatility using <Highlight variant="yellow">ATR</Highlight> (professional-grade sizing)<br/>
+→ How to apply <Highlight variant="yellow">Kelly Criterion</Highlight> intelligently (fractional only)<br/>
+→ How to implement <Highlight variant="yellow">risk scoring</Highlight> (allocate more to best setups)<br/>
+→ How <Highlight variant="yellow">leverage and margin</Highlight> work (and how to avoid margin calls)<br/>
+→ How to manage <Highlight variant="yellow">portfolio heat</Highlight> (total exposure limits)<br/>
+→ How to scale for any account size (from <Highlight variant="yellow">$500</Highlight> to <Highlight variant="yellow">$500,000</Highlight>)<br/>
+
+**Your fortress foundation is now solid.**
+
+In Lesson 2.1, you learned your Prime Directive: Survival.<br/>
+In this lesson, you've built the bedrock: <Highlight variant="yellow">Position Sizing</Highlight>.<br/>
+
+Now you're ready for <CustomLink href="02-03-stop-loss-architecture">Lesson 2.3: Stop Loss Architecture</CustomLink>, where we'll construct your fortress gates —
+the critical stop-loss architecture that will define your
+exit points and protect against catastrophic losses.<br/>
+
+**Your shield is forged. Your foundation is set.**
+
+**Now let's build the gates.**
+
+<Alert variant="success">
+  <AlertTitle>KEY TAKEAWAYS</AlertTitle>
+  <AlertDescription>
+    <ul className="space-y-2">
+      <li>
+        → Position sizing is where 90% of profitability is determined—more
+        important than entries or exits
+      </li>
+      <li>
+        → Fixed fractional sizing: Risk the same percentage (1-2%) on every
+        trade, not the same dollar amount
+      </li>
+      <li>
+        → The position size formula: (Account Risk in $) / (Trade Risk in $) =
+        Position Size
+      </li>
+      <li>
+        → Never risk more than 1-2% per trade—this allows you to survive 20+
+        consecutive losses
+      </li>
+      <li>
+        → Recovery mathematics are cruel: A 50% loss requires a 100% gain to
+        break even
+      </li>
+      <li>
+        → ATR-based sizing adjusts position size for volatility—wider stops in
+        volatile markets = smaller positions
+      </li>
+      <li>
+        → Kelly Criterion at full size is suicide—use fractional Kelly (1/4 to
+        1/8) as an upper bound, capped at 2%
+      </li>
+      <li>
+        → Risk scoring allows dynamic allocation: A-grade setups get full risk,
+        B/C grades get reduced risk
+      </li>
+      <li>
+        → Leverage is a weapon, not a tool—control your actual used leverage,
+        not just available leverage
+      </li>
+      <li>
+        → Portfolio heat (total risk across all positions) must never exceed
+        6-10% of account
+      </li>
+      <li>
+        → Position sizing must scale with account size—larger accounts use
+        smaller % risk but larger $ risk
+      </li>
+      <li>
+        → Proper position sizing provides psychological benefits: removes fear,
+        enables discipline, builds confidence
+      </li>
+    </ul>
+  </AlertDescription>
+</Alert>
+
+## Self-Assessment Exercise
+
+Calculate position sizes for these scenarios:
+
+**<Highlight variant="yellow">Scenario 1:</Highlight>**
+
+→ Account: <Highlight variant="blue">$30,000</Highlight><br/>
+→ Risk tolerance: <Highlight variant="blue">2%</Highlight><br/>
+→ Stock entry: <Highlight variant="blue">$85</Highlight><br/>
+→ Stop-loss: <Highlight variant="blue">$82</Highlight><br/>
+→ Setup quality: <Highlight variant="blue">A-grade</Highlight><br/>
+→ **What is your position size?**<br/>
+
+**<Highlight variant="yellow">Scenario 2:</Highlight>**
+
+→ Account: <Highlight variant="blue">$75,000</Highlight><br/>
+→ Risk tolerance: <Highlight variant="blue">1.5%</Highlight><br/>
+→ Forex pair: EUR/USD at <Highlight variant="blue">1.1000</Highlight><br/>
+→ Stop: <Highlight variant="blue">40 pips</Highlight><br/>
+→ Pip value (1 micro lot): <Highlight variant="blue">$0.10</Highlight><br/>
+→ Setup quality: <Highlight variant="blue">B-grade (75% sizing)</Highlight><br/>
+→ **How many micro lots should you trade?**<br/>
+
+**<Highlight variant="yellow">Scenario 3:</Highlight>**
+
+→ Account: <Highlight variant="blue">$100,000</Highlight><br/>
+→ Risk tolerance: <Highlight variant="blue">2%</Highlight><br/>
+→ Stock entry: <Highlight variant="blue">$150</Highlight><br/>
+→ 14-day ATR: <Highlight variant="blue">$8</Highlight><br/>
+→ Multiplier: 2×<br/>
+→ Setup quality: <Highlight variant="blue">A-grade</Highlight><br/>
+→ **What is your position size using ATR-based stops?**<br/>
+
+Calculate these before moving forward. Precision matters.
+
+<QuoteComponent
+  quote="The key to trading success is emotional discipline. 
+  If intelligence were the key, there would be a lot more people making money trading."
+  author="Victor Sperandeo"
+/>
+<QuoteComponent
+  quote="Never risk more than 1% of total equity on any trade. By risking 1%, 
+  I am indifferent to any individual trade."
+  author="Larry Hite"
+/>

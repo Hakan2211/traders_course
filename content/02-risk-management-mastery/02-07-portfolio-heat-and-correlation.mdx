@@ -1,0 +1,1851 @@
+---
+title: 'Portfolio Heat and Correlation: The Fortress Walls'
+moduleBadge: 'Module 2'
+order: 1
+---
+
+<QuoteComponent
+  quote="A fortress falls when too many enemies breach at once."
+  author="The Imperial Strategist"
+/>
+
+## THE BATTLE OF FIVE GATES
+
+Picture your fortress at dawn. You've built impenetrable walls.
+Your gates are secure. Your position sizing is perfect.
+Your stops are precisely placed. You've weathered the siege and survived.
+
+You stand on the battlements, surveying the landscape.
+**<Highlight variant='yellow'>Five separate enemy battalions approach from different directions</Highlight>** — north, south, east, west, and from the sea.
+
+Your commanders report:
+
+**<Highlight variant='yellow'>North Gate Commander:</Highlight>** "Enemy approaching. 200 soldiers. We can hold them."
+
+**<Highlight variant='yellow'>South Gate Commander:</Highlight>** "Enemy approaching. 200 soldiers. We can hold them."
+
+**<Highlight variant='yellow'>East Gate Commander:</Highlight>** "Enemy approaching. 200 soldiers. We can hold them."
+
+**<Highlight variant='yellow'>West Gate Commander:</Highlight>** "Enemy approaching. 200 soldiers. We can hold them."
+
+**<Highlight variant='yellow'>Harbor Commander:</Highlight>** "Enemy ships approaching. 200 soldiers. We can hold them."
+
+Each commander is confident. Each gate has strong defenses. Each battalion seems manageable in isolation.
+
+But you, as the fortress commander, see the terrifying truth:
+
+You have 1,000 soldiers total defending against 1,000 attacking soldiers simultaneously across five fronts.
+
+If all five battles happen at once, you're not defending five separate 200 vs. 200 engagements.<br/>
+You're fighting a 1,000 vs. 1,000 war on five simultaneous fronts.<br/>
+And if one gate falls, the enemy pours through and attacks the others from behind.<br/>
+Your fortress doesn't fall because one defense failed.
+It falls because <Highlight variant='yellow'>too many defenses were tested simultaneously.</Highlight>
+
+In trading, this scenario plays out every single day with tragic predictability:
+
+Trader opens <Highlight variant='blue'>five positions:</Highlight>
+
+→ Long EUR/USD (risking 1%)<br/>
+→Long GBP/USD (risking 1%)<br/>
+→Long AUD/USD (risking 1%)<br/>
+→Long NZD/USD (risking 1%)<br/>
+→Long EUR/GBP (risking 1%)<br/>
+
+"Each trade risks only 1% — perfect risk management!" they think.<br/>
+Then the US dollar strengthens unexpectedly.
+
+All five positions lose simultaneously.
+
+Total loss: -5% in minutes.
+
+The trader didn't understand correlation. They thought they had five independent 1% risks.<br/>
+They actually had one massive 5% risk disguised as five positions.<br/>
+Their fortress fell because too many gates were breached at once.
+
+In Lesson 2.6 <CustomLink href="02-06-drawdown-management">Drawdown Management</CustomLink>, you learned <Highlight variant='blue'>Drawdown Management</Highlight> — how to survive the siege.
+
+Now, in Lesson 2.7, we're building your Fortress Walls — Portfolio Heat & Correlation —
+understanding <Highlight variant='blue'>how multiple positions create hidden exposure</Highlight>,
+
+<Highlight variant="blue">how correlation magnifies risk</Highlight>, and <Highlight variant="blue">
+  how to defend against simultaneous attacks
+</Highlight>.
+
+By the end of this lesson, you'll understand:
+
+<InfoGrid showContainer={true} containerClassName="border border-[#182538]">
+  <InfoGridItem
+    title="Portfolio Heat"
+    value="Total Exposure"
+    description="What portfolio heat is and how to calculate it"
+  />
+  <InfoGridItem
+    title="Maximum Heat Limits"
+    value="6-10% Rule"
+    description="Maximum portfolio heat limits—how far you can stretch exposure"
+  />
+  <InfoGridItem
+    title="Correlation Risk"
+    value="Diversification Loss"
+    description="How correlation destroys diversification and amplifies heat"
+  />
+  <InfoGridItem
+    title="Hidden USD Correlation"
+    value="Unseen Overlap"
+    description="How to identify hidden correlation trapped inside the USD"
+  />
+  <InfoGridItem
+    title="Exposure Analysis"
+    value="Sector + Asset Class"
+    description="Assess sector and asset class exposures to spot concentration"
+  />
+  <InfoGridItem
+    title="Scaling Problem"
+    value="Selective Risk"
+    description="Why you can't take every setup—manage heat through selectivity"
+  />
+  <InfoGridItem
+    title="Hedging Basics"
+    value="Risk Offsets"
+    description="Basic hedging techniques to cool portfolio heat without abandoning the trade"
+  />
+  <InfoGridItem
+    title="Correlation-Aware Systems"
+    value="Defensive Framework"
+    description="How to build a position management system that views correlated risk as a single threat"
+  />
+</InfoGrid>
+
+This lesson will prevent you <Highlight variant='yellow'>from winning 100 battles but losing the war.</Highlight>
+
+## WHAT IS PORTFOLIO HEAT? (THE TOTAL EXPOSURE)
+
+Let's start with the foundational concept:
+
+**<Highlight variant='blue'>PORTFOLIO HEAT</Highlight>** = Total capital at risk across ALL open positions
+
+Or more precisely:
+
+<Math>
+  {
+    '\\text{Portfolio Heat} = \\sum (\\text{Risk per Position} \\times \\text{Number of Positions})'
+  }
+</Math>
+<br />
+
+But it's not that simple when <Highlight variant='yellow'>correlation enters the picture.</Highlight>
+
+Let me show you the difference between <Highlight variant='blue'>theoretical heat</Highlight> and <Highlight variant='blue'>actual heat.</Highlight>
+
+### <Highlight variant='accent'>EXAMPLE 1: UNCORRELATED PORTFOLIO HEAT</Highlight>
+
+**<Highlight variant='blue'>Trader A</Highlight> has four open positions:**
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Position</TableHead>
+      <TableHead>Risk</TableHead>
+      <TableHead>Asset</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>Long EUR/USD</TableCell>
+      <TableCell>1%</TableCell>
+      <TableCell>Forex</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Long Gold</TableCell>
+      <TableCell>1%</TableCell>
+      <TableCell>Commodity</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Long AAPL</TableCell>
+      <TableCell>1%</TableCell>
+      <TableCell>Tech Stock</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Short Crude Oil</TableCell>
+      <TableCell>1%</TableCell>
+      <TableCell>Commodity</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+<br />
+
+**<Highlight variant='blue'>Calculate portfolio heat:</Highlight>**
+
+<Math>{'\\text{Portfolio Heat} = 1\\% + 1\\% + 1\\% + 1\\% = 4\\%'}</Math>
+<br />
+
+These positions are relatively uncorrelated:
+
+→ EUR/USD movements don't strongly predict Gold movements<br/>
+→ Gold doesn't strongly predict AAPL movements<br/>
+→ AAPL doesn't strongly predict Crude Oil movements<br/>
+
+If one trade loses, the others are largely independent.
+
+Actual portfolio heat ≈ Theoretical portfolio heat = 4%
+
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** **This is healthy diversification.**
+
+### <Highlight variant='accent'>EXAMPLE 2: CORRELATED PORTFOLIO HEAT (THE HIDDEN DANGER)</Highlight>
+
+**<Highlight variant='blue'>Trader B</Highlight> has four open positions:**
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Position</TableHead>
+      <TableHead>Risk</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>Long EUR/USD</TableCell>
+      <TableCell>1%</TableCell>
+      <TableCell>Euro vs Dollar</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Long GBP/USD</TableCell>
+      <TableCell>1%</TableCell>
+      <TableCell>Pound vs Dollar</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Long AUD/USD</TableCell>
+      <TableCell>1%</TableCell>
+      <TableCell>Aussie vs Dollar</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Long NZD/USD</TableCell>
+      <TableCell>1%</TableCell>
+      <TableCell>Kiwi vs Dollar</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+<br />
+
+<Highlight variant="blue">Calculate theoretical portfolio heat:</Highlight>
+
+<Math>{'\\text{Portfolio Heat} = 1\\% + 1\\% + 1\\% + 1\\% = 4\\%'}</Math>
+<br />
+
+But these positions are <Highlight variant='yellow'>HIGHLY correlated:</Highlight>
+
+→ All four are SHORT USD<br/>
+→ If USD strengthens, ALL FOUR lose simultaneously<br/>
+→ They're not four independent 1% risks<br/>
+→ They're essentially one 4% risk split across four pairs<br/>
+
+<Math>
+  {
+    '\\text{Actual portfolio heat} \\approx 3.5\\% - 4\\% \\text{(moves as one unit)}'
+  }
+</Math>
+
+**<XCircle className="w-4 h-4 inline" stroke="#ef4444" />** **This is false diversification. Hidden concentration risk.**
+
+### <Highlight variant='accent'>REAL EXAMPLE: MARCH 2020 COVID CRASH</Highlight>
+
+Trader had "diversified" portfolio:
+
+→ Long S&P 500<br/>
+→ Long NASDAQ<br/>
+→ Long Dow Jones<br/>
+→ Long Russell 2000<br/>
+→ Long Oil<br/>
+→ Long EUR/USD<br/>
+→ Long Gold<br/>
+
+"Seven positions, each risking 1% = 7% total risk. Great diversification!"
+
+**<Highlight variant='blue'>March 12-13, 2020:</Highlight>**
+
+→ S&P 500: -9.5%<br/>
+→ NASDAQ: -9.4%<br/>
+→ Dow Jones: -10%<br/>
+→ Russell 2000: -14%<br/>
+→ Oil: -24%<br/>
+→ EUR/USD: -1.8%<br/>
+→ Gold: -0.7%<br/>
+
+Six of seven positions fell together (except <Highlight variant='green'>gold rallied slightly</Highlight>).
+
+**Trader's loss:** ~-6% in two days (stops didn't protect much due to gaps and volatility).
+
+**The "diversified" portfolio wasn't diversified at all — <Highlight variant='yellow'>it was ALL "RISK-ON" assets.</Highlight>**
+
+**When risk appetite collapsed globally, everything fell together.**
+
+## THE PORTFOLIO HEAT RULE: 6-10% MAXIMUM
+
+Professional traders follow a strict rule:
+
+**<Highlight variant='yellow'>NEVER have more than 6-10% of your total capital at risk across ALL positions simultaneously.</Highlight>**
+
+This is your maximum portfolio heat limit.
+
+### <Highlight variant='accent'>WHY 6-10%?</Highlight>
+
+**<Highlight variant='yellow'>At 6% portfolio heat:</Highlight>**
+
+→ If all positions hit stops simultaneously (worst case)<br/>
+→ You lose 6% of your account<br/>
+→ Recovery needed: +6.4%<br/>
+→ Drawdown: Painful but manageable<br/>
+→ Psychological impact: Survivable<br/>
+
+**<Highlight variant='yellow'>At 10% portfolio heat:</Highlight>**
+
+→ If all positions hit stops simultaneously<br/>
+→ You lose 10% of your account<br/>
+→ Recovery needed: +11.1%<br/>
+→ Drawdown: Very difficult<br/>
+→ Psychological impact: Severe but survivable<br/>
+
+**<Highlight variant='yellow'>At 20% portfolio heat (violation):</Highlight>**
+
+If all positions hit stops simultaneously
+You lose 20% of your account
+Recovery needed: +25%
+Drawdown: Career-threatening
+Psychological impact: Potentially terminal
+
+### <Highlight variant='accent'>PORTFOLIO HEAT LIMITS BY TRADER TYPE</Highlight>
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Trader Type</TableHead>
+      <TableHead>Max Portfolio Heat</TableHead>
+      <TableHead>Typical # Positions (at 1% risk each)</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>Conservative</TableCell>
+      <TableCell>4-6%</TableCell>
+      <TableCell>4-6 positions max</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Moderate</TableCell>
+      <TableCell>6-8%</TableCell>
+      <TableCell>6-8 positions max</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Aggressive</TableCell>
+      <TableCell>8-10%</TableCell>
+      <TableCell>8-10 positions max</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Professional</TableCell>
+      <TableCell>6-10% (dynamic)</TableCell>
+      <TableCell>6-10 positions max</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+<br />
+
+**<Highlight variant='yellow'>Note:</Highlight>** These assume <Highlight variant='blue'>1% risk per trade.</Highlight> If you risk <Highlight variant='blue'>0.5% per trade,</Highlight>
+you can hold twice as many positions within the same portfolio heat.
+
+### <Highlight variant='accent'>CALCULATING YOUR CURRENT PORTFOLIO HEAT</Highlight>
+
+**<Highlight variant='blue'>Simple formula:</Highlight>**
+
+<Math>
+  {'\\text{Portfolio Heat} = \\sum \\text{all position risks (in \\%)}'}
+</Math>
+
+**Example:**
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Position</TableHead>
+      <TableHead>Risk</TableHead>
+      <TableHead>Status</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>EUR/USD Long</TableCell>
+      <TableCell>1.0%</TableCell>
+      <TableCell>Open</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>GBP/JPY Short</TableCell>
+      <TableCell>1.5%</TableCell>
+      <TableCell>Open</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Gold Long</TableCell>
+      <TableCell>0.8%</TableCell>
+      <TableCell>Open</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>AAPL Long</TableCell>
+      <TableCell>1.0%</TableCell>
+      <TableCell>Open</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Crude Short</TableCell>
+      <TableCell>0.5%</TableCell>
+      <TableCell>Open</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <strong>TOTAL</strong>
+      </TableCell>
+      <TableCell>
+        <strong>4.8%</strong>
+      </TableCell>
+      <TableCell>
+        <strong>Portfolio Heat</strong>
+      </TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+<br />
+
+Current portfolio heat: 4.8%
+
+Maximum allowed: 8% (your limit)
+
+Remaining capacity: 3.2%
+
+You can add 3 more 1% positions OR 6 more 0.5% positions OR 1 more 3% position (not recommended).
+
+## THE CORRELATION MATRIX: UNVEILING HIDDEN RISK
+
+Now we enter the realm where most retail traders get obliterated:
+
+### <Highlight variant='accent'>CORRELATION</Highlight>
+
+**<Highlight variant='blue'>Correlation</Highlight> = The degree to which two assets move together**
+
+Measured on a scale from <Highlight variant='blue'>-1.0</Highlight> to <Highlight variant='blue'>+1.0</Highlight>:
+
+→ +1.0 = Perfect positive correlation (move in exact same direction)<br/>
+→ 0.0 = No correlation (independent movements)<br/>
+→ -1.0 = Perfect negative correlation (move in exact opposite directions)<br/>
+
+### <Highlight variant='accent'>CORRELATION COEFFICIENT INTERPRETATION</Highlight>
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Correlation</TableHead>
+      <TableHead>Interpretation</TableHead>
+      <TableHead>Trading Implication</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>+0.9 to +1.0</TableCell>
+      <TableCell>Very strong positive</TableCell>
+      <TableCell>Essentially the same position</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>+0.7 to +0.9</TableCell>
+      <TableCell>Strong positive</TableCell>
+      <TableCell>High redundancy</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>+0.4 to +0.7</TableCell>
+      <TableCell>Moderate positive</TableCell>
+      <TableCell>Some diversification</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>+0.1 to +0.4</TableCell>
+      <TableCell>Weak positive</TableCell>
+      <TableCell>Good diversification</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>-0.1 to +0.1</TableCell>
+      <TableCell>No correlation</TableCell>
+      <TableCell>Excellent diversification</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>-0.4 to -0.1</TableCell>
+      <TableCell>Weak negative</TableCell>
+      <TableCell>Good hedge potential</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>-0.7 to -0.4</TableCell>
+      <TableCell>Moderate negative</TableCell>
+      <TableCell>Strong hedge potential</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>-0.9 to -0.7</TableCell>
+      <TableCell>Strong negative</TableCell>
+      <TableCell>Excellent hedge</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>-1.0 to -0.9</TableCell>
+      <TableCell>Very strong negative</TableCell>
+      <TableCell>Perfect hedge</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+<br />
+
+### <Highlight variant='accent'>REAL CORRELATION EXAMPLES (TYPICAL VALUES)</Highlight>
+
+**<Highlight variant='blue'>FOREX CORRELATIONS:</Highlight>**
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Pair 1</TableHead>
+      <TableHead>Pair 2</TableHead>
+      <TableHead>Correlation</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>EUR/USD</TableCell>
+      <TableCell>GBP/USD</TableCell>
+      <TableCell>+0.85 (very high)</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>EUR/USD</TableCell>
+      <TableCell>USD/CHF</TableCell>
+      <TableCell>-0.95 (inverse)</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>AUD/USD</TableCell>
+      <TableCell>NZD/USD</TableCell>
+      <TableCell>+0.92 (extremely high)</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>EUR/USD</TableCell>
+      <TableCell>USD/JPY</TableCell>
+      <TableCell>-0.70 (strong inverse)</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>EUR/USD</TableCell>
+      <TableCell>EUR/GBP</TableCell>
+      <TableCell>+0.50 (moderate)</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+<br />
+
+**<Highlight variant='blue'>STOCK CORRELATIONS:</Highlight>**
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Asset 1</TableHead>
+      <TableHead>Asset 2</TableHead>
+      <TableHead>Correlation</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>AAPL</TableCell>
+      <TableCell>MSFT</TableCell>
+      <TableCell>+0.75 (tech sector)</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>S&amp;P 500</TableCell>
+      <TableCell>NASDAQ</TableCell>
+      <TableCell>+0.95 (essentially same)</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Gold</TableCell>
+      <TableCell>USD Index</TableCell>
+      <TableCell>-0.60 (inverse)</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Oil</TableCell>
+      <TableCell>CAD</TableCell>
+      <TableCell>+0.75 (commodity currency)</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+<br />
+
+## THE CORRELATION TRAP: REAL EXAMPLE
+
+Trader thinks they're diversified:
+
+**<Highlight variant='blue'>Portfolio:</Highlight>**
+
+→ Long EUR/USD (risk 1%)<br/>
+→ Long GBP/USD (risk 1%)<br/>
+→ Long AUD/USD (risk 1%)<br/>
+→ Short USD/JPY (risk 1%)<br/>
+→ Short USD/CHF (risk 1%)<br/>
+
+**"Five positions, 5% portfolio heat, well diversified!"**
+
+**<Highlight variant='blue'>Correlation analysis:</Highlight>**
+
+All five positions are SHORT USD:
+
+EUR/USD long = Short USD<br/>
+GBP/USD long = Short USD<br/>
+AUD/USD long = Short USD<br/>
+USD/JPY short = Short USD<br/>
+USD/CHF short = Short USD<br/>
+
+**<Highlight variant='blue'>Average correlation between these positions:</Highlight>** +0.80
+
+**<Highlight variant='blue'>Effective portfolio heat:</Highlight>** ~4.0-4.5% (they move together as one unit)
+
+**<Highlight variant='blue'>What the trader thought:</Highlight>** "If I lose, I lose 1% per trade independently."
+
+**<Highlight variant='blue'>Reality:</Highlight>** "When I lose, I lose on ALL positions simultaneously."
+
+Fed announces hawkish rate decision → USD strengthens →
+ALL FIVE positions hit stops within hours → -5% loss in one day.
+
+<PortfolioHeatGame />
+
+## HIDDEN CORRELATION: THE USD TRAP
+
+The most common correlation mistake in forex trading:
+
+Not recognizing that you're trading the SAME CURRENCY in multiple pairs.
+
+### <Highlight variant='accent'>UNDERSTANDING FOREX PAIR STRUCTURE</Highlight>
+
+Every forex pair has TWO currencies:
+
+EUR/USD = Euro / US Dollar
+
+→ Going LONG = You're buying EUR, selling USD<br/>
+→ Going SHORT = You're selling EUR, buying USD<br/>
+
+GBP/USD = British Pound / US Dollar
+
+→ Going LONG = You're buying GBP, selling USD<br/>
+→ Going SHORT = You're selling GBP, buying USD<br/>
+
+### <Highlight variant='accent'>THE HIDDEN EXPOSURE CALCULATOR</Highlight>
+
+**<Highlight variant='blue'>Question:</Highlight>** If you're long EUR/USD, GBP/USD, and AUD/USD (all 1% risk each), what's your actual USD exposure?
+
+**<Highlight variant='blue'>Answer:</Highlight>**
+
+→ Long EUR/USD = Short 1% USD<br/>
+→ Long GBP/USD = Short 1% USD<br/>
+→ Long AUD/USD = Short 1% USD<br/>
+→ Total USD exposure: Short 3% USD<br/>
+
+You have <Highlight variant='yellow'>THREE TIMES the USD exposure you thought.</Highlight>
+
+### REAL SCENARIO: THE USD WIPEOUT
+
+**<Highlight variant='blue'>Wednesday, 3:00 PM:</Highlight>**
+
+→ You're long EUR/USD (+0.5% unrealized)<br/>
+→ You're long GBP/USD (+0.3% unrealized)<br/>
+→ You're long AUD/USD (+0.4% unrealized)<br/>
+→ You're long NZD/USD (+0.2% unrealized)<br/>
+→ You're long EUR/GBP (+0.1% unrealized)<br/>
+
+"Great day! Up +1.5% across five positions!"
+
+**<Highlight variant='blue'>Wednesday, 3:01 PM:</Highlight>**
+
+→ Unexpected US economic data (NFP) crushes expectations<br/>
+→ USD SURGES<br/>
+
+**<Highlight variant='blue'>Wednesday, 3:15 PM:</Highlight>**
+
+→ EUR/USD: Dropped 120 pips, stop hit (-1%)<br/>
+→ GBP/USD: Dropped 140 pips, stop hit (-1%)<br/>
+→ AUD/USD: Dropped 100 pips, stop hit (-1%)<br/>
+→ NZD/USD: Dropped 95 pips, stop hit (-1%)<br/>
+→ EUR/GBP: Dropped 50 pips, stop hit (-1%)<br/>
+
+**<Highlight variant='blue'>Your P&L:</Highlight>**
+
+→ Started day: +1.5% unrealized<br/>
+→ Ended day: -5.0% realized<br/>
+→ Net swing: -6.5% in 15 minutes<br/>
+
+**<Highlight variant='blue'>What happened:</Highlight>** You thought you had five independent trades.
+You actually had one giant short-USD position split across five pairs.
+
+## IDENTIFYING CORRELATION: THE PRACTICAL METHODS
+
+Let's make this actionable — how do you identify correlation BEFORE it destroys you?
+
+### <Highlight variant='accent'>METHOD 1: THE COMMON CURRENCY TEST</Highlight>
+
+**<Highlight variant='blue'>Rule:</Highlight>** If two forex positions share a common currency, they're likely correlated.
+
+**<Highlight variant='blue'>Examples:</Highlight>**
+
+Positions: Long EUR/USD + Long EUR/GBP<br/>
+
+→ Common currency: EUR<br/>
+→ If EUR strengthens, BOTH win<br/>
+→ If EUR weakens, BOTH lose<br/>
+→ Correlation: HIGH (+0.50 to +0.70)<br/>
+
+**<Highlight variant='blue'>Positions:</Highlight>** Long EUR/USD + Short USD/JPY<br/>
+
+→ Common currency: USD<br/>
+→ Both are SHORT USD<br/>
+→ If USD strengthens, BOTH lose<br/>
+→ If USD weakens, BOTH win<br/>
+→ Correlation: HIGH (+0.60 to +0.80)<br/>
+
+**<Highlight variant='blue'>Positions:</Highlight>** Long EUR/USD + Long GBP/JPY<br/>
+
+→ No common currency<br/>
+→ EUR, USD, GBP, JPY all different<br/>
+→ Correlation: LOW to MODERATE<br/>
+
+### <Highlight variant='accent'>METHOD 2: THE VISUAL OVERLAY TEST</Highlight>
+
+**<Highlight variant='blue'>Step 1:</Highlight>** Open your charting platform
+
+**<Highlight variant='blue'>Step 2:</Highlight>** Overlay the two instruments you're considering
+
+**<Highlight variant='blue'>Step 3:</Highlight>** Observe:
+
+→ Do they move in the same direction most of the time? → High positive correlation<br/>
+→ Do they move in opposite directions most of the time? → High negative correlation<br/>
+→ Do they move independently? → Low correlation
+
+**<Highlight variant='blue'>Example:</Highlight>**
+
+EUR/USD (blue line) overlaid with GBP/USD (red line):
+
+→ Both lines rise and fall together<br/>
+→ When EUR/USD spikes up, GBP/USD usually spikes up<br/>
+→ When EUR/USD drops, GBP/USD usually drops<br/>
+→ Conclusion: High correlation (+0.80+)
+
+### <Highlight variant='accent'>METHOD 3: THE CORRELATION COEFFICIENT CALCULATOR</Highlight>
+
+Use a statistical tool (Excel, TradingView, Python) to calculate correlation:
+
+**<Highlight variant='blue'>Excel formula:</Highlight>**
+
+<Math>{'\\text{CORREL(Range1, Range2)}'}</Math>
+
+**<Highlight variant='blue'>Example:</Highlight>**
+
+→ Range1: Last 100 daily closes of EUR/USD<br/>
+→ Range2: Last 100 daily closes of GBP/USD<br/>
+→ Result: +0.87<br/>
+
+**<Highlight variant='blue'>Interpretation:</Highlight>** Very high positive correlation
+
+### <Highlight variant='accent'>METHOD 4: ONLINE CORRELATION TOOLS</Highlight>
+
+Websites that provide real-time correlation matrices:
+
+→ Myfxbook Correlation (forex pairs)<br/>
+→ Investing.com Correlation Tool (all assets)<br/>
+→ TradingView Correlation Studies (customizable)<br/>
+
+**<Highlight variant='blue'>Example output:</Highlight>**
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Pair</TableHead>
+      <TableHead>EUR/USD</TableHead>
+      <TableHead>GBP/USD</TableHead>
+      <TableHead>AUD/USD</TableHead>
+      <TableHead>USD/JPY</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>EUR/USD</TableCell>
+      <TableCell>1.00</TableCell>
+      <TableCell>0.85</TableCell>
+      <TableCell>0.72</TableCell>
+      <TableCell>-0.68</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>GBP/USD</TableCell>
+      <TableCell>0.85</TableCell>
+      <TableCell>1.00</TableCell>
+      <TableCell>0.68</TableCell>
+      <TableCell>-0.60</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>AUD/USD</TableCell>
+      <TableCell>0.72</TableCell>
+      <TableCell>0.68</TableCell>
+      <TableCell>1.00</TableCell>
+      <TableCell>-0.55</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>USD/JPY</TableCell>
+      <TableCell>-0.68</TableCell>
+      <TableCell>-0.60</TableCell>
+      <TableCell>-0.55</TableCell>
+      <TableCell>1.00</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+<br />
+
+**<Highlight variant='blue'>Reading this:</Highlight>**
+
+→ EUR/USD and GBP/USD: +0.85 = Very high correlation (trade with caution)<br/>
+→ EUR/USD and USD/JPY: -0.68 = Strong negative correlation (potential hedge)<br/>
+→ EUR/USD and EUR/USD: 1.00 = Perfect correlation (it's the same asset!)<br/>
+
+<Alert variant="warning">
+  <AlertTitle>Calculating Effective Portfolio Heat with Correlation</AlertTitle>
+  <AlertDescription>
+    When positions share correlation, your effective risk exceeds the sum of
+    individual risks.
+    <br />
+    <strong>Formula (simplified):</strong>
+    <br />
+    Effective Heat ≈ Simple Heat × (1 + Average Correlation / 2)
+    <br />
+    <br />
+    <strong>Example 1 — Low correlation:</strong>
+    <br />
+    3 positions at 2% each → Simple heat = 6% / Average correlation = +0.20
+    <br />
+    Effective Heat = 6% × (1 + 0.20 / 2) = 6% × 1.10 = 6.6%
+    <br />
+    <br />
+    <strong>Example 2 — High correlation:</strong>
+    <br />
+    3 positions at 2% each → Simple heat = 6% / Average correlation = +0.80
+    <br />
+    Effective Heat = 6% × (1 + 0.80 / 2) = 6% × 1.40 = 8.4%
+    <br />
+    <br />
+    <strong>Example 3 — The EUR trap:</strong>
+    <br />
+    5 EUR-based pairs at 2% each → Simple heat = 10% / Average correlation = +0.90
+    <br />
+    Effective Heat = 10% × (1 + 0.90 / 2) = 10% × 1.45 = 14.5%
+    <br />
+    One EUR event and you’re getting crushed because your actual exposure is 14.5%.
+  </AlertDescription>
+</Alert>
+
+## SECTOR AND ASSET CLASS EXPOSURE
+
+Correlation isn't just about forex pairs — it extends to stocks, commodities, and entire asset classes.
+
+### <Highlight variant='accent'>STOCK SECTOR CORRELATION</Highlight>
+
+High correlation within sectors:
+
+**<Highlight variant='blue'>Tech Sector:</Highlight>**
+
+→ AAPL, MSFT, GOOGL, AMZN, NVDA<br/>
+→ Average correlation: +0.70 to +0.85<br/>
+→ If you're long all five, you're essentially long "Tech" with 5× leverage<br/>
+
+**<Highlight variant='blue'>Financial Sector:</Highlight>**
+
+→ JPM, BAC, WFC, GS, C<br/>
+→ Average correlation: +0.75 to +0.90<br/>
+→ When banks fall, they fall together<br/>
+
+**<Highlight variant='blue'>Energy Sector:</Highlight>**
+
+→ XOM, CVX, COP, SLB<br/>
+→ Average correlation: +0.80 to +0.95<br/>
+→ All move with oil prices<br/>
+
+### <Highlight variant='accent'>THE SECTOR CONCENTRATION TRAP</Highlight>
+
+**Trader's portfolio (each 1% risk):**
+
+1\. Long AAPL<br/>
+2\. Long MSFT<br/>
+3\. Long GOOGL<br/>
+4\. Long TSLA<br/>
+5\. Long NVDA<br/>
+
+"Five positions, 5% portfolio heat, diversified stocks!"
+
+**<Highlight variant='blue'>Reality:</Highlight>**
+
+→ All five are TECH STOCKS<br/>
+→ Average correlation: +0.75<br/>
+→ When tech sector falls (interest rate fears, regulation, etc.), ALL FIVE fall<br/>
+→ Effective portfolio heat: ~3.5-4% (not 5%)<br/>
+→ Not diversified at all<br/>
+
+**<Highlight variant='blue'>Better approach:</Highlight>**
+
+1\. Long AAPL (tech) - 1%
+2\. Long JPM (financials) - 1%
+3\. Long XOM (energy) - 1%
+4\. Long PFE (healthcare) - 1%
+5\. Long WMT (consumer staples) - 1%
+
+**This is true diversification:** Different sectors, lower correlation.
+
+### <Highlight variant='accent'>ASSET CLASS CORRELATION</Highlight>
+
+Traditional correlations (can change during crisis):
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Asset 1</TableHead>
+      <TableHead>Asset 2</TableHead>
+      <TableHead>Typical Correlation</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>S&amp;P 500</TableCell>
+      <TableCell>NASDAQ</TableCell>
+      <TableCell>+0.95 (essentially same)</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Stocks</TableCell>
+      <TableCell>Bonds</TableCell>
+      <TableCell>-0.20 to +0.20 (low)</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Stocks</TableCell>
+      <TableCell>Gold</TableCell>
+      <TableCell>-0.10 to -0.30 (weak negative)</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Stocks</TableCell>
+      <TableCell>USD</TableCell>
+      <TableCell>-0.30 to +0.30 (variable)</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Gold</TableCell>
+      <TableCell>USD</TableCell>
+      <TableCell>-0.60 (inverse)</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Oil</TableCell>
+      <TableCell>CAD</TableCell>
+      <TableCell>+0.75 (commodity currency)</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Bonds</TableCell>
+      <TableCell>USD</TableCell>
+      <TableCell>+0.50 (flight to safety)</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+<br />
+
+**<Highlight variant='yellow'>WARNING:</Highlight> Correlations break down during black swan events.**
+
+**<Highlight variant='blue'>March 2020 example:</Highlight>**
+
+→ Stocks crashed: -35%<br/>
+→ Bonds fell (expected to rise): -10%<br/>
+→ Gold fell (expected to rise): -12%<br/>
+→ Everything fell together except USD (rallied)<br/>
+
+**<Highlight variant='blue'>Lesson:</Highlight> Correlation is NOT a perfect hedge, especially during crises.**
+
+## THE SCALING PROBLEM: WHY YOU CAN'T TAKE EVERY SETUP
+
+Here's a painful truth:
+
+Even if you have 20 perfect A-grade setups on the same day, you can't take all of them.
+
+**<Highlight variant='yellow'>Why?</Highlight>**
+
+**<Highlight variant='blue'>Portfolio heat limits.</Highlight>**
+
+### <Highlight variant='accent'>THE SCALING DILEMMA</Highlight>
+
+**<Highlight variant='blue'>Your limits:</Highlight>**
+
+→ Maximum portfolio heat: 8%<br/>
+→ Risk per trade: 1%<br/>
+→ Maximum simultaneous positions: 8<br/>
+
+**<Highlight variant='blue'>The problem:</Highlight>**
+
+→ You identify 15 A-grade setups today<br/>
+→ All meet your criteria perfectly<br/>
+→ But you can only take 8 of them<br/>
+
+**<Highlight variant='blue'>What do you do?</Highlight>**
+
+### <Highlight variant='accent'>SOLUTION 1: PRIORITIZE BY QUALITY</Highlight>
+
+**<Highlight variant='blue'>Rank setups by quality score:</Highlight>**
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Setup</TableHead>
+      <TableHead>Score</TableHead>
+      <TableHead>Timeframe</TableHead>
+      <TableHead>RR</TableHead>
+      <TableHead>Correlation</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>EUR/USD Long</TableCell>
+      <TableCell>9.5/10</TableCell>
+      <TableCell>4H</TableCell>
+      <TableCell>1:3</TableCell>
+      <TableCell>-</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Gold Long</TableCell>
+      <TableCell>9.0/10</TableCell>
+      <TableCell>Daily</TableCell>
+      <TableCell>1:2.5</TableCell>
+      <TableCell>Low with EUR</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>AAPL Long</TableCell>
+      <TableCell>8.8/10</TableCell>
+      <TableCell>4H</TableCell>
+      <TableCell>1:2</TableCell>
+      <TableCell>Low with EUR/Gold</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>GBP/USD Long</TableCell>
+      <TableCell>8.5/10</TableCell>
+      <TableCell>4H</TableCell>
+      <TableCell>1:2.5</TableCell>
+      <TableCell>
+        HIGH with EUR <X className="w-4 h-4 inline" stroke="#ef4444" />
+      </TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>AUD/USD Long</TableCell>
+      <TableCell>8.3/10</TableCell>
+      <TableCell>4H</TableCell>
+      <TableCell>1:2</TableCell>
+      <TableCell>
+        HIGH with EUR <X className="w-4 h-4 inline" stroke="#ef4444" />
+      </TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>JPM Long</TableCell>
+      <TableCell>8.0/10</TableCell>
+      <TableCell>Daily</TableCell>
+      <TableCell>1:2</TableCell>
+      <TableCell>Low</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+<br />
+
+**Take the top 8, AVOIDING highly correlated pairs.**
+
+**<Highlight variant='blue'>In this case:</Highlight>**
+
+→ Take EUR/USD (highest score)<br/>
+→ SKIP GBP/USD and AUD/USD (high correlation with EUR/USD)<br/>
+→ Take Gold, AAPL, JPM<br/>
+→ Continue down the list for uncorrelated setups<br/>
+
+### <Highlight variant='accent'>SOLUTION 2: REDUCE POSITION SIZE</Highlight>
+
+**<Highlight variant='blue'>Alternative approach:</Highlight>**
+
+Instead of taking 8 positions at 1% risk each (8% heat):
+
+→ Take 12 positions at 0.66% risk each (8% heat)<br/>
+→ More diversification<br/>
+→ Same total portfolio heat<br/>
+
+**<Highlight variant='green'>Pros:</Highlight>**
+
+→ Can capture more opportunities<br/>
+→ Greater diversification
+
+**<Highlight variant='red'>Cons:</Highlight>**
+
+→ Smaller wins per trade<br/>
+→ More management complexity<br/>
+→ May violate minimum position size for small accounts<br/>
+
+### <Highlight variant='accent'>SOLUTION 3: TIME-STAGGER ENTRIES</Highlight>
+
+Instead of entering all 8 at once:
+
+**Monday:** Enter 3 positions (3% heat)<br/>
+**Tuesday:** Enter 3 more positions (6% heat)<br/>
+**Wednesday:** Enter 2 more positions (8% heat)<br/>
+
+**<Highlight variant='green'>Pros:</Highlight>**
+
+→ Avoid entering all at market peaks/troughs<br/>
+→ Can adjust based on early results<br/>
+→ Lower peak portfolio heat<br/>
+
+**<Highlight variant='red'>Cons:</Highlight>**
+
+→ Miss opportunities if they move before your entry day<br/>
+→ More complex to manage<br/>
+
+## PORTFOLIO HEAT MANAGEMENT: THE PRACTICAL SYSTEM
+
+Let's build your portfolio heat tracking system.
+
+### <Highlight variant='accent'>THE PORTFOLIO HEAT DASHBOARD</Highlight>
+
+Create a spreadsheet or use trading journal software with these fields:
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Position</TableHead>
+      <TableHead>Entry Date</TableHead>
+      <TableHead>Risk ($)</TableHead>
+      <TableHead>Risk (%)</TableHead>
+      <TableHead>Correlation Group</TableHead>
+      <TableHead>Status</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>EUR/USD Long</TableCell>
+      <TableCell>11/20</TableCell>
+      <TableCell>$100</TableCell>
+      <TableCell>1.0%</TableCell>
+      <TableCell>USD-Short</TableCell>
+      <TableCell>Open</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Gold Long</TableCell>
+      <TableCell>11/20</TableCell>
+      <TableCell>$100</TableCell>
+      <TableCell>1.0%</TableCell>
+      <TableCell>Commodity</TableCell>
+      <TableCell>Open</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>AAPL Long</TableCell>
+      <TableCell>11/21</TableCell>
+      <TableCell>$100</TableCell>
+      <TableCell>1.0%</TableCell>
+      <TableCell>Tech</TableCell>
+      <TableCell>Open</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <strong>TOTAL</strong>
+      </TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>
+        <strong>$300</strong>
+      </TableCell>
+      <TableCell>
+        <strong>3.0%</strong>
+      </TableCell>
+      <TableCell>—</TableCell>
+      <TableCell>—</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+<br />
+
+**<Highlight variant='blue'>Additional metrics:</Highlight>**
+
+→ Current Portfolio Heat: 3.0%<br/>
+→ Maximum Allowed: 8.0%<br/>
+→ Remaining Capacity: 5.0%<br/>
+→ Correlation Check: ✅ No high correlation<br/>
+
+## POSITION ADDITION PROTOCOL
+
+**<Highlight variant='blue'>Before adding a new position, run this checklist:</Highlight>**
+
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** 1\. Calculate new position's risk (in $ and %)
+
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** 2\. Add to current portfolio heat
+
+→ Current heat: 3.0%<br/>
+→ New position: 1.5%<br/>
+→ Projected heat: 4.5%<br/>
+
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** 3\. Check against maximum limit
+
+→ Projected: 4.5%<br/>
+→ Maximum: 8.0%<br/>
+→ Within limit: YES <CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />
+
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** 4\. Check correlation with existing positions
+
+→ New position: GBP/USD Long (short USD)<br/>
+→ Existing: EUR/USD Long (short USD)<br/>
+→ Correlation: HIGH (+0.85)<br/>
+→ Action: REDUCE size to 0.75% OR SKIP <AlertTriangle className="w-4 h-4 inline" stroke="#f59e0b" />
+
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** 5\. Verify sector/currency exposure
+
+→ USD exposure: Currently short 1% (EUR/USD)<br/>
+→ New trade: Short 1.5% (GBP/USD)<br/>
+→ Total USD exposure: Short 2.5%<br/>
+→ Acceptable: YES (below 3% single currency limit)
+
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** 6\. Final decision
+
+→ If all checks pass: ENTER POSITION<br/>
+→ If correlation too high: REDUCE SIZE or SKIP<br/>
+→ If portfolio heat limit reached: WAIT for position to close<br/>
+
+## PORTFOLIO HEAT REDUCTION TRIGGERS
+
+Automatically reduce position sizing when:
+
+**<Highlight variant='blue'>Trigger 1: Portfolio heat >6%:</Highlight>**
+
+→ Action: Reduce NEW positions to 0.75% risk
+
+**<Highlight variant='blue'>Trigger 2: Portfolio heat >7.5%:</Highlight>**
+
+→ Action: Reduce NEW positions to 0.5% risk<br/>
+→ Consider closing weakest existing position
+
+**<Highlight variant='blue'>Trigger 3: Portfolio heat = 8% (max):</Highlight>**
+
+→ Action: NO new positions until one closes<br/>
+→ Consider scaling out of partial winners
+
+**<Highlight variant='blue'>Trigger 4: In drawdown >10%:</Highlight>**
+
+→ Action: Reduce portfolio heat limit to 4-6%<br/>
+→ Risk per trade: 0.5-0.75%
+
+## BASIC HEDGING TECHNIQUES
+
+Now let's discuss how to actively reduce portfolio heat and correlation risk through hedging.
+
+**<Highlight variant='blue'>HEDGING = Taking offsetting positions to reduce overall exposure</Highlight>**
+
+### <Highlight variant='accent'>HEDGE TYPE 1: DIRECT HEDGE (FOREX)</Highlight>
+
+**<Highlight variant='blue'>Situation:</Highlight>**
+
+→ You're long EUR/USD (1% risk)<br/>
+→ News event approaching, high volatility expected<br/>
+→ You want to protect the position but not close it<br/>
+
+**<Highlight variant='blue'>Direct hedge:</Highlight>**
+
+→ Open a SHORT EUR/USD position (0.5% risk)<br/>
+→ Net exposure: 0.5% long EUR/USD<br/>
+
+**<Highlight variant='blue'>Outcome scenarios:</Highlight>**
+
+**If EUR/USD rises:**
+
+→ Long position: +2% (1:2 RR)<br/>
+→ Short hedge: -0.5%<br/>
+→ Net: +1.5% ✅
+
+**If EUR/USD falls:**
+
+→ Long position: -1%<br/>
+→ Short hedge: +1% (if it hits 1:2 target)<br/>
+→ Net: 0% to +0.5% ✅
+
+\*\*<Highlight variant='blue'>Purpose:</Highlight> Reduces risk during uncertain events while maintaining position.
+
+### <Highlight variant='accent'>HEDGE TYPE 2: CORRELATED HEDGE (STOCKS)</Highlight>
+
+**<Highlight variant='blue'>Situation:</Highlight>**
+
+→ You're long AAPL, MSFT, GOOGL (tech stocks, 3% total risk)<br/>
+→ Tech sector looking vulnerable<br/>
+→ Don't want to close positions (still like individual setups)<br/>
+
+**<Highlight variant='blue'>Correlated hedge:</Highlight>**
+
+→ Short QQQ (NASDAQ ETF) at 1% risk<br/>
+→ Net tech exposure: ~2% long (reduced from 3%)
+
+**<Highlight variant='blue'>Outcome:</Highlight>**
+
+**If tech sector rallies:**
+
+→ AAPL, MSFT, GOOGL: +6% combined<br/>
+→ QQQ short: -1%<br/>
+→ Net: +5%
+
+**If tech sector falls:**
+
+→ AAPL, MSFT, GOOGL: -3% combined<br/>
+→ QQQ short: +2%<br/>
+→ Net: -1% (protected from -3%)
+
+### <Highlight variant='accent'>HEDGE TYPE 3: INVERSE CORRELATION HEDGE</Highlight>
+
+**<Highlight variant='blue'>Situation:</Highlight>**
+
+→ You're long stocks (risk-on positions)<br/>
+→ Market volatility increasing<br/>
+→ Want protection without closing positions<br/>
+
+**<Highlight variant='blue'>Inverse hedge:</Highlight>**
+
+→ Long Gold (0.5-1% risk)<br/>
+→ Long VIX (volatility index) via options<br/>
+→ Long USD (via UUP or DXY futures)<br/>
+
+**<Highlight variant='blue'>Purpose:</Highlight>**
+
+→ Gold typically rises when stocks fall<br/>
+→ VIX spikes when stocks crash<br/>
+→ USD strengthens during flight-to-safety<br/>
+
+**<Highlight variant='yellow'>This is portfolio insurance, not a perfect hedge.</Highlight>**
+
+### <Highlight variant='accent'>HEDGE TYPE 4: OPTIONS HEDGING (ADVANCED)</Highlight>
+
+**<Highlight variant='blue'>Situation:</Highlight>**
+
+→ You're long 100 shares of AAPL at $180 (risk $400 if stop at $176 hit)<br/>
+→ Earnings report tonight (high volatility)<br/>
+
+**<Highlight variant='blue'>Options hedge:</Highlight>**
+
+→ Buy 1 PUT option at $175 strike (cost $200)<br/>
+→ Maximum loss now: $500 + $200 = $700 (but you have time to exit before $175)<br/>
+
+**<Highlight variant='blue'>Outcome:</Highlight>**
+
+**If AAPL rallies to $200:**
+
+→ Stock gain: $2,000<br/>
+→ PUT expires worthless: -$200<br/>
+→ Net: +$1,800<br/>
+
+**If AAPL crashes to $160:**
+
+→ Stock loss: -$2,000<br/>
+→ PUT gain: +$1,500 (ITM)<br/>
+→ Net: -$500 (much better than -$2,000)<br/>
+
+**<Highlight variant='yellow'>Note:</Highlight>** Options hedging is complex. Don't attempt without education.
+
+## THE CORRELATION HEATMAP: VISUALIZATION TOOL
+
+Professional traders use correlation heatmaps and network graphs to visualize their portfolio exposure.
+
+<RiskConstellation />
+
+### <Highlight variant='accent'>SAMPLE CORRELATION HEATMAP</Highlight>
+
+Your open positions:
+
+1\. EUR/USD Long
+2\. GBP/USD Long
+3\. Gold Long
+4\. AAPL Long
+
+**<Highlight variant='blue'>Correlation matrix:</Highlight>**
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Position</TableHead>
+      <TableHead>EUR/USD</TableHead>
+      <TableHead>GBP/USD</TableHead>
+      <TableHead>Gold</TableHead>
+      <TableHead>AAPL</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>EUR/USD</TableCell>
+      <TableCell className="">
+        <Circle className="w-4 h-4 inline" stroke="#22c55e" fill="#22c55e" />
+        <span className="text-xs">1.00</span>
+      </TableCell>
+      <TableCell className="">
+        <Circle className="w-4 h-4 inline" stroke="#ef4444" fill="#ef4444" />{' '}
+        <span className="text-xs">0.85</span>
+      </TableCell>
+      <TableCell>
+        <Circle className="w-4 h-4 inline" stroke="#f59e0b" fill="#f59e0b" />{' '}
+        <span className="text-xs">0.30</span>
+      </TableCell>
+      <TableCell>
+        <Circle className="w-4 h-4 inline" stroke="#22c55e" fill="#22c55e" />{' '}
+        <span className="text-xs">0.15</span>
+      </TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>GBP/USD</TableCell>
+      <TableCell className="">
+        <Circle className="w-4 h-4 inline" stroke="#ef4444" fill="#ef4444" />{' '}
+        <span className="text-xs">0.85</span>
+      </TableCell>
+      <TableCell className="">
+        <Circle className="w-4 h-4 inline" stroke="#22c55e" fill="#22c55e" />{' '}
+        <span className="text-xs">1.00</span>
+      </TableCell>
+      <TableCell className="">
+        <Circle className="w-4 h-4 inline" stroke="#f59e0b" fill="#f59e0b" />{' '}
+        <span className="text-xs">0.28</span>
+      </TableCell>
+      <TableCell className="">
+        <Circle className="w-4 h-4 inline" stroke="#22c55e" fill="#22c55e" />{' '}
+        <span className="text-xs">0.12</span>
+      </TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Gold</TableCell>
+      <TableCell className="">
+        <Circle className="w-4 h-4 inline" stroke="#f59e0b" fill="#f59e0b" />{' '}
+        <span className="text-xs">0.30</span>
+      </TableCell>
+      <TableCell className="">
+        <Circle className="w-4 h-4 inline" stroke="#f59e0b" fill="#f59e0b" />{' '}
+        <span className="text-xs">0.28</span>
+      </TableCell>
+      <TableCell className="">
+        <Circle className="w-4 h-4 inline" stroke="#22c55e" fill="#22c55e" />{' '}
+        <span className="text-xs">1.00</span>
+      </TableCell>
+      <TableCell className="">
+        <Circle className="w-4 h-4 inline" stroke="#22c55e" fill="#22c55e" />{' '}
+        <span className="text-xs">0.10</span>
+      </TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>AAPL</TableCell>
+      <TableCell className="">
+        <Circle className="w-4 h-4 inline" stroke="#22c55e" fill="#22c55e" />{' '}
+        <span className="text-xs">0.15</span>
+      </TableCell>
+      <TableCell className="">
+        <Circle className="w-4 h-4 inline" stroke="#22c55e" fill="#22c55e" />{' '}
+        <span className="text-xs">0.12</span>
+      </TableCell>
+      <TableCell className="">
+        <Circle className="w-4 h-4 inline" stroke="#22c55e" fill="#22c55e" />{' '}
+        <span className="text-xs">0.10</span>
+      </TableCell>
+      <TableCell className="">
+        <Circle className="w-4 h-4 inline" stroke="#22c55e" fill="#22c55e" />{' '}
+        <span className="text-xs">1.00</span>
+      </TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+<br />
+
+**Color code:**
+
+→ <Circle className="w-4 h-4 inline" stroke="#ef4444" fill="#ef4444" /> Red (0.70-1.00): High correlation - DANGER<br/>
+→ <Circle className="w-4 h-4 inline" stroke="#f59e0b" fill="#f59e0b" /> Yellow (0.40-0.70): Moderate correlation - CAUTION<br/>
+→ <Circle className="w-4 h-4 inline" stroke="#22c55e" fill="#22c55e" /> Green (0.00-0.40): Low correlation - SAFE
+
+**<Highlight variant='blue'>Analysis:</Highlight>**
+
+→ EUR/USD and GBP/USD: <Circle className="w-4 h-4 inline" stroke="#ef4444" fill="#ef4444" /> HIGH CORRELATION - Consider closing one<br/>
+→ All other pairs: <Circle className="w-4 h-4 inline" stroke="#22c55e" fill="#22c55e" /> LOW CORRELATION - Good diversification<br/>
+
+### <Highlight variant='accent'>DYNAMIC CORRELATION WARNINGS</Highlight>
+
+Build a system that alerts you:
+
+**<AlertTriangle className="w-4 h-4 inline" stroke="#f59e0b" /> <Highlight variant='yellow'>"WARNING:</Highlight>** New position GBP/USD has 0.85 correlation with existing EUR/USD position.
+Combined USD exposure will be 2.5%."
+
+**<AlertTriangle className="w-4 h-4 inline" stroke="#f59e0b"/> <Highlight variant='yellow'>"WARNING:</Highlight>** Portfolio heat will reach 8.2% if you add this position.
+Consider reducing size to 0.8%."
+
+**<AlertTriangle className="w-4 h-4 inline" stroke="#f59e0b" /> <Highlight variant='yellow'>"WARNING:</Highlight>** Three positions in Tech sector. Sector concentration risk is high."
+
+## Advanced: Dynamic Heat Adjustment
+
+Professional traders adjust portfolio heat <Highlight variant='yellow'>based on market conditions.</Highlight><br/>
+
+**<Highlight variant='accent'>Heat Adjustment by Volatility Regime</Highlight>**
+
+**<Highlight variant='blue'>Low Volatility (VIX < 15):</Highlight>**
+
+→ Correlations are lower<br/>
+→ Markets more stable<br/>
+→ Max portfolio heat: 10-12%<br/>
+
+**<Highlight variant='blue'>Normal Volatility (VIX 15-25):</Highlight>**
+
+→ Standard correlations<br/>
+→ Normal conditions<br/>
+→ Max portfolio heat: 8-10%<br/>
+
+**<Highlight variant='blue'>High Volatility (VIX 25-35):</Highlight>**
+
+→ Correlations increase<br/>
+→ Risk of gaps and fast moves<br/>
+→ Max portfolio heat: 6-8%<br/>
+
+**<Highlight variant='blue'>Extreme Volatility (VIX > 35):</Highlight>**
+
+→ Correlations approach 1.0 (everything moves together)<br/>
+→ Market in crisis mode<br/>
+→ Max portfolio heat: 3-5% or consider cash<br/>
+
+**<Highlight variant='accent'>Heat Adjustment by Account Momentum</Highlight>**
+
+**<Highlight variant='blue'>On winning streak (3+ consecutive profitable weeks):</Highlight>**
+
+→ Consider increasing heat to 10-12%<br/>
+→ System working, market conditions favorable<br/>
+
+**<Highlight variant='blue'>On losing streak (2+ consecutive losing weeks):</Highlight>**
+
+→ Reduce heat to 6-8%<br/>
+→ Defensive mode until edge re-establishes<br/>
+
+**<Highlight variant='blue'>Deep drawdown (> -15%):</Highlight>**
+
+→ Reduce heat to 4-6%<br/>
+→ Preservation mode<br/>
+
+## THE FORTRESS WALL INTEGRITY CHECK
+
+Let's create your weekly portfolio review protocol:
+
+### <Highlight variant='accent'>WEEKLY PORTFOLIO HEAT AUDIT</Highlight>
+
+Every Sunday (before markets open), review:
+
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** 1\. Current Portfolio Heat
+
+→ Open positions: **\_\_\_<br/>
+→ Total risk: \_\_\_**%<br/>
+→ Within limit: YES / NO<br/>
+
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** 2\. Correlation Analysis
+
+→ Highest correlation pair: **\_\_\_** and **\_\_\_** (r = \_\_\_)<br/>
+→ Action needed: YES / NO<br/>
+
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** 3\. Currency Exposure
+
+→ USD: \_\_\_% (long/short)<br/>
+→ EUR: \_\_\_% (long/short)<br/>
+→ Other: \_\_\_% (long/short)<br/>
+→ Max single currency exposure: &lt;3%<br/>
+→ Within limit: YES / NO<br/>
+
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** 4\. Sector Exposure (stocks)
+
+→ Tech: \_\_\_%<br/>
+→ Financials: \_\_\_%<br/>
+→ Energy: \_\_\_%<br/>
+→ Healthcare: \_\_\_%<br/>
+→ Max single sector exposure: &lt;40% of stock portfolio<br/>
+→ Within limit: YES / NO<br/>
+
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** 5\. Asset Class Exposure
+
+→ Forex: \_\_\_%<br/>
+→ Stocks: \_\_\_%<br/>
+→ Commodities: \_\_\_%<br/>
+→ Crypto: \_\_\_%<br/>
+→ Distribution: Healthy / Concentrated<br/>
+
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** 6\. Risk-Adjusted Plan for Week
+
+→ Expected A-grade setups:\_\_\_<br/>
+→ Max positions to add: \_\_\_<br/>
+→ Priority sectors/pairs: \_\_\_<br/>
+
+## REAL CASE STUDY: PORTFOLIO HEAT VIOLATION DISASTER
+
+Let me share a real (anonymized) case study:
+
+<Highlight variant="blue">Trader: "Mike"</Highlight> (composite of several real traders)
+
+**<Highlight variant='blue'>Background:</Highlight>**
+
+→ $50,000 account<br/>
+→ 18 months experience<br/>
+→ Profitable for 6 months (+34%)<br/>
+→ Became overconfident<br/>
+
+**<Highlight variant='blue'>The Setup (Monday):</Highlight>**
+
+→ Identified 12 "perfect" setups across forex and stocks<br/>
+→ All were A-grade by his criteria<br/>
+→ Risk per trade: 1% = $500<br/>
+
+**<Highlight variant='blue'>Mike's thought process:</Highlight>**
+
+→ "These are all high-probability. I should take them all."<br/>
+→ "12 trades × 1% = 12% portfolio heat. That's aggressive but these are great setups."<br/>
+→ Decision: Entered all 12 positions<br/>
+
+**<Highlight variant='blue'>The positions:</Highlight>**
+
+1\. Long EUR/USD (forex)<br/>
+2\. Long GBP/USD (forex)<br/>
+3\. Long AUD/USD (forex)<br/>
+4\. Long NZD/USD (forex)<br/>
+5\. Long EUR/GBP (forex)<br/>
+6\. Long EUR/JPY (forex)<br/>
+7\. Long AAPL (tech)<br/>
+8\. Long MSFT (tech)<br/>
+9\. Long GOOGL (tech)<br/>
+10\. Long TSLA (tech)<br/>
+11\. Long NVDA (tech)<br/>
+12\. Long Gold<br/>
+
+**<Highlight variant='blue'>The hidden exposure:</Highlight>**
+
+→ Positions 1-6: ALL SHORT USD (6% exposure to single currency)<br/>
+→ Positions 7-11: ALL TECH STOCKS (5% exposure to single sector)<br/>
+→ Actual portfolio heat: 12% (violates 8-10% limit)<br/>
+
+**<Highlight variant='blue'>Tuesday morning:</Highlight>**
+
+→ Unexpected Fed hawkish comments<br/>
+→ USD SURGES<br/>
+→ Tech stocks FALL (rate-sensitive)<br/>
+
+**<Highlight variant='blue'>Result by Tuesday close:</Highlight>**
+
+→ Forex positions 1-6: ALL stopped out = -6%<br/>
+→ Tech positions 7-11: Four stopped out, one break-even = -4%<br/>
+→ Gold: Small gain = +0.5%<br/>
+→ Total damage: -9.5% in 36 hours<br/>
+
+**<Highlight variant='red'>Mike's response (WRONG):</Highlight>**
+
+→ "I need to recover this loss"<br/>
+→ Increased risk to 2% per trade<br/>
+→ Revenge trading<br/>
+→ Within 2 more days: Additional -4% loss<br/>
+→ Total drawdown: -13.5%<br/>
+
+**<Highlight variant='blue'>Recovery time:</Highlight>**
+
+→ Account: $50,000 → $43,250<br/>
+→ Required recovery: +15.6%<br/>
+→ Psychological damage: Severe<br/>
+→ Time to recover: 9 months<br/>
+
+**<Highlight variant='blue'>What Mike should have done:</Highlight>**
+
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Maximum portfolio heat: 8% = 8 positions max<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Check correlation: Skip GBP/USD, AUD/USD, NZD/USD (correlated with EUR/USD)<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Check sector exposure: Take max 2-3 tech stocks, not 5<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Final portfolio: 8 uncorrelated positions = 8% heat<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Even if all 8 lost (unlikely with low correlation), loss = -8%<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Recovery needed: +8.7% (achievable in 2-3 months)<br/>
+
+## YOUR FORTRESS WALLS ARE REINFORCED
+
+You've now mastered the art of portfolio heat management and correlation analysis —
+the fortress walls that prevent simultaneous breaches from destroying everything you've built.
+
+**<Highlight variant="blue">You understand:</Highlight>**
+
+<InfoGrid showContainer={true} containerClassName="border border-[#182538]">
+  <InfoGridItem
+    title="Portfolio Heat"
+    value="Total Capital at Risk"
+    description="Max 6-10% across every position"
+  />
+  <InfoGridItem
+    title="Correlation Concentration"
+    value="Hidden Overlap"
+    description="EUR/USD + GBP/USD is not 2% risk, it's ~1.5-2% combined"
+  />
+  <InfoGridItem
+    title="USD Trap"
+    value="Single Currency Exposure"
+    description="Multiple USD pairs create massive single-currency exposure"
+  />
+  <InfoGridItem
+    title="Sector Concentration"
+    value="Tech Leverage"
+    description="Five tech stocks are 5× leveraged tech, not diversification"
+  />
+  <InfoGridItem
+    title="Correlation Coefficients"
+    value="+0.7-1.0 = Danger"
+    description="+0.4-0.7 = Caution; 0.0-0.4 = Safe"
+  />
+  <InfoGridItem
+    title="Scaling Problem"
+    value="Selective Execution"
+    description="You can't take every setup—prioritize by quality and correlation"
+  />
+  <InfoGridItem
+    title="Heat Circuit Breakers"
+    value="Reduce 6%, Stop 8-10%"
+    description="Reduce size at 6%, stop at 8-10% total heat"
+  />
+  <InfoGridItem
+    title="Hedging Techniques"
+    value="Risk Offsets"
+    description="Direct, correlated, and inverse correlation hedges"
+  />
+  <InfoGridItem
+    title="Weekly Audit"
+    value="Review Heat & Exposure"
+    description="Check heat, correlation, currency, and sector exposure weekly"
+  />
+</InfoGrid>
+
+**Your fortress now has:**
+
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Lesson 2.1: The Foundation (Survival mindset)<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Lesson 2.2: The Walls (Position sizing)<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Lesson 2.3: The Gates (Stop-loss architecture)<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Lesson 2.4: The Watchtowers (Risk-reward mastery)<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Lesson 2.5: The Commander's Language (Expectancy & R-multiples)<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Lesson 2.6: The Siege Defense (Drawdown management)<br/>
+**<CheckCircle className="w-4 h-4 inline" stroke="#22c55e" />** Lesson 2.7: The Wall Integrity (Portfolio heat & correlation)<br/>
+
+**Your walls are impenetrable. Your fortress can withstand coordinated attacks.**
+
+In <CustomLink href="02-08-volatility-regimes-and-tail-risk">Lesson 2.8: Volatility Regimes and Tail Risk</CustomLink>, we'll build your Storm Warning System — Volatility Regimes & Tail Risk —
+learning to recognize when market conditions shift from calm to chaos,
+and how to adapt your defenses before the storm destroys you.<br/>
+
+Your walls stand strong. Now let's learn to weather the storms.
+
+<Alert variant="success">
+  <AlertTitle>KEY TAKEAWAYS</AlertTitle>
+  <AlertDescription>
+    <ul>
+      <li>
+        <CheckCircle className="w-4 h-4 inline" stroke="#22c55e" /> Portfolio
+        heat = sum of all position risks—max 6-10% of account across all open
+        positions
+      </li>
+      <br />
+      <li>
+        <CheckCircle className="w-4 h-4 inline" stroke="#22c55e" /> Correlation
+        reveals hidden risk: EUR/USD + GBP/USD (r=0.85) is not 2% independent
+        risk
+      </li>
+      <br />
+      <li>
+        <CheckCircle className="w-4 h-4 inline" stroke="#22c55e" /> The USD
+        trap: Long EUR/USD, GBP/USD, AUD/USD = 3× short USD = 3% single-currency
+        exposure
+      </li>
+      <br />
+      <li>
+        <CheckCircle className="w-4 h-4 inline" stroke="#22c55e" /> Correlation
+        scale: +0.7-1.0 (danger), +0.4-0.7 (caution), 0.0-0.4 (safe
+        diversification)
+      </li>
+      <br />
+      <li>
+        <CheckCircle className="w-4 h-4 inline" stroke="#22c55e" /> Sector
+        concentration kills: 5 tech stocks is not diversification, it's 5×
+        leveraged tech sector bet
+      </li>
+      <br />
+      <li>
+        <CheckCircle className="w-4 h-4 inline" stroke="#22c55e" /> You can't
+        take every setup—prioritize by quality and avoid high correlation
+      </li>
+      <br />
+      <li>
+        <CheckCircle className="w-4 h-4 inline" stroke="#22c55e" /> Portfolio
+        heat triggers: Reduce size at 6%, only A+ setups at 7.5%, stop adding at
+        8%
+      </li>
+      <br />
+      <li>
+        <CheckCircle className="w-4 h-4 inline" stroke="#22c55e" /> Hedging
+        reduces exposure: Direct hedges, correlated hedges, inverse correlation
+        protection
+      </li>
+      <br />
+      <li>
+        <CheckCircle className="w-4 h-4 inline" stroke="#22c55e" /> Weekly audit
+        essential: Check heat, correlation, currency exposure, sector
+        concentration
+      </li>
+      <br />
+      <li>
+        <CheckCircle className="w-4 h-4 inline" stroke="#22c55e" /> Real
+        diversification = uncorrelated positions across currencies, sectors,
+        asset classes
+      </li>
+      <br />
+      <li>
+        <CheckCircle className="w-4 h-4 inline" stroke="#22c55e" /> Correlation
+        breaks down in crises—even "hedged" portfolios can fall together in
+        black swans
+      </li>
+      <br />
+      <li>
+        <CheckCircle className="w-4 h-4 inline" stroke="#22c55e" /> Max
+        single-currency exposure: &lt;3% | Max single-sector exposure: &lt;40%
+        of portfolio
+      </li>
+    </ul>
+  </AlertDescription>
+</Alert>
+
+## Self-Assessment Exercise
+
+**<Highlight variant="blue">Scenario 1:</Highlight>** Current positions:
+
+→ AAPL: 2% risk<br/>
+→ MSFT: 2% risk<br/>
+→ GOOGL: 2% risk<br/>
+→ AMZN: 1.5% risk<br/>
+→ All are tech stocks with average correlation +0.75.<br/>
+→ Calculate: Simple heat, Effective heat<br/>
+→ Evaluate: Is this portfolio properly diversified?<br/>
+
+**<Highlight variant="blue">Scenario 2:</Highlight>** You have 7% simple portfolio heat.
+Your limit is 10%. New setup appears with 2% risk. Average correlation with existing positions is +0.40.
+
+→ Can you take this trade? Show calculations.
+
+**<Highlight variant="blue">Scenario 3:</Highlight>** You're trading forex with these positions:
+
+→ EUR/USD long (2%)<br/>
+→ GBP/USD long (2%)<br/>
+→ AUD/USD long (2%)<br/>
+→ What's your actual exposure?<br/>
+→ What happens if USD strengthens?<br/>
+
+**<Highlight variant="blue">Scenario 4:</Highlight>** Design a 4-position portfolio with 8% total heat that has TRUE diversification
+(average correlation < +0.30). Specify assets and risk per position.
+
+**<Highlight variant="blue">Scenario 5:</Highlight>** Your portfolio:
+
+→ 60% heat in tech stocks<br/>
+→ 30% heat in finance stocks<br/>
+→ 10% heat in gold<br/>
+→ Market crashes. Tech dumps -25%, Finance dumps -15%, Gold rallies +10%.<br/>
+→ Calculate your total portfolio loss.<br/>
+→ What does this tell you about your diversification?<br/>
+
+<QuoteComponent
+  quote="Diversification is protection against ignorance. It makes little sense if you know what you are doing."
+  author="Warren Buffett"
+/>
+<QuoteComponent
+  quote="Wide diversification is only required when investors do not understand what they are doing."
+  author="Warren Buffett"
+/>
+<QuoteComponent
+  quote="The goal of a portfolio is not to eliminate risk, but to eliminate unintended risk"
+  author="Cited in Investment Risk Management Literature"
+/>
