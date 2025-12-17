@@ -10,6 +10,7 @@ import remarkFrontmatter from 'remark-frontmatter'
 import remarkMdxFrontmatter from 'remark-mdx-frontmatter'
 import remarkGfm from 'remark-gfm'
 
+// Trigger restart
 const config = defineConfig({
   plugins: [
     mdx({

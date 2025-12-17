@@ -24,7 +24,7 @@ export function LessonLink({ moduleSlug, lesson }: LessonLinkProps) {
         to="/course/$moduleSlug/$lessonSlug"
         params={{ moduleSlug, lessonSlug: lesson.slug }}
         className={cn(
-          'flex justify-between items-center text-[var(--text-color-primary-800)] p-2 rounded-lg -ml-2 hover:bg-[var(--text-color-primary-300)] transition-colors duration-200',
+          'flex justify-between items-center text-(--text-color-primary-800) p-2 rounded-lg -ml-2 hover:bg-(--text-color-primary-300) transition-colors duration-200',
           lesson.parent ? 'pl-8 text-sm' : '',
         )}
       >

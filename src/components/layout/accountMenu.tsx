@@ -1,4 +1,3 @@
-import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -16,7 +15,7 @@ export function AccountMenu() {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <button className="focus:outline-none">
-          <UserIcon className="w-6 h-6 hover:text-yellow-600 transition-colors duration-300 translate-y-[2px]" />
+          <UserIcon className="w-6 h-6 hover:text-yellow-600 transition-colors duration-300 -translate-y-[0.5px]" />
         </button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="mx-2 w-56 text-(--text-color-primary-800) bg-(--popover-text) border-(--text-color-primary-400)">

@@ -12,8 +12,13 @@ import { DARK_TOKENS, LIGHT_TOKENS } from '@/lib/constants'
 import '@fontsource/geist-sans'
 import '@fontsource/geist-mono'
 import appCss from '../globals.css?url'
+import { getAuthSessionFn } from '@/server/auth'
 
 export const Route = createRootRoute({
+  loader: async () => {
+    const session = await getAuthSessionFn()
+    return { session }
+  },
   head: () => ({
     meta: [
       {

@@ -1,11 +1,28 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, User, Sparkles, Lock } from 'lucide-react'
-import { Link } from '@tanstack/react-router'
+import { Menu, X, Sparkles, Lock, LogOut } from 'lucide-react'
+import { Link, useRouter, getRouteApi } from '@tanstack/react-router'
+import { logoutFn } from '@/server/auth'
+import { toast } from 'sonner'
+
+const routeApi = getRouteApi('__root__')
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const { session } = routeApi.useLoaderData()
+  const router = useRouter()
+
+  const handleLogout = async () => {
+    try {
+      await logoutFn()
+      toast.success('Logged out successfully')
+      await router.invalidate()
+      router.navigate({ to: '/' })
+    } catch (err) {
+      toast.error('Failed to logout')
+    }
+  }
 
   // Detect scroll to toggle the glass effect intensity
   useEffect(() => {
@@ -30,8 +47,8 @@ const Navbar: React.FC = () => {
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           {/* --- LEFT: LOGO --- */}
-          <div className="flex items-center gap-2 cursor-pointer group">
-            <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-zinc-800 to-black border border-white/10 group-hover:border-[#B0811C]/50 transition-colors duration-500">
+          <Link to="/" className="flex items-center gap-2 cursor-pointer group">
+            <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-linear-to-br from-zinc-800 to-black border border-white/10 group-hover:border-[#B0811C]/50 transition-colors duration-500">
               <Sparkles className="w-5 h-5 text-[#B0811C] group-hover:animate-spin-slow transition-transform duration-700" />
             </div>
             <div className="flex flex-col">
@@ -42,7 +59,7 @@ const Navbar: React.FC = () => {
                 For Traders
               </span>
             </div>
-          </div>
+          </Link>
 
           {/* --- MIDDLE: DESKTOP LINKS (Optional filler for balance) --- */}
           <div className="hidden md:flex items-center gap-8">
@@ -53,20 +70,47 @@ const Navbar: React.FC = () => {
                 className="text-sm font-medium text-zinc-400 hover:text-white transition-colors duration-300 relative group"
               >
                 {item}
-                <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#B0811C] transition-all duration-300 group-hover:w-full" />
+                <span className="absolute -bottom-1 left-0 w-0 h-px bg-[#B0811C] transition-all duration-300 group-hover:w-full" />
               </a>
             ))}
           </div>
 
           {/* --- RIGHT: ACTIONS --- */}
           <div className="hidden md:flex items-center gap-6">
-            <Link
-              to="/course"
-              className="group flex items-center gap-2 text-sm font-medium text-zinc-300 hover:text-white transition-colors"
-            >
-              <Lock className="w-3.5 h-3.5 text-zinc-500 group-hover:text-[#B0811C] transition-colors" />
-              <span>Go to Course</span>
-            </Link>
+            {session ? (
+              <>
+                <Link
+                  to="/course"
+                  className="group flex items-center gap-2 text-sm font-medium text-zinc-300 hover:text-white transition-colors"
+                >
+                  <Lock className="w-3.5 h-3.5 text-zinc-500 group-hover:text-[#B0811C] transition-colors" />
+                  <span>Go to Course</span>
+                </Link>
+                <div className="h-4 w-px bg-zinc-800" />
+                <button
+                  onClick={handleLogout}
+                  className="group flex items-center gap-2 text-sm font-medium text-zinc-300 hover:text-white transition-colors"
+                >
+                  <LogOut className="w-3.5 h-3.5 text-zinc-500 group-hover:text-[#B0811C] transition-colors" />
+                  <span>Logout</span>
+                </button>
+              </>
+            ) : (
+              <>
+                <Link
+                  to="/login"
+                  className="text-sm font-medium text-zinc-300 hover:text-white transition-colors"
+                >
+                  Sign In
+                </Link>
+                <Link
+                  to="/register"
+                  className="px-5 py-2 bg-[#B0811C] hover:bg-[#9a7019] text-black text-sm font-bold tracking-wide rounded-lg transition-colors duration-300"
+                >
+                  Enroll Now
+                </Link>
+              </>
+            )}
           </div>
 
           {/* --- MOBILE HAMBURGER --- */}
@@ -90,19 +134,54 @@ const Navbar: React.FC = () => {
             exit={{ opacity: 0, y: -20 }}
             className="fixed inset-0 z-40 bg-black/95 backdrop-blur-2xl pt-24 px-6 md:hidden flex flex-col items-center gap-8"
           >
-            {['Modules', 'Pricing', 'Sign In'].map((item) => (
+            {['Modules', 'Pricing'].map((item) => (
               <a
                 key={item}
-                href="#"
+                href={`#${item.toLowerCase()}`}
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="text-2xl font-serif text-zinc-300 hover:text-[#B0811C] transition-colors"
               >
                 {item}
               </a>
             ))}
-            <button className="w-full max-w-xs py-4 bg-[#B0811C] text-black font-bold uppercase tracking-widest rounded-full">
-              Enroll Now
-            </button>
+
+            {session ? (
+              <>
+                <Link
+                  to="/course"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="text-2xl font-serif text-zinc-300 hover:text-[#B0811C] transition-colors"
+                >
+                  Go to Course
+                </Link>
+                <button
+                  onClick={() => {
+                    handleLogout()
+                    setIsMobileMenuOpen(false)
+                  }}
+                  className="text-2xl font-serif text-zinc-300 hover:text-[#B0811C] transition-colors"
+                >
+                  Logout
+                </button>
+              </>
+            ) : (
+              <>
+                <Link
+                  to="/login"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="text-2xl font-serif text-zinc-300 hover:text-[#B0811C] transition-colors"
+                >
+                  Sign In
+                </Link>
+                <Link
+                  to="/register"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="w-full max-w-xs py-4 bg-[#B0811C] text-black font-bold uppercase tracking-widest rounded-full text-center"
+                >
+                  Enroll Now
+                </Link>
+              </>
+            )}
           </motion.div>
         )}
       </AnimatePresence>
