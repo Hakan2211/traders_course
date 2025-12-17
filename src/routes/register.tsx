@@ -57,7 +57,8 @@ function RegisterComponent() {
           },
         })
         toast.success('Account created successfully')
-        router.navigate({ to: '/' })
+        router.invalidate()
+        router.navigate({ to: '/course' })
       } catch (err) {
         setError((err as Error).message)
         toast.error('Failed to create account')
