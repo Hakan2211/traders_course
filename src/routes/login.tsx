@@ -14,6 +14,7 @@ import {
 } from '@/components/ui/card'
 import { toast } from 'sonner'
 import { useState } from 'react'
+import { getErrorMessage } from '@/helpers/error-helpers'
 
 export const Route = createFileRoute('/login')({
   component: LoginComponent,
@@ -36,8 +37,9 @@ function LoginComponent() {
         router.invalidate()
         router.navigate({ to: '/course' })
       } catch (err) {
-        setError((err as Error).message)
-        toast.error('Failed to login')
+        const message = getErrorMessage(err)
+        setError(message)
+        toast.error(message)
       }
     },
   })
@@ -87,7 +89,9 @@ function LoginComponent() {
                   />
                   {field.state.meta.errors ? (
                     <p className="text-xs text-red-500">
-                      {field.state.meta.errors.join(', ')}
+                      {field.state.meta.errors
+                        .map((e) => getErrorMessage(e))
+                        .join(', ')}
                     </p>
                   ) : null}
                 </div>
@@ -121,7 +125,9 @@ function LoginComponent() {
                   />
                   {field.state.meta.errors ? (
                     <p className="text-xs text-red-500">
-                      {field.state.meta.errors.join(', ')}
+                      {field.state.meta.errors
+                        .map((e) => getErrorMessage(e))
+                        .join(', ')}
                     </p>
                   ) : null}
                 </div>

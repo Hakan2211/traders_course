@@ -7,6 +7,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
+import { Link } from '@tanstack/react-router'
 import UserIcon from '../icons/userIcon'
 import LogoutButton from '../auth/LogoutButton'
 
@@ -22,8 +23,8 @@ export function AccountMenu() {
         <DropdownMenuLabel>My Account</DropdownMenuLabel>
         <DropdownMenuSeparator className="bg-(--text-color-primary-400)" />
         <DropdownMenuGroup>
-          <DropdownMenuItem className="cursor-pointer">
-            Support
+          <DropdownMenuItem className="cursor-pointer" asChild>
+            <Link to="/support">Support</Link>
           </DropdownMenuItem>
           <DropdownMenuSeparator className="bg-(--text-color-primary-400)" />
           <DropdownMenuItem className="cursor-pointer">

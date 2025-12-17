@@ -224,8 +224,36 @@ export function getLessonComponent(
   moduleSlug: string,
   lessonSlug: string,
 ): MDXComponent | null {
-  const path = `/content/${moduleSlug}/${lessonSlug}.mdx`
-  const mod = courseModulesGlob[path]
+  // Try exact match first
+  let path = `/content/${moduleSlug}/${lessonSlug}.mdx`
+  let mod = courseModulesGlob[path]
+
+  // If not found, try searching for the file (handling case sensitivity or slight path diffs if needed,
+  // though typically glob keys are exact).
+  // Another issue might be the path format in glob keys.
+  // Vite glob keys are usually relative to project root or absolute depending on config.
+  // The current glob pattern '/content/**/*.mdx' with 'import.meta.glob' usually yields keys starting with /content
+
+  if (!mod) {
+    console.warn(`[getLessonComponent] Component not found for path: ${path}`)
+  }
+
+  return (mod?.default as MDXComponent) ?? null
+}
+
+export function getLibraryComponent(
+  moduleSlug: string,
+  lessonSlug: string,
+): MDXComponent | null {
+  const path = `/library/${moduleSlug}/${lessonSlug}.mdx`
+  const mod = libraryModulesGlob[path]
+
+  if (!mod) {
+    console.warn(`[getLibraryComponent] Component not found for path: ${path}`)
+    // Debug: log available keys to help diagnose
+    // console.log('Available library keys:', Object.keys(libraryModulesGlob))
+  }
+
   return (mod?.default as MDXComponent) ?? null
 }
 

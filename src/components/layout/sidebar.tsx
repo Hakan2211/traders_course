@@ -82,8 +82,8 @@ function Sidebar({
               >
                 <Link
                   className="w-full flex justify-between items-center gap-8"
-                  to="/course/$moduleSlug/$lessonSlug"
-                  params={{ moduleSlug, lessonSlug: lesson.slug }}
+                  to={`${basePath}/$moduleSlug/$lessonSlug` as any}
+                  params={{ moduleSlug, lessonSlug: lesson.slug } as any}
                 >
                   <span
                     className="flex-1 min-w-0 whitespace-normal wrap-break-word"

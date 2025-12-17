@@ -34,6 +34,7 @@ function SideBarSheet({
   lessonSlug,
   lessons,
   homePath = '/course',
+  basePath = '/course',
 }: SidebarProps) {
   return (
     <Sheet>
@@ -89,8 +90,8 @@ function SideBarSheet({
                 }`}
               >
                 <Link
-                  to="/course/$moduleSlug/$lessonSlug"
-                  params={{ moduleSlug, lessonSlug: lesson.slug }}
+                  to={`${basePath}/$moduleSlug/$lessonSlug` as any}
+                  params={{ moduleSlug, lessonSlug: lesson.slug } as any}
                 >
                   {lesson.title}
                 </Link>

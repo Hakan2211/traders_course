@@ -9,12 +9,22 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SupportRouteImport } from './routes/support'
 import { Route as RegisterRouteImport } from './routes/register'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CourseIndexRouteImport } from './routes/course/index'
+import { Route as CourseNotesRouteImport } from './routes/course/notes'
+import { Route as CourseLibraryRouteImport } from './routes/course/library'
+import { Route as CourseLibraryIndexRouteImport } from './routes/course/library/index'
 import { Route as CourseModuleSlugLessonSlugRouteImport } from './routes/course/$moduleSlug.$lessonSlug'
+import { Route as CourseLibraryModuleSlugLessonSlugRouteImport } from './routes/course/library/$moduleSlug.$lessonSlug'
 
+const SupportRoute = SupportRouteImport.update({
+  id: '/support',
+  path: '/support',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RegisterRoute = RegisterRouteImport.update({
   id: '/register',
   path: '/register',
@@ -35,34 +45,69 @@ const CourseIndexRoute = CourseIndexRouteImport.update({
   path: '/course/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CourseNotesRoute = CourseNotesRouteImport.update({
+  id: '/course/notes',
+  path: '/course/notes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CourseLibraryRoute = CourseLibraryRouteImport.update({
+  id: '/course/library',
+  path: '/course/library',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CourseLibraryIndexRoute = CourseLibraryIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => CourseLibraryRoute,
+} as any)
 const CourseModuleSlugLessonSlugRoute =
   CourseModuleSlugLessonSlugRouteImport.update({
     id: '/course/$moduleSlug/$lessonSlug',
     path: '/course/$moduleSlug/$lessonSlug',
     getParentRoute: () => rootRouteImport,
   } as any)
+const CourseLibraryModuleSlugLessonSlugRoute =
+  CourseLibraryModuleSlugLessonSlugRouteImport.update({
+    id: '/$moduleSlug/$lessonSlug',
+    path: '/$moduleSlug/$lessonSlug',
+    getParentRoute: () => CourseLibraryRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/login': typeof LoginRoute
   '/register': typeof RegisterRoute
+  '/support': typeof SupportRoute
+  '/course/library': typeof CourseLibraryRouteWithChildren
+  '/course/notes': typeof CourseNotesRoute
   '/course': typeof CourseIndexRoute
   '/course/$moduleSlug/$lessonSlug': typeof CourseModuleSlugLessonSlugRoute
+  '/course/library/': typeof CourseLibraryIndexRoute
+  '/course/library/$moduleSlug/$lessonSlug': typeof CourseLibraryModuleSlugLessonSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/login': typeof LoginRoute
   '/register': typeof RegisterRoute
+  '/support': typeof SupportRoute
+  '/course/notes': typeof CourseNotesRoute
   '/course': typeof CourseIndexRoute
   '/course/$moduleSlug/$lessonSlug': typeof CourseModuleSlugLessonSlugRoute
+  '/course/library': typeof CourseLibraryIndexRoute
+  '/course/library/$moduleSlug/$lessonSlug': typeof CourseLibraryModuleSlugLessonSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/login': typeof LoginRoute
   '/register': typeof RegisterRoute
+  '/support': typeof SupportRoute
+  '/course/library': typeof CourseLibraryRouteWithChildren
+  '/course/notes': typeof CourseNotesRoute
   '/course/': typeof CourseIndexRoute
   '/course/$moduleSlug/$lessonSlug': typeof CourseModuleSlugLessonSlugRoute
+  '/course/library/': typeof CourseLibraryIndexRoute
+  '/course/library/$moduleSlug/$lessonSlug': typeof CourseLibraryModuleSlugLessonSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -70,34 +115,58 @@ export interface FileRouteTypes {
     | '/'
     | '/login'
     | '/register'
+    | '/support'
+    | '/course/library'
+    | '/course/notes'
     | '/course'
     | '/course/$moduleSlug/$lessonSlug'
+    | '/course/library/'
+    | '/course/library/$moduleSlug/$lessonSlug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/login'
     | '/register'
+    | '/support'
+    | '/course/notes'
     | '/course'
     | '/course/$moduleSlug/$lessonSlug'
+    | '/course/library'
+    | '/course/library/$moduleSlug/$lessonSlug'
   id:
     | '__root__'
     | '/'
     | '/login'
     | '/register'
+    | '/support'
+    | '/course/library'
+    | '/course/notes'
     | '/course/'
     | '/course/$moduleSlug/$lessonSlug'
+    | '/course/library/'
+    | '/course/library/$moduleSlug/$lessonSlug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   LoginRoute: typeof LoginRoute
   RegisterRoute: typeof RegisterRoute
+  SupportRoute: typeof SupportRoute
+  CourseLibraryRoute: typeof CourseLibraryRouteWithChildren
+  CourseNotesRoute: typeof CourseNotesRoute
   CourseIndexRoute: typeof CourseIndexRoute
   CourseModuleSlugLessonSlugRoute: typeof CourseModuleSlugLessonSlugRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/support': {
+      id: '/support'
+      path: '/support'
+      fullPath: '/support'
+      preLoaderRoute: typeof SupportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/register': {
       id: '/register'
       path: '/register'
@@ -126,6 +195,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CourseIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/course/notes': {
+      id: '/course/notes'
+      path: '/course/notes'
+      fullPath: '/course/notes'
+      preLoaderRoute: typeof CourseNotesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/course/library': {
+      id: '/course/library'
+      path: '/course/library'
+      fullPath: '/course/library'
+      preLoaderRoute: typeof CourseLibraryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/course/library/': {
+      id: '/course/library/'
+      path: '/'
+      fullPath: '/course/library/'
+      preLoaderRoute: typeof CourseLibraryIndexRouteImport
+      parentRoute: typeof CourseLibraryRoute
+    }
     '/course/$moduleSlug/$lessonSlug': {
       id: '/course/$moduleSlug/$lessonSlug'
       path: '/course/$moduleSlug/$lessonSlug'
@@ -133,13 +223,38 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CourseModuleSlugLessonSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/course/library/$moduleSlug/$lessonSlug': {
+      id: '/course/library/$moduleSlug/$lessonSlug'
+      path: '/$moduleSlug/$lessonSlug'
+      fullPath: '/course/library/$moduleSlug/$lessonSlug'
+      preLoaderRoute: typeof CourseLibraryModuleSlugLessonSlugRouteImport
+      parentRoute: typeof CourseLibraryRoute
+    }
   }
 }
+
+interface CourseLibraryRouteChildren {
+  CourseLibraryIndexRoute: typeof CourseLibraryIndexRoute
+  CourseLibraryModuleSlugLessonSlugRoute: typeof CourseLibraryModuleSlugLessonSlugRoute
+}
+
+const CourseLibraryRouteChildren: CourseLibraryRouteChildren = {
+  CourseLibraryIndexRoute: CourseLibraryIndexRoute,
+  CourseLibraryModuleSlugLessonSlugRoute:
+    CourseLibraryModuleSlugLessonSlugRoute,
+}
+
+const CourseLibraryRouteWithChildren = CourseLibraryRoute._addFileChildren(
+  CourseLibraryRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   LoginRoute: LoginRoute,
   RegisterRoute: RegisterRoute,
+  SupportRoute: SupportRoute,
+  CourseLibraryRoute: CourseLibraryRouteWithChildren,
+  CourseNotesRoute: CourseNotesRoute,
   CourseIndexRoute: CourseIndexRoute,
   CourseModuleSlugLessonSlugRoute: CourseModuleSlugLessonSlugRoute,
 }

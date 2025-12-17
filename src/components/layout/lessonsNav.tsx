@@ -8,12 +8,15 @@ import {
 import NotesIcon from '../icons/notesIcon'
 import LibraryIcon from '../icons/libraryIcon'
 import { AccountMenu } from './accountMenu'
-import { useRouter } from '@tanstack/react-router'
+import { useRouter, getRouteApi } from '@tanstack/react-router'
 import { useTransition } from 'react'
 import { Loader2 } from 'lucide-react'
 
+const routeApi = getRouteApi('__root__')
+
 export function LessonsNav() {
   const router = useRouter()
+  const { session } = routeApi.useLoaderData()
   const [isLibraryPending, startLibraryTransition] = useTransition()
   const [isNotesPending, startNotesTransition] = useTransition()
 
@@ -30,6 +33,13 @@ export function LessonsNav() {
     <TooltipProvider delayDuration={0}>
       <nav>
         <ul className="text-(--text-color-primary-800) flex items-center gap-4">
+          {session && (
+            <li className="cursor-default px-2 hidden sm:block">
+              <span className="text-sm font-medium text-(--text-color-primary-600)">
+                Welcome, {session.user.name || session.user.username}
+              </span>
+            </li>
+          )}
           <li className="cursor-pointer">
             <Tooltip>
               <TooltipTrigger asChild>

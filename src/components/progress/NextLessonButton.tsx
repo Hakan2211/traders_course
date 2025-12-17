@@ -13,6 +13,7 @@ type NextLessonButtonProps = {
     lessonSlug: string
   } | null
   skipProgress?: boolean
+  basePath?: string
 }
 
 export function NextLessonButton({
@@ -20,6 +21,7 @@ export function NextLessonButton({
   lessonSlug,
   nextItem,
   skipProgress = false,
+  basePath = '/course',
 }: NextLessonButtonProps) {
   const router = useRouter()
   const { updateProgress } = useProgress()
@@ -37,11 +39,11 @@ export function NextLessonButton({
       if (nextItem) {
         startTransition(() => {
           router.navigate({
-            to: '/course/$moduleSlug/$lessonSlug',
+            to: `${basePath}/$moduleSlug/$lessonSlug` as any,
             params: {
               moduleSlug: nextItem.moduleSlug,
               lessonSlug: nextItem.lessonSlug,
-            },
+            } as any,
           })
         })
       }
@@ -59,7 +61,7 @@ export function NextLessonButton({
 
   return (
     <Button
-      className="my-8 gap-2 bg-[#B0811C] hover:bg-[#9a7019] text-black"
+      className="my-8 gap-2 bg-(--module-badge) hover:bg-[#9a7019] text-(--text-color-primary-100) hover:text-(--text-color-primary-100) cursor-pointer"
       onClick={handleClick}
       disabled={isLoading}
     >

@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from 'react'
+import { createPortal } from 'react-dom'
 import NotesIcon from '../icons/notesIcon'
 import NotesDialog from './NotesDialog'
 import {
@@ -9,9 +10,6 @@ import {
   DialogDescription,
   DialogPortal,
   DialogOverlay,
-  DialogTrigger,
-  DialogClose,
-  DialogFooter,
 } from '../ui/dialog'
 import { createNote } from '@/lib/notesCrud'
 import { useRouter } from '@tanstack/react-router'
@@ -29,8 +27,7 @@ export default function SelectText({
   const [selection, setSelection] = useState<string>()
   const [position, setPosition] = useState<Record<string, number>>()
   const [isDialogOpen, setIsDialogOpen] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
-  const selectionRef = useRef<string>()
+  const selectionRef = useRef<string | undefined>(undefined)
   const router = useRouter()
 
   function onSelectStart() {
@@ -53,7 +50,7 @@ export default function SelectText({
     const rect = activeSelection.getRangeAt(0).getBoundingClientRect()
 
     setPosition({
-      x: rect.left + rect.width / 2 - 80 / 2,
+      x: rect.left + window.scrollX + rect.width / 2 - 80 / 2,
       y: rect.top + window.scrollY - 30,
       width: rect.width,
       height: rect.height,
@@ -80,8 +77,6 @@ export default function SelectText({
     const currentSelection = selectionRef.current
     if (!noteText || !currentSelection) return
 
-    setIsLoading(true)
-
     try {
       await createNote(moduleSlug, lessonSlug, currentSelection, noteText)
 
@@ -93,8 +88,6 @@ export default function SelectText({
     } catch (error) {
       console.error('Error saving note:', error)
       toast.error('Failed to save note') // Optional: show error message
-    } finally {
-      setIsLoading(false)
     }
   }
 
@@ -121,33 +114,37 @@ export default function SelectText({
         </DialogPortal>
       </Dialog>
 
-      <div role="dialog" aria-labelledby="note" aria-haspopup="dialog">
-        {selection && position && (
-          <p
-            className="
-              absolute -top-4 left-0 w-[80px] h-[30px] bg-[var(--module-badge)] text-[var(--text-color-primary-800)] rounded m-0
-              after:absolute after:top-full after:left-1/2 after:-translate-x-2 after:h-0 after:w-0 after:border-x-[6px] after:border-x-transparent after:border-b-[8px] after:border-b-[var(--module-badge)] after:rotate-180
+      {selection &&
+        position &&
+        createPortal(
+          <div role="dialog" aria-labelledby="note" aria-haspopup="dialog">
+            <p
+              className="
+              absolute -top-4 left-0 w-[80px] h-[30px] bg-(--module-badge) text-(--text-color-primary-800) rounded m-0
+              after:absolute after:top-full after:left-1/2 after:-translate-x-2 after:h-0 after:w-0 after:border-x-[6px] after:border-x-transparent after:border-b-8 after:border-b-(--module-badge) after:rotate-180
             "
-            style={{
-              transform: `translate3d(${position.x}px, ${position.y}px, 0)`,
-            }}
-          >
-            <button
-              className="flex w-full h-full justify-between items-center px-2"
-              onClick={(e) => {
-                e.stopPropagation()
-                setIsDialogOpen(true)
+              style={{
+                transform: `translate3d(${position.x}px, ${position.y}px, 0)`,
+                zIndex: 50, // Ensure it's above other elements
               }}
-              onMouseUp={(e) => e.stopPropagation()}
             >
-              <span id="note" className="text-base">
-                Note
-              </span>
-              <NotesIcon className="w-6 h-6" />
-            </button>
-          </p>
+              <button
+                className="flex w-full h-full justify-between items-center px-2"
+                onClick={(e) => {
+                  e.stopPropagation()
+                  setIsDialogOpen(true)
+                }}
+                onMouseUp={(e) => e.stopPropagation()}
+              >
+                <span id="note" className="text-base">
+                  Note
+                </span>
+                <NotesIcon className="w-6 h-6" />
+              </button>
+            </p>
+          </div>,
+          document.body,
         )}
-      </div>
     </>
   )
 }

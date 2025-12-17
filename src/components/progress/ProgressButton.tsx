@@ -34,8 +34,8 @@ export function ProgressButton({
       variant={completed ? 'outline' : 'default'}
       className={`my-8 gap-2 ${
         completed
-          ? 'border-green-500 text-green-600 hover:bg-green-50 dark:hover:bg-green-950'
-          : 'bg-[#B0811C] hover:bg-[#9a7019] text-black'
+          ? 'bg-(--module-badge) hover:bg-[#9A7019] text-(--text-color-primary-100) hover:text-(--text-color-primary-100) cursor-pointer'
+          : 'bg-transparent border border-(--text-color-primary-600) text-(--text-color-primary-600) hover:bg-(--text-color-primary-300) hover:text-(--text-color-primary-800) cursor-pointer'
       }`}
     >
       {isUpdating ? (

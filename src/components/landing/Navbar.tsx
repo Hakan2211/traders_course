@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Sparkles, Lock, LogOut } from 'lucide-react'
+import { Menu, X, Sparkles, LockOpen, LogOut } from 'lucide-react'
 import { Link, useRouter, getRouteApi } from '@tanstack/react-router'
 import { logoutFn } from '@/server/auth'
 import { toast } from 'sonner'
@@ -79,11 +79,14 @@ const Navbar: React.FC = () => {
           <div className="hidden md:flex items-center gap-6">
             {session ? (
               <>
+                <span className="text-sm font-medium text-zinc-300">
+                  Welcome, {session.user.name || session.user.username}
+                </span>
                 <Link
                   to="/course"
                   className="group flex items-center gap-2 text-sm font-medium text-zinc-300 hover:text-white transition-colors"
                 >
-                  <Lock className="w-3.5 h-3.5 text-zinc-500 group-hover:text-[#B0811C] transition-colors" />
+                  <LockOpen className="w-3.5 h-3.5 text-zinc-500 group-hover:text-[#B0811C] transition-colors" />
                   <span>Go to Course</span>
                 </Link>
                 <div className="h-4 w-px bg-zinc-800" />
@@ -103,12 +106,20 @@ const Navbar: React.FC = () => {
                 >
                   Sign In
                 </Link>
-                <Link
-                  to="/register"
-                  className="px-5 py-2 bg-[#B0811C] hover:bg-[#9a7019] text-black text-sm font-bold tracking-wide rounded-lg transition-colors duration-300"
-                >
-                  Enroll Now
-                </Link>
+                <div className="relative group">
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-[#B0811C] to-yellow-600 rounded-lg blur opacity-30 group-hover:opacity-60 transition duration-500"></div>
+                  <div className="relative p-[1px] overflow-hidden rounded-lg">
+                    <span className="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#000000_0%,#B0811C_50%,#000000_100%)]" />
+                    <div className="relative z-10 bg-zinc-950 rounded-lg">
+                      <Link
+                        to="/register"
+                        className="block px-5 py-2 bg-black/50 hover:bg-[#B0811C]/20 text-white text-sm font-bold tracking-wide rounded-lg transition-colors duration-300"
+                      >
+                        Enroll Now
+                      </Link>
+                    </div>
+                  </div>
+                </div>
               </>
             )}
           </div>
@@ -147,6 +158,9 @@ const Navbar: React.FC = () => {
 
             {session ? (
               <>
+                <span className="text-xl font-serif text-zinc-300">
+                  Welcome, {session.user.name || session.user.username}
+                </span>
                 <Link
                   to="/course"
                   onClick={() => setIsMobileMenuOpen(false)}

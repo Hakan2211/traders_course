@@ -1,8 +1,8 @@
 import { createFileRoute } from '@tanstack/react-router'
 import {
-  loadLessonContent,
-  getCourseModules,
-  getLessonComponent,
+  loadLibraryContent,
+  getLibraryModules,
+  getLibraryComponent,
 } from '@/helpers/file-helpers'
 import Sidebar from '@/components/layout/sidebar'
 import LessonsHeader from '@/components/layout/lessonsHeader'
@@ -11,34 +11,45 @@ import TableOfContents from '@/components/layout/tableOfContents/tableOfContents
 import { ProgressButton } from '@/components/progress/ProgressButton'
 import { NextLessonButton } from '@/components/progress/NextLessonButton'
 import SelectText from '@/components/notes/SelectText'
-import styles from './lesson.module.css'
+import styles from '../lesson.module.css'
 
-export const Route = createFileRoute('/course/$moduleSlug/$lessonSlug')({
-  loader: async ({ params }) => {
-    const { moduleSlug, lessonSlug } = params
-    const lessonContent = await loadLessonContent(moduleSlug, lessonSlug)
-    const modules = await getCourseModules()
-    if (!lessonContent) {
-      throw new Error(`Lesson not found: ${moduleSlug}/${lessonSlug}`)
-    }
-    // Return only serializable data (Component loaded client-side)
-    return {
-      frontmatter: lessonContent.frontmatter,
-      headings: lessonContent.headings,
-      modules,
-      moduleSlug,
-      lessonSlug,
-    }
+export const Route = createFileRoute('/course/library/$moduleSlug/$lessonSlug')(
+  {
+    loader: async ({ params }) => {
+      const { moduleSlug, lessonSlug } = params
+      const lessonContent = await loadLibraryContent(moduleSlug, lessonSlug)
+      const modules = await getLibraryModules()
+      if (!lessonContent) {
+        throw new Error(`Lesson not found: ${moduleSlug}/${lessonSlug}`)
+      }
+      // Return only serializable data (Component loaded client-side)
+      return {
+        frontmatter: lessonContent.frontmatter,
+        headings: lessonContent.headings,
+        modules,
+        moduleSlug,
+        lessonSlug,
+      }
+    },
+    component: LessonDetail,
   },
-  component: LessonDetail,
-})
+)
 
 function LessonDetail() {
   const { frontmatter, headings, modules, moduleSlug, lessonSlug } =
     Route.useLoaderData()
 
+  // FORCE re-render when params change (key={...})
+  // The component variable depends on moduleSlug/lessonSlug, but if React doesn't
+  // see it as a state change or if the component identity is stable, it might not re-render.
+  // Using key on the layout or main content is a good way to force it.
+
   // Get the component client-side (not serializable for SSR)
-  const Component = getLessonComponent(moduleSlug, lessonSlug)
+  const Component = getLibraryComponent(moduleSlug, lessonSlug)
+
+  if (!Component) {
+    return <div className="p-8 text-center">Lesson content not found</div>
+  }
 
   const currentModuleIndex = modules.findIndex(
     (module) => module.moduleSlug === moduleSlug,
@@ -76,13 +87,18 @@ function LessonDetail() {
   }
 
   return (
-    <div className={`${styles.lessons_grid} gap-12 bg-(--bg-color) min-h-full`}>
+    <div
+      key={moduleSlug + lessonSlug}
+      className={`${styles.lessons_grid} gap-12 bg-(--bg-color) min-h-full`}
+    >
       <div className={styles.sidebar}>
         <Sidebar
           moduleBadge={frontmatter.moduleBadge}
           moduleSlug={moduleSlug}
           lessonSlug={lessonSlug}
           lessons={lessons}
+          basePath="/course/library"
+          homePath="/course/library"
         />
       </div>
 
@@ -92,6 +108,7 @@ function LessonDetail() {
           moduleSlug={moduleSlug}
           lessons={lessons}
           lessonSlug={lessonSlug}
+          basePath="/course/library"
         />
         <article
           className={`${styles.content_area} text-(--text-color-primary-800) md:mx-2 px-4 md:px-16 pt-16 pb-24 border border-(--text-color-primary-300) rounded-lg bg-(--bg-color) relative`}
@@ -111,6 +128,7 @@ function LessonDetail() {
             moduleSlug={moduleSlug}
             lessonSlug={lessonSlug}
             nextItem={nextItem}
+            basePath="/course/library"
           />
         </div>
       </main>
