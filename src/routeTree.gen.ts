@@ -18,6 +18,7 @@ import { Route as CourseNotesRouteImport } from './routes/course/notes'
 import { Route as CourseLibraryRouteImport } from './routes/course/library'
 import { Route as CourseLibraryIndexRouteImport } from './routes/course/library/index'
 import { Route as CourseModuleSlugLessonSlugRouteImport } from './routes/course/$moduleSlug.$lessonSlug'
+import { Route as ApiStripeWebhookRouteImport } from './routes/api/stripe/webhook'
 import { Route as CourseLibraryModuleSlugLessonSlugRouteImport } from './routes/course/library/$moduleSlug.$lessonSlug'
 
 const SupportRoute = SupportRouteImport.update({
@@ -66,6 +67,11 @@ const CourseModuleSlugLessonSlugRoute =
     path: '/course/$moduleSlug/$lessonSlug',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ApiStripeWebhookRoute = ApiStripeWebhookRouteImport.update({
+  id: '/api/stripe/webhook',
+  path: '/api/stripe/webhook',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CourseLibraryModuleSlugLessonSlugRoute =
   CourseLibraryModuleSlugLessonSlugRouteImport.update({
     id: '/$moduleSlug/$lessonSlug',
@@ -81,6 +87,7 @@ export interface FileRoutesByFullPath {
   '/course/library': typeof CourseLibraryRouteWithChildren
   '/course/notes': typeof CourseNotesRoute
   '/course': typeof CourseIndexRoute
+  '/api/stripe/webhook': typeof ApiStripeWebhookRoute
   '/course/$moduleSlug/$lessonSlug': typeof CourseModuleSlugLessonSlugRoute
   '/course/library/': typeof CourseLibraryIndexRoute
   '/course/library/$moduleSlug/$lessonSlug': typeof CourseLibraryModuleSlugLessonSlugRoute
@@ -92,6 +99,7 @@ export interface FileRoutesByTo {
   '/support': typeof SupportRoute
   '/course/notes': typeof CourseNotesRoute
   '/course': typeof CourseIndexRoute
+  '/api/stripe/webhook': typeof ApiStripeWebhookRoute
   '/course/$moduleSlug/$lessonSlug': typeof CourseModuleSlugLessonSlugRoute
   '/course/library': typeof CourseLibraryIndexRoute
   '/course/library/$moduleSlug/$lessonSlug': typeof CourseLibraryModuleSlugLessonSlugRoute
@@ -105,6 +113,7 @@ export interface FileRoutesById {
   '/course/library': typeof CourseLibraryRouteWithChildren
   '/course/notes': typeof CourseNotesRoute
   '/course/': typeof CourseIndexRoute
+  '/api/stripe/webhook': typeof ApiStripeWebhookRoute
   '/course/$moduleSlug/$lessonSlug': typeof CourseModuleSlugLessonSlugRoute
   '/course/library/': typeof CourseLibraryIndexRoute
   '/course/library/$moduleSlug/$lessonSlug': typeof CourseLibraryModuleSlugLessonSlugRoute
@@ -119,6 +128,7 @@ export interface FileRouteTypes {
     | '/course/library'
     | '/course/notes'
     | '/course'
+    | '/api/stripe/webhook'
     | '/course/$moduleSlug/$lessonSlug'
     | '/course/library/'
     | '/course/library/$moduleSlug/$lessonSlug'
@@ -130,6 +140,7 @@ export interface FileRouteTypes {
     | '/support'
     | '/course/notes'
     | '/course'
+    | '/api/stripe/webhook'
     | '/course/$moduleSlug/$lessonSlug'
     | '/course/library'
     | '/course/library/$moduleSlug/$lessonSlug'
@@ -142,6 +153,7 @@ export interface FileRouteTypes {
     | '/course/library'
     | '/course/notes'
     | '/course/'
+    | '/api/stripe/webhook'
     | '/course/$moduleSlug/$lessonSlug'
     | '/course/library/'
     | '/course/library/$moduleSlug/$lessonSlug'
@@ -155,6 +167,7 @@ export interface RootRouteChildren {
   CourseLibraryRoute: typeof CourseLibraryRouteWithChildren
   CourseNotesRoute: typeof CourseNotesRoute
   CourseIndexRoute: typeof CourseIndexRoute
+  ApiStripeWebhookRoute: typeof ApiStripeWebhookRoute
   CourseModuleSlugLessonSlugRoute: typeof CourseModuleSlugLessonSlugRoute
 }
 
@@ -223,6 +236,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CourseModuleSlugLessonSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/stripe/webhook': {
+      id: '/api/stripe/webhook'
+      path: '/api/stripe/webhook'
+      fullPath: '/api/stripe/webhook'
+      preLoaderRoute: typeof ApiStripeWebhookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/course/library/$moduleSlug/$lessonSlug': {
       id: '/course/library/$moduleSlug/$lessonSlug'
       path: '/$moduleSlug/$lessonSlug'
@@ -256,6 +276,7 @@ const rootRouteChildren: RootRouteChildren = {
   CourseLibraryRoute: CourseLibraryRouteWithChildren,
   CourseNotesRoute: CourseNotesRoute,
   CourseIndexRoute: CourseIndexRoute,
+  ApiStripeWebhookRoute: ApiStripeWebhookRoute,
   CourseModuleSlugLessonSlugRoute: CourseModuleSlugLessonSlugRoute,
 }
 export const routeTree = rootRouteImport

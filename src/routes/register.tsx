@@ -2,6 +2,7 @@ import { createFileRoute, Link, useRouter } from '@tanstack/react-router'
 import { useForm } from '@tanstack/react-form'
 import { z } from 'zod'
 import { registerFn } from '@/server/auth'
+import { createCheckoutSessionFn } from '@/server/payments'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -12,17 +13,31 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
+import { Checkbox } from '@/components/ui/checkbox'
 import { toast } from 'sonner'
 import { useState } from 'react'
 import { getErrorMessage } from '@/helpers/error-helpers'
 
+const productSchema = z.object({
+  priceId: z.string().optional(),
+})
+
 export const Route = createFileRoute('/register')({
+  validateSearch: (search) => productSchema.parse(search),
   component: RegisterComponent,
 })
 
+const PRICE_IDS = {
+  VAULT: 'price_1SfMZDKGFIDGl3wFI0M6BZps',
+  SYNDICATE: 'price_1SfMbDKGFIDGl3wFOEQdEvRi',
+}
+
 function RegisterComponent() {
   const router = useRouter()
+  const search = Route.useSearch()
   const [error, setError] = useState<string | null>(null)
+  // Determine initial plan from search param
+  const [selectedPlan, setSelectedPlan] = useState<string>(search.priceId || '')
 
   const form = useForm({
     defaultValues: {
@@ -58,6 +73,24 @@ function RegisterComponent() {
           },
         })
         toast.success('Account created successfully')
+
+        // If a plan is selected, initiate checkout
+        if (selectedPlan) {
+          try {
+            const { url } = await createCheckoutSessionFn({
+              data: { priceId: selectedPlan },
+            })
+            window.location.href = url
+            return
+          } catch (paymentErr) {
+            console.error('Payment initiation failed:', paymentErr)
+            toast.error(
+              'Account created, but failed to start payment. Please try from the pricing page.',
+            )
+            // Fallback to course/dashboard if payment fails
+          }
+        }
+
         router.invalidate()
         router.navigate({ to: '/course' })
       } catch (err) {
@@ -93,6 +126,50 @@ function RegisterComponent() {
                 {error}
               </div>
             )}
+
+            {/* Plan Selection */}
+            <div className="space-y-4">
+              <Label>Selected Plan (Optional)</Label>
+              <div className="flex flex-col gap-3">
+                <div className="flex items-center space-x-3 rounded-md border border-zinc-800 bg-zinc-900/50 p-4 hover:bg-zinc-900 hover:border-zinc-700 transition-colors">
+                  <Checkbox
+                    id="plan-vault"
+                    checked={selectedPlan === PRICE_IDS.VAULT}
+                    onCheckedChange={() =>
+                      setSelectedPlan(
+                        selectedPlan === PRICE_IDS.VAULT ? '' : PRICE_IDS.VAULT,
+                      )
+                    }
+                  />
+                  <Label
+                    htmlFor="plan-vault"
+                    className="flex-1 cursor-pointer text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                  >
+                    The Vault ($699)
+                  </Label>
+                </div>
+
+                <div className="flex items-center space-x-3 rounded-md border border-zinc-800 bg-zinc-900/50 p-4 hover:bg-zinc-900 hover:border-zinc-700 transition-colors">
+                  <Checkbox
+                    id="plan-syndicate"
+                    checked={selectedPlan === PRICE_IDS.SYNDICATE}
+                    onCheckedChange={() =>
+                      setSelectedPlan(
+                        selectedPlan === PRICE_IDS.SYNDICATE
+                          ? ''
+                          : PRICE_IDS.SYNDICATE,
+                      )
+                    }
+                  />
+                  <Label
+                    htmlFor="plan-syndicate"
+                    className="flex-1 cursor-pointer text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                  >
+                    The Syndicate ($1,499)
+                  </Label>
+                </div>
+              </div>
+            </div>
 
             <form.Field
               name="name"

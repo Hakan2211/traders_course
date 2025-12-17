@@ -82,13 +82,24 @@ const Navbar: React.FC = () => {
                 <span className="text-sm font-medium text-zinc-300">
                   Welcome, {session.user.name || session.user.username}
                 </span>
-                <Link
-                  to="/course"
-                  className="group flex items-center gap-2 text-sm font-medium text-zinc-300 hover:text-white transition-colors"
-                >
-                  <LockOpen className="w-3.5 h-3.5 text-zinc-500 group-hover:text-[#B0811C] transition-colors" />
-                  <span>Go to Course</span>
-                </Link>
+                {session.user.role === 'ADMIN' ||
+                session.user.stripeSubscriptionStatus === 'active' ? (
+                  <Link
+                    to="/course"
+                    className="group flex items-center gap-2 text-sm font-medium text-zinc-300 hover:text-white transition-colors"
+                  >
+                    <LockOpen className="w-3.5 h-3.5 text-zinc-500 group-hover:text-[#B0811C] transition-colors" />
+                    <span>Go to Course</span>
+                  </Link>
+                ) : (
+                  <a
+                    href="/#pricing"
+                    className="group flex items-center gap-2 text-sm font-medium text-[#B0811C] hover:text-yellow-400 transition-colors font-bold"
+                  >
+                    <Sparkles className="w-3.5 h-3.5 animate-pulse" />
+                    <span>Complete Enrollment</span>
+                  </a>
+                )}
                 <div className="h-4 w-px bg-zinc-800" />
                 <button
                   onClick={handleLogout}
@@ -113,6 +124,7 @@ const Navbar: React.FC = () => {
                     <div className="relative z-10 bg-zinc-950 rounded-lg">
                       <Link
                         to="/register"
+                        search={{ priceId: 'price_1SfMZDKGFIDGl3wFI0M6BZps' }}
                         className="block px-5 py-2 bg-black/50 hover:bg-[#B0811C]/20 text-white text-sm font-bold tracking-wide rounded-lg transition-colors duration-300"
                       >
                         Enroll Now
@@ -161,13 +173,24 @@ const Navbar: React.FC = () => {
                 <span className="text-xl font-serif text-zinc-300">
                   Welcome, {session.user.name || session.user.username}
                 </span>
-                <Link
-                  to="/course"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-2xl font-serif text-zinc-300 hover:text-[#B0811C] transition-colors"
-                >
-                  Go to Course
-                </Link>
+                {session.user.role === 'ADMIN' ||
+                session.user.stripeSubscriptionStatus === 'active' ? (
+                  <Link
+                    to="/course"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="text-2xl font-serif text-zinc-300 hover:text-[#B0811C] transition-colors"
+                  >
+                    Go to Course
+                  </Link>
+                ) : (
+                  <a
+                    href="/#pricing"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="text-2xl font-serif text-[#B0811C] hover:text-yellow-400 transition-colors font-bold"
+                  >
+                    Complete Enrollment
+                  </a>
+                )}
                 <button
                   onClick={() => {
                     handleLogout()
@@ -189,6 +212,7 @@ const Navbar: React.FC = () => {
                 </Link>
                 <Link
                   to="/register"
+                  search={{ priceId: 'price_1SfMZDKGFIDGl3wFI0M6BZps' }}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="w-full max-w-xs py-4 bg-[#B0811C] text-black font-bold uppercase tracking-widest rounded-full text-center"
                 >

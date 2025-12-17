@@ -1,6 +1,5 @@
-
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react'
+import { motion } from 'framer-motion'
 import {
   Check,
   Shield,
@@ -9,11 +8,51 @@ import {
   Star,
   ArrowRight,
   Sparkles,
-} from 'lucide-react';
-import { SparklesCore } from '@/components/ui/sparkles'; // Assuming you have this from ModuleShowcase
+} from 'lucide-react'
+import { SparklesCore } from '@/components/ui/sparkles'
+import { createCheckoutSessionFn } from '@/server/payments'
+import { toast } from 'sonner'
+import { getRouteApi, useNavigate } from '@tanstack/react-router'
+
+const routeApi = getRouteApi('__root__')
 
 const PricingSection: React.FC = () => {
-  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null)
+  const [isLoading, setIsLoading] = useState<string | null>(null)
+  // Safely try to get session, might be null if not in a route context that provides it (though it should be)
+  let session: any = null
+  try {
+    const data = routeApi.useLoaderData()
+    session = data?.session
+  } catch (e) {
+    // Ignore if not available
+  }
+  const navigate = useNavigate()
+
+  const PRICE_IDS = {
+    VAULT: 'price_1SfMZDKGFIDGl3wFI0M6BZps',
+    SYNDICATE: 'price_1SfMbDKGFIDGl3wFOEQdEvRi', // Monthly Plan
+  }
+
+  const handleSubscribe = async (priceId: string) => {
+    if (!session) {
+      toast.error('Please register to subscribe')
+      // Pass the selected priceId to the register page
+      navigate({ to: '/register', search: { priceId } })
+      return
+    }
+
+    try {
+      setIsLoading(priceId)
+      const { url } = await createCheckoutSessionFn({ data: { priceId } })
+      window.location.href = url
+    } catch (error) {
+      console.error('Subscription error:', error)
+      toast.error('Failed to start checkout')
+    } finally {
+      setIsLoading(null)
+    }
+  }
 
   return (
     <section
@@ -135,17 +174,25 @@ const PricingSection: React.FC = () => {
                 <div className="relative p-[1px] overflow-hidden rounded-full">
                   <span className="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#000000_0%,#B0811C_50%,#000000_100%)]" />
                   <div className="relative z-10 bg-slate-950/90 rounded-full">
-                    <button className="flex items-center gap-2 px-8 py-4 h-full w-full justify-center bg-black/50 hover:bg-[#B0811C]/10 transition-colors duration-300 rounded-full">
+                    <button
+                      onClick={() => handleSubscribe(PRICE_IDS.VAULT)}
+                      disabled={!!isLoading}
+                      className="flex items-center gap-2 px-8 py-4 h-full w-full justify-center bg-black/50 hover:bg-[#B0811C]/10 transition-colors duration-300 rounded-full disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
                       <span className="font-mono text-sm uppercase tracking-widest font-bold text-yellow-50 group-hover:text-yellow-300 transition-colors">
-                        Enter The Vault
+                        {isLoading === PRICE_IDS.VAULT
+                          ? 'Processing...'
+                          : 'Enter The Vault'}
                       </span>
-                      <motion.span
-                        initial={{ width: 0, opacity: 0, x: -10 }}
-                        whileHover={{ width: 'auto', opacity: 1, x: 0 }}
-                        className="overflow-hidden flex items-center"
-                      >
-                        <ArrowRight className="w-4 h-4 ml-2 text-[#B0811C]" />
-                      </motion.span>
+                      {isLoading !== PRICE_IDS.VAULT && (
+                        <motion.span
+                          initial={{ width: 0, opacity: 0, x: -10 }}
+                          whileHover={{ width: 'auto', opacity: 1, x: 0 }}
+                          className="overflow-hidden flex items-center"
+                        >
+                          <ArrowRight className="w-4 h-4 ml-2 text-[#B0811C]" />
+                        </motion.span>
+                      )}
                     </button>
                   </div>
                 </div>
@@ -241,18 +288,26 @@ const PricingSection: React.FC = () => {
                 <div className="relative p-[1px] overflow-hidden rounded-full">
                   <span className="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#000000_0%,#B0811C_50%,#000000_100%)]" />
                   <div className="relative z-10 bg-slate-950/90 rounded-full">
-                    <button className="flex items-center gap-2 px-8 py-4 h-full w-full justify-center bg-black/50 hover:bg-[#B0811C]/10 transition-colors duration-300 rounded-full">
+                    <button
+                      onClick={() => handleSubscribe(PRICE_IDS.SYNDICATE)}
+                      disabled={!!isLoading}
+                      className="flex items-center gap-2 px-8 py-4 h-full w-full justify-center bg-black/50 hover:bg-[#B0811C]/10 transition-colors duration-300 rounded-full disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
                       <Sparkles className="w-4 h-4 text-yellow-400 animate-pulse" />
                       <span className="font-mono text-sm uppercase tracking-widest font-bold text-yellow-50 group-hover:text-yellow-300 transition-colors">
-                        Join The Syndicate
+                        {isLoading === PRICE_IDS.SYNDICATE
+                          ? 'Processing...'
+                          : 'Join The Syndicate'}
                       </span>
-                      <motion.span
-                        initial={{ width: 0, opacity: 0, x: -10 }}
-                        whileHover={{ width: 'auto', opacity: 1, x: 0 }}
-                        className="overflow-hidden flex items-center"
-                      >
-                        <ArrowRight className="w-4 h-4 ml-2 text-[#B0811C]" />
-                      </motion.span>
+                      {isLoading !== PRICE_IDS.SYNDICATE && (
+                        <motion.span
+                          initial={{ width: 0, opacity: 0, x: -10 }}
+                          whileHover={{ width: 'auto', opacity: 1, x: 0 }}
+                          className="overflow-hidden flex items-center"
+                        >
+                          <ArrowRight className="w-4 h-4 ml-2 text-[#B0811C]" />
+                        </motion.span>
+                      )}
                     </button>
                   </div>
                 </div>
@@ -278,16 +333,16 @@ const PricingSection: React.FC = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
 // Helper Component for List Items
 const FeatureItem = ({
   text,
   highlight = false,
 }: {
-  text: string;
-  highlight?: boolean;
+  text: string
+  highlight?: boolean
 }) => (
   <div className="flex items-start gap-3">
     <div
@@ -305,6 +360,6 @@ const FeatureItem = ({
       {text}
     </span>
   </div>
-);
+)
 
-export default PricingSection;
+export default PricingSection
