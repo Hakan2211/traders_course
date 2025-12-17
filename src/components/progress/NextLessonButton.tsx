@@ -2,7 +2,7 @@ import { useProgress } from '@/context/progress/ProgressContext'
 import { Button } from '../ui/button'
 import { useRouter } from '@tanstack/react-router'
 import { useTransition, useState } from 'react'
-import { Loader2 } from 'lucide-react'
+import { Loader2, ArrowRight } from 'lucide-react'
 
 type NextLessonButtonProps = {
   moduleSlug: string
@@ -10,9 +10,8 @@ type NextLessonButtonProps = {
   nextItem: {
     type: 'lesson' | 'module'
     moduleSlug: string
-    lessonSlug?: string
+    lessonSlug: string
   } | null
-  basePath?: string
   skipProgress?: boolean
 }
 
@@ -20,7 +19,6 @@ export function NextLessonButton({
   moduleSlug,
   lessonSlug,
   nextItem,
-  basePath = '/course',
   skipProgress = false,
 }: NextLessonButtonProps) {
   const router = useRouter()
@@ -31,14 +29,19 @@ export function NextLessonButton({
   const handleClick = async () => {
     setIsUpdating(true)
     try {
+      // Mark current lesson as completed before navigating
       if (!skipProgress) {
-        await updateProgress(moduleSlug, lessonSlug, 'completed')
+        await updateProgress(moduleSlug, lessonSlug, true)
       }
 
       if (nextItem) {
         startTransition(() => {
           router.navigate({
-            to: `${basePath}/${nextItem.moduleSlug}/${nextItem.lessonSlug}`,
+            to: '/course/$moduleSlug/$lessonSlug',
+            params: {
+              moduleSlug: nextItem.moduleSlug,
+              lessonSlug: nextItem.lessonSlug,
+            },
           })
         })
       }
@@ -56,13 +59,18 @@ export function NextLessonButton({
 
   return (
     <Button
-      className="my-8 gap-2"
+      className="my-8 gap-2 bg-[#B0811C] hover:bg-[#9a7019] text-black"
       onClick={handleClick}
-      variant="notStartedButton"
       disabled={isLoading}
     >
-      {isLoading && <Loader2 className="w-4 h-4 animate-spin" />}
-      {buttonText}
+      {isLoading ? (
+        <Loader2 className="w-4 h-4 animate-spin" />
+      ) : (
+        <>
+          {buttonText}
+          <ArrowRight className="w-4 h-4" />
+        </>
+      )}
     </Button>
   )
 }

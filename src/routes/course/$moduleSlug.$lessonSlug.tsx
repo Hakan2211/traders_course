@@ -8,9 +8,8 @@ import Sidebar from '@/components/layout/sidebar'
 import LessonsHeader from '@/components/layout/lessonsHeader'
 import COMPONENT_MAP from '@/helpers/mdx-components-map'
 import TableOfContents from '@/components/layout/tableOfContents/tableOfContents'
-// import { ProgressButton } from '@/components/progress/ProgressButton';
-// import { NextLessonButton } from '@/components/progress/NextLessonButton';
-// import SelectText from '@/components/notes/SelectText';
+import { ProgressButton } from '@/components/progress/ProgressButton'
+import { NextLessonButton } from '@/components/progress/NextLessonButton'
 import styles from './lesson.module.css'
 
 export const Route = createFileRoute('/course/$moduleSlug/$lessonSlug')({
@@ -46,20 +45,34 @@ function LessonDetail() {
   const currentModule = modules[currentModuleIndex]
   const lessons = currentModule?.lessons || []
 
-  // Uncomment when NextLessonButton is enabled
-  // const currentLessonIndex = lessons.findIndex(
-  //   (lesson) => lesson.slug === lessonSlug,
-  // )
-  // let nextItem = null
-  // if (currentLessonIndex < lessons.length - 1) {
-  //   nextItem = { type: 'lesson' as const, moduleSlug, lessonSlug: lessons[currentLessonIndex + 1].slug }
-  // } else if (currentModuleIndex < modules.length - 1) {
-  //   const nextModule = modules[currentModuleIndex + 1]
-  //   if (nextModule.lessons.length > 0) {
-  //     nextItem = { type: 'module' as const, moduleSlug: nextModule.moduleSlug, lessonSlug: nextModule.lessons[0].slug }
-  //   }
-  // }
-  void currentModuleIndex // Keep for future use
+  // Calculate next lesson or module
+  const currentLessonIndex = lessons.findIndex(
+    (lesson) => lesson.slug === lessonSlug,
+  )
+  let nextItem: {
+    type: 'lesson' | 'module'
+    moduleSlug: string
+    lessonSlug: string
+  } | null = null
+
+  if (currentLessonIndex < lessons.length - 1) {
+    // Next lesson in the same module
+    nextItem = {
+      type: 'lesson' as const,
+      moduleSlug,
+      lessonSlug: lessons[currentLessonIndex + 1].slug,
+    }
+  } else if (currentModuleIndex < modules.length - 1) {
+    // First lesson in the next module
+    const nextModule = modules[currentModuleIndex + 1]
+    if (nextModule.lessons.length > 0) {
+      nextItem = {
+        type: 'module' as const,
+        moduleSlug: nextModule.moduleSlug,
+        lessonSlug: nextModule.lessons[0].slug,
+      }
+    }
+  }
 
   return (
     <div className={`${styles.lessons_grid} gap-12 bg-(--bg-color) min-h-full`}>
@@ -89,13 +102,13 @@ function LessonDetail() {
             <p className="text-red-500">Loading content...</p>
           )}
         </article>
-        <div className="flex gap-4">
-          {/* <ProgressButton moduleSlug={moduleSlug} lessonSlug={lessonSlug} /> */}
-          {/* <NextLessonButton
+        <div className="flex gap-4 px-4 md:px-16">
+          <ProgressButton moduleSlug={moduleSlug} lessonSlug={lessonSlug} />
+          <NextLessonButton
             moduleSlug={moduleSlug}
             lessonSlug={lessonSlug}
             nextItem={nextItem}
-          /> */}
+          />
         </div>
       </main>
       <aside

@@ -7,24 +7,15 @@ import React, {
 } from 'react'
 import { updateProgressFn, getProgressFn } from '@/lib/progressCrud'
 
-type LessonProgress = {
-  module_slug: string
-  lesson_slug: string
-  status: 'started' | 'completed'
-}
-
 type ProgressContextType = {
   progress: Record<string, Record<string, boolean>>
   isLoading: boolean
   updateProgress: (
     moduleSlug: string,
     lessonSlug: string,
-    status: 'started' | 'completed',
+    completed: boolean,
   ) => Promise<void>
-  getLessonStatus: (
-    moduleSlug: string,
-    lessonSlug: string,
-  ) => 'not_started' | 'started' | 'completed'
+  isLessonCompleted: (moduleSlug: string, lessonSlug: string) => boolean
   refetchProgress: () => Promise<void>
 }
 
@@ -41,12 +32,10 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
   const fetchProgress = useCallback(async () => {
     try {
       setIsLoading(true)
-      // Ensure we are calling the server function
       const data = await getProgressFn()
       setProgress(data)
     } catch (error) {
       console.error('Error fetching progress:', error)
-      // Fallback for demo/dev if server fetch fails
       setProgress({})
     } finally {
       setIsLoading(false)
@@ -60,32 +49,29 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
   const updateProgress = async (
     moduleSlug: string,
     lessonSlug: string,
-    status: 'started' | 'completed',
+    completed: boolean,
   ) => {
     try {
-      await updateProgressFn({ moduleSlug, lessonSlug, status })
+      await updateProgressFn({ data: { moduleSlug, lessonSlug, completed } })
       setProgress((prev) => {
         const newProgress = { ...prev }
         if (!newProgress[moduleSlug]) {
           newProgress[moduleSlug] = {}
         }
-        newProgress[moduleSlug][lessonSlug] = status === 'completed'
+        newProgress[moduleSlug][lessonSlug] = completed
         return newProgress
       })
     } catch (error) {
       console.error('Error updating progress:', error)
+      throw error
     }
   }
 
-  const getLessonStatus = (moduleSlug: string, lessonSlug: string) => {
-    if (!progress[moduleSlug]) return 'not_started'
-    const isCompleted = progress[moduleSlug][lessonSlug]
-    if (isCompleted === true) return 'completed'
-    return isCompleted
-      ? 'completed'
-      : progress[moduleSlug][lessonSlug] !== undefined
-        ? 'started'
-        : 'not_started'
+  const isLessonCompleted = (
+    moduleSlug: string,
+    lessonSlug: string,
+  ): boolean => {
+    return progress[moduleSlug]?.[lessonSlug] === true
   }
 
   return (
@@ -94,7 +80,7 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
         progress,
         isLoading,
         updateProgress,
-        getLessonStatus,
+        isLessonCompleted,
         refetchProgress: fetchProgress,
       }}
     >
