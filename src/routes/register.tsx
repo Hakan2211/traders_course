@@ -17,6 +17,7 @@ import { Checkbox } from '@/components/ui/checkbox'
 import { toast } from 'sonner'
 import { useState } from 'react'
 import { getErrorMessage } from '@/helpers/error-helpers'
+import { PRICE_IDS } from '@/lib/constants'
 
 const productSchema = z.object({
   priceId: z.string().optional(),
@@ -27,17 +28,22 @@ export const Route = createFileRoute('/register')({
   component: RegisterComponent,
 })
 
-const PRICE_IDS = {
-  VAULT: 'price_1SfMZDKGFIDGl3wFI0M6BZps',
-  SYNDICATE: 'price_1SfMbDKGFIDGl3wFOEQdEvRi',
-}
-
 function RegisterComponent() {
   const router = useRouter()
   const search = Route.useSearch()
   const [error, setError] = useState<string | null>(null)
   // Determine initial plan from search param
   const [selectedPlan, setSelectedPlan] = useState<string>(search.priceId || '')
+
+  const handlePlanChange = (planId: string) => {
+    const newPlan = selectedPlan === planId ? '' : planId
+    setSelectedPlan(newPlan)
+    router.navigate({
+      to: '/register',
+      search: { priceId: newPlan || undefined },
+      replace: true,
+    })
+  }
 
   const form = useForm({
     defaultValues: {
@@ -135,11 +141,7 @@ function RegisterComponent() {
                   <Checkbox
                     id="plan-vault"
                     checked={selectedPlan === PRICE_IDS.VAULT}
-                    onCheckedChange={() =>
-                      setSelectedPlan(
-                        selectedPlan === PRICE_IDS.VAULT ? '' : PRICE_IDS.VAULT,
-                      )
-                    }
+                    onCheckedChange={() => handlePlanChange(PRICE_IDS.VAULT)}
                   />
                   <Label
                     htmlFor="plan-vault"
@@ -154,11 +156,7 @@ function RegisterComponent() {
                     id="plan-syndicate"
                     checked={selectedPlan === PRICE_IDS.SYNDICATE}
                     onCheckedChange={() =>
-                      setSelectedPlan(
-                        selectedPlan === PRICE_IDS.SYNDICATE
-                          ? ''
-                          : PRICE_IDS.SYNDICATE,
-                      )
+                      handlePlanChange(PRICE_IDS.SYNDICATE)
                     }
                   />
                   <Label

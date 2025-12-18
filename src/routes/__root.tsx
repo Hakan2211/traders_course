@@ -13,6 +13,7 @@ import '@fontsource/geist-sans'
 import '@fontsource/geist-mono'
 import appCss from '../globals.css?url'
 import { getAuthSessionFn } from '@/server/auth'
+import { NotFound } from '@/components/NotFound'
 
 export const Route = createRootRoute({
   loader: async () => {
@@ -40,6 +41,7 @@ export const Route = createRootRoute({
     ],
   }),
   component: RootComponent,
+  notFoundComponent: NotFound,
 })
 
 function RootComponent() {

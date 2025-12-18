@@ -4,6 +4,7 @@ import { Menu, X, Sparkles, LockOpen, LogOut } from 'lucide-react'
 import { Link, useRouter, getRouteApi } from '@tanstack/react-router'
 import { logoutFn } from '@/server/auth'
 import { toast } from 'sonner'
+import { PRICE_IDS } from '@/lib/constants'
 
 const routeApi = getRouteApi('__root__')
 
@@ -124,7 +125,7 @@ const Navbar: React.FC = () => {
                     <div className="relative z-10 bg-zinc-950 rounded-lg">
                       <Link
                         to="/register"
-                        search={{ priceId: 'price_1SfMZDKGFIDGl3wFI0M6BZps' }}
+                        search={{ priceId: PRICE_IDS.VAULT }}
                         className="block px-5 py-2 bg-black/50 hover:bg-[#B0811C]/20 text-white text-sm font-bold tracking-wide rounded-lg transition-colors duration-300"
                       >
                         Enroll Now
@@ -212,7 +213,7 @@ const Navbar: React.FC = () => {
                 </Link>
                 <Link
                   to="/register"
-                  search={{ priceId: 'price_1SfMZDKGFIDGl3wFI0M6BZps' }}
+                  search={{ priceId: PRICE_IDS.VAULT }}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="w-full max-w-xs py-4 bg-[#B0811C] text-black font-bold uppercase tracking-widest rounded-full text-center"
                 >

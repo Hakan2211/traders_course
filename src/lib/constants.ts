@@ -3,6 +3,11 @@ export const COURSE_DESCRIPTION = 'Course_Description'
 
 export const COLOR_THEME_COOKIE_NAME = 'color-theme'
 
+export const PRICE_IDS = {
+  VAULT: 'price_1SfMZDKGFIDGl3wFI0M6BZps',
+  SYNDICATE: 'price_1SfMbDKGFIDGl3wFOEQdEvRi', // Monthly Plan
+}
+
 export const LIGHT_COLOR = {
   '--bg-color': '#f8fafc',
   '--module-badge': '#bf980d',

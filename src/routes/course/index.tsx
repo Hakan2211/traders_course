@@ -4,7 +4,7 @@ import styles from './course.module.css'
 import { formatModuleSlug } from '@/lib/utils'
 import HeroScene from '@/components/hero/HeroScene'
 import NavBar from '@/components/hero/NavBar'
-import { LessonLink } from './LessonLink'
+import { LessonLink } from '@/components/course/LessonLink'
 
 export const Route = createFileRoute('/course/')({
   loader: async () => {

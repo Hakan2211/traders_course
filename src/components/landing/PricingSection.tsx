@@ -13,6 +13,7 @@ import { SparklesCore } from '@/components/ui/sparkles'
 import { createCheckoutSessionFn } from '@/server/payments'
 import { toast } from 'sonner'
 import { getRouteApi, useNavigate } from '@tanstack/react-router'
+import { PRICE_IDS } from '@/lib/constants'
 
 const routeApi = getRouteApi('__root__')
 
@@ -28,11 +29,6 @@ const PricingSection: React.FC = () => {
     // Ignore if not available
   }
   const navigate = useNavigate()
-
-  const PRICE_IDS = {
-    VAULT: 'price_1SfMZDKGFIDGl3wFI0M6BZps',
-    SYNDICATE: 'price_1SfMbDKGFIDGl3wFOEQdEvRi', // Monthly Plan
-  }
 
   const handleSubscribe = async (priceId: string) => {
     if (!session) {

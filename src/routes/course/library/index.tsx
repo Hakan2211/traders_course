@@ -3,7 +3,7 @@ import { getLibraryModules } from '@/helpers/file-helpers'
 import styles from '../course.module.css'
 import { formatModuleSlug } from '@/lib/utils'
 import NavBar from '@/components/hero/NavBar'
-import { LessonLink } from '../LessonLink'
+import { LessonLink } from '@/components/course/LessonLink'
 import { ArrowLeft } from 'lucide-react'
 
 export const Route = createFileRoute('/course/library/')({

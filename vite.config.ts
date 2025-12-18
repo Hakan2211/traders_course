@@ -17,7 +17,14 @@ const config = defineConfig({
       remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter, remarkGfm],
     }),
     devtools(),
-    nitro(),
+    nitro({
+      rollupConfig: {
+        external: [],
+      },
+      externals: {
+        inline: ['zod'],
+      },
+    }),
     // this is the plugin that enables path aliases
     viteTsConfigPaths({
       projects: ['./tsconfig.json'],

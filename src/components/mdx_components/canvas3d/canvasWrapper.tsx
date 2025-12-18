@@ -1,15 +1,15 @@
-import { useMemo, Suspense, useState, useEffect } from 'react';
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
-import { Environment, Loader, PerspectiveCamera } from '@react-three/drei';
-import { cn } from '@/lib/utils';
+import { useMemo, Suspense, useState, useEffect } from 'react'
+import { Canvas } from '@react-three/fiber'
+import { OrbitControls } from '@react-three/drei'
+import { Environment, Loader, PerspectiveCamera } from '@react-three/drei'
+import { cn } from '@/lib/utils'
 
 // Add type declarations for Three.js JSX elements
 declare global {
   namespace JSX {
     interface IntrinsicElements {
-      ambientLight: any;
-      directionalLight: any;
+      ambientLight: any
+      directionalLight: any
     }
   }
 }
@@ -26,21 +26,21 @@ export function CanvasWrapper({
   debug = false,
   ...rest
 }: {
-  height?: string;
-  className?: string;
-  cameraSettings?: Record<string, any>;
-  canvasProps?: Record<string, any>;
-  children: React.ReactNode;
-  showLoader?: boolean;
-  enableControls?: boolean;
-  enableEnvironment?: boolean;
-  debug?: boolean;
+  height?: string
+  className?: string
+  cameraSettings?: Record<string, any>
+  canvasProps?: Record<string, any>
+  children: React.ReactNode
+  showLoader?: boolean
+  enableControls?: boolean
+  enableEnvironment?: boolean
+  debug?: boolean
 }) {
-  const [mounted, setMounted] = useState(false);
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    setMounted(true);
-  }, []);
+    setMounted(true)
+  }, [])
 
   const cameraSettings = useMemo(
     () => ({
@@ -50,13 +50,13 @@ export function CanvasWrapper({
       far: 1000,
       ...userCameraSettings,
     }),
-    [userCameraSettings]
-  );
+    [userCameraSettings],
+  )
 
   return (
     <div
       className={cn(
-        'relative w-full overflow-hidden rounded-2xl border-2 border-[#182538] bg-[#131a26] shadow-sm my-8'
+        'relative w-full overflow-hidden rounded-2xl border-2 border-[#182538] bg-[#131a26] shadow-sm my-8',
       )}
       style={{ height }}
       {...rest}
@@ -81,5 +81,5 @@ export function CanvasWrapper({
       </Canvas>
       {mounted && showLoader && <Loader />}
     </div>
-  );
+  )
 }
