@@ -33,6 +33,50 @@ const config = defineConfig({
     tanstackStart(),
     viteReact(),
   ],
+  build: {
+    // Increase chunk size warning limit (some chunks will be large)
+    chunkSizeWarningLimit: 1000,
+    rollupOptions: {
+      output: {
+        // Manual chunks to split large dependencies and reduce memory pressure
+        manualChunks: (id) => {
+          // Three.js ecosystem - very large, keep separate
+          if (id.includes('node_modules/three')) {
+            return 'vendor-three'
+          }
+          if (id.includes('node_modules/@react-three')) {
+            return 'vendor-react-three'
+          }
+          // Recharts - large charting library
+          if (
+            id.includes('node_modules/recharts') ||
+            id.includes('node_modules/d3')
+          ) {
+            return 'vendor-charts'
+          }
+          // Framer Motion - animation library
+          if (id.includes('node_modules/framer-motion')) {
+            return 'vendor-framer'
+          }
+          // Radix UI components
+          if (id.includes('node_modules/@radix-ui')) {
+            return 'vendor-radix'
+          }
+          // TanStack libraries
+          if (id.includes('node_modules/@tanstack')) {
+            return 'vendor-tanstack'
+          }
+          // React core
+          if (
+            id.includes('node_modules/react') ||
+            id.includes('node_modules/react-dom')
+          ) {
+            return 'vendor-react'
+          }
+        },
+      },
+    },
+  },
 })
 
 export default config

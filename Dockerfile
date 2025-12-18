@@ -5,6 +5,10 @@
 FROM node:22-alpine AS builder
 WORKDIR /app
 
+# Set Node.js memory limit for build
+# Note: Requires 6-8GB RAM during build - use CI/CD pipeline or enable swap on low-memory servers
+ENV NODE_OPTIONS="--max-old-space-size=4096"
+
 # Copy package files first for better caching
 COPY package*.json ./
 RUN npm ci --legacy-peer-deps
@@ -13,7 +17,8 @@ RUN npm ci --legacy-peer-deps
 COPY . .
 
 # Build the application (TanStack Start with Nitro outputs to .output/)
-RUN npm run build
+# Using explicit memory allocation for the build process
+RUN node --max-old-space-size=4096 node_modules/vite/bin/vite.js build
 
 
 # ====================================================================================
