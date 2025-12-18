@@ -16,6 +16,9 @@ RUN npm ci --legacy-peer-deps
 # Copy the rest of the application
 COPY . .
 
+# Generate Prisma client (must be done before build and in builder where dev deps exist)
+RUN npx prisma generate
+
 # Build the application (TanStack Start with Nitro outputs to .output/)
 # Using explicit memory allocation for the build process
 RUN node --max-old-space-size=6144 node_modules/vite/bin/vite.js build
@@ -43,7 +46,10 @@ COPY --from=builder /app/.output ./.output
 
 # Copy Prisma files (schema and migrations)
 COPY --from=builder /app/prisma ./prisma
-COPY --from=builder /app/prisma.config.ts ./prisma.config.ts
+
+# Copy generated Prisma client from builder (already generated there)
+COPY --from=builder /app/node_modules/.prisma ./node_modules/.prisma
+COPY --from=builder /app/node_modules/@prisma/client ./node_modules/@prisma/client
 
 # Copy content directories (MDX files needed at runtime)
 COPY --from=builder /app/content ./content
@@ -57,9 +63,6 @@ COPY --from=builder /app/entrypoint.sh ./entrypoint.sh
 
 # Make entrypoint executable
 RUN chmod +x ./entrypoint.sh
-
-# Generate Prisma client
-RUN npx prisma generate
 
 # Create directory for SQLite database
 RUN mkdir -p /app/prisma/data
