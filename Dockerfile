@@ -44,8 +44,9 @@ RUN npm install -g tsx
 # Copy the built application from builder stage
 COPY --from=builder /app/.output ./.output
 
-# Copy Prisma files (schema and migrations)
+# Copy Prisma files (schema, migrations, and config)
 COPY --from=builder /app/prisma ./prisma
+COPY --from=builder /app/prisma.config.ts ./prisma.config.ts
 
 # Copy generated Prisma client from builder (already generated there)
 COPY --from=builder /app/node_modules/.prisma ./node_modules/.prisma
