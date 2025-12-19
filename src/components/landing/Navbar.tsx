@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Sparkles, LockOpen, LogOut } from 'lucide-react'
 import { AnimatedLogo } from '@/components/ui/AnimatedLogo'
+import { AudioControl } from '@/components/ui/AudioControl'
 import { Link, useRouter, getRouteApi } from '@tanstack/react-router'
 import { logoutFn } from '@/server/auth'
 import { toast } from 'sonner'
@@ -79,6 +80,7 @@ const Navbar: React.FC = () => {
 
           {/* --- RIGHT: ACTIONS --- */}
           <div className="hidden md:flex items-center gap-6">
+            <AudioControl src="/audio/Motion_FrankBentley.mp3" />
             {session ? (
               <>
                 <span className="text-sm font-medium text-zinc-300">
@@ -139,7 +141,11 @@ const Navbar: React.FC = () => {
           </div>
 
           {/* --- MOBILE HAMBURGER --- */}
-          <div className="md:hidden flex items-center">
+          <div className="md:hidden flex items-center gap-4">
+            <AudioControl
+              src="/audio/Motion_FrankBentley.mp3"
+              className="scale-90"
+            />
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="text-zinc-300 hover:text-white p-2"
