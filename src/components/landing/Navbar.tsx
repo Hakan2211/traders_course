@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Sparkles, LockOpen, LogOut } from 'lucide-react'
+import { AnimatedLogo } from '@/components/ui/AnimatedLogo'
 import { Link, useRouter, getRouteApi } from '@tanstack/react-router'
 import { logoutFn } from '@/server/auth'
 import { toast } from 'sonner'
@@ -50,14 +51,14 @@ const Navbar: React.FC = () => {
           {/* --- LEFT: LOGO --- */}
           <Link to="/" className="flex items-center gap-2 cursor-pointer group">
             <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-linear-to-br from-zinc-800 to-black border border-white/10 group-hover:border-[#B0811C]/50 transition-colors duration-500">
-              <Sparkles className="w-5 h-5 text-[#B0811C] group-hover:animate-spin-slow transition-transform duration-700" />
+              <AnimatedLogo className="w-8 h-8 text-[#B0811C]" />
             </div>
             <div className="flex flex-col">
-              <span className="text-white font-serif font-bold text-lg tracking-tight leading-none group-hover:text-amber-100 transition-colors">
-                Course
+              <span className="text-white font-serif font-base text-2xl tracking-tight leading-none group-hover:text-amber-100 transition-colors">
+                Market
               </span>
-              <span className="text-[#B0811C] font-mono text-[10px] tracking-[0.2em] uppercase leading-none">
-                For Traders
+              <span className="text-[#dab25b] font-mono font-semibold text-[12px] tracking-[0.2em] uppercase leading-none">
+                Magic Box
               </span>
             </div>
           </Link>
@@ -95,7 +96,7 @@ const Navbar: React.FC = () => {
                 ) : (
                   <a
                     href="/#pricing"
-                    className="group flex items-center gap-2 text-sm font-medium text-[#B0811C] hover:text-yellow-400 transition-colors font-bold"
+                    className="group flex items-center gap-2 text-sm font-medium text-[#B0811C] hover:text-yellow-400 transition-colors"
                   >
                     <Sparkles className="w-3.5 h-3.5 animate-pulse" />
                     <span>Complete Enrollment</span>
@@ -119,8 +120,8 @@ const Navbar: React.FC = () => {
                   Sign In
                 </Link>
                 <div className="relative group">
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-[#B0811C] to-yellow-600 rounded-lg blur opacity-30 group-hover:opacity-60 transition duration-500"></div>
-                  <div className="relative p-[1px] overflow-hidden rounded-lg">
+                  <div className="absolute -inset-0.5 bg-linear-to-r from-[#B0811C] to-yellow-600 rounded-lg blur opacity-30 group-hover:opacity-60 transition duration-500"></div>
+                  <div className="relative p-px overflow-hidden rounded-lg">
                     <span className="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#000000_0%,#B0811C_50%,#000000_100%)]" />
                     <div className="relative z-10 bg-zinc-950 rounded-lg">
                       <Link

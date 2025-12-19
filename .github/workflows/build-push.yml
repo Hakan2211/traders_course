@@ -72,3 +72,8 @@ jobs:
           # Build args for environment variables needed at build time
           build-args: |
             VITE_PUBLIC_APP_URL=${{ vars.VITE_PUBLIC_APP_URL }}
+      # Trigger Coolify deployment
+      - name: Trigger Coolify Deployment
+        run: |
+          curl --fail --request GET '${{ secrets.COOLIFY_WEBHOOK }}' \
+               --header 'Authorization: Bearer ${{ secrets.COOLIFY_TOKEN }}'

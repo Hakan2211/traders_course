@@ -1,0 +1,43 @@
+<svg width="100" height="110" viewBox="0 0 100 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 
+    COLORS:
+    Top: #49DC84 (Pastel Green)
+    Middle: #333333 (Dark Grey - replaced currentColor)
+    Bottom: #FF5141 (Pastel Red)
+  -->
+
+  <!-- Bottom Layer -->
+  <!-- Positioned at Y=0 (Base) -->
+  <path d="M50 100 L90 80 L90 65 L50 85 L10 65 L10 80 Z" fill="#FF5141" opacity="1" />
+
+  <!-- Middle Layer -->
+  <!-- Shifted up slightly (Y=-5) to show separation -->
+  <g transform="translate(0, 1.5)">
+    <path d="M50 75 L90 55 L90 40 L50 60 L10 40 L10 55 Z" fill="#bf980d" opacity="1" />
+  </g>
+
+  <!-- Top Layer (The Lid) -->
+  <!-- Shifted up more (Y=-12) to create the floating effect -->
+  <g transform="translate(0, -12)">
+    <!-- Top Diamond -->
+    <path d="M50 50 L90 30 L50 10 L10 30 Z" fill="#49DC84" />
+    
+    <!-- Left Face with Gradient -->
+    <path d="M10 30 L50 50 L50 65 L10 45 Z" fill="url(#grad1)" />
+    
+    <!-- Right Face with Gradient -->
+    <path d="M90 30 L50 50 L50 65 L90 45 Z" fill="url(#grad2)" />
+  </g>
+
+  <!-- Gradients -->
+  <defs>
+    <linearGradient id="grad1" x1="10" y1="30" x2="50" y2="65" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#49DC84" stop-opacity="0.9" />
+      <stop offset="1" stop-color="#49DC84" stop-opacity="0.5" />
+    </linearGradient>
+    <linearGradient id="grad2" x1="90" y1="30" x2="50" y2="65" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#49DC84" stop-opacity="0.8" />
+      <stop offset="1" stop-color="#49DC84" stop-opacity="0.3" />
+    </linearGradient>
+  </defs>
+</svg>

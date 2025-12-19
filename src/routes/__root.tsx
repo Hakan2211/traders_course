@@ -30,13 +30,57 @@ export const Route = createRootRoute({
         content: 'width=device-width, initial-scale=1',
       },
       {
-        title: 'Course Platform',
+        title: 'Course For Traders | Master the Markets',
+      },
+      {
+        name: 'description',
+        content:
+          'Master technical analysis, risk management, and trading psychology with the Market Magic Box analogy. A comprehensive course for serious traders.',
+      },
+      {
+        property: 'og:title',
+        content: 'Course For Traders | Master the Markets',
+      },
+      {
+        property: 'og:description',
+        content:
+          'Master technical analysis, risk management, and trading psychology with the Market Magic Box strategy. A comprehensive course for serious traders.',
+      },
+      {
+        property: 'og:image',
+        content: '/images/hero_module1.jpg',
+      },
+      {
+        property: 'og:type',
+        content: 'website',
+      },
+      {
+        name: 'twitter:card',
+        content: 'summary_large_image',
+      },
+      {
+        name: 'twitter:title',
+        content: 'Market Magic Box | Learn Through Physics',
+      },
+      {
+        name: 'twitter:description',
+        content:
+          'Master technical analysis, risk management, and trading psychology with the Market Magic Box analogy.',
+      },
+      {
+        name: 'twitter:image',
+        content: '/images/hero_module1.jpg',
       },
     ],
     links: [
       {
         rel: 'stylesheet',
         href: appCss,
+      },
+      {
+        rel: 'icon',
+        href: '/favicon.svg',
+        type: 'image/svg+xml',
       },
     ],
   }),

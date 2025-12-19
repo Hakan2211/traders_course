@@ -62,9 +62,9 @@ export default function NotesCard({ note }: NotesCardProps) {
               <ExternalLink className="w-4 h-4 text-(--text-color-primary-600) opacity-0 group-hover:opacity-100 transition-opacity" />
               <Button
                 onClick={handleDelete}
-                className="flex items-center gap-2 bg-transparent border-none hover:bg-red-500/10"
+                className="flex items-center gap-2 bg-transparent  border-none hover:bg-red-500/10"
               >
-                <TrashIcon className="w-5 h-5 mb-1 hover:text-red-500 transition-all duration-300" />
+                <TrashIcon className="w-5 h-5 mb-1 hover:text-red-500 text-red-700 transition-all duration-300" />
               </Button>
             </div>
           </div>
