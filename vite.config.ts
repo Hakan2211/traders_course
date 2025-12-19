@@ -35,10 +35,11 @@ const config = defineConfig({
   ],
   build: {
     // Increase chunk size warning limit (some chunks will be large)
-    chunkSizeWarningLimit: 1000,
+    chunkSizeWarningLimit: 1500,
     rollupOptions: {
       output: {
         // Manual chunks to split large dependencies and reduce memory pressure
+        // Note: Be careful with libraries that have internal circular dependencies
         manualChunks: (id) => {
           // Three.js ecosystem - very large, keep separate
           if (id.includes('node_modules/three')) {
@@ -47,32 +48,13 @@ const config = defineConfig({
           if (id.includes('node_modules/@react-three')) {
             return 'vendor-react-three'
           }
-          // Recharts - large charting library
-          if (
-            id.includes('node_modules/recharts') ||
-            id.includes('node_modules/d3')
-          ) {
-            return 'vendor-charts'
-          }
           // Framer Motion - animation library
           if (id.includes('node_modules/framer-motion')) {
             return 'vendor-framer'
           }
-          // Radix UI components
-          if (id.includes('node_modules/@radix-ui')) {
-            return 'vendor-radix'
-          }
-          // TanStack libraries
-          if (id.includes('node_modules/@tanstack')) {
-            return 'vendor-tanstack'
-          }
-          // React core
-          if (
-            id.includes('node_modules/react') ||
-            id.includes('node_modules/react-dom')
-          ) {
-            return 'vendor-react'
-          }
+          // Note: Removed recharts/d3 and radix-ui from manual chunks
+          // These libraries have internal circular dependencies that break
+          // when forcefully split into separate chunks
         },
       },
     },
