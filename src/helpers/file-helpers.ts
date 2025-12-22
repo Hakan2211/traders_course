@@ -1,9 +1,3 @@
-import { slugify } from '@/lib/utils'
-import { remark } from 'remark'
-import remarkMdx from 'remark-mdx'
-import { visit } from 'unist-util-visit'
-import { toString } from 'mdast-util-to-string'
-import type { Heading, Root } from 'mdast'
 import type { ComponentType } from 'react'
 
 type Frontmatter = {
@@ -165,8 +159,6 @@ export async function getLibraryModules(): Promise<Module[]> {
 
 type LoadLessonContentResult = {
   frontmatter: Frontmatter
-  content: string // raw content
-  headings: { depth: number; text: string; id: string }[]
   Component: ComponentType
 } | null
 
@@ -189,14 +181,9 @@ async function loadContent(
   }
 
   const { frontmatter, default: Component } = mod
-  const rawContent = rawMod.default
-
-  const headings = await extractHeadings(rawContent)
 
   return {
     frontmatter,
-    content: rawContent,
-    headings,
     Component,
   }
 }
@@ -268,19 +255,4 @@ export async function loadLibraryContent(
     libraryRawGlob,
     '/library',
   )
-}
-
-async function extractHeadings(mdxContent: string) {
-  let headings: { depth: number; text: string; id: string }[] = []
-  await remark()
-    .use(remarkMdx)
-    .use(() => (tree: Root) => {
-      visit(tree, 'heading', (node: Heading) => {
-        const text = toString(node)
-        const id = slugify(text)
-        headings.push({ depth: node.depth, text, id })
-      })
-    })
-    .process(mdxContent)
-  return headings
 }

@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React from 'react'
 import { motion } from 'framer-motion'
 import {
   Tooltip,
@@ -6,46 +6,20 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '@/components/ui/tooltip'
+import { useAudio } from '@/context/AudioContext'
 
 interface AudioControlProps {
-  src: string
   className?: string
 }
 
 export const AudioControl: React.FC<AudioControlProps> = ({
-  src,
   className = '',
 }) => {
-  const [isPlaying, setIsPlaying] = useState(false)
-  const audioRef = useRef<HTMLAudioElement | null>(null)
+  const { isPlaying, toggleAudio, isOnAllowedRoute } = useAudio()
 
-  useEffect(() => {
-    const attemptPlay = async () => {
-      if (audioRef.current) {
-        try {
-          await audioRef.current.play()
-          setIsPlaying(true)
-        } catch (error) {
-          console.log('Autoplay prevented by browser policy:', error)
-          setIsPlaying(false)
-        }
-      }
-    }
-
-    attemptPlay()
-  }, [])
-
-  const toggleAudio = () => {
-    if (!audioRef.current) return
-
-    if (isPlaying) {
-      audioRef.current.pause()
-    } else {
-      audioRef.current.play().catch((e) => {
-        console.error('Audio playback failed:', e)
-      })
-    }
-    setIsPlaying(!isPlaying)
+  // Don't render if not on an allowed route (e.g., landing page)
+  if (!isOnAllowedRoute) {
+    return null
   }
 
   return (
@@ -56,8 +30,6 @@ export const AudioControl: React.FC<AudioControlProps> = ({
             onClick={toggleAudio}
             className={`cursor-pointer flex items-center justify-center gap-3 p-2 rounded-full transition-all group ${className}`}
           >
-            <audio ref={audioRef} src={src} loop />
-
             {/* Visualizer */}
             <div className="flex items-center gap-[3px] h-4 overflow-hidden">
               {[1, 2, 3, 4].map((bar) => (

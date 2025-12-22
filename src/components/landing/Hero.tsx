@@ -1,8 +1,7 @@
-
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ChevronDown, Sparkles, ArrowRight } from 'lucide-react';
-import ColourfulText from '@/components/ui/colourful-text';
+import React from 'react'
+import { motion } from 'framer-motion'
+import { ChevronDown, Sparkles, ArrowRight } from 'lucide-react'
+import ColourfulText from '@/components/ui/colourful-text'
 
 const Hero: React.FC = () => {
   return (
@@ -16,20 +15,20 @@ const Hero: React.FC = () => {
           className="group relative inline-block cursor-pointer mb-12"
         >
           {/* The Gradient Border (Hidden initially, visible on hover) */}
-          <div className="absolute -inset-0.5 rounded-full bg-gradient-to-r from-[#B0811C] via-yellow-400 to-[#B0811C] opacity-30 blur transition duration-500 group-hover:opacity-100" />
+          <div className="absolute -inset-0.5 rounded-full bg-linear-to-r from-[#B0811C] via-yellow-400 to-[#B0811C] opacity-30 blur transition duration-500 group-hover:opacity-100" />
 
           {/* The Main Container */}
           <div className="relative flex items-center justify-center rounded-full bg-black/80 backdrop-blur-xl px-6 py-2.5 ring-1 ring-white/10 transition duration-200 group-hover:ring-transparent">
             {/* Glowing Dot indicator */}
-            <span className="mr-3 h-2 w-2 rounded-full bg-gradient-to-r from-[#B0811C] via-yellow-400 to-[#B0811C] shadow-[0_0_8px_rgba(34,197,94,0.8)] animate-pulse" />
+            <span className="mr-3 h-2 w-2 rounded-full bg-linear-to-r from-[#B0811C] via-yellow-400 to-[#B0811C] shadow-[0_0_8px_rgba(34,197,94,0.8)] animate-pulse" />
 
-            <span className="bg-gradient-to-r from-amber-200 to-amber-500 bg-clip-text text-transparent text-sm font-mono tracking-[0.2em] uppercase font-bold">
+            <span className="bg-linear-to-r from-amber-200 to-amber-500 bg-clip-text text-transparent text-sm font-mono tracking-[0.2em] uppercase font-bold">
               Immersive Trading Mastery
             </span>
           </div>
         </motion.div>
 
-        <div className="mb-16 font-bold text-[var(--text-color-primary-800)] tracking-tight font-serif leading-tight w-full">
+        <div className="mb-16 font-bold text-(--text-color-primary-800) tracking-tight font-serif leading-tight w-full">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -129,7 +128,7 @@ const Hero: React.FC = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.8 }}
-          className="text-lg md:text-lg text-[var(--text-color-primary-700)] max-w-2xl mx-auto mb-16 leading-relaxed"
+          className="text-lg md:text-lg text-(--text-color-primary-700) max-w-2xl mx-auto mb-16 leading-relaxed"
         >
           Six comprehensive modules featuring 3D particle physics, interactive
           risk management builders, neural network visualizations, and gamified
@@ -144,8 +143,8 @@ const Hero: React.FC = () => {
         >
           {/* --- PRIMARY BUTTON: Enter The Market Magic Box --- */}
           <div className="relative group">
-            <div className="absolute -inset-1 bg-gradient-to-r from-[#B0811C] to-yellow-600 rounded-full blur opacity-20 group-hover:opacity-50 transition duration-500"></div>
-            <div className="relative p-[1px] overflow-hidden rounded-full">
+            <div className="absolute -inset-1 bg-linear-to-r from-[#B0811C] to-yellow-600 rounded-full blur opacity-20 group-hover:opacity-50 transition duration-500"></div>
+            <div className="relative p-px overflow-hidden rounded-full">
               <span className="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#000000_0%,#B0811C_50%,#000000_100%)]" />
               <div className="relative z-10 bg-slate-950/90 rounded-full">
                 <a
@@ -172,10 +171,10 @@ const Hero: React.FC = () => {
           <motion.a
             href="#modules"
             onClick={(e) => {
-              e.preventDefault();
+              e.preventDefault()
               document
                 .getElementById('modules')
-                ?.scrollIntoView({ behavior: 'smooth' });
+                ?.scrollIntoView({ behavior: 'smooth' })
             }}
             initial="initial"
             whileHover="hover"
@@ -222,7 +221,7 @@ const Hero: React.FC = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 1 }}
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 text-slate-500"
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 hidden md:flex flex-col items-center gap-2 text-slate-500"
       >
         <span className="text-xs font-mono uppercase tracking-widest">
           Scroll Down
@@ -230,7 +229,7 @@ const Hero: React.FC = () => {
         <ChevronDown className="w-5 h-5 animate-bounce" />
       </motion.div>
     </section>
-  );
-};
+  )
+}
 
-export default Hero;
+export default Hero

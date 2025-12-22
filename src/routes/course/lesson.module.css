@@ -10,6 +10,7 @@
 .table_of_contents {
   align-self: stretch; /* Stretch to match the height of the main content row */
   position: relative; /* Create positioning context for sticky child */
+  display: none; /* Hidden by default, shown only on laptop (1280px+) */
 }
 
 @media screen and (min-width: 1920px) {
@@ -30,9 +31,27 @@
   .table_of_contents {
     grid-column: 4/5;
     padding-top: 0;
+    display: block;
   }
 }
-@media screen and (min-width: 1200px) and (max-width: 1919px) {
+@media screen and (min-width: 1280px) and (max-width: 1919px) {
+  .lessons_grid {
+    display: grid;
+    grid-template-columns: 19rem 1fr 16rem;
+  }
+  .sidebar {
+    grid-column: 1/2;
+  }
+  .content {
+    grid-column: 2/3;
+  }
+  .table_of_contents {
+    grid-column: 3/4;
+    display: block;
+  }
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1279px) {
   .lessons_grid {
     display: grid;
     grid-template-columns: 19rem 1fr;

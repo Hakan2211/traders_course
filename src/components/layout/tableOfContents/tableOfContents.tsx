@@ -1,100 +1,91 @@
-
-import React, {
-  useEffect,
-  useState,
-  useRef,
-  MouseEvent,
-  useLayoutEffect,
-} from 'react';
-import styles from './tableOfContents.module.css';
-import { slugify } from '@/lib/utils';
-import useScrollSpy from './hooks/useScrollSpy';
+import { useEffect, useState, useRef, MouseEvent, useLayoutEffect } from 'react'
+import styles from './tableOfContents.module.css'
+import { slugify } from '@/lib/utils'
+import useScrollSpy from './hooks/useScrollSpy'
 
 // Define the types for your props
 interface Heading {
-  id: string;
-  text: string;
-  depth: number;
+  id: string
+  text: string
+  depth: number
 }
 
 interface TableOfContentsProps {
-  headings: Heading[];
+  headings: Heading[]
 }
 
 function TableOfContents({ headings }: TableOfContentsProps) {
-  const [isVisible] = useState(true);
-  const elementRefs = useRef<(HTMLElement | null)[]>([]);
+  const [isVisible] = useState(true)
+  const elementRefs = useRef<(HTMLElement | null)[]>([])
 
   useEffect(() => {
     const updatedHeadings = headings.map((heading) => {
-      const generatedId = heading.id || slugify(heading.text);
+      const generatedId = heading.id || slugify(heading.text)
 
       return {
         ...heading,
         id: generatedId,
-      };
-    });
+      }
+    })
 
     elementRefs.current = updatedHeadings.map((heading) => {
-      const elementId = slugify(heading.id);
-      const element = document.getElementById(elementId);
+      const elementId = slugify(heading.id)
+      const element = document.getElementById(elementId)
 
-      return element;
-    });
-  }, [headings]);
+      return element
+    })
+  }, [headings])
 
-  const elements = elementRefs.current;
+  const elements = elementRefs.current
   const activeIndex = useScrollSpy(elements.filter(Boolean) as HTMLElement[], {
     offset: 100,
     threshold: 0,
     rootMargin: '0px 0px 0px 0px',
-  });
+  })
 
   useLayoutEffect(() => {
     const updatedHeadings = headings.map((heading) => {
-      const generatedId = heading.id || slugify(heading.text);
+      const generatedId = heading.id || slugify(heading.text)
       return {
         ...heading,
         id: generatedId,
-      };
-    });
+      }
+    })
 
     elementRefs.current = updatedHeadings.map((heading) => {
-      const elementId = heading.id; // Use the ID directly
-      const element = document.getElementById(elementId);
+      const elementId = heading.id // Use the ID directly
+      const element = document.getElementById(elementId)
       // Log each search
-      return element;
-    });
-  }, [headings]);
+      return element
+    })
+  }, [headings])
 
   function handleClick(event: MouseEvent<HTMLAnchorElement>, id: string) {
-    event.preventDefault();
+    event.preventDefault()
 
-    const targetElement = document.getElementById(id);
+    const targetElement = document.getElementById(id)
     if (targetElement) {
-      const offset = 0; // Height of the fixed header or other offset
+      const offset = 0 // Height of the fixed header or other offset
       const elementTop =
-        window.scrollY + targetElement.getBoundingClientRect().top;
-      const offsetPosition = elementTop - offset;
+        window.scrollY + targetElement.getBoundingClientRect().top
+      const offsetPosition = elementTop - offset
 
       window.scrollTo({
         top: offsetPosition,
         behavior: 'smooth', // Smooth scroll
-      });
+      })
     } else {
-      console.error('Element not found for ID:', id);
+      console.error('Element not found for ID:', id)
     }
   }
 
   return (
     <aside className={`${styles.sidenav} text-sm`}>
-      <div
-        className={`${styles.sidenav_contents} sm:hidden xl:flex xl:flex-col`}
-      >
+      <div className={`${styles.sidenav_contents} flex flex-col`}>
         <nav className="rounded-lg">
           <ul>
             {headings.map((heading, index) => {
-              const slugifiedId = slugify(heading.id || heading.text);
+              const slugifiedId = slugify(heading.id || heading.text)
 
               return (
                 <li
@@ -117,19 +108,19 @@ function TableOfContents({ headings }: TableOfContentsProps) {
                   <a
                     href={`#${slugifiedId}`}
                     onClick={(e) => {
-                      handleClick(e, slugifiedId);
+                      handleClick(e, slugifiedId)
                     }}
                   >
                     {heading.text}
                   </a>
                 </li>
-              );
+              )
             })}
           </ul>
         </nav>
       </div>
     </aside>
-  );
+  )
 }
 
-export default TableOfContents;
+export default TableOfContents

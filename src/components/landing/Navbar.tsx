@@ -80,7 +80,7 @@ const Navbar: React.FC = () => {
 
           {/* --- RIGHT: ACTIONS --- */}
           <div className="hidden md:flex items-center gap-6">
-            <AudioControl src="/audio/Motion_FrankBentley.mp3" />
+            <AudioControl />
             {session ? (
               <>
                 <span className="text-sm font-medium text-zinc-300">
@@ -142,10 +142,7 @@ const Navbar: React.FC = () => {
 
           {/* --- MOBILE HAMBURGER --- */}
           <div className="md:hidden flex items-center gap-4">
-            <AudioControl
-              src="/audio/Motion_FrankBentley.mp3"
-              className="scale-90"
-            />
+            <AudioControl className="scale-90" />
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="text-zinc-300 hover:text-white p-2"

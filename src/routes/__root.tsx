@@ -7,6 +7,7 @@ import {
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 import { TanStackDevtools } from '@tanstack/react-devtools'
 import { ProgressProvider } from '../context/progress/ProgressContext'
+import { AudioProvider } from '../context/AudioContext'
 import { Toaster } from 'sonner'
 import { DARK_TOKENS, LIGHT_TOKENS } from '@/lib/constants'
 import '@fontsource/geist-sans'
@@ -30,7 +31,7 @@ export const Route = createRootRoute({
         content: 'width=device-width, initial-scale=1',
       },
       {
-        title: 'Course For Traders | Master the Markets',
+        title: 'Magic Market Box | Learn Through Physics',
       },
       {
         name: 'description',
@@ -39,7 +40,7 @@ export const Route = createRootRoute({
       },
       {
         property: 'og:title',
-        content: 'Course For Traders | Master the Markets',
+        content: 'Magic Market Box | Learn Through Physics',
       },
       {
         property: 'og:description',
@@ -105,10 +106,12 @@ function RootComponent() {
         <HeadContent />
       </head>
       <body>
-        <ProgressProvider>
-          <Outlet />
-          <Toaster richColors position="top-center" />
-        </ProgressProvider>
+        <AudioProvider src="/audio/Motion_FrankBentley.mp3">
+          <ProgressProvider>
+            <Outlet />
+            <Toaster richColors position="top-center" />
+          </ProgressProvider>
+        </AudioProvider>
         <TanStackDevtools
           config={{
             position: 'bottom-right',

@@ -4,6 +4,7 @@ import {
   getCourseModules,
   getLessonComponent,
 } from '@/helpers/file-helpers'
+import { getHeadingsFn } from '@/server/lesson'
 import Sidebar from '@/components/layout/sidebar'
 import LessonsHeader from '@/components/layout/lessonsHeader'
 import COMPONENT_MAP from '@/helpers/mdx-components-map'
@@ -16,15 +17,18 @@ import styles from './lesson.module.css'
 export const Route = createFileRoute('/course/$moduleSlug/$lessonSlug')({
   loader: async ({ params }) => {
     const { moduleSlug, lessonSlug } = params
-    const lessonContent = await loadLessonContent(moduleSlug, lessonSlug)
-    const modules = await getCourseModules()
+    const [lessonContent, modules, headingsResult] = await Promise.all([
+      loadLessonContent(moduleSlug, lessonSlug),
+      getCourseModules(),
+      getHeadingsFn({ data: { moduleSlug, lessonSlug, baseDir: '/content' } }),
+    ])
     if (!lessonContent) {
       throw new Error(`Lesson not found: ${moduleSlug}/${lessonSlug}`)
     }
     // Return only serializable data (Component loaded client-side)
     return {
       frontmatter: lessonContent.frontmatter,
-      headings: lessonContent.headings,
+      headings: headingsResult.headings,
       modules,
       moduleSlug,
       lessonSlug,
@@ -115,7 +119,7 @@ function LessonDetail() {
         </div>
       </main>
       <aside
-        className={`${styles.table_of_contents} hidden md:block sticky top-0 h-screen overflow-auto`}
+        className={`${styles.table_of_contents} sticky top-0 h-screen overflow-auto`}
       >
         <TableOfContents headings={headings} />
       </aside>
