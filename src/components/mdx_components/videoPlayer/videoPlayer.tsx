@@ -1,38 +1,45 @@
-
-import * as React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Button } from '@/components/ui/button';
-import { Slider } from '@/components/ui/slider';
+import * as React from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Button } from '@/components/ui/button'
+import { Slider } from '@/components/ui/slider'
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@/components/ui/popover'; // For volume/speed
-import { cn, formatTime } from '@/lib/utils'; // Assuming formatTime is in utils
-import PlayIcon from '@/components/icons/playIcon';
-import PauseIcon from '@/components/icons/pauseIcon';
-import VolumeOnIcon from '@/components/icons/video/volumeIcon';
-import VolumeOffIcon from '@/components/icons/video/volumeOffIcon';
-import FastForwardIcon from '@/components/icons/video/fastForwardIcon';
-import MinimizeIcon from '@/components/icons/video/minimizeIcon';
-import MaximizeIcon from '@/components/icons/video/maximizeIcon';
-import PictureInPictureIcon from '@/components/icons/video/pictureInPictureIcon';
-import LoaderIcon from '@/components/icons/video/loaderIcon';
+} from '@/components/ui/popover' // For volume/speed
+import { cn, formatTime } from '@/lib/utils' // Assuming formatTime is in utils
+import PlayIcon from '@/components/icons/playIcon'
+import PauseIcon from '@/components/icons/pauseIcon'
+import VolumeOnIcon from '@/components/icons/video/volumeIcon'
+import VolumeOffIcon from '@/components/icons/video/volumeOffIcon'
+import FastForwardIcon from '@/components/icons/video/fastForwardIcon'
+import MinimizeIcon from '@/components/icons/video/minimizeIcon'
+import MaximizeIcon from '@/components/icons/video/maximizeIcon'
+import PictureInPictureIcon from '@/components/icons/video/pictureInPictureIcon'
+import LoaderIcon from '@/components/icons/video/loaderIcon'
 
 // --- Debounce function (same as yours) ---
 const debounce = (func: (...args: any[]) => void, wait: number) => {
-  let timeout: NodeJS.Timeout | undefined;
+  let timeout: NodeJS.Timeout | undefined
   return (...args: any[]) => {
-    clearTimeout(timeout);
-    timeout = setTimeout(() => func(...args), wait);
-  };
-};
+    clearTimeout(timeout)
+    timeout = setTimeout(() => func(...args), wait)
+  }
+}
 
 // --- Motion Variants ---
 const controlsVariants = {
-  hidden: { opacity: 0, y: 20, transition: { duration: 0.3, ease: 'easeOut' } },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: 'easeOut' } },
-};
+  hidden: {
+    opacity: 0,
+    y: 20,
+    transition: { duration: 0.3, ease: 'easeOut' as const },
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.3, ease: 'easeOut' as const },
+  },
+}
 
 const playerHoverVariants = {
   hover: {
@@ -40,18 +47,17 @@ const playerHoverVariants = {
     // boxShadow: '0 30px 60px rgba(0, 0, 0, 0.3)',
     // transition: { duration: 0.4, ease: [0.17, 0.44, 0, 1.05] },
   },
-};
+}
 
 // --- Props Interface ---
-interface VideoPlayerProps
-  extends Omit<
-    React.HTMLAttributes<HTMLDivElement>,
-    'onAnimationStart' | 'onDrag' | 'onDragEnd' | 'onDragStart'
-  > {
-  src?: string; // Video source URL from Bunny.net
-  poster?: string; // Optional poster image
-  title?: string; // Optional title to display maybe? (less common in player itself)
-  motionViewport?: { once?: boolean; amount?: number };
+interface VideoPlayerProps extends Omit<
+  React.HTMLAttributes<HTMLDivElement>,
+  'onAnimationStart' | 'onDrag' | 'onDragEnd' | 'onDragStart'
+> {
+  src?: string // Video source URL from Bunny.net
+  poster?: string // Optional poster image
+  title?: string // Optional title to display maybe? (less common in player itself)
+  motionViewport?: { once?: boolean; amount?: number }
 }
 
 // --- Main Component ---
@@ -65,272 +71,269 @@ const VideoPlayer = React.forwardRef<HTMLDivElement, VideoPlayerProps>(
       motionViewport = { once: true, amount: 0.3 },
       ...props
     },
-    ref
+    ref,
   ) => {
-    const playerContainerRef = React.useRef<HTMLDivElement>(null);
-    const videoRef = React.useRef<HTMLVideoElement>(null);
-    const controlsTimeoutRef = React.useRef<NodeJS.Timeout | null>(null);
+    const playerContainerRef = React.useRef<HTMLDivElement>(null)
+    const videoRef = React.useRef<HTMLVideoElement>(null)
+    const controlsTimeoutRef = React.useRef<NodeJS.Timeout | null>(null)
 
     // --- State ---
-    const [isPlaying, setIsPlaying] = React.useState(false);
-    const [duration, setDuration] = React.useState(0);
-    const [currentTime, setCurrentTime] = React.useState(0);
-    const [isSeeking, setIsSeeking] = React.useState(false);
-    const [isLoaded, setIsLoaded] = React.useState(false);
-    const [volume, setVolume] = React.useState(1);
-    const [isMuted, setIsMuted] = React.useState(false);
-    const [playbackRate, setPlaybackRate] = React.useState(1);
-    const [isFullscreen, setIsFullscreen] = React.useState(false);
-    const [showControls, setShowControls] = React.useState(true); // Show initially
-    const [isInteracting, setIsInteracting] = React.useState(false); // Track hover/focus
-    const [isLoading, setIsLoading] = React.useState(true); // Show loading initially
+    const [isPlaying, setIsPlaying] = React.useState(false)
+    const [duration, setDuration] = React.useState(0)
+    const [currentTime, setCurrentTime] = React.useState(0)
+    const [isSeeking, setIsSeeking] = React.useState(false)
+    const [isLoaded, setIsLoaded] = React.useState(false)
+    const [volume, setVolume] = React.useState(1)
+    const [isMuted, setIsMuted] = React.useState(false)
+    const [playbackRate, setPlaybackRate] = React.useState(1)
+    const [isFullscreen, setIsFullscreen] = React.useState(false)
+    const [showControls, setShowControls] = React.useState(true) // Show initially
+    const [isInteracting, setIsInteracting] = React.useState(false) // Track hover/focus
+    const [isLoading, setIsLoading] = React.useState(true) // Show loading initially
 
     // --- Handlers ---
 
     const hideControls = () => {
       if (controlsTimeoutRef.current) {
-        clearTimeout(controlsTimeoutRef.current);
+        clearTimeout(controlsTimeoutRef.current)
       }
       controlsTimeoutRef.current = setTimeout(() => {
         if (!isInteracting && isPlaying) {
           // Only hide if playing and not interacting
-          setShowControls(false);
+          setShowControls(false)
         }
-      }, 3000); // Hide after 3 seconds of inactivity
-    };
+      }, 3000) // Hide after 3 seconds of inactivity
+    }
 
     const handleInteractionStart = () => {
-      setIsInteracting(true);
-      setShowControls(true);
+      setIsInteracting(true)
+      setShowControls(true)
       if (controlsTimeoutRef.current) {
-        clearTimeout(controlsTimeoutRef.current);
+        clearTimeout(controlsTimeoutRef.current)
       }
-    };
+    }
 
     const handleInteractionEnd = () => {
-      setIsInteracting(false);
+      setIsInteracting(false)
       if (isPlaying) {
         // Start hide timer only if playing
-        hideControls();
+        hideControls()
       }
-    };
+    }
 
     // Debounced time update
     const setVideoTime = React.useCallback(
       debounce(() => {
-        const video = videoRef.current;
+        const video = videoRef.current
         if (video && !isSeeking && isLoaded && isFinite(video.currentTime)) {
-          setCurrentTime(video.currentTime);
+          setCurrentTime(video.currentTime)
         }
       }, 50), // Adjust debounce time if needed
-      [isSeeking, isLoaded, videoRef]
-    );
+      [isSeeking, isLoaded, videoRef],
+    )
 
     // --- Effects ---
 
     // Video event listeners
     React.useEffect(() => {
-      const video = videoRef.current;
-      if (!video) return;
+      const video = videoRef.current
+      if (!video) return
 
       const setVideoData = () => {
         if (isFinite(video.duration)) {
-          setDuration(video.duration);
+          setDuration(video.duration)
         }
-        setCurrentTime(video.currentTime);
-        setIsLoaded(true);
-        setIsLoading(false); // Hide loader once metadata loads
-      };
+        setCurrentTime(video.currentTime)
+        setIsLoaded(true)
+        setIsLoading(false) // Hide loader once metadata loads
+      }
 
       const handleVideoEnd = () => {
-        setIsPlaying(false);
+        setIsPlaying(false)
         // Optional: uncomment to reset time on end
         // setCurrentTime(0);
         // video.currentTime = 0;
-        setShowControls(true); // Show controls when ended
-      };
+        setShowControls(true) // Show controls when ended
+      }
 
-      const handlePlay = () => setIsPlaying(true);
-      const handlePause = () => setIsPlaying(false);
+      const handlePlay = () => setIsPlaying(true)
+      const handlePause = () => setIsPlaying(false)
       const handleVolumeChange = () => {
-        setVolume(video.volume);
-        setIsMuted(video.muted);
-      };
-      const handleRateChange = () => setPlaybackRate(video.playbackRate);
-      const handleWaiting = () => setIsLoading(true);
-      const handlePlaying = () => setIsLoading(false);
+        setVolume(video.volume)
+        setIsMuted(video.muted)
+      }
+      const handleRateChange = () => setPlaybackRate(video.playbackRate)
+      const handleWaiting = () => setIsLoading(true)
+      const handlePlaying = () => setIsLoading(false)
       const handleCanPlay = () => {
-        if (!isLoaded && isFinite(video.duration)) setVideoData();
-        setIsLoading(false); // Hide loader when ready to play
-      };
+        if (!isLoaded && isFinite(video.duration)) setVideoData()
+        setIsLoading(false) // Hide loader when ready to play
+      }
 
-      video.addEventListener('loadedmetadata', setVideoData);
-      video.addEventListener('canplay', handleCanPlay);
-      video.addEventListener('timeupdate', setVideoTime);
-      video.addEventListener('ended', handleVideoEnd);
-      video.addEventListener('play', handlePlay);
-      video.addEventListener('pause', handlePause);
-      video.addEventListener('volumechange', handleVolumeChange);
-      video.addEventListener('ratechange', handleRateChange);
-      video.addEventListener('seeked', () => setIsSeeking(false));
-      video.addEventListener('waiting', handleWaiting); // Show loader when buffering
-      video.addEventListener('playing', handlePlaying); // Hide loader when playback resumes
+      video.addEventListener('loadedmetadata', setVideoData)
+      video.addEventListener('canplay', handleCanPlay)
+      video.addEventListener('timeupdate', setVideoTime)
+      video.addEventListener('ended', handleVideoEnd)
+      video.addEventListener('play', handlePlay)
+      video.addEventListener('pause', handlePause)
+      video.addEventListener('volumechange', handleVolumeChange)
+      video.addEventListener('ratechange', handleRateChange)
+      video.addEventListener('seeked', () => setIsSeeking(false))
+      video.addEventListener('waiting', handleWaiting) // Show loader when buffering
+      video.addEventListener('playing', handlePlaying) // Hide loader when playback resumes
 
       // Initial state check
-      if (video.readyState >= 1) setVideoData();
-      setVolume(video.volume);
-      setIsMuted(video.muted);
-      setPlaybackRate(video.playbackRate);
-      setIsLoading(video.readyState < 3 && video.networkState === 2); // Show loader if still loading/buffering
+      if (video.readyState >= 1) setVideoData()
+      setVolume(video.volume)
+      setIsMuted(video.muted)
+      setPlaybackRate(video.playbackRate)
+      setIsLoading(video.readyState < 3 && video.networkState === 2) // Show loader if still loading/buffering
 
       // Fullscreen change listener
       const handleFullscreenChange = () => {
-        setIsFullscreen(!!document.fullscreenElement);
-      };
-      document.addEventListener('fullscreenchange', handleFullscreenChange);
+        setIsFullscreen(!!document.fullscreenElement)
+      }
+      document.addEventListener('fullscreenchange', handleFullscreenChange)
 
       return () => {
-        video.removeEventListener('loadedmetadata', setVideoData);
-        video.removeEventListener('canplay', handleCanPlay);
-        video.removeEventListener('timeupdate', setVideoTime);
-        video.removeEventListener('ended', handleVideoEnd);
-        video.removeEventListener('play', handlePlay);
-        video.removeEventListener('pause', handlePause);
-        video.removeEventListener('volumechange', handleVolumeChange);
-        video.removeEventListener('ratechange', handleRateChange);
-        video.removeEventListener('seeked', () => setIsSeeking(false));
-        video.removeEventListener('waiting', handleWaiting);
-        video.removeEventListener('playing', handlePlaying);
-        document.removeEventListener(
-          'fullscreenchange',
-          handleFullscreenChange
-        );
+        video.removeEventListener('loadedmetadata', setVideoData)
+        video.removeEventListener('canplay', handleCanPlay)
+        video.removeEventListener('timeupdate', setVideoTime)
+        video.removeEventListener('ended', handleVideoEnd)
+        video.removeEventListener('play', handlePlay)
+        video.removeEventListener('pause', handlePause)
+        video.removeEventListener('volumechange', handleVolumeChange)
+        video.removeEventListener('ratechange', handleRateChange)
+        video.removeEventListener('seeked', () => setIsSeeking(false))
+        video.removeEventListener('waiting', handleWaiting)
+        video.removeEventListener('playing', handlePlaying)
+        document.removeEventListener('fullscreenchange', handleFullscreenChange)
         if (controlsTimeoutRef.current) {
-          clearTimeout(controlsTimeoutRef.current);
+          clearTimeout(controlsTimeoutRef.current)
         }
-      };
-    }, [src, setVideoTime, isLoaded]); // Add isLoaded dependency
+      }
+    }, [src, setVideoTime, isLoaded]) // Add isLoaded dependency
 
     // Play/Pause sync effect
     React.useEffect(() => {
-      const video = videoRef.current;
-      if (!video || !isLoaded) return;
+      const video = videoRef.current
+      if (!video || !isLoaded) return
       if (isPlaying) {
         video.play().catch((e) => {
-          console.error('Video play failed:', e);
-          setIsPlaying(false); // Reset state if play fails
-        });
-        hideControls(); // Start timer to hide controls when playing starts
+          console.error('Video play failed:', e)
+          setIsPlaying(false) // Reset state if play fails
+        })
+        hideControls() // Start timer to hide controls when playing starts
       } else {
-        video.pause();
+        video.pause()
         if (controlsTimeoutRef.current) {
-          clearTimeout(controlsTimeoutRef.current); // Stop hide timer when paused
+          clearTimeout(controlsTimeoutRef.current) // Stop hide timer when paused
         }
-        setShowControls(true); // Ensure controls are visible when paused
+        setShowControls(true) // Ensure controls are visible when paused
       }
-    }, [isPlaying, isLoaded]);
+    }, [isPlaying, isLoaded])
 
     // Control visibility effect based on interaction and play state
     React.useEffect(() => {
       if (!isPlaying || isInteracting) {
-        setShowControls(true);
+        setShowControls(true)
         if (controlsTimeoutRef.current) {
-          clearTimeout(controlsTimeoutRef.current);
+          clearTimeout(controlsTimeoutRef.current)
         }
       } else {
         // If playing starts AND not interacting, start the hide timer
-        hideControls();
+        hideControls()
       }
       // Dependency on isPlaying and isInteracting
-    }, [isPlaying, isInteracting]);
+    }, [isPlaying, isInteracting])
 
     // --- Control Handlers ---
 
     const togglePlayPause = () => {
-      if (!isLoaded) return;
-      setIsPlaying((prev) => !prev);
-    };
+      if (!isLoaded) return
+      setIsPlaying((prev) => !prev)
+    }
 
     const handleSliderValueChange = (value: number[]) => {
-      const newTime = value[0];
+      const newTime = value[0]
       if (isLoaded && videoRef.current && isFinite(newTime)) {
-        setCurrentTime(newTime); // Update UI immediately
-        if (!isSeeking) setIsSeeking(true); // Prevent timeupdate override
+        setCurrentTime(newTime) // Update UI immediately
+        if (!isSeeking) setIsSeeking(true) // Prevent timeupdate override
       }
-    };
+    }
 
     const handleSliderValueCommit = (value: number[]) => {
-      const newTime = value[0];
+      const newTime = value[0]
       if (isLoaded && videoRef.current && isFinite(newTime)) {
-        videoRef.current.currentTime = newTime;
+        videoRef.current.currentTime = newTime
         // No need to manually set isSeeking(false), 'seeked' event handles it
       } else {
         // If commit happens while not loaded (edge case)
-        setIsSeeking(false);
+        setIsSeeking(false)
       }
-    };
+    }
 
     const handleVolumeChange = (value: number[]) => {
-      const newVolume = value[0];
+      const newVolume = value[0]
       if (videoRef.current) {
-        videoRef.current.volume = newVolume;
-        videoRef.current.muted = newVolume === 0; // Mute if volume is 0
+        videoRef.current.volume = newVolume
+        videoRef.current.muted = newVolume === 0 // Mute if volume is 0
       }
-    };
+    }
 
     const toggleMute = () => {
       if (videoRef.current) {
-        videoRef.current.muted = !isMuted;
+        videoRef.current.muted = !isMuted
         // If unmuting and volume was 0, set a default volume
         if (!videoRef.current.muted && videoRef.current.volume === 0) {
-          videoRef.current.volume = 0.5; // Or restore previous non-zero volume
+          videoRef.current.volume = 0.5 // Or restore previous non-zero volume
         }
       }
-    };
+    }
 
     const handlePlaybackRateChange = (rate: number) => {
       if (videoRef.current) {
-        videoRef.current.playbackRate = rate;
+        videoRef.current.playbackRate = rate
       }
-    };
+    }
 
     const toggleFullscreen = () => {
-      const elem = playerContainerRef.current;
-      if (!elem) return;
+      const elem = playerContainerRef.current
+      if (!elem) return
 
       if (!document.fullscreenElement) {
         elem.requestFullscreen().catch((err) => {
           console.error(
-            `Error attempting to enable full-screen mode: ${err.message} (${err.name})`
-          );
-        });
+            `Error attempting to enable full-screen mode: ${err.message} (${err.name})`,
+          )
+        })
       } else {
-        document.exitFullscreen();
+        document.exitFullscreen()
       }
-    };
+    }
 
     const togglePictureInPicture = async () => {
-      const video = videoRef.current;
-      if (!video || !document.pictureInPictureEnabled) return;
+      const video = videoRef.current
+      if (!video || !document.pictureInPictureEnabled) return
 
       try {
         if (document.pictureInPictureElement === video) {
-          await document.exitPictureInPicture();
+          await document.exitPictureInPicture()
         } else {
-          await video.requestPictureInPicture();
+          await video.requestPictureInPicture()
         }
       } catch (error) {
-        console.error('PiP Error:', error);
+        console.error('PiP Error:', error)
       }
-    };
+    }
 
     // --- Computed Values ---
-    const PlayPauseIcon = isPlaying ? PauseIcon : PlayIcon;
-    const VolumeIcon = isMuted || volume === 0 ? VolumeOffIcon : VolumeOnIcon;
-    const formattedCurrentTime = formatTime(currentTime);
-    const formattedDuration = formatTime(duration);
-    const sliderValue = isLoaded ? [currentTime] : [0];
-    const sliderMax = isLoaded && duration > 0 ? duration : 1;
+    const PlayPauseIcon = isPlaying ? PauseIcon : PlayIcon
+    const VolumeIcon = isMuted || volume === 0 ? VolumeOffIcon : VolumeOnIcon
+    const formattedCurrentTime = formatTime(currentTime)
+    const formattedDuration = formatTime(duration)
+    const sliderValue = isLoaded ? [currentTime] : [0]
+    const sliderMax = isLoaded && duration > 0 ? duration : 1
 
     return (
       // --- Base Layer (Container) ---
@@ -345,7 +348,7 @@ const VideoPlayer = React.forwardRef<HTMLDivElement, VideoPlayerProps>(
           'relative group aspect-video w-full max-w-4xl mx-auto my-8 rounded-xl md:rounded-2xl overflow-hidden',
           'bg-black', // Base background if video doesn't load / has transparency
           'focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2 focus-within:ring-offset-black', // Focus outline for accessibility
-          className
+          className,
         )}
         onMouseEnter={handleInteractionStart}
         onMouseLeave={handleInteractionEnd}
@@ -364,7 +367,7 @@ const VideoPlayer = React.forwardRef<HTMLDivElement, VideoPlayerProps>(
           onDoubleClick={toggleFullscreen} // Common UX: double click for fullscreen
           className={cn(
             'w-full h-full object-cover block',
-            !isLoaded && 'opacity-0' // Hide video until loaded to prevent flash
+            !isLoaded && 'opacity-0', // Hide video until loaded to prevent flash
           )}
           playsInline // Important for mobile browsers
         />
@@ -396,7 +399,7 @@ const VideoPlayer = React.forwardRef<HTMLDivElement, VideoPlayerProps>(
               exit="hidden"
               className={cn(
                 'absolute bottom-0 left-0 right-0 z-10 px-4 py-3 md:px-6 md:py-4',
-                'bg-gradient-to-t from-black/80 via-black/60 to-transparent' // Softer gradient up
+                'bg-gradient-to-t from-black/80 via-black/60 to-transparent', // Softer gradient up
                 // 'bg-black/70 backdrop-blur-md', // Alternative solid blur background
               )}
               // Prevent clicks on the control bar from bubbling to the video click handler
@@ -430,7 +433,7 @@ const VideoPlayer = React.forwardRef<HTMLDivElement, VideoPlayerProps>(
                     '[&>[role="slider"]]:cursor-not-allowed',
                   isLoaded &&
                     !isLoading &&
-                    '[&>[role="slider"]]:cursor-grab [&>[role="slider"]]:active:cursor-grabbing'
+                    '[&>[role="slider"]]:cursor-grab [&>[role="slider"]]:active:cursor-grabbing',
                 )}
               />
 
@@ -475,7 +478,7 @@ const VideoPlayer = React.forwardRef<HTMLDivElement, VideoPlayerProps>(
                           '[&>span:first-child]:h-[4px] [&>span:first-child]:bg-white/30',
                           '[&>span:first-child>span]:bg-white',
                           '[&>[role="slider"]]:h-3 [&>[role="slider"]]:w-3 [&>[role="slider"]]:bg-white',
-                          '[&>[role="slider"]]:border-none [&>[role="slider"]]:shadow-sm'
+                          '[&>[role="slider"]]:border-none [&>[role="slider"]]:shadow-sm',
                           // Consider orientation="vertical" if desired, needs more styling
                         )}
                       />
@@ -511,7 +514,8 @@ const VideoPlayer = React.forwardRef<HTMLDivElement, VideoPlayerProps>(
                           onClick={() => handlePlaybackRateChange(rate)}
                           className={cn(
                             'w-full justify-start text-white hover:bg-white/10',
-                            playbackRate === rate && 'bg-white/20 font-semibold'
+                            playbackRate === rate &&
+                              'bg-white/20 font-semibold',
                           )}
                         >
                           {rate}x
@@ -555,9 +559,9 @@ const VideoPlayer = React.forwardRef<HTMLDivElement, VideoPlayerProps>(
           )}
         </AnimatePresence>
       </motion.div>
-    );
-  }
-);
-VideoPlayer.displayName = 'VideoPlayer';
+    )
+  },
+)
+VideoPlayer.displayName = 'VideoPlayer'
 
-export default VideoPlayer;
+export default VideoPlayer
