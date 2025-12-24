@@ -222,9 +222,9 @@ and the line price pulls away from during trend.
           <strong>The Standard, Mathematically Correct VWAP Formula</strong>
           <br />
           <br />
-          At its core, VWAP is a weighted average that emphasizes prices where more
-          volume occurred. The purest, most accurate calculation uses tick-by-tick
-          trade data (every individual transaction):
+          At its core, VWAP is a weighted average that emphasizes prices where
+          more volume occurred. The purest, most accurate calculation uses
+          tick-by-tick trade data (every individual transaction):
           <br />
           <br />
           <Math>{`\\text{VWAP} = \\frac{\\sum (\\text{Trade Price} \\times \\text{Trade Volume})}{\\sum \\text{Trade Volume}}`}</Math>
@@ -237,10 +237,10 @@ and the line price pulls away from during trend.
           if platforms have access to the same tick-level feed from exchanges.
           <br />
           <br />
-          However, most charting platforms don't always use pure tick data for performance
-          reasons (it's data-intensive). Instead, they approximate using aggregated
-          bar data (e.g., 1-minute OHLCV bars: Open, High, Low, Close, Volume). In
-          this case, the formula becomes:
+          However, most charting platforms don't always use pure tick data for
+          performance reasons (it's data-intensive). Instead, they approximate
+          using aggregated bar data (e.g., 1-minute OHLCV bars: Open, High, Low,
+          Close, Volume). In this case, the formula becomes:
           <br />
           <br />
           <Math>{`\\text{VWAP} = \\frac{\\sum (\\text{Proxy Price}_{\\text{bar}} \\times \\text{Bar Volume})}{\\sum \\text{Bar Volume}}`}</Math>
@@ -250,12 +250,12 @@ and the line price pulls away from during trend.
           the Typical Price:
           <Math
             inline={true}
-          >{`\\frac{\\text{High} + \\text{Low} + \\text{Close}}{3}`}</Math>. This
-          is a good approximation because it captures the bar's range and ending
-          price, weighting toward where activity likely clustered. This is still
-          mathematically sound as an estimate, but it's not identical to tick-based
-          VWAP — differences grow in volatile or low-liquidity bars where trades
-          aren't evenly distributed.
+          >{`\\frac{\\text{High} + \\text{Low} + \\text{Close}}{3}`}</Math>
+          . This is a good approximation because it captures the bar's range and
+          ending price, weighting toward where activity likely clustered. This
+          is still mathematically sound as an estimate, but it's not identical
+          to tick-based VWAP — differences grow in volatile or low-liquidity
+          bars where trades aren't evenly distributed.
           <br />
           <br />
           <strong>Why VWAP Differs Across Platforms</strong>
@@ -274,11 +274,11 @@ and the line price pulls away from during trend.
           differences in reported prices and volumes.
           <br />
           <br />
-          <strong>Choice of Proxy Price in Bar Data:</strong> Not all use Typical
-          Price. Alternatives include Close Price Only (simpler but less accurate),
-          (High + Low)/2 (HL2 or Median Price, common in forex platforms), or rarely
-          Open or other combos. Platforms like TradingView default to Typical Price,
-          but you can customize scripts.
+          <strong>Choice of Proxy Price in Bar Data:</strong> Not all use
+          Typical Price. Alternatives include Close Price Only (simpler but less
+          accurate), (High + Low)/2 (HL2 or Median Price, common in forex
+          platforms), or rarely Open or other combos. Platforms like TradingView
+          default to Typical Price, but you can customize scripts.
           <br />
           <br />
           <strong>Session and Data Inclusion:</strong> Standard VWAP resets at
@@ -288,9 +288,10 @@ and the line price pulls away from during trend.
           the sum.
           <br />
           <br />
-          <strong>Calculation Settings:</strong> Anchored VWAP (starts from a custom
-          point) vs. session VWAP. Deviations/Bands: Platforms add standard deviation
-          bands differently. Rounding/Precision: Minor, but can show up in plots.
+          <strong>Calculation Settings:</strong> Anchored VWAP (starts from a
+          custom point) vs. session VWAP. Deviations/Bands: Platforms add
+          standard deviation bands differently. Rounding/Precision: Minor, but
+          can show up in plots.
           <br />
           <br />
           <strong>
@@ -298,9 +299,10 @@ and the line price pulls away from during trend.
           </strong>
           <br />
           <br />
-          Standard VWAP is calculated cumulatively from the session start, independent
-          of your chart's timeframe (e.g., 1-min vs. 1-hour). The VWAP value at 10:00
-          AM should be identical on both charts. But apparent differences can occur:
+          Standard VWAP is calculated cumulatively from the session start,
+          independent of your chart's timeframe (e.g., 1-min vs. 1-hour). The
+          VWAP value at 10:00 AM should be identical on both charts. But
+          apparent differences can occur:
           <br />
           <br />
           <strong>Bar Aggregation:</strong> On higher timeframes (e.g., 15-min
@@ -310,8 +312,9 @@ and the line price pulls away from during trend.
           highs/lows/closes are combined.
           <br />
           <br />
-          <strong>Visible Bars Only:</strong> Some platforms might compute VWAP only
-          on loaded/visible data, causing shifts when you zoom or change timeframes.
+          <strong>Visible Bars Only:</strong> Some platforms might compute VWAP
+          only on loaded/visible data, causing shifts when you zoom or change
+          timeframes.
           <br />
           <br />
           <strong>Rolling vs. Cumulative:</strong> Rare, but if a platform uses
@@ -423,32 +426,33 @@ below both implies weakness.
 ### A Day in the Life
 
 <Highlight variant="blue">Balanced morning, trend afternoon</Highlight>:<br />
-Price opens inside prior value, rotates around POC for two hours. VWAP stays flat.
-After lunch, a catalyst triggers a breakout through an LVN, VWAP tilts up, and price
-accelerates to the next HVN — POC migrates higher
+Price opens inside prior value, rotates around POC for two hours. VWAP stays
+flat. After lunch, a catalyst triggers a breakout through an LVN, VWAP tilts up,
+and price accelerates to the next HVN — POC migrates higher
 
 <Highlight variant="blue">Gap-and-Go</Highlight>:<br />
-Price gaps above prior VAH and never reclaims VWAP. Pullbacks to VWAP or -1σ band
-are bought; value builds higher all day — a clear regime shift.
+Price gaps above prior VAH and never reclaims VWAP. Pullbacks to VWAP or -1σ
+band are bought; value builds higher all day — a clear regime shift.
 
 ### Practical Considerations and Pitfalls
 
 <Highlight variant="blue">1\. Range and Resolution Matter</Highlight>:<br />
-Choose appropriate time periods. Too short hides structure; too long blurs shifts.
-For consistency, analyze fixed ranges (day, week, month). Bin size should match your
-instrument’s volatility or tick size.
+Choose appropriate time periods. Too short hides structure; too long blurs
+shifts. For consistency, analyze fixed ranges (day, week, month). Bin size
+should match your instrument’s volatility or tick size.
 
 <Highlight variant="blue">2\. Session Definitions</Highlight>:<br />
-VWAP resets daily — ideal for intraday trading. For 24/7 markets like crypto or FX,
-define your session explicitly (e.g., midnight UTC).
+VWAP resets daily — ideal for intraday trading. For 24/7 markets like crypto or
+FX, define your session explicitly (e.g., midnight UTC).
 
 <Highlight variant="blue">3\. Data Quality and Anamolies</Highlight>:<br />
-Low liquidity, halts, or auctions can distort VWAP. Decide whether to include overnight
-volume in futures. Remember: FX and CFD platforms use tick volume, not actual contracts.
+Low liquidity, halts, or auctions can distort VWAP. Decide whether to include
+overnight volume in futures. Remember: FX and CFD platforms use tick volume, not
+actual contracts.
 
 <Highlight variant="blue">4\. Context Over Mechanical Rules</Highlight>:<br />
-VWAP and Profile are context tools, not entry signals. They tell you where, not when.
-Always read the day’s structure — not every touch is actionable.
+VWAP and Profile are context tools, not entry signals. They tell you where, not
+when. Always read the day’s structure — not every touch is actionable.
 
 ### Pre-Trade Checklist
 
@@ -509,16 +513,17 @@ Before taking a trade, ask:<br/>
     Sliders set manual price and volume. When they click Inject Trade, a new dot
     is added to the tape (orange if manual).
     <br />
-    Students can see immediately if their trade nudges VWAP or deviation bands—perfect
-    for demonstrating big blocks vs. small prints.
+    Students can see immediately if their trade nudges VWAP or deviation
+    bands—perfect for demonstrating big blocks vs. small prints.
     <br />
     → 6\. Interpret the HUD
     <br />
-    The two bars visualize the accumulating numerator and denominator in the VWAP
-    formula; the text beneath reports session VWAP, last price, and last volume.
+    The two bars visualize the accumulating numerator and denominator in the
+    VWAP formula; the text beneath reports session VWAP, last price, and last
+    volume.
     <br />
-    Encourage students to watch how a large trade far from VWAP bends the numerator
-    bar and pulls price back toward the line.
+    Encourage students to watch how a large trade far from VWAP bends the
+    numerator bar and pulls price back toward the line.
   </AlertDescription>
 </Alert>
 
@@ -570,3 +575,8 @@ and migrating value.
     back or in its face.
   </AlertDescription>
 </Alert>
+
+<VideoPlayer
+  src="https://vz-fe8f190a-980.b-cdn.net/52690955-1cce-4d19-ac56-8474a9238e5b/playlist.m3u8"
+  poster="https://vz-fe8f190a-980.b-cdn.net/52690955-1cce-4d19-ac56-8474a9238e5b/thumbnail.jpg"
+/>

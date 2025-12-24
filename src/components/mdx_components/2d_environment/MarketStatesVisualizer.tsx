@@ -1,30 +1,29 @@
-
-import React, { useState, useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
-import { Play, Pause, RotateCcw } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Slider } from '@/components/ui/slider';
-import { Label } from '@/components/ui/label';
+import React, { useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
+import { Play, Pause, RotateCcw } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { Slider } from '@/components/ui/slider'
+import { Label } from '@/components/ui/label'
 
 type MarketState =
   | 'stable-quiet'
   | 'stable-volatile'
   | 'trending-quiet'
   | 'trending-volatile'
-  | 'dynamic-cycle';
+  | 'dynamic-cycle'
 
 interface MarketStateConfig {
-  id: MarketState;
-  name: string;
-  description: string;
-  color: string;
-  generatePoints: (totalPoints: number) => number[];
+  id: MarketState
+  name: string
+  description: string
+  color: string
+  generatePoints: (totalPoints: number) => number[]
 }
 
-const TOTAL_POINTS = 100;
-const CHART_WIDTH = 800;
-const CHART_HEIGHT = 400;
-const PADDING = 40;
+const TOTAL_POINTS = 100
+const CHART_WIDTH = 800
+const CHART_HEIGHT = 400
+const PADDING = 40
 
 const MARKET_STATES: MarketStateConfig[] = [
   {
@@ -34,18 +33,17 @@ const MARKET_STATES: MarketStateConfig[] = [
       'Prices tend to stay within a relatively small range with little movement up or down outside that range.',
     color: '#64748b',
     generatePoints: (totalPoints: number) => {
-      const points: number[] = [];
-      const baseY = CHART_HEIGHT / 2;
-      const amplitude = 15; // Small fluctuations
+      const points: number[] = []
+      const baseY = CHART_HEIGHT / 2
+      const amplitude = 15 // Small fluctuations
 
       for (let i = 0; i < totalPoints; i++) {
-        const x = (i / totalPoints) * (CHART_WIDTH - PADDING * 2) + PADDING;
+        const x = (i / totalPoints) * (CHART_WIDTH - PADDING * 2) + PADDING
         // Gentle sine wave with small deterministic variations (no time dependency)
-        const y =
-          baseY + Math.sin(i * 0.1) * amplitude + Math.sin(i * 0.05) * 3;
-        points.push(y);
+        const y = baseY + Math.sin(i * 0.1) * amplitude + Math.sin(i * 0.05) * 3
+        points.push(y)
       }
-      return points;
+      return points
     },
   },
   {
@@ -55,21 +53,21 @@ const MARKET_STATES: MarketStateConfig[] = [
       'There are large daily or weekly changes, but without major changes over a period of months.',
     color: '#ef4444',
     generatePoints: (totalPoints: number) => {
-      const points: number[] = [];
-      const baseY = CHART_HEIGHT / 2;
-      const amplitude = 80; // Large fluctuations
+      const points: number[] = []
+      const baseY = CHART_HEIGHT / 2
+      const amplitude = 80 // Large fluctuations
 
       for (let i = 0; i < totalPoints; i++) {
-        const x = (i / totalPoints) * (CHART_WIDTH - PADDING * 2) + PADDING;
+        const x = (i / totalPoints) * (CHART_WIDTH - PADDING * 2) + PADDING
         // Multiple sine waves with high frequency and large amplitude
         const y =
           baseY +
           Math.sin(i * 0.3) * amplitude * 0.6 +
           Math.sin(i * 0.5) * amplitude * 0.4 +
-          Math.sin(i * 0.7) * 10;
-        points.push(y);
+          Math.sin(i * 0.7) * 10
+        points.push(y)
       }
-      return points;
+      return points
     },
   },
   {
@@ -79,21 +77,21 @@ const MARKET_STATES: MarketStateConfig[] = [
       'There is slow movement or drift in prices when measured over a period of months but without severe retracement or price movement in the opposite direction.',
     color: '#10b981',
     generatePoints: (totalPoints: number) => {
-      const points: number[] = [];
+      const points: number[] = []
       // Upward trend: start at higher Y (lower on screen), end at lower Y (higher on screen)
-      const startY = CHART_HEIGHT * 0.7; // Start lower on screen (higher price)
-      const endY = CHART_HEIGHT * 0.3; // End higher on screen (lower price)
-      const amplitude = 10; // Small fluctuations
+      const startY = CHART_HEIGHT * 0.7 // Start lower on screen (higher price)
+      const endY = CHART_HEIGHT * 0.3 // End higher on screen (lower price)
+      const amplitude = 10 // Small fluctuations
 
       for (let i = 0; i < totalPoints; i++) {
-        const x = (i / totalPoints) * (CHART_WIDTH - PADDING * 2) + PADDING;
+        const x = (i / totalPoints) * (CHART_WIDTH - PADDING * 2) + PADDING
         // Smooth upward trend: start at bottom (high Y), end at top (low Y)
-        const trend = startY - (startY - endY) * (i / totalPoints);
+        const trend = startY - (startY - endY) * (i / totalPoints)
         const y =
-          trend + Math.sin(i * 0.15) * amplitude + Math.sin(i * 0.08) * 2;
-        points.push(y);
+          trend + Math.sin(i * 0.15) * amplitude + Math.sin(i * 0.08) * 2
+        points.push(y)
       }
-      return points;
+      return points
     },
   },
   {
@@ -103,23 +101,23 @@ const MARKET_STATES: MarketStateConfig[] = [
       'There are large changes in price accompanied by occasional significant shorter-term reversals of direction.',
     color: '#f59e0b',
     generatePoints: (totalPoints: number) => {
-      const points: number[] = [];
+      const points: number[] = []
       // Upward trend: start at higher Y (lower on screen), end at lower Y (higher on screen)
-      const startY = CHART_HEIGHT * 0.75; // Start lower on screen (higher price)
-      const endY = CHART_HEIGHT * 0.25; // End higher on screen (lower price)
-      const amplitude = 60; // Large swings
+      const startY = CHART_HEIGHT * 0.75 // Start lower on screen (higher price)
+      const endY = CHART_HEIGHT * 0.25 // End higher on screen (lower price)
+      const amplitude = 60 // Large swings
 
       for (let i = 0; i < totalPoints; i++) {
-        const x = (i / totalPoints) * (CHART_WIDTH - PADDING * 2) + PADDING;
+        const x = (i / totalPoints) * (CHART_WIDTH - PADDING * 2) + PADDING
         // Upward trend with large pullbacks: trend goes from high Y to low Y
-        const trend = startY - (startY - endY) * (i / totalPoints);
-        const pullback = Math.sin(i * 0.2) * amplitude * 0.7;
-        const volatility = Math.sin(i * 0.4) * amplitude * 0.3;
-        const noise = Math.sin(i * 0.6) * 8;
-        const y = trend + pullback + volatility + noise;
-        points.push(y);
+        const trend = startY - (startY - endY) * (i / totalPoints)
+        const pullback = Math.sin(i * 0.2) * amplitude * 0.7
+        const volatility = Math.sin(i * 0.4) * amplitude * 0.3
+        const noise = Math.sin(i * 0.6) * 8
+        const y = trend + pullback + volatility + noise
+        points.push(y)
       }
-      return points;
+      return points
     },
   },
   {
@@ -130,67 +128,67 @@ const MARKET_STATES: MarketStateConfig[] = [
     color: '#a78bfa', // purple accent
     // Not used directly; dynamic points are computed in the component
     generatePoints: (totalPoints: number) => {
-      const points: number[] = [];
+      const points: number[] = []
       for (let i = 0; i < totalPoints; i++) {
-        points.push(CHART_HEIGHT / 2);
+        points.push(CHART_HEIGHT / 2)
       }
-      return points;
+      return points
     },
   },
-];
+]
 
 const MarketStatesVisualizer: React.FC = () => {
-  const [currentState, setCurrentState] = useState<MarketState>('stable-quiet');
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [playbackPosition, setPlaybackPosition] = useState(0);
-  const [cycleProgress, setCycleProgress] = useState(0); // 0..100 (%), only used for dynamic-cycle
+  const [currentState, setCurrentState] = useState<MarketState>('stable-quiet')
+  const [isPlaying, setIsPlaying] = useState(false)
+  const [playbackPosition, setPlaybackPosition] = useState(0)
+  const [cycleProgress, setCycleProgress] = useState(0) // 0..100 (%), only used for dynamic-cycle
 
   // Auto-play only moves the playback position; the line itself is static per state
   useEffect(() => {
-    if (!isPlaying) return;
+    if (!isPlaying) return
     const id = setInterval(() => {
       setPlaybackPosition((prev) => {
-        const next = prev + 0.6; // speed
-        return next >= 100 ? 0 : next;
-      });
+        const next = prev + 0.6 // speed
+        return next >= 100 ? 0 : next
+      })
       // For dynamic cycle, also advance the morphing progress
       setCycleProgress((prev) => {
         // Slightly slower morph speed than the dot
-        const next = prev + 0.35;
-        return next >= 100 ? 0 : next;
-      });
-    }, 50);
-    return () => clearInterval(id);
-  }, [isPlaying]);
+        const next = prev + 0.35
+        return next >= 100 ? 0 : next
+      })
+    }, 50)
+    return () => clearInterval(id)
+  }, [isPlaying])
 
-  const currentStateConfig = MARKET_STATES.find((s) => s.id === currentState)!;
+  const currentStateConfig = MARKET_STATES.find((s) => s.id === currentState)!
 
   // Precompute static shapes for the four canonical states
   const baseShapes = React.useMemo(() => {
     const get = (id: MarketState) =>
-      MARKET_STATES.find((s) => s.id === id)!.generatePoints(TOTAL_POINTS);
+      MARKET_STATES.find((s) => s.id === id)!.generatePoints(TOTAL_POINTS)
     return {
       stableQuiet: get('stable-quiet'),
       stableVolatile: get('stable-volatile'),
       trendingVolatile: get('trending-volatile'),
       trendingQuiet: get('trending-quiet'),
-    };
-  }, []);
+    }
+  }, [])
 
   // Utility to blend two shapes
   const blendShapes = (a: number[], b: number[], t: number) => {
-    const out: number[] = new Array(Math.min(a.length, b.length));
+    const out: number[] = new Array(Math.min(a.length, b.length))
     for (let i = 0; i < out.length; i++) {
-      out[i] = a[i] + (b[i] - a[i]) * t;
+      out[i] = a[i] + (b[i] - a[i]) * t
     }
-    return out;
-  };
+    return out
+  }
 
   // Compute dynamic cycle shape by morphing through the 4 states in order
   const dynamicPointsAndColor = React.useMemo(() => {
-    const progress = (cycleProgress % 100) / 100; // 0..1
-    const segment = Math.floor(progress * 4); // 0..3
-    const localT = progress * 4 - segment; // 0..1 within segment
+    const progress = (cycleProgress % 100) / 100 // 0..1
+    const segment = Math.floor(progress * 4) // 0..3
+    const localT = progress * 4 - segment // 0..1 within segment
 
     switch (segment) {
       case 0:
@@ -198,77 +196,77 @@ const MarketStatesVisualizer: React.FC = () => {
           points: blendShapes(
             baseShapes.stableQuiet,
             baseShapes.stableVolatile,
-            localT
+            localT,
           ),
           color: MARKET_STATES.find((s) => s.id === 'stable-volatile')!.color,
           label: 'Calm → Storm (Stable & Quiet → Stable & Volatile)',
-        };
+        }
       case 1:
         return {
           points: blendShapes(
             baseShapes.stableVolatile,
             baseShapes.trendingVolatile,
-            localT
+            localT,
           ),
           color: MARKET_STATES.find((s) => s.id === 'trending-volatile')!.color,
           label:
             'Storm Finds Direction (Stable & Volatile → Trending & Volatile)',
-        };
+        }
       case 2:
         return {
           points: blendShapes(
             baseShapes.trendingVolatile,
             baseShapes.trendingQuiet,
-            localT
+            localT,
           ),
           color: MARKET_STATES.find((s) => s.id === 'trending-quiet')!.color,
           label: 'Trend Matures (Trending & Volatile → Trending & Quiet)',
-        };
+        }
       default:
         return {
           points: blendShapes(
             baseShapes.trendingQuiet,
             baseShapes.stableQuiet,
-            localT
+            localT,
           ),
           color: MARKET_STATES.find((s) => s.id === 'stable-quiet')!.color,
           label: 'Exhaustion and Reset (Trending & Quiet → Stable & Quiet)',
-        };
+        }
     }
-  }, [cycleProgress, baseShapes]);
+  }, [cycleProgress, baseShapes])
 
-  const usingDynamic = currentState === 'dynamic-cycle';
+  const usingDynamic = currentState === 'dynamic-cycle'
   const currentPoints = usingDynamic
     ? dynamicPointsAndColor.points
-    : currentStateConfig.generatePoints(TOTAL_POINTS);
+    : currentStateConfig.generatePoints(TOTAL_POINTS)
   const lineColor = usingDynamic
     ? dynamicPointsAndColor.color
-    : currentStateConfig.color;
+    : currentStateConfig.color
 
   // Convert points to SVG path
   const pathData = currentPoints
     .map((y, i) => {
-      const x = (i / TOTAL_POINTS) * (CHART_WIDTH - PADDING * 2) + PADDING;
-      return `${i === 0 ? 'M' : 'L'} ${x} ${y}`;
+      const x = (i / TOTAL_POINTS) * (CHART_WIDTH - PADDING * 2) + PADDING
+      return `${i === 0 ? 'M' : 'L'} ${x} ${y}`
     })
-    .join(' ');
+    .join(' ')
 
   const handleStateChange = (newState: MarketState) => {
-    setCurrentState(newState);
-  };
+    setCurrentState(newState)
+  }
 
   const handleSliderChange = (value: number[]) => {
-    setPlaybackPosition(value[0]);
-    setIsPlaying(false);
-  };
+    setPlaybackPosition(value[0])
+    setIsPlaying(false)
+  }
 
   const resetToStart = () => {
-    setPlaybackPosition(0);
-    setIsPlaying(false);
-  };
+    setPlaybackPosition(0)
+    setIsPlaying(false)
+  }
 
   return (
-    <div className="w-full h-full flex flex-col p-6 gap-4">
+    <div className="w-full h-full flex flex-col p-6 gap-4 overflow-y-auto">
       {/* Header */}
       <div className="text-center mb-2">
         <h3 className="text-lg font-semibold text-white mb-1">
@@ -308,7 +306,7 @@ const MarketStatesVisualizer: React.FC = () => {
       </div>
 
       {/* Chart Visualization */}
-      <div className="flex-1 relative bg-gray-900/50 rounded-lg border border-gray-700/50 p-4">
+      <div className="flex-1 relative bg-gray-900/50 rounded-lg border border-gray-700/50 p-4 min-h-0">
         <svg
           width={CHART_WIDTH}
           height={CHART_HEIGHT}
@@ -368,16 +366,16 @@ const MarketStatesVisualizer: React.FC = () => {
           {/* Playback indicator */}
           {(isPlaying || playbackPosition > 0) &&
             (() => {
-              const ratio = playbackPosition / 100;
-              const floatIndex = ratio * (TOTAL_POINTS - 1);
-              const baseIndex = Math.floor(floatIndex);
-              const t = Math.min(Math.max(floatIndex - baseIndex, 0), 1);
-              const dotX = PADDING + ratio * (CHART_WIDTH - PADDING * 2);
-              const y0 = currentPoints[baseIndex] ?? currentPoints[0];
+              const ratio = playbackPosition / 100
+              const floatIndex = ratio * (TOTAL_POINTS - 1)
+              const baseIndex = Math.floor(floatIndex)
+              const t = Math.min(Math.max(floatIndex - baseIndex, 0), 1)
+              const dotX = PADDING + ratio * (CHART_WIDTH - PADDING * 2)
+              const y0 = currentPoints[baseIndex] ?? currentPoints[0]
               const y1 =
                 currentPoints[Math.min(baseIndex + 1, TOTAL_POINTS - 1)] ??
-                currentPoints[currentPoints.length - 1];
-              const dotY = y0 + (y1 - y0) * t;
+                currentPoints[currentPoints.length - 1]
+              const dotY = y0 + (y1 - y0) * t
               return (
                 <motion.circle
                   cx={dotX}
@@ -391,7 +389,7 @@ const MarketStatesVisualizer: React.FC = () => {
                   }}
                   transition={{ duration: isPlaying ? 0.1 : 0 }}
                 />
-              );
+              )
             })()}
         </svg>
       </div>
@@ -467,7 +465,7 @@ const MarketStatesVisualizer: React.FC = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default MarketStatesVisualizer;
+export default MarketStatesVisualizer

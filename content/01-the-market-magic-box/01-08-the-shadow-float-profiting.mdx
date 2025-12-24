@@ -132,9 +132,9 @@ But there's a critical detail that makes short selling more expensive than it fi
     including dividends.**
   </AlertDescription>
 </Alert>
-Think about it: You borrowed a share and sold it to someone else. But the original
-lender still owns that share on paper. They expect to receive any dividends the company
-pays.
+Think about it: You borrowed a share and sold it to someone else. But the
+original lender still owns that share on paper. They expect to receive any
+dividends the company pays.
 
 **Who pays that dividend?**
 
@@ -401,32 +401,43 @@ This creates what traders call a "<Highlight variant="yellow">thin air rally</Hi
 price jumping without warning, without news, seemingly for no reason.
 But there is a reason: the shadow float was <Highlight variant="yellow">carrying hidden obligations</Highlight> that finally came due.
 
-### <Highlight variant="accent">The Settlement Rules: T+2 and Reg SHO</Highlight>
+### <Highlight variant="accent">The Settlement Rules: T+1 and Reg SHO</Highlight>
 
 In a perfect market, every trade settles cleanly. You buy, the shares arrive in your account.
 You sell, the shares leave. Simple.
 
-But markets operate on a <Highlight variant="blue">settlement delay</Highlight>: T+2 (Trade Date plus 2 business days).
+But markets operate on a <Highlight variant="blue">settlement delay</Highlight>: As of May 28, 2024, the U.S. moved to T+1 (Trade Date plus 1 business day) .
 
-When you buy a stock on Monday, the shares don't technically transfer to your account until Wednesday.
-This creates a <Highlight variant="yellow">gap</Highlight> — a window <Highlight variant="yellow">where things can go wrong</Highlight>.
+When you buy a stock on Monday, the shares transfer to your account by Tuesday — half the time it used to take under the old T+2 system .
+The SEC shortened the settlement cycle to reduce credit, market and liquidity risks,
+but this still creates a <Highlight variant="yellow">gap</Highlight> — a window <Highlight variant="yellow">where things can go wrong</Highlight>.
 
 Now add short selling into the mix:
 
 1\. A short seller borrows shares and sells them<br/>
-2\. The buyer expects delivery within T+2<br/>
+2\. The buyer expects delivery within T+1<br/>
 3\. But what if the short seller (or their broker) can't locate the shares in time?
 
 **That's a Failure to Deliver (FTD).**
 
 <Alert variant="info">
   <AlertDescription>
+    FTDs still occur despite the move to T+1 settlement and Regulation SHO
+    protections. The SEC publishes FTD data twice monthly, showing the
+    cumulative balance of shares that failed to deliver . These failures can
+    happen for various reasons — from technical glitches to administrative
+    errors to high trading volume — not just naked short selling.
+  </AlertDescription>
+</Alert>
+
+<Alert variant="info">
+  <AlertDescription>
     **Regulation SHO** was created by the SEC to combat this problem. It
     requires:
-    <br />→ Broker-dealers must have reasonable belief they can locate shares before
-    shorting <br />→ If an FTD persists for 13 consecutive settlement days (for threshold
-    securities), the broker must close out the position <br />→ Repeated FTDs trigger
-    restrictions on further short selling
+    <br />→ Broker-dealers must have reasonable belief they can locate shares
+    before shorting <br />→ If an FTD persists for 13 consecutive settlement
+    days (for threshold securities), the broker must close out the position{' '}
+    <br />→ Repeated FTDs trigger restrictions on further short selling
   </AlertDescription>
 </Alert>
 
@@ -1146,3 +1157,8 @@ And every breath has <Highlight variant="blue">two directions</Highlight>.
     seeing <strong>strategic intent</strong> behind every move.
   </AlertDescription>
 </Alert>
+
+<VideoPlayer
+  src="https://vz-fe8f190a-980.b-cdn.net/8224d847-5ff1-4420-8c5a-61fefd87ea73/playlist.m3u8"
+  poster="https://vz-fe8f190a-980.b-cdn.net/8224d847-5ff1-4420-8c5a-61fefd87ea73/thumbnail.jpg"
+/>
