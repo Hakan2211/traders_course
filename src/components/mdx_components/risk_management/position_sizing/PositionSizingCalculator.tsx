@@ -1,13 +1,12 @@
-
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react'
 import {
   CalculatorMode,
   CalculatorState,
   CalculationResult,
   RiskScoreItem,
   PortfolioItem,
-} from '../types';
-import { RiskGauge } from './RiskGauge';
+} from '../types'
+import { RiskGauge } from './RiskGauge'
 import {
   LucideShield,
   LucideAlertTriangle,
@@ -17,7 +16,7 @@ import {
   LucideTrendingUp,
   LucideActivity,
   LucideList,
-} from 'lucide-react';
+} from 'lucide-react'
 import {
   LineChart,
   Line,
@@ -25,7 +24,7 @@ import {
   YAxis,
   Tooltip,
   ResponsiveContainer,
-} from 'recharts';
+} from 'recharts'
 
 // --- Constants ---
 const INITIAL_STATE: CalculatorState = {
@@ -39,7 +38,7 @@ const INITIAL_STATE: CalculatorState = {
   rewardRatio: 2,
   kellyFraction: 0.25,
   riskScore: 1.0,
-};
+}
 
 const RISK_CHECKLIST_ITEMS: RiskScoreItem[] = [
   { id: '1', label: 'Trend Aligned (Daily)', checked: true, points: 1 },
@@ -47,86 +46,94 @@ const RISK_CHECKLIST_ITEMS: RiskScoreItem[] = [
   { id: '3', label: 'Volume Confirmation', checked: false, points: 1 },
   { id: '4', label: 'Risk/Reward > 1:2', checked: true, points: 1 },
   { id: '5', label: 'Market Sentiment', checked: false, points: 1 },
-];
+]
 
 export const PositionSizingCalculator: React.FC = () => {
-  const [mode, setMode] = useState<CalculatorMode>('BASIC');
-  const [inputs, setInputs] = useState<CalculatorState>(INITIAL_STATE);
+  const [mode, setMode] = useState<CalculatorMode>('BASIC')
+  const [inputs, setInputs] = useState<CalculatorState>(INITIAL_STATE)
   const [checklist, setChecklist] =
-    useState<RiskScoreItem[]>(RISK_CHECKLIST_ITEMS);
-  const [portfolio, setPortfolio] = useState<PortfolioItem[]>([]);
+    useState<RiskScoreItem[]>(RISK_CHECKLIST_ITEMS)
+  const [portfolio, setPortfolio] = useState<PortfolioItem[]>([])
 
   // Update inputs helper
   const updateInput = (key: keyof CalculatorState, value: number) => {
-    setInputs((prev) => ({ ...prev, [key]: value }));
-  };
+    setInputs((prev) => ({ ...prev, [key]: value }))
+  }
 
   // Toggle checklist item
   const toggleChecklist = (id: string) => {
     setChecklist((prev) =>
       prev.map((item) =>
-        item.id === id ? { ...item, checked: !item.checked } : item
-      )
-    );
-  };
+        item.id === id ? { ...item, checked: !item.checked } : item,
+      ),
+    )
+  }
 
   // --- Logic ---
 
   // Calculate Risk Score Multiplier
   const riskScoreMultiplier = useMemo(() => {
-    const totalPoints = checklist.length;
-    const checkedPoints = checklist.filter((i) => i.checked).length;
-    const ratio = checkedPoints / totalPoints;
+    const totalPoints = checklist.length
+    const checkedPoints = checklist.filter((i) => i.checked).length
+    const ratio = checkedPoints / totalPoints
 
     // Simple grading logic
-    if (ratio >= 0.8) return 1.0; // A Grade
-    if (ratio >= 0.6) return 0.75; // B Grade
-    if (ratio >= 0.4) return 0.5; // C Grade
-    return 0.0; // D Grade
-  }, [checklist]);
+    if (ratio >= 0.8) return 1.0 // A Grade
+    if (ratio >= 0.6) return 0.75 // B Grade
+    if (ratio >= 0.4) return 0.5 // C Grade
+    return 0.0 // D Grade
+  }, [checklist])
 
   // Main Calculation Effect
   const result: CalculationResult = useMemo(() => {
-    let effectiveRiskPercent = inputs.riskPercent;
-    let stopDistance = Math.abs(inputs.entryPrice - inputs.stopLoss);
+    let effectiveRiskPercent = inputs.riskPercent
+    let stopDistance = Math.abs(inputs.entryPrice - inputs.stopLoss)
 
     // Mode Overrides
     if (mode === 'ATR') {
-      stopDistance = inputs.atrValue * inputs.atrMultiplier;
+      stopDistance = inputs.atrValue * inputs.atrMultiplier
       // In ATR mode, stop loss visual is derived, but calculation uses distance
     } else if (mode === 'KELLY') {
-      const w = inputs.winRate / 100;
-      const r = inputs.rewardRatio;
+      const w = inputs.winRate / 100
+      const r = inputs.rewardRatio
       // Kelly % = W - (1-W)/R
-      const fullKelly = w - (1 - w) / r;
+      const fullKelly = w - (1 - w) / r
       // Ensure not negative
-      const k = Math.max(0, fullKelly) * 100;
-      effectiveRiskPercent = k * inputs.kellyFraction;
+      const k = Math.max(0, fullKelly) * 100
+      effectiveRiskPercent = k * inputs.kellyFraction
     } else if (mode === 'SCORE') {
-      effectiveRiskPercent = inputs.riskPercent * riskScoreMultiplier;
+      effectiveRiskPercent = inputs.riskPercent * riskScoreMultiplier
     }
 
-    const riskAmount = inputs.accountSize * (effectiveRiskPercent / 100);
+    const riskAmount = inputs.accountSize * (effectiveRiskPercent / 100)
 
     // Avoid division by zero
     const positionSize =
-      stopDistance > 0 ? Math.floor(riskAmount / stopDistance) : 0;
-    const totalPositionValue = positionSize * inputs.entryPrice;
+      stopDistance > 0 ? Math.floor(riskAmount / stopDistance) : 0
+    const totalPositionValue = positionSize * inputs.entryPrice
     const leverageUsed =
-      inputs.accountSize > 0 ? totalPositionValue / inputs.accountSize : 0;
+      inputs.accountSize > 0 ? totalPositionValue / inputs.accountSize : 0
 
-    let riskLevel: CalculationResult['riskLevel'] = 'SAFE';
-    let message = 'Professional risk management.';
+    let riskLevel: CalculationResult['riskLevel'] = 'SAFE'
+    let message = 'Professional risk management.'
 
     if (effectiveRiskPercent > 10) {
-      riskLevel = 'RUIN';
-      message = 'IMMINENT ACCOUNT DESTRUCTION.';
+      riskLevel = 'RUIN'
+      message = 'IMMINENT ACCOUNT DESTRUCTION.'
     } else if (effectiveRiskPercent > 5) {
-      riskLevel = 'DANGER';
-      message = 'High risk of ruin. Reduce immediately.';
+      if (mode === 'KELLY') {
+        riskLevel = 'AGGRESSIVE'
+        message = 'Kelly Optimal: High growth, high volatility.'
+      } else if (mode === 'SCORE') {
+        riskLevel = 'AGGRESSIVE'
+        message = 'High conviction setup. Ensure risk is accepted.'
+      } else {
+        riskLevel = 'DANGER'
+        message = 'High risk of ruin. Reduce immediately.'
+      }
     } else if (effectiveRiskPercent > 2) {
-      riskLevel = 'CAUTION';
-      message = 'Elevated risk. Drawdowns will be painful.';
+      riskLevel = 'CAUTION'
+      message = 'Elevated risk. Drawdowns will be painful.'
     }
 
     return {
@@ -137,33 +144,30 @@ export const PositionSizingCalculator: React.FC = () => {
       stopDistance,
       riskLevel,
       message,
-    };
-  }, [inputs, mode, checklist, riskScoreMultiplier]);
+    }
+  }, [inputs, mode, checklist, riskScoreMultiplier])
 
   // Portfolio Heat Calculation
-  const currentHeat = portfolio.reduce(
-    (sum, item) => sum + item.percentRisk,
-    0
-  );
+  const currentHeat = portfolio.reduce((sum, item) => sum + item.percentRisk, 0)
   const projectedHeat =
-    currentHeat + (result.riskAmount / inputs.accountSize) * 100;
+    currentHeat + (result.riskAmount / inputs.accountSize) * 100
 
   // Chart Data (Drawdown Simulation)
   const chartData = useMemo(() => {
-    const data = [];
-    let balance = inputs.accountSize;
-    const riskP = result.riskAmount / inputs.accountSize;
+    const data = []
+    let balance = inputs.accountSize
+    const riskP = result.riskAmount / inputs.accountSize
 
     // Simulate 10 consecutive losses
     for (let i = 0; i <= 10; i++) {
       data.push({
         trade: i,
         balance: Math.round(balance),
-      });
-      balance = balance - balance * riskP;
+      })
+      balance = balance - balance * riskP
     }
-    return data;
-  }, [inputs.accountSize, result.riskAmount]);
+    return data
+  }, [inputs.accountSize, result.riskAmount])
 
   // --- Render Helpers ---
 
@@ -183,33 +187,35 @@ export const PositionSizingCalculator: React.FC = () => {
         </button>
       ))}
     </div>
-  );
+  )
 
   const getRiskColor = (level: string) => {
     switch (level) {
       case 'SAFE':
-        return 'text-green-500';
+        return 'text-green-500'
       case 'CAUTION':
-        return 'text-yellow-500';
+        return 'text-yellow-500'
       case 'DANGER':
-        return 'text-red-500';
+        return 'text-red-500'
       case 'RUIN':
-        return 'text-red-600 animate-pulse';
+        return 'text-red-600 animate-pulse'
+      case 'AGGRESSIVE':
+        return 'text-purple-500'
       default:
-        return 'text-gray-500';
+        return 'text-gray-500'
     }
-  };
+  }
 
   const addTradeToPortfolio = () => {
-    if (projectedHeat > 10) return; // Prevent suicide
+    if (projectedHeat > 10) return // Prevent suicide
     const newItem: PortfolioItem = {
       id: Date.now().toString(),
       symbol: `Trade ${portfolio.length + 1}`,
       riskAmount: result.riskAmount,
       percentRisk: (result.riskAmount / inputs.accountSize) * 100,
-    };
-    setPortfolio([...portfolio, newItem]);
-  };
+    }
+    setPortfolio([...portfolio, newItem])
+  }
 
   return (
     <div className="bg-gray-800 border border-gray-700 rounded-xl shadow-2xl overflow-hidden flex flex-col">
@@ -418,6 +424,11 @@ export const PositionSizingCalculator: React.FC = () => {
         <div className="mb-6 bg-gray-900 rounded-lg p-4 border border-gray-700 shadow-inner">
           <RiskGauge
             riskPercent={(result.riskAmount / inputs.accountSize) * 100}
+            customStatus={
+              result.riskLevel === 'AGGRESSIVE'
+                ? { label: 'AGGRESSIVE', color: '#a855f7' }
+                : undefined
+            }
           />
         </div>
 
@@ -427,13 +438,15 @@ export const PositionSizingCalculator: React.FC = () => {
             result.riskLevel === 'SAFE'
               ? 'bg-green-900/20 border-green-500'
               : result.riskLevel === 'CAUTION'
-              ? 'bg-yellow-900/20 border-yellow-500'
-              : 'bg-red-900/20 border-red-500'
+                ? 'bg-yellow-900/20 border-yellow-500'
+                : result.riskLevel === 'AGGRESSIVE'
+                  ? 'bg-purple-900/20 border-purple-500'
+                  : 'bg-red-900/20 border-red-500'
           }`}
         >
           <h4
             className={`text-sm font-bold uppercase mb-1 ${getRiskColor(
-              result.riskLevel
+              result.riskLevel,
             )} flex items-center`}
           >
             {result.riskLevel === 'SAFE' && (
@@ -444,6 +457,9 @@ export const PositionSizingCalculator: React.FC = () => {
             )}
             {(result.riskLevel === 'DANGER' || result.riskLevel === 'RUIN') && (
               <LucideSkull className="w-4 h-4 mr-2" />
+            )}
+            {result.riskLevel === 'AGGRESSIVE' && (
+              <LucideTrendingUp className="w-4 h-4 mr-2" />
             )}
             {result.riskLevel} LEVEL
           </h4>
@@ -535,8 +551,8 @@ export const PositionSizingCalculator: React.FC = () => {
                 projectedHeat > 10
                   ? 'text-red-500'
                   : projectedHeat > 6
-                  ? 'text-yellow-500'
-                  : 'text-blue-500'
+                    ? 'text-yellow-500'
+                    : 'text-blue-500'
               }`}
             >
               {projectedHeat.toFixed(2)}% / 10%
@@ -557,7 +573,7 @@ export const PositionSizingCalculator: React.FC = () => {
                 width: `${
                   Math.min(
                     (result.riskAmount / inputs.accountSize) * 100,
-                    100
+                    100,
                   ) * 10
                 }%`,
               }}
@@ -573,5 +589,5 @@ export const PositionSizingCalculator: React.FC = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}

@@ -1,25 +1,32 @@
-import React from 'react';
+import React from 'react'
 
 interface RiskGaugeProps {
-  riskPercent: number;
+  riskPercent: number
+  customStatus?: { label: string; color: string }
 }
 
-export const RiskGauge: React.FC<RiskGaugeProps> = ({ riskPercent }) => {
+export const RiskGauge: React.FC<RiskGaugeProps> = ({
+  riskPercent,
+  customStatus,
+}) => {
   // Gauge range: 0% to 10%
   // Angle range: -90deg to 90deg
-  const maxRisk = 10;
-  const clampedRisk = Math.min(Math.max(riskPercent, 0), maxRisk);
-  const rotation = (clampedRisk / maxRisk) * 180 - 90;
+  const maxRisk = 10
+  const clampedRisk = Math.min(Math.max(riskPercent, 0), maxRisk)
+  const rotation = (clampedRisk / maxRisk) * 180 - 90
 
-  let statusColor = '#22c55e'; // Green
-  let statusText = 'SAFE';
+  let statusColor = '#22c55e' // Green
+  let statusText = 'SAFE'
 
-  if (riskPercent > 2 && riskPercent <= 5) {
-    statusColor = '#eab308'; // Yellow
-    statusText = 'CAUTION';
+  if (customStatus) {
+    statusColor = customStatus.color
+    statusText = customStatus.label
+  } else if (riskPercent > 2 && riskPercent <= 5) {
+    statusColor = '#eab308' // Yellow
+    statusText = 'CAUTION'
   } else if (riskPercent > 5) {
-    statusColor = '#ef4444'; // Red
-    statusText = 'DANGER';
+    statusColor = '#ef4444' // Red
+    statusText = 'DANGER'
   }
 
   return (
@@ -87,5 +94,5 @@ export const RiskGauge: React.FC<RiskGaugeProps> = ({ riskPercent }) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
