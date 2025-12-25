@@ -16,7 +16,7 @@ const config = defineConfig({
     mdx({
       remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter, remarkGfm],
     }),
-    devtools(),
+    // devtools(),
     nitro({
       rollupConfig: {
         external: [],

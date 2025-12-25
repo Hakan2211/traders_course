@@ -1,49 +1,48 @@
-
-import React, { useState, useEffect, useRef } from 'react';
-import { GameScene } from './GameScene';
-import { performFlip, formatMoney } from './logic';
-import { GameState, CONSTANTS, FlipResult } from './types';
-import { CanvasWrapper } from '@/components/mdx_components/canvas3d/canvasWrapper';
-import { Button } from '@/components/ui/button';
-import { Slider } from '@/components/ui/slider';
-import { Card } from '@/components/ui/card';
-import { Play, RotateCcw } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react'
+import { GameScene } from './GameScene'
+import { performFlip, formatMoney } from './logic'
+import { GameState, CONSTANTS, FlipResult } from './types'
+import { CanvasWrapper } from '@/components/mdx_components/canvas3d/canvasWrapper'
+import { Button } from '@/components/ui/button'
+import { Slider } from '@/components/ui/slider'
+import { Card } from '@/components/ui/card'
+import { Play, RotateCcw } from 'lucide-react'
 
 export const CoinFlipGame = () => {
   const [gameState, setGameState] = useState<GameState>({
     capital: CONSTANTS.STARTING_CAPITAL,
-    betSize: 10,
+    betSize: 100,
     history: [],
     isFlipping: false,
     flipsRemaining: 100, // Optional limit
     expectedArithmetic: CONSTANTS.STARTING_CAPITAL,
     gameStatus: 'idle',
-  });
+  })
 
-  const [lastResult, setLastResult] = useState<FlipResult | null>(null);
+  const [lastResult, setLastResult] = useState<FlipResult | null>(null)
 
   const handleFlip = () => {
-    if (gameState.isFlipping || gameState.capital <= 0) return;
+    if (gameState.isFlipping || gameState.capital <= 0) return
 
     // Start Flip Animation
     setGameState((prev) => ({
       ...prev,
       isFlipping: true,
       gameStatus: 'playing',
-    }));
+    }))
 
     // Calculate result immediately but wait to show it
-    const nextId = gameState.history.length + 1;
+    const nextId = gameState.history.length + 1
     const result = performFlip(
       gameState.capital,
       gameState.betSize,
       gameState.expectedArithmetic,
-      nextId
-    );
+      nextId,
+    )
 
     // Wait for animation
     setTimeout(() => {
-      setLastResult(result);
+      setLastResult(result)
       setGameState((prev) => ({
         ...prev,
         capital: result.capitalAfter,
@@ -51,26 +50,26 @@ export const CoinFlipGame = () => {
         history: [...prev.history, result],
         isFlipping: false,
         flipsRemaining: prev.flipsRemaining - 1,
-      }));
-    }, CONSTANTS.ANIMATION_DURATION_MS);
-  };
+      }))
+    }, CONSTANTS.ANIMATION_DURATION_MS)
+  }
 
   const resetGame = () => {
     setGameState({
       capital: CONSTANTS.STARTING_CAPITAL,
-      betSize: 10,
+      betSize: 100,
       history: [],
       isFlipping: false,
       flipsRemaining: 100,
       expectedArithmetic: CONSTANTS.STARTING_CAPITAL,
       gameStatus: 'idle',
-    });
-    setLastResult(null);
-  };
+    })
+    setLastResult(null)
+  }
 
   const handleBetSizeChange = (value: number[]) => {
-    setGameState((prev) => ({ ...prev, betSize: value[0] }));
-  };
+    setGameState((prev) => ({ ...prev, betSize: value[0] }))
+  }
 
   return (
     <div className="flex flex-col space-y-6 my-8">
@@ -81,6 +80,7 @@ export const CoinFlipGame = () => {
             height="100%"
             cameraSettings={{ position: [0, 3, 10], fov: 45 }}
             enableControls={true}
+            enableEnvironment={false}
           >
             <GameScene gameState={gameState} currentResult={lastResult} />
           </CanvasWrapper>
@@ -235,5 +235,5 @@ export const CoinFlipGame = () => {
         </Card>
       )}
     </div>
-  );
-};
+  )
+}

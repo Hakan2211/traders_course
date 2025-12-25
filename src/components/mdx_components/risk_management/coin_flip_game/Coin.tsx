@@ -1,37 +1,36 @@
-
-import React, { useRef, useMemo } from 'react';
-import { useFrame } from '@react-three/fiber';
-import { Text } from '@react-three/drei';
-import * as THREE from 'three';
-import { CoinSide } from './types';
+import React, { useRef, useMemo } from 'react'
+import { useFrame } from '@react-three/fiber'
+import { Text } from '@react-three/drei'
+import * as THREE from 'three'
+import { CoinSide } from './types'
 
 declare global {
   namespace JSX {
     interface IntrinsicElements {
-      group: any;
-      mesh: any;
-      cylinderGeometry: any;
-      primitive: any;
-      meshStandardMaterial: any;
-      ambientLight: any;
-      spotLight: any;
-      planeGeometry: any;
-      boxGeometry: any;
+      group: any
+      mesh: any
+      cylinderGeometry: any
+      primitive: any
+      meshStandardMaterial: any
+      ambientLight: any
+      spotLight: any
+      planeGeometry: any
+      boxGeometry: any
     }
   }
 }
 
 interface CoinProps {
-  isFlipping: boolean;
-  result: CoinSide | null;
-  onLand?: () => void;
+  isFlipping: boolean
+  result: CoinSide | null
+  onLand?: () => void
 }
 
 export const Coin: React.FC<CoinProps> = ({ isFlipping, result, onLand }) => {
-  const groupRef = useRef<THREE.Group>(null);
-  const timeRef = useRef(0);
-  const startY = 1.0; // Hover slightly above table
-  const flipHeight = 4;
+  const groupRef = useRef<THREE.Group>(null)
+  const timeRef = useRef(0)
+  const startY = 1.0 // Hover slightly above table
+  const flipHeight = 4
 
   // Materials
   const goldParams = {
@@ -39,13 +38,13 @@ export const Coin: React.FC<CoinProps> = ({ isFlipping, result, onLand }) => {
     metalness: 1,
     roughness: 0.3,
     envMapIntensity: 1.5,
-  };
+  }
 
   const edgeParams = {
     color: '#B8860B',
     metalness: 1,
     roughness: 0.5,
-  };
+  }
 
   const textMaterial = useMemo(
     () =>
@@ -54,65 +53,65 @@ export const Coin: React.FC<CoinProps> = ({ isFlipping, result, onLand }) => {
         metalness: 0.5,
         roughness: 0.8,
       }),
-    []
-  );
+    [],
+  )
 
   useFrame((state, delta) => {
-    if (!groupRef.current) return;
+    if (!groupRef.current) return
 
     if (isFlipping) {
-      timeRef.current += delta * 1.5; // Speed of flip animation
+      timeRef.current += delta * 1.5 // Speed of flip animation
 
-      const t = timeRef.current;
+      const t = timeRef.current
 
       // Vertical Motion (Parabola)
       // Simple physics sim: up and down
-      const y = startY + Math.sin(t * Math.PI) * flipHeight;
+      const y = startY + Math.sin(t * Math.PI) * flipHeight
 
       // Rotation (Spin)
       // Spin fast on X axis
-      const rotX = t * Math.PI * 10;
+      const rotX = t * Math.PI * 10
 
       // Wobble slightly on Z
-      const rotZ = Math.sin(t * 10) * 0.2;
+      const rotZ = Math.sin(t * 10) * 0.2
 
-      groupRef.current.position.y = Math.max(startY, y);
-      groupRef.current.rotation.x = rotX;
-      groupRef.current.rotation.z = rotZ;
+      groupRef.current.position.y = Math.max(startY, y)
+      groupRef.current.rotation.x = rotX
+      groupRef.current.rotation.z = rotZ
     } else if (result) {
       // Landing animation / Settle
-      const baseTarget = result === CoinSide.HEADS ? 0 : Math.PI;
+      const baseTarget = result === CoinSide.HEADS ? 0 : Math.PI
 
       // Smoothly interpolate to landing position
       // Reset position to table
       groupRef.current.position.y = THREE.MathUtils.lerp(
         groupRef.current.position.y,
         startY,
-        0.1
-      );
+        0.1,
+      )
 
       // Smart rotation settling: find the closest multiple of 2PI to the current rotation
       // that matches the target orientation (0 or PI)
-      const currentX = groupRef.current.rotation.x;
-      const k = Math.round((currentX - baseTarget) / (Math.PI * 2));
-      const finalTarget = baseTarget + k * (Math.PI * 2);
+      const currentX = groupRef.current.rotation.x
+      const k = Math.round((currentX - baseTarget) / (Math.PI * 2))
+      const finalTarget = baseTarget + k * (Math.PI * 2)
 
       groupRef.current.rotation.x = THREE.MathUtils.lerp(
         currentX,
         finalTarget,
-        0.1
-      );
+        0.1,
+      )
 
       groupRef.current.rotation.z = THREE.MathUtils.lerp(
         groupRef.current.rotation.z,
         0,
-        0.1
-      );
+        0.1,
+      )
 
       // Reset time for next flip
-      timeRef.current = 0;
+      timeRef.current = 0
     }
-  });
+  })
 
   return (
     <group ref={groupRef} position={[0, startY, 0]}>
@@ -131,7 +130,6 @@ export const Coin: React.FC<CoinProps> = ({ isFlipping, result, onLand }) => {
         <Text
           position={[0, 0.3, 0]}
           fontSize={0.35}
-          font="https://fonts.gstatic.com/s/playfairdisplay/v30/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKdFvXDXbtM.woff"
           anchorX="center"
           anchorY="middle"
           material={textMaterial}
@@ -141,7 +139,6 @@ export const Coin: React.FC<CoinProps> = ({ isFlipping, result, onLand }) => {
         <Text
           position={[0, -0.3, 0]}
           fontSize={0.2}
-          font="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hjp-Ek-_EeA.woff"
           anchorX="center"
           anchorY="middle"
           material={textMaterial}
@@ -155,7 +152,6 @@ export const Coin: React.FC<CoinProps> = ({ isFlipping, result, onLand }) => {
         <Text
           position={[0, 0.3, 0]}
           fontSize={0.35}
-          font="https://fonts.gstatic.com/s/playfairdisplay/v30/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKdFvXDXbtM.woff"
           anchorX="center"
           anchorY="middle"
           material={textMaterial}
@@ -165,7 +161,6 @@ export const Coin: React.FC<CoinProps> = ({ isFlipping, result, onLand }) => {
         <Text
           position={[0, -0.3, 0]}
           fontSize={0.2}
-          font="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hjp-Ek-_EeA.woff"
           anchorX="center"
           anchorY="middle"
           material={textMaterial}
@@ -174,5 +169,5 @@ export const Coin: React.FC<CoinProps> = ({ isFlipping, result, onLand }) => {
         </Text>
       </group>
     </group>
-  );
-};
+  )
+}
