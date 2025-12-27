@@ -1055,6 +1055,12 @@ const Signature = dynamic(
   { ssr: false },
 )
 
+const WebsiteSetupGuide = dynamic(
+  () =>
+    import('@/components/mdx_components/personal_website/WebsiteSetupGuide'),
+  { ssr: false },
+)
+
 const COMPONENT_MAP = {
   h1: (props) => <BlogHeading level={1} {...props} />,
   h2: (props) => <BlogHeading level={2} {...props} />,
@@ -1299,6 +1305,7 @@ const COMPONENT_MAP = {
   Fish,
   Salad,
   Beef,
+  WebsiteSetupGuide,
 }
 
 export default COMPONENT_MAP
