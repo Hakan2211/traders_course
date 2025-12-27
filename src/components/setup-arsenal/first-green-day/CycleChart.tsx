@@ -1,18 +1,18 @@
-
-import React, { useRef, useEffect, useState } from 'react';
-import p5 from 'p5';
+import React, { useRef, useState, useCallback } from 'react'
+import type p5 from 'p5'
+import P5Sketch from '@/components/mdx_components/2d_environment/p5Sketch/p5SketchContainer'
 
 // Type definition for the data points used in the visualization
 interface CandleData {
-  day: number;
-  type: 'green' | 'red' | 'frd' | 'fgd';
-  o: number; // open
-  c: number; // close
-  h: number; // high
-  l: number; // low
-  vol: number; // volume
-  ma: number; // moving average value for this day
-  note?: string; // narrative note
+  day: number
+  type: 'green' | 'red' | 'frd' | 'fgd'
+  o: number // open
+  c: number // close
+  h: number // high
+  l: number // low
+  vol: number // volume
+  ma: number // moving average value for this day
+  note?: string // narrative note
 }
 
 const CYCLE_DATA: CandleData[] = [
@@ -115,211 +115,188 @@ const CYCLE_DATA: CandleData[] = [
     ma: 18,
     note: 'Day 9: FIRST GREEN DAY. Oversold bounce initiated.',
   },
-];
+]
 
 export const CycleChart: React.FC = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const p5InstanceRef = useRef<p5 | null>(null);
-
   // Use a ref to store the current step for p5 to read synchronously
-  const stepRef = useRef(0);
-  const [currentStep, setCurrentStep] = useState(0);
+  const stepRef = useRef(0)
+  const [currentStep, setCurrentStep] = useState(0)
 
   // Function to update the step
   const handleStepChange = (val: number) => {
-    setCurrentStep(val);
-    stepRef.current = val;
-  };
+    setCurrentStep(val)
+    stepRef.current = val
+  }
 
-  useEffect(() => {
-    if (!containerRef.current) return;
+  const sketch = useCallback((p: p5, parentEl: HTMLDivElement) => {
+    // Get dimensions from parent element
+    let width = parentEl.clientWidth || 800
+    let height = parentEl.clientHeight || 450
 
-    const sketch = (p: p5) => {
-      const canvasWidth = 800;
-      const canvasHeight = 450;
+    // Layout constants - these will be recalculated based on actual dimensions
+    const candleWidth = 20
+    let spacing = (width - 100) / 9
+    const startX = 60
+    const chartTop = 40
+    let chartBottom = height - 100
 
-      // Layout constants
-      const candleWidth = 20;
-      const spacing = (canvasWidth - 100) / 9; // Distribute across width
-      const startX = 60;
-      const chartTop = 40;
-      const chartBottom = canvasHeight - 100; // Leave room for volume
+    // Helper to map price to Y coordinate
+    const getPriceY = (price: number) => {
+      return p.map(price, 0, 40, chartBottom, chartTop)
+    }
 
-      // Helper to map price to Y coordinate
-      const getPriceY = (price: number) => {
-        // Price range roughly 0 to 40
-        return p.map(price, 0, 40, chartBottom, chartTop);
-      };
+    p.setup = () => {
+      p.createCanvas(width, height)
+      p.frameRate(30)
+      p.textFont('sans-serif')
+    }
 
-      p.setup = () => {
-        const canvas = p.createCanvas(canvasWidth, canvasHeight);
-        canvas.parent(containerRef.current!);
-        // Ensure the canvas is responsive via CSS, but p5 internal resolution is fixed
-        canvas.style('width', '100%');
-        canvas.style('height', 'auto');
+    p.draw = () => {
+      const step = stepRef.current
 
-        // Initial render settings
-        p.textFont('sans-serif');
-      };
+      // Safety check
+      if (typeof step !== 'number') return
 
-      p.draw = () => {
-        // Read the current step from the Ref (always up-to-date)
-        const step = stepRef.current;
+      // Clear and draw background
+      p.background(17, 24, 39)
 
-        p.background(17, 24, 39); // Tailwind gray-900 match
+      // --- Draw Grid & Axes ---
+      p.stroke(55, 65, 81)
+      p.strokeWeight(1)
+      for (let i = 0; i <= 40; i += 10) {
+        const y = getPriceY(i)
+        p.line(40, y, p.width - 20, y)
+        p.noStroke()
+        p.fill(107, 114, 128)
+        p.textSize(10)
+        p.textAlign(p.RIGHT, p.CENTER)
+        p.text(`$${i}`, 35, y)
+        p.stroke(55, 65, 81)
+      }
 
-        // --- Draw Grid & Axes ---
-        p.stroke(55, 65, 81); // gray-700
-        p.strokeWeight(1);
-        // Horizontal grid lines
-        for (let i = 0; i <= 40; i += 10) {
-          const y = getPriceY(i);
-          p.line(40, y, p.width - 20, y);
-          p.noStroke();
-          p.fill(107, 114, 128); // gray-500
-          p.textSize(10);
-          p.textAlign(p.RIGHT, p.CENTER);
-          p.text(`$${i}`, 35, y);
-          p.stroke(55, 65, 81); // restore stroke
+      // Volume separator line
+      p.stroke(75, 85, 99)
+      p.line(40, chartBottom + 10, p.width - 20, chartBottom + 10)
+
+      // --- Draw Moving Average Line ---
+      if (step >= 0 && CYCLE_DATA.length > 0) {
+        p.noFill()
+        p.stroke(250, 204, 21)
+        p.strokeWeight(2)
+        p.beginShape()
+        for (let i = 0; i <= step && i < CYCLE_DATA.length; i++) {
+          const d = CYCLE_DATA[i]
+          const x = startX + i * spacing
+          const y = getPriceY(d.ma)
+          // Use vertex instead of curveVertex for p5.js 2.0 compatibility
+          p.vertex(x, y)
         }
-
-        // Volume separator line
-        p.stroke(75, 85, 99);
-        p.line(40, chartBottom + 10, p.width - 20, chartBottom + 10);
-
-        // --- Draw Moving Average ---
-        p.noFill();
-        p.stroke(250, 204, 21); // Tailwind yellow-400
-        p.strokeWeight(2);
-        p.beginShape();
-        for (let i = 0; i <= step; i++) {
-          const d = CYCLE_DATA[i];
-          const x = startX + i * spacing;
-          const y = getPriceY(d.ma);
-          p.curveVertex(x, y);
-          // Duplicate start/end points for catmull-rom spline control
-          if (i === 0) p.curveVertex(x, y);
-          if (i === step) p.curveVertex(x, y);
-        }
-        p.endShape();
+        p.endShape()
 
         // Label MA
-        if (step >= 0) {
-          const lastData = CYCLE_DATA[step];
-          const maX = startX + step * spacing;
-          const maY = getPriceY(lastData.ma);
-          p.noStroke();
-          p.fill(250, 204, 21);
-          p.textSize(10);
-          p.textAlign(p.LEFT, p.BOTTOM);
-          p.text('20 EMA', maX + 5, maY - 5);
+        if (step < CYCLE_DATA.length) {
+          const lastData = CYCLE_DATA[step]
+          const maX = startX + step * spacing
+          const maY = getPriceY(lastData.ma)
+          p.noStroke()
+          p.fill(250, 204, 21)
+          p.textSize(10)
+          p.textAlign(p.LEFT, p.BOTTOM)
+          p.text('20 EMA', maX + 5, maY - 5)
         }
+      }
 
-        // --- Draw Candles & Volume ---
-        for (let i = 0; i <= step; i++) {
-          const d = CYCLE_DATA[i];
-          const x = startX + i * spacing;
+      // --- Draw Candles & Volume ---
+      for (let i = 0; i <= step && i < CYCLE_DATA.length; i++) {
+        const d = CYCLE_DATA[i]
+        const x = startX + i * spacing
 
-          const openY = getPriceY(d.o);
-          const closeY = getPriceY(d.c);
-          const highY = getPriceY(d.h);
-          const lowY = getPriceY(d.l);
+        const openY = getPriceY(d.o)
+        const closeY = getPriceY(d.c)
+        const highY = getPriceY(d.h)
+        const lowY = getPriceY(d.l)
 
-          const isUp = d.c >= d.o;
-          const color = isUp ? p.color(34, 197, 94) : p.color(239, 68, 68); // green-500 : red-500
+        const isUp = d.c >= d.o
+        const r = isUp ? 34 : 239
+        const g = isUp ? 197 : 68
+        const b = isUp ? 94 : 68
 
-          p.stroke(color);
-          p.strokeWeight(1.5);
+        // Draw candle wick
+        p.stroke(r, g, b)
+        p.strokeWeight(1.5)
+        p.line(x, highY, x, lowY)
 
-          // Wick
-          p.line(x, highY, x, lowY);
+        // Draw candle body
+        p.fill(r, g, b)
+        p.noStroke()
+        const bodyTop = Math.min(openY, closeY)
+        const bodyBot = Math.max(openY, closeY)
+        const bodyHeight = Math.max(1, bodyBot - bodyTop)
+        p.rect(x - candleWidth / 2, bodyTop, candleWidth, bodyHeight)
 
-          // Body
-          p.rectMode(p.CORNERS);
-          p.fill(color);
-          // Ensure min height for doji
-          const bodyTop = Math.min(openY, closeY);
-          const bodyBot =
-            Math.max(openY, closeY) === bodyTop
-              ? bodyTop + 1
-              : Math.max(openY, closeY);
-          p.rect(x - candleWidth / 2, bodyTop, x + candleWidth / 2, bodyBot);
+        // Draw volume bar
+        const volMaxHeight = 80
+        const volHeight = p.map(d.vol, 0, 150, 0, volMaxHeight)
+        const volY = height - 10
 
-          // Volume
-          // Map volume 0-150 to a height of about 80px
-          const volMaxHeight = 80;
-          const volHeight = p.map(d.vol, 0, 150, 0, volMaxHeight);
-
-          p.noStroke();
-          // Highlight volume on climax days
-          if (i === 3 || i === 7) {
-            p.fill(253, 224, 71); // yellow-300 for climax
-          } else {
-            p.fill(color);
-            // Make volume slightly transparent
-            const c = p.color(isUp ? '#22c55e' : '#ef4444');
-            c.setAlpha(150);
-            p.fill(c);
-          }
-
-          p.rectMode(p.CORNER);
-          const volY = canvasHeight - 10;
-          p.rect(x - candleWidth / 2, volY, candleWidth, -volHeight);
-
-          // Labels
-          p.fill(156, 163, 175); // gray-400
-          p.textAlign(p.CENTER, p.TOP);
-          p.textSize(11);
-          p.text(`Day ${d.day}`, x, volY + 5);
+        // Highlight volume on climax days
+        if (i === 3 || i === 7) {
+          p.fill(253, 224, 71)
+        } else {
+          p.fill(r, g, b, 150)
         }
+        p.rect(x - candleWidth / 2, volY - volHeight, candleWidth, volHeight)
 
-        // --- Annotations (Dynamic overlays) ---
-        const currentData = CYCLE_DATA[step];
-        const cx = startX + step * spacing;
+        // Day labels
+        p.fill(156, 163, 175)
+        p.textAlign(p.CENTER, p.TOP)
+        p.textSize(11)
+        p.text(`Day ${d.day}`, x, volY + 5)
+      }
 
-        // Entry markers
+      // --- Annotations (Entry markers) ---
+      if (step >= 0 && step < CYCLE_DATA.length) {
+        const currentData = CYCLE_DATA[step]
+        const cx = startX + step * spacing
+
         if (currentData.type === 'frd') {
-          const highY = getPriceY(currentData.h);
-          p.fill(239, 68, 68);
-          p.noStroke();
-          p.triangle(cx, highY - 10, cx - 6, highY - 20, cx + 6, highY - 20);
-          p.textAlign(p.CENTER, p.BOTTOM);
-          p.textSize(12);
-          p.textStyle(p.BOLD);
-          p.text('SHORT ENTRY', cx, highY - 22);
+          const highY = getPriceY(currentData.h)
+          p.fill(239, 68, 68)
+          p.noStroke()
+          p.triangle(cx, highY - 10, cx - 6, highY - 20, cx + 6, highY - 20)
+          p.textAlign(p.CENTER, p.BOTTOM)
+          p.textSize(12)
+          p.textStyle(p.BOLD)
+          p.text('SHORT ENTRY', cx, highY - 22)
         }
 
         if (currentData.type === 'fgd') {
-          const lowY = getPriceY(currentData.l);
-          p.fill(34, 197, 94);
-          p.noStroke();
-          p.triangle(cx, lowY + 10, cx - 6, lowY + 20, cx + 6, lowY + 20);
-          p.textAlign(p.CENTER, p.TOP);
-          p.textSize(12);
-          p.textStyle(p.BOLD);
-          p.text('LONG ENTRY', cx, lowY + 22);
+          const lowY = getPriceY(currentData.l)
+          p.fill(34, 197, 94)
+          p.noStroke()
+          p.triangle(cx, lowY + 10, cx - 6, lowY + 20, cx + 6, lowY + 20)
+          p.textAlign(p.CENTER, p.TOP)
+          p.textSize(12)
+          p.textStyle(p.BOLD)
+          p.text('LONG ENTRY', cx, lowY + 22)
         }
-      };
-    };
+      }
+    }
 
-    // Create p5 instance
-    const myP5 = new p5(sketch);
-    p5InstanceRef.current = myP5;
-
-    // Cleanup
-    return () => {
-      myP5.remove();
-    };
-  }, []);
+    p.windowResized = () => {
+      width = parentEl.clientWidth || 800
+      height = parentEl.clientHeight || 450
+      spacing = (width - 100) / 9
+      chartBottom = height - 100
+      p.resizeCanvas(width, height)
+    }
+  }, [])
 
   return (
     <div className="flex flex-col gap-6 w-full">
       {/* Chart Container */}
       <div className="relative w-full aspect-video bg-gray-900 rounded-xl overflow-hidden shadow-inner border border-gray-700">
-        <div
-          ref={containerRef}
-          className="w-full h-full flex justify-center items-center"
-        />
+        <P5Sketch sketch={sketch} className="w-full h-full" />
 
         {/* Overlay Badge for Phase */}
         <div className="absolute top-4 right-4 bg-gray-800/90 border border-gray-600 px-4 py-2 rounded-lg shadow-lg pointer-events-none">
@@ -331,17 +308,17 @@ export const CycleChart: React.FC = () => {
               CYCLE_DATA[currentStep].type === 'frd'
                 ? 'text-red-400'
                 : CYCLE_DATA[currentStep].type === 'fgd'
-                ? 'text-green-400'
-                : 'text-white'
+                  ? 'text-green-400'
+                  : 'text-white'
             }`}
           >
             {CYCLE_DATA[currentStep].type === 'frd'
               ? 'First Red Day'
               : CYCLE_DATA[currentStep].type === 'fgd'
-              ? 'First Green Day'
-              : CYCLE_DATA[currentStep].day <= 4
-              ? 'The Runner'
-              : 'The Cascade'}
+                ? 'First Green Day'
+                : CYCLE_DATA[currentStep].day <= 4
+                  ? 'The Runner'
+                  : 'The Cascade'}
           </span>
         </div>
       </div>
@@ -420,5 +397,5 @@ export const CycleChart: React.FC = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}

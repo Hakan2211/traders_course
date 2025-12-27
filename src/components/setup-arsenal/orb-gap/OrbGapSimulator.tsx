@@ -1,6 +1,5 @@
-
-import React, { useState, useEffect, useMemo } from 'react';
-import { Play, Pause, RotateCcw } from 'lucide-react';
+import React, { useState, useEffect, useMemo } from 'react'
+import { Play, Pause, RotateCcw } from 'lucide-react'
 import {
   Area,
   XAxis,
@@ -10,15 +9,15 @@ import {
   Bar,
   ComposedChart,
   ReferenceLine,
-} from 'recharts';
+} from 'recharts'
 
 // --- Types ---
 
 export interface MarketDataPoint {
-  time: string; // HH:MM
-  rawTime: number; // Minutes from 7:00 AM
-  price: number;
-  volume: number;
+  time: string // HH:MM
+  rawTime: number // Minutes from 7:00 AM
+  price: number
+  volume: number
 }
 
 export enum SetupType {
@@ -27,106 +26,106 @@ export enum SetupType {
 }
 
 export interface ChartConfig {
-  color: string;
-  volumeColor: string;
-  title: string;
-  description: string;
-  setupType: SetupType;
+  color: string
+  volumeColor: string
+  title: string
+  description: string
+  setupType: SetupType
 }
 
 // --- Data Generation Helpers ---
 
-const START_HOUR = 7;
-const TOTAL_MINUTES = 150; // 7:00 to 9:30 is 2.5 hours = 150 min
+const START_HOUR = 7
+const TOTAL_MINUTES = 150 // 7:00 to 9:30 is 2.5 hours = 150 min
 
 const formatTime = (rawMinutes: number): string => {
-  const hours = Math.floor(rawMinutes / 60) + START_HOUR;
-  const mins = rawMinutes % 60;
-  return `${hours}:${mins.toString().padStart(2, '0')}`;
-};
+  const hours = Math.floor(rawMinutes / 60) + START_HOUR
+  const mins = rawMinutes % 60
+  return `${hours}:${mins.toString().padStart(2, '0')}`
+}
 
 const generateOrbData = (): MarketDataPoint[] => {
-  const data: MarketDataPoint[] = [];
-  let currentPrice = 100.0;
+  const data: MarketDataPoint[] = []
+  let currentPrice = 100.0
 
   for (let i = 0; i <= TOTAL_MINUTES; i++) {
-    let priceChange = 0;
-    let volume = 0;
+    let priceChange = 0
+    let volume = 0
 
     // Phase 1: Initial Spike (0-30 mins)
     if (i < 30) {
-      priceChange = Math.random() * 0.4 + 0.1; // Strong upward trend
-      volume = 50000 + Math.random() * 50000;
+      priceChange = Math.random() * 0.4 + 0.1 // Strong upward trend
+      volume = 50000 + Math.random() * 50000
     }
     // Phase 2: Consolidation (30-150 mins)
     else {
       // Choppy sideways movement
-      priceChange = Math.random() * 0.2 - 0.1;
+      priceChange = Math.random() * 0.2 - 0.1
       // Volume decays significantly
-      const decayFactor = Math.max(0.1, 1 - (i - 30) / 120);
-      volume = (10000 + Math.random() * 10000) * decayFactor;
+      const decayFactor = Math.max(0.1, 1 - (i - 30) / 120)
+      volume = (10000 + Math.random() * 10000) * decayFactor
     }
 
-    currentPrice += priceChange;
+    currentPrice += priceChange
 
     data.push({
       time: formatTime(i),
       rawTime: i,
       price: Number(currentPrice.toFixed(2)),
       volume: Math.floor(volume),
-    });
+    })
   }
-  return data;
-};
+  return data
+}
 
 const generateGapShortData = (): MarketDataPoint[] => {
-  const data: MarketDataPoint[] = [];
-  let currentPrice = 100.0;
+  const data: MarketDataPoint[] = []
+  let currentPrice = 100.0
 
   for (let i = 0; i <= TOTAL_MINUTES; i++) {
-    let priceChange = 0;
-    let volume = 0;
+    let priceChange = 0
+    let volume = 0
 
     // Continuous grind upward without real consolidation
     // The "Stair Step" grind
-    const isResting = i % 20 > 15; // Brief fake rests
+    const isResting = i % 20 > 15 // Brief fake rests
 
     if (isResting) {
-      priceChange = Math.random() * 0.1 - 0.05;
+      priceChange = Math.random() * 0.1 - 0.05
     } else {
-      priceChange = Math.random() * 0.3 + 0.05;
+      priceChange = Math.random() * 0.3 + 0.05
     }
 
     // Volume Divergence: Price goes up, Volume goes down generally over time
     // High initial volume
-    const progress = i / TOTAL_MINUTES;
-    const baseVolume = 80000 * (1 - progress * 0.8); // Drops to 20% by end
-    volume = baseVolume + Math.random() * 10000;
+    const progress = i / TOTAL_MINUTES
+    const baseVolume = 80000 * (1 - progress * 0.8) // Drops to 20% by end
+    volume = baseVolume + Math.random() * 10000
 
     // Occasional volume spikes to trap shorts
-    if (i % 45 === 0) volume += 30000;
+    if (i % 45 === 0) volume += 30000
 
-    currentPrice += priceChange;
+    currentPrice += priceChange
 
     data.push({
       time: formatTime(i),
       rawTime: i,
       price: Number(currentPrice.toFixed(2)),
       volume: Math.floor(volume),
-    });
+    })
   }
-  return data;
-};
+  return data
+}
 
 // --- Components ---
 
 interface ScrubberProps {
-  progress: number; // 0 to 150
-  max: number;
-  onChange: (value: number) => void;
-  isPlaying: boolean;
-  onTogglePlay: () => void;
-  onReset: () => void;
+  progress: number // 0 to 150
+  max: number
+  onChange: (value: number) => void
+  isPlaying: boolean
+  onTogglePlay: () => void
+  onReset: () => void
 }
 
 const Scrubber: React.FC<ScrubberProps> = ({
@@ -138,11 +137,11 @@ const Scrubber: React.FC<ScrubberProps> = ({
   onReset,
 }) => {
   // Format the current time based on progress (raw minutes from 7:00)
-  const currentHour = Math.floor(progress / 60) + 7;
-  const currentMinute = progress % 60;
+  const currentHour = Math.floor(progress / 60) + 7
+  const currentMinute = progress % 60
   const timeString = `${currentHour}:${currentMinute
     .toString()
-    .padStart(2, '0')} AM`;
+    .padStart(2, '0')} AM`
 
   return (
     <div className="bg-gray-900 border-t border-gray-800 p-6 shadow-2xl z-20 sticky bottom-0 rounded-b-xl">
@@ -168,8 +167,8 @@ const Scrubber: React.FC<ScrubberProps> = ({
               {progress === 0
                 ? 'Market Closed (7:00 AM)'
                 : progress === max
-                ? 'MARKET OPEN (9:30 AM)'
-                : 'Pre-Market Session'}
+                  ? 'MARKET OPEN (9:30 AM)'
+                  : 'Pre-Market Session'}
             </span>
           </div>
         </div>
@@ -233,16 +232,16 @@ const Scrubber: React.FC<ScrubberProps> = ({
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
 interface MarketChartProps {
-  data: MarketDataPoint[];
-  fullDomainY: [number, number]; // [min, max] to keep axis stable
-  maxVolume: number;
-  type: SetupType;
-  isActive: boolean;
-  isComplete: boolean;
+  data: MarketDataPoint[]
+  fullDomainY: [number, number] // [min, max] to keep axis stable
+  maxVolume: number
+  type: SetupType
+  isActive: boolean
+  isComplete: boolean
 }
 
 const MarketChart: React.FC<MarketChartProps> = ({
@@ -253,9 +252,9 @@ const MarketChart: React.FC<MarketChartProps> = ({
   isActive,
   isComplete,
 }) => {
-  const isOrb = type === SetupType.ORB;
-  const mainColor = isOrb ? '#10b981' : '#ef4444'; // Emerald vs Red
-  const gradientId = `colorGradient-${type}`;
+  const isOrb = type === SetupType.ORB
+  const mainColor = isOrb ? '#10b981' : '#ef4444' // Emerald vs Red
+  const gradientId = `colorGradient-${type}`
 
   return (
     <div
@@ -341,6 +340,7 @@ const MarketChart: React.FC<MarketChartProps> = ({
             {/* Reference Line for 9:30 AM if close */}
             {data.length > 0 && data[data.length - 1].rawTime >= 148 && (
               <ReferenceLine
+                yAxisId="left"
                 x="9:30"
                 stroke="#fbbf24"
                 strokeDasharray="3 3"
@@ -377,67 +377,67 @@ const MarketChart: React.FC<MarketChartProps> = ({
         )}
       </div>
     </div>
-  );
-};
+  )
+}
 
 // --- Main Container ---
 
 export const OrbGapSimulator: React.FC = () => {
-  const [progress, setProgress] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [progress, setProgress] = useState(0)
+  const [isPlaying, setIsPlaying] = useState(false)
 
   // Generate stable data once on mount
-  const orbFullData = useMemo(() => generateOrbData(), []);
-  const gapFullData = useMemo(() => generateGapShortData(), []);
+  const orbFullData = useMemo(() => generateOrbData(), [])
+  const gapFullData = useMemo(() => generateGapShortData(), [])
 
   // Calculate domains for stable axis
   const orbYDomain = useMemo(() => {
-    const prices = orbFullData.map((d) => d.price);
+    const prices = orbFullData.map((d) => d.price)
     return [Math.min(...prices) * 0.99, Math.max(...prices) * 1.01] as [
       number,
-      number
-    ];
-  }, [orbFullData]);
+      number,
+    ]
+  }, [orbFullData])
 
   const gapYDomain = useMemo(() => {
-    const prices = gapFullData.map((d) => d.price);
+    const prices = gapFullData.map((d) => d.price)
     return [Math.min(...prices) * 0.99, Math.max(...prices) * 1.01] as [
       number,
-      number
-    ];
-  }, [gapFullData]);
+      number,
+    ]
+  }, [gapFullData])
 
   const maxVolume = useMemo(() => {
-    const allVols = [...orbFullData, ...gapFullData].map((d) => d.volume);
-    return Math.max(...allVols);
-  }, [orbFullData, gapFullData]);
+    const allVols = [...orbFullData, ...gapFullData].map((d) => d.volume)
+    return Math.max(...allVols)
+  }, [orbFullData, gapFullData])
 
   // Sliced data based on progress
   const currentOrbData = useMemo(
     () => orbFullData.slice(0, progress + 1),
-    [orbFullData, progress]
-  );
+    [orbFullData, progress],
+  )
   const currentGapData = useMemo(
     () => gapFullData.slice(0, progress + 1),
-    [gapFullData, progress]
-  );
+    [gapFullData, progress],
+  )
 
   // Better loop with speed control
   useEffect(() => {
-    let interval: NodeJS.Timeout;
+    let interval: NodeJS.Timeout
     if (isPlaying) {
       interval = setInterval(() => {
         setProgress((prev) => {
           if (prev >= TOTAL_MINUTES) {
-            setIsPlaying(false);
-            return prev;
+            setIsPlaying(false)
+            return prev
           }
-          return prev + 1;
-        });
-      }, 50); // 50ms per minute step = 7.5 seconds for full 150 mins
+          return prev + 1
+        })
+      }, 50) // 50ms per minute step = 7.5 seconds for full 150 mins
     }
-    return () => clearInterval(interval);
-  }, [isPlaying]);
+    return () => clearInterval(interval)
+  }, [isPlaying])
 
   return (
     <div className="w-full bg-gray-950 rounded-xl overflow-hidden border border-gray-800 my-8">
@@ -465,18 +465,18 @@ export const OrbGapSimulator: React.FC = () => {
         progress={progress}
         max={TOTAL_MINUTES}
         onChange={(val) => {
-          setIsPlaying(false);
-          setProgress(val);
+          setIsPlaying(false)
+          setProgress(val)
         }}
         isPlaying={isPlaying}
         onTogglePlay={() => setIsPlaying(!isPlaying)}
         onReset={() => {
-          setIsPlaying(false);
-          setProgress(0);
+          setIsPlaying(false)
+          setProgress(0)
         }}
       />
     </div>
-  );
-};
+  )
+}
 
-export default OrbGapSimulator;
+export default OrbGapSimulator

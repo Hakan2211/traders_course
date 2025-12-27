@@ -77,23 +77,36 @@ It has exactly <Highlight variant="yellow">four responses</Highlight> to the wor
   items={[
     {
       title: 'Fight',
-      description: <>Attack the perceived threat.</>,
+      description: (
+        <>Attack the perceived threat. (Revenge trade after a loss.)</>
+      ),
       accentColor: '#2563eb',
     },
     {
       title: 'Flight',
-      description: <>Run from the threat.</>,
+      description: (
+        <>Run from the threat. (Avoid looking at your P&L during drawdowns)</>
+      ),
       accentColor: '#2563eb',
     },
     {
       title: 'Freeze',
-      description: <>Play dead and hope the threat passes.</>,
+      description: (
+        <>
+          Play dead and hope the threat passes. (Hold losing trades far too
+          long.)
+        </>
+      ),
       accentColor: '#2563eb',
     },
     {
       title: 'Fawn',
       description: (
-        <>Appease or please the perceived aggressor to avoid being attacked.</>
+        <>
+          Appease or please the perceived aggressor to avoid being attacked.
+          (Blindly follow gurus or the herd to avoid responsibility and/or seek
+          validation from others before every trade.)
+        </>
       ),
       accentColor: '#2563eb',
     },
@@ -112,38 +125,6 @@ _<span style={{ color: '#ef4444' }}>“DANGER! DO SOMETHING! NOW!”</span>_
 
 And you <Highlight variant="blue">freeze</Highlight>. Or you <Highlight variant="red">panic-sell</Highlight> at the worst possible moment. Or you <Highlight variant="blue">double down</Highlight> in a desperate fight response.
 Or you <Highlight variant="yellow">close your laptop</Highlight> and walk away, unable to face the threat.
-
-This is the brain that makes you:
-
-<GridList
-  items={[
-    {
-      title: 'Freeze',
-      description: <>Hold losing trades far too long.</>,
-      accentColor: '#2563eb',
-    },
-    {
-      title: 'Fight',
-      description: <>Revenge trade after a loss.</>,
-      accentColor: '#2563eb',
-    },
-    {
-      title: 'Flight',
-      description: <>Avoid looking at your P&L during drawdowns .</>,
-      accentColor: '#2563eb',
-    },
-    {
-      title: 'Fawn',
-      description: (
-        <>
-          Blindly follow gurus or the herd to avoid responsibility and/or seek
-          validation from others before every trade.
-        </>
-      ),
-      accentColor: '#2563eb',
-    },
-  ]}
-/>
 
 The reptilian brain's motto: "Better safe than sorry. Actually, forget sorry — just stay alive."<br/>
 
@@ -439,10 +420,10 @@ The logical action is... —"</span>_
 
 **<Highlight variant="yellow">Reptilian Brain:</Highlight>** _<span style={{ color: '#ef4444' }}>"SHUT UP! We're moving the stop loss! We're giving it more room!"</span>_
 
-<Highlight variant="blue">Result:</Highlight> You move your stop. The trade continues
-to move against you. What should have been a $200 loss becomes an $800 loss. When
-you finally exit in emotional exhaustion, your reptilian brain says: "See? We survived!"
-And the pattern is reinforced.
+<Highlight variant="blue">Result:</Highlight> You move your stop. The trade
+continues to move against you. What should have been a $200 loss becomes an $800
+loss. When you finally exit in emotional exhaustion, your reptilian brain says:
+"See? We survived!" And the pattern is reinforced.
 
 ### <Highlight variant="accent">Scenario B: The Premature Exit</Highlight>
 
@@ -461,11 +442,11 @@ Statistically, we should... —"</span>_
 
 **<Highlight variant="yellow">Limbic Brain:</Highlight>** _<span style={{ color: '#facc15' }}>"TAKE THE MONEY! TAKE IT NOW! FEEL THE PLEASURE OF WINNING!"</span>_
 
-<Highlight variant="blue">Result:</Highlight> You exit at $300. The trade goes to
-$1,200. You made money but violated your system.
+<Highlight variant="blue">Result:</Highlight> You exit at $300. The trade goes
+to $1,200. You made money but violated your system.
 <br />
-You just taught your limbic brain that fear-based exits get rewarded. The pattern
-is reinforced.
+You just taught your limbic brain that fear-based exits get rewarded. The
+pattern is reinforced.
 
 ### <Highlight variant="accent">Scenario C: The Paralysis</Highlight>
 
@@ -485,9 +466,9 @@ If we enter now and it fails immediately, we'll look stupid. Maybe we should wai
 **<Highlight variant="yellow">Reptilian Brain:</Highlight>** _<span style={{ color: '#ef4444' }}>"FREEZE PROTOCOL ACTIVATED."</span>_
 
 <Highlight variant="blue">Result:</Highlight> You don't take the trade. It works
-perfectly. You watch in agony. Your neocortex is screaming "I TOLD YOU!" but your
-reptilian brain says: "At least we didn't risk encountering a threat." And that gets
-reinforced too.
+perfectly. You watch in agony. Your neocortex is screaming "I TOLD YOU!" but
+your reptilian brain says: "At least we didn't risk encountering a threat." And
+that gets reinforced too.
 
 ## The 10-Second Pause Technique — Your First Intervention
 

@@ -322,6 +322,14 @@ const FlowCocktailMixer = dynamic(
   { ssr: false },
 )
 
+const FlowStateChart = dynamic(
+  () =>
+    import('@/components/mdx_components/cognitive_athlete/FlowStateChart').then(
+      (mod) => mod.default,
+    ),
+  { ssr: false },
+)
+
 const HRVMonitor = dynamic(
   () =>
     import('@/components/mdx_components/cognitive_athlete/FlowState/HRVMonitor').then(
@@ -1230,6 +1238,7 @@ const COMPONENT_MAP = {
   NeuroAvatarBuilder,
   RitualStackBuilder,
   FlowCocktailMixer,
+  FlowStateChart,
   HRVMonitor,
   WindowOfTolerance,
   ResilienceProtocol,
